@@ -15,7 +15,7 @@ export class PageService {
   constructor ( private http: Http ) { }
   
   getPages (url:string ): Observable<Page> {
-    return this.http.get(this.pageUrl+ url +'?format=json')
+    return this.http.get(this.pageUrl+ url +'/?format=json')
                     .map(this.extractData)
                     .catch(this.handleError);
   }
