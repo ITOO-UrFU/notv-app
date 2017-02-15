@@ -1,4 +1,14 @@
-<p>
- <a *ngFor="let url of listUrl" [routerLink]=url.url>{{url.title}}</a>
- 
-</p>
+<md-toolbar> NOTV-2017
+    
+    <button [mdMenuTriggerFor]="menu" md-button *ngFor="let url of listUrl" [routerLink]=url.url>
+           {{url.title}}
+    <md-menu #menu="mdMenu">
+        <button md-menu-item *ngFor="let ur of url.child" [routerLink]=ur.url> {{ur.title}}</button>
+    </md-menu>
+
+    </button>
+
+
+
+</md-toolbar>
+

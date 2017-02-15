@@ -22,7 +22,21 @@ const routes: Routes = [
   }
 },
 {
-  path:'about',
+  path:'calendar',
+  component: PageComponent,
+  data:{
+    title: "Календарь"
+  }
+},
+{
+  path:'constructor',
+  component: PageComponent,
+  data:{
+    title: "О проекте"
+  }
+},
+{
+  path:'contacts',
   component: PageComponent,
   data:{
     title: "О проекте"
