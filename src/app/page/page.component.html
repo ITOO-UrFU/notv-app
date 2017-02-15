@@ -1,3 +1,5 @@
-<p>
-  page works!
-</p>
+
+<div *ngIf="page">
+  {{ page.slug }}
+  <div [innerHTML]="page.html"></div>
+</div>

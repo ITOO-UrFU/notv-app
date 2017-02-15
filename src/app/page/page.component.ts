@@ -12,16 +12,16 @@ import { Page } from 'app/page'
 })
 export class PageComponent implements OnInit {
 
-  private pages: Page;
+  page: Page;
   constructor(private router:Router, private pageService: PageService) { }
   
   getPages(router:Router)  {
     
     this.pageService.getPages(router.url)
       .subscribe(
-        pages => {
-          this.pages = pages;
-          console.log(this.pages)
+        page => {
+          this.page = page;
+          console.log(this.page)
       });
   }
 

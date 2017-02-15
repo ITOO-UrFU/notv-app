@@ -20,8 +20,14 @@ const routes: Routes = [
   data:{
     title: "Список событий"
   }
+},
+{
+  path:'about',
+  component: PageComponent,
+  data:{
+    title: "О проекте"
+  }
 }
-
 ];
 
 
