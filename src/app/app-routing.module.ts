@@ -1,32 +1,30 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { PageService } from 'app/page.service';
-import { Page } from 'app/page'
+import { AppComponent } from 'app/app.component';
+import { PageComponent } from 'app/page/page.component'
 
-class PageList {
-  pages: Page[];
-
-  constructor(private heroService: PageService){}
-
-    getPages()  {
-     this.heroService
-        .getPages()
-        .subscribe(
-          pages => {
-            this.pages = pages;
-            console.log(this.pages)
-        });
-  }
-}
 
 
 const routes: Routes = [
-  {
-    path: '',
-    children: []
+{
+  path:'home',
+  component: PageComponent,
+  data:{
+    title: "Домашняя страница"
   }
+},
+{
+  path:'events',
+  component: PageComponent,
+  data:{
+    title: "Список событий"
+  }
+}
+
 ];
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

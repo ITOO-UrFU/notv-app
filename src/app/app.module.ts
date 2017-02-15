@@ -7,10 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { PageService } from 'app/page.service';
 
 import { AppComponent } from './app.component';
+import { NavComponent } from './nav/nav.component';
+import { PageComponent } from './page/page.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavComponent,
+    PageComponent
   ],
   imports: [
     BrowserModule,
