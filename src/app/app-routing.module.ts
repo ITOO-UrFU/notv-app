@@ -2,16 +2,27 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from 'app/app.component';
-
-import { PageService } from 'app/page.service';
-import { Page } from 'app/page'
+import { PageComponent } from 'app/page/page.component'
 
 
 
+const routes: Routes = [
+{
+  path:'home',
+  component: PageComponent,
+  data:{
+    title: "Домашняя страница"
+  }
+},
+{
+  path:'events',
+  component: PageComponent,
+  data:{
+    title: "Список событий"
+  }
+}
 
-
-
-let routes: Routes = [];
+];
 
 
 

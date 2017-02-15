@@ -10,12 +10,12 @@ import { Page } from 'app/page'
 @Injectable()
 export class PageService {
 
-  private pageUrl = 'http://localhost:8020/api/v1/pages/?format=json';
+  private pageUrl = 'http://localhost:8020/api/v1/pages';
 
   constructor ( private http: Http ) { }
   
-  getPages (): Observable<Page[]> {
-    return this.http.get(this.pageUrl)
+  getPages (url:string ): Observable<Page> {
+    return this.http.get(this.pageUrl+ url +'?format=json')
                     .map(this.extractData)
                     .catch(this.handleError);
   }

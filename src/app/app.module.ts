@@ -8,11 +8,13 @@ import { PageService } from 'app/page.service';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
+import { PageComponent } from './page/page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent
+    NavComponent,
+    PageComponent
   ],
   imports: [
     BrowserModule,
