@@ -1,8 +1,7 @@
 
 <div *ngIf="page">
-  {{ page.pages }}
   <div [innerHTML]="page.html"></div>
-  <a *ngFor="let url of page.pages" [routerLink]=url>{{ url }}</a>
+  <nav><a *ngFor="let url of page.pages" [routerLink]=url>{{ url }}</a></nav>
 </div>
 
 <router-outlet></router-outlet>

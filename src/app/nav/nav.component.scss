@@ -1,0 +1,18 @@
+div {
+    background:#efefef;
+
+    a{
+        text-decoration: none;
+        display: inline-block;
+        padding: 5px;
+        margin: 2px;
+        color: black;
+        border-radius: 2px;
+        background: #e6e6e6;
+
+    }
+    :hover{
+        background: gray;
+        color: white;
+    }
+}
