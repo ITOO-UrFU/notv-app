@@ -11,21 +11,46 @@ const routes: Routes = [
   path:'home',
   component: PageComponent,
   data:{
-    title: "Домашняя страница"
+    title: "Главная"
   }
 },
 {
-  path:'events',
+  path:'about', component: PageComponent,
+  data:{ title: "О конференции" },
+  children:[
+    { path:'conditions', component: PageComponent, data:{ title: "Условия участия" } },
+    { path:'registration', component: PageComponent, data:{ title: "Регистрация" } },
+    { path:'accommodation', component: PageComponent, data:{ title: "Проживание" } },
+    { path:'food', component: PageComponent, data:{ title: "Питание" } },
+    { path:'transport', component: PageComponent, data:{ title: "Проезд" } }
+  ]
+},
+{
+  path:'participants',
   component: PageComponent,
   data:{
-    title: "Список событий"
+    title: "Участникам"
   }
 },
 {
-  path:'about',
+  path:'speakers',
   component: PageComponent,
   data:{
-    title: "О проекте"
+    title: "Спикеры"
+  }
+},
+{
+  path:'calendar',
+  component: PageComponent,
+  data:{
+    title: "Календарь мероприятий"
+  }
+},
+{
+  path:'contacts',
+  component: PageComponent,
+  data:{
+    title: "Контакты"
   }
 }
 ];

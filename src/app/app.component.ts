@@ -6,6 +6,9 @@ import { Component, OnInit  } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent  {
-  title = 'app works!';
+  component:any = {
+    name: 'AppComponent',
+  };
+  
 
 }

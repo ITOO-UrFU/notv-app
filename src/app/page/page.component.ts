@@ -16,8 +16,9 @@ export class PageComponent implements OnInit {
   constructor(private router:Router, private pageService: PageService) { }
   
   getPages(router:Router)  {
+    let url = router.url.split('/');
     
-    this.pageService.getPages(router.url)
+    this.pageService.getPages('/'+url[url.length-1])
       .subscribe(
         page => {
           this.page = page;
@@ -27,5 +28,6 @@ export class PageComponent implements OnInit {
 
   ngOnInit() {
      this.getPages(this.router)
+
   }
 }

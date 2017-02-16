@@ -1,5 +1,8 @@
 
 <div *ngIf="page">
-  {{ page.slug }}
+  {{ page.pages }}
   <div [innerHTML]="page.html"></div>
+  <a *ngFor="let url of page.pages.split(' ')" [routerLink]=url>{{ url }}</a>
 </div>
+
+<router-outlet></router-outlet>
