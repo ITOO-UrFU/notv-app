@@ -4,5 +4,8 @@
 <a href='http://localhost:8020/api/v1/' target='_blank'>API</a>
 </p>
 
+
+<a *ngFor="let url of coreUrl" [routerLink]=url>{{url}} <br /> </a>
+
 <app-nav></app-nav>
 <router-outlet></router-outlet>
