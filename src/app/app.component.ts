@@ -28,12 +28,7 @@ export class AppComponent implements OnInit{
       .subscribe(
         page => {
           this.page = page;
-          //let d = [];
-          //d.push(this.page);
-          //console.log("HGHGH", d)
-          //this.coreUrl.push("lol");
 
-          //console.log("LOL",  page)
           this.loadUrl(page);
       });
   }
