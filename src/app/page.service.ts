@@ -15,9 +15,9 @@ export class PageService {
 
   constructor ( private http: Http ) { }
   
-  getPageList ( url: string ): Observable<any> {
+  getPageList (): Observable<any> {
     let pageList: string;
-    return this.http.get(url)
+    return this.http.get(this.pageList)
                     .map(res => <any>res.json())
                     .catch(this.handleError);
                     

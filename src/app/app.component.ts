@@ -32,7 +32,7 @@ export class AppComponent implements OnInit{
           this.loadUrl(page);
       });
   }
-
+  
 
 loadUrl(page){
 //this.coreUrl = arr;
@@ -55,6 +55,7 @@ loadUrl(page){
 
 
   ngOnInit() {
+     this.pageService.getPageList().subscribe(page => {console.log(page)})
      this.getPages(this.router);
   }
 }
