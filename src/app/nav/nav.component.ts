@@ -16,6 +16,7 @@ export class NavComponent implements OnInit {
     {url:"contacts", title:"Контакты"},
   ]
 
+
   constructor(){}
 
   ngOnInit() {}

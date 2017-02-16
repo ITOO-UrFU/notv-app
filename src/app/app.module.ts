@@ -9,6 +9,7 @@ import { PageService } from 'app/page.service';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { PageComponent } from './page/page.component';
+import { MaterialModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PageComponent } from './page/page.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule.forRoot()
   ],
   providers: [PageService],
   bootstrap: [AppComponent]

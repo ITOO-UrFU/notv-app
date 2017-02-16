@@ -47,6 +47,7 @@ const routes: Routes = [
   }
 },
 {
+
   path:'contacts',
   component: PageComponent,
   data:{
