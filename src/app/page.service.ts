@@ -11,9 +11,21 @@ import { Page } from 'app/page'
 export class PageService {
 
   private pageUrl = 'http://localhost:8020/api/v1/pages';
+  private pageList = 'http://localhost:8020/api/v1/pages/?format=json'
 
   constructor ( private http: Http ) { }
   
+  getPageList ( url: string ): Observable<any> {
+    let pageList: string;
+    return this.http.get(url)
+                    .map(res => <any>res.json())
+                    .catch(this.handleError);
+                    
+  } 
+
+
+
+
   getPages (url:string ): Observable<Page> {
     return this.http.get(this.pageUrl+ url +'/?format=json')
                     .map(this.extractData)
