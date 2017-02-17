@@ -37,7 +37,7 @@ loadUrl(page){
   ngOnInit() {
     this.pageService.getPageList()
                     .subscribe(page => {
-                      this.loadUrl(page);
+                      
                       page  //.filter(element => {return element.pages.length})
                       .forEach(element => {
                         this.listUrl.push({url: element.slug, title: element.slug})
