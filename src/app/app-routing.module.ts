@@ -5,8 +5,20 @@ import { AppComponent } from 'app/app.component';
 import { PageComponent } from 'app/page/page.component'
 
 
+const routes: Routes = [{
+  path:'home1',
+  component:PageComponent
+}];
 
-const routes: Routes = [
+@NgModule({
+  imports: [ RouterModule.forRoot(routes) ],
+  exports: [ RouterModule ],
+  providers: []
+})
+
+export class AppRoutingModule { }
+
+/*const routes: Routes = [
 {
   path:'home',
   component: PageComponent,
@@ -54,19 +66,4 @@ const routes: Routes = [
     title: "Контакты"
   }
 }
-];
-
-
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-  providers: []
-})
-
-export class AppRoutingModule { 
-
-ngOnInit() { }
-
-
-}
+];*/

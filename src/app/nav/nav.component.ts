@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, Routes } from '@angular/router';
+
+import { PageService } from 'app/page.service';
+import { PageComponent } from 'app/page/page.component';
 
 @Component({
   selector: 'app-nav',
@@ -7,17 +11,37 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class NavComponent implements OnInit {
-  listUrl: any[] = [
-    {url:"home", title:"Главная"},
-    {url:"about", title:"О конференции"},
-    {url:"events", title:"Мероприятия"},
-    {url:"constructor", title:"Конструктор"},
-    {url:"calendar", title:"Календарь мероприятий"},
-    {url:"contacts", title:"Контакты"},
-  ]
+  listUrl: any[] = [];
 
 
-  constructor(){}
+  constructor( private router:Router, private pageService: PageService ){}
 
-  ngOnInit() {}
+
+
+loadUrl(page){
+  console.log(page);
+  this.router.config = [];
+  for(let x of page){
+    this.router.config.push(
+      {
+        path: x.slug,
+        component: PageComponent
+      }
+    );
+  }
+    this.router.resetConfig(this.router.config);
+    console.log(this.router.config)
+  
+}
+
+  ngOnInit() {
+    this.pageService.getPageList()
+                    .subscribe(page => {
+                      this.loadUrl(page);
+                      page  //.filter(element => {return element.pages.length})
+                      .forEach(element => {
+                        this.listUrl.push({url: element.slug, title: element.slug})
+                      });
+                    })
+  }
 }
