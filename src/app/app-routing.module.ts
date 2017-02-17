@@ -5,10 +5,7 @@ import { AppComponent } from 'app/app.component';
 import { PageComponent } from 'app/page/page.component'
 
 
-const routes: Routes = [{
-  path:'home1',
-  component:PageComponent
-}];
+let routes: Routes = [];
 
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],

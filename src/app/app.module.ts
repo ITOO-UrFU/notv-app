@@ -25,6 +25,7 @@ import { MaterialModule } from '@angular/material';
     MaterialModule.forRoot()
   ],
   providers: [PageService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ PageComponent ]
 })
 export class AppModule { }

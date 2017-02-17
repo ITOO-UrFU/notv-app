@@ -17,27 +17,23 @@ export class NavComponent implements OnInit {
   constructor( private router:Router, private pageService: PageService ){}
 
 
-
-loadUrl(page){
-  console.log(page);
-  this.router.config = [];
-  for(let x of page){
-    this.router.config.push(
-      {
-        path: x.slug,
-        component: PageComponent
-      }
-    );
-  }
+  loadUrls(page: any[]) {
+    page.forEach(element => {
+      this.router.config.push(
+        {
+          path: element.slug,
+          component: PageComponent
+        }
+      );
+    });
     this.router.resetConfig(this.router.config);
-    console.log(this.router.config)
-  
-}
+    console.log(this.router.config);
+  }
 
   ngOnInit() {
     this.pageService.getPageList()
                     .subscribe(page => {
-                      
+                      this.loadUrls(page);
                       page  //.filter(element => {return element.pages.length})
                       .forEach(element => {
                         this.listUrl.push({url: element.slug, title: element.slug})
