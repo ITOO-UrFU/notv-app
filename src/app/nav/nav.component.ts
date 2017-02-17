@@ -22,12 +22,13 @@ export class NavComponent implements OnInit {
       this.router.config.push(
         {
           path: element.slug,
-          component: PageComponent
+          component: PageComponent,
         }
       );
     });
     this.router.resetConfig(this.router.config);
     console.log(this.router.config);
+ 
   }
 
   ngOnInit() {
