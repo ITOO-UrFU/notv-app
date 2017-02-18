@@ -4,6 +4,8 @@ import { Router, Routes } from '@angular/router';
 import { PageService } from 'app/page.service';
 import { PageComponent } from 'app/page/page.component';
 
+import {TranslateService} from 'ng2-translate';
+
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -14,7 +16,14 @@ export class NavComponent implements OnInit {
   listUrl: any[] = [];
 
 
-  constructor( private router:Router, private pageService: PageService ){}
+  constructor( private router:Router, private pageService: PageService, private translate: TranslateService ){
+        translate.addLangs(["en", "ru"]);
+        translate.setDefaultLang('en');
+        let browserLang = translate.getBrowserLang();
+        translate.use(browserLang.match(/en|ru/) ? browserLang : 'en');
+
+  }
+
 
 
   loadUrls(page: any[]) {
