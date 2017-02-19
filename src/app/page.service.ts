@@ -11,7 +11,7 @@ import { Page } from 'app/page'
 export class PageService {
 
   private pageUrl = 'http://localhost:8020/api/v1/pages';
-  private pageList = 'http://localhost:8020/api/v1/pages/?format=json'
+  private pageList = 'http://localhost:8020/api/v1/pages/map/?format=json'
 
   constructor ( private http: Http ) { }
   

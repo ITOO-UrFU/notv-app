@@ -43,8 +43,8 @@ export class NavComponent implements OnInit {
   ngOnInit() {
     this.pageService.getPageList()
                     .subscribe(page => {
-                      this.loadUrls(page);
-                      page  //.filter(element => {return element.pages.length})
+                     console.log(page)
+                      page.pages  //.filter(element => {return element.pages.length})
                       .forEach(element => {
                         this.listUrl.push({url: element.slug, title: element.slug})
                       });
