@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from 'app/app.component';
 import { PageComponent } from 'app/page/page.component'
-
+import { EventListComponent } from 'app/events/event-list/event-list.component';
 
 const routes: Routes = [
   {
@@ -16,14 +16,18 @@ const routes: Routes = [
           {
             path: ':id',
             component: PageComponent,
-           /* children: [
-                {
-                  path: ':id',
-                  component: PageComponent
-                }
-            ]*/
           }
         ]
+      }
+    ]
+  },
+  {
+    path: 'events',
+    component: EventListComponent,
+    children: [
+      {
+        path: ':id',
+        component: PageComponent,
       }
     ]
   }

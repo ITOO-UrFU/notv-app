@@ -12,18 +12,15 @@ import { PageComponent } from './page/page.component';
 import { MaterialModule } from '@angular/material';
 
 import {TranslateModule} from "ng2-translate";
+import { EventListComponent } from './events/event-list/event-list.component';
 
-/*
-export function createTranslateLoader(http: Http) {
-    return new TranslateStaticLoader(http, './i18n', '.json');
-}
-*/
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    PageComponent
+    PageComponent,
+    EventListComponent
   ],
   imports: [
     BrowserModule,

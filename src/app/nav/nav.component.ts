@@ -3,6 +3,7 @@ import { Router, Routes } from '@angular/router';
 
 import { PageService } from 'app/page.service';
 import { PageComponent } from 'app/page/page.component';
+import { EventListComponent } from 'app/events/event-list/event-list.component';
 
 import {TranslateService} from 'ng2-translate';
 
@@ -34,6 +35,15 @@ export class NavComponent implements OnInit {
         }
       );
     });
+
+      this.router.config.push(
+        {
+          path: 'events',
+          component: EventListComponent,
+        }
+      );
+
+
     this.router.resetConfig(this.router.config);
     console.log(this.router.config);
  
@@ -46,7 +56,9 @@ export class NavComponent implements OnInit {
                       page.pages  //.filter(element => {return element.pages.length})
                       .forEach(element => {
                         this.listUrl.push({url: element.slug, title: element.title})
+                        
                       });
+                      this.listUrl.push({url: 'events', title: 'Мероприятия'})
                     })
   console.log(this.listUrl);  
 }
