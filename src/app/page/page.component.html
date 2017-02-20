@@ -1,6 +1,14 @@
 
+<div *ngIf="errorMessage">
+    {{errorMessage}}
+</div>
+
+<div *ngIf="!errorMessage">
+<a *ngFor="let subpage of subPages" [routerLink]="subpage.slug">{{subpage.title}}<br /></a>
+
 <div *ngIf="page">
   <div [innerHTML]="page.html"></div>
 </div>
-<router-outlet></router-outlet>
+</div>
 
+<router-outlet></router-outlet>

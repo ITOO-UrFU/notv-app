@@ -2,8 +2,11 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
+
+import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 
 import { Page } from 'app/page'
 
@@ -21,20 +24,38 @@ export class PageService {
                     .map(res => <any>res.json())
                     .catch(this.handleError);
                     
-  } 
+  }
 
 
-
-
-  getPages (url:string ): Observable<Page> {
+  /*getPages (url:string ): Observable<Page> {
     return this.http.get(this.pageUrl+ url +'/?format=json')
-                    .map(this.extractData)
+                    .map(this.extractPage)
+                    .catch(this.handleError);
+  }*/
+
+  getPages (url:string): Observable<Page> {
+    return this.http.get(this.pageUrl+ url +'/?format=json')
+                    .map(this.extractPage)
                     .catch(this.handleError);
   }
 
   private extractData(res: Response) {
     let body = res.json();
     return body || { };
+  }
+
+  private extractPages(res: Response) {
+    let body = res.json();
+    let pages: Page[] = [];
+    for (let i = 0; i < body.length; i++) {
+          pages.push(new Page(body[i].slug, body[i].html, body[i].keywords, body[i].pages, body[i].title ));
+    }
+    return pages;
+  }
+
+  private extractPage(res: Response) {
+    let body = res.json();
+    return (new Page(body.slug, body.html, body.keywords, body.pages, body.title ));
   }
 
   private handleError (error: Response | any) {
@@ -47,7 +68,9 @@ export class PageService {
     } else {
       errMsg = error.message ? error.message : error.toString();
     }
-    console.error(errMsg);
-    return Observable.throw(errMsg);
+    
+    let customMsg: string = "Нет такой страницы!"
+    return Observable.throw(customMsg);
+    //return errMsg;
   }
 }

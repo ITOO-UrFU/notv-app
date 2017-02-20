@@ -24,10 +24,9 @@ export class NavComponent implements OnInit {
 
   }
 
-
-
   loadUrls(page: any[]) {
     page.forEach(element => {
+      console.log(element);
       this.router.config.push(
         {
           path: element.slug,
@@ -43,11 +42,13 @@ export class NavComponent implements OnInit {
   ngOnInit() {
     this.pageService.getPageList()
                     .subscribe(page => {
-                     console.log(page)
+                     //console.log(page);
                       page.pages  //.filter(element => {return element.pages.length})
                       .forEach(element => {
-                        this.listUrl.push({url: element.slug, title: element.slug})
+                        this.listUrl.push({url: element.slug, title: element.title})
                       });
                     })
-  }
+  console.log(this.listUrl);  
+}
+
 }

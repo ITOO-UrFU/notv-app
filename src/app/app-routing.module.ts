@@ -15,7 +15,13 @@ const routes: Routes = [
         children: [
           {
             path: ':id',
-            component: PageComponent
+            component: PageComponent,
+           /* children: [
+                {
+                  path: ':id',
+                  component: PageComponent
+                }
+            ]*/
           }
         ]
       }

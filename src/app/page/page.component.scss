@@ -1,21 +1,15 @@
-nav{
-    background:#efefef;
-    width: 300px;
-    float:right;
+a{
+    text-decoration: none;
+    display: inline-block;
+    padding: 5px;
+    margin: 2px;
+    color: black;
+    border-radius: 2px;
+    background: #e6e6e6;
 
-    a{
-        text-decoration: none;
-        display: block;
-        
-        padding: 5px;
-        margin: 2px;
-        color: black;
-        border-radius: 2px;
-        background: #e6e6e6;
+}
 
-    }
-    :hover{
+a:hover{
         background: gray;
         color: white;
     }
-}
