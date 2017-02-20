@@ -7,6 +7,6 @@
   },
     "HOME_PAGE": {
     "text": "Main page"
-  }
-
+  },
+  "Array":{ "a": "alpha", "b": "beta" }
 }
