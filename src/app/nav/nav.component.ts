@@ -67,7 +67,7 @@ export class NavComponent implements OnInit {
             }
             else this.listUrl.push({ url: element.slug, title: element.title ? element.title : element.slug, underpage: false  })
           });
-        this.listUrl.push({ url: 'events', title: 'Мероприятия' })
+       this.listUrl.push({ url: 'events', title: 'Мероприятия' })
       })
   console.log(this.listUrl);  
 }

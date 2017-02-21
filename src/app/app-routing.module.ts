@@ -6,9 +6,21 @@ import { PageComponent } from 'app/page/page.component'
 import { EventListComponent } from 'app/events/event-list/event-list.component';
 
 const routes: Routes = [
+  
   {
     path:'',
     children:[
+      {
+        path: 'events',
+        component: EventListComponent,
+        children: [
+          {
+            path: ':id',
+            component: PageComponent,
+          }
+        ]
+      },
+      
       {
         path:':id',
         component: PageComponent,
@@ -21,16 +33,7 @@ const routes: Routes = [
       }
     ]
   },
-  {
-    path: 'events',
-    component: EventListComponent,
-    children: [
-      {
-        path: ':id',
-        component: PageComponent,
-      }
-    ]
-  }
+  
 ];
 
 @NgModule({
