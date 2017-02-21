@@ -1,10 +1,13 @@
-<div>
-    <a *ngFor="let url of listUrl" [routerLink]="url.url"> {{ url.title }} </a>
-    
+<div *ngFor="let url of listUrl">
+    <a  [routerLink]="url.url" (mouseover)="cons()"> {{ url.title }} </a>
+    <div *ngIf="url.underpage"> <div *ngIf="underListUrl">
+        <a  *ngFor="let url2 of url.underpage" [routerLink]="[url.url, url2.url]" (mouseover)="cons()"> {{ url2.title }} </a>
+    </div></div>
+</div>
     <select #langSelect (change)="translate.use(langSelect.value)">
           <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang" >{{ lang }}</option>
     </select>
 
 
 
-</div>
+

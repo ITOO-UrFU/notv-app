@@ -15,6 +15,7 @@ import {TranslateService} from 'ng2-translate';
 
 export class NavComponent implements OnInit {
   listUrl: any[] = [];
+  underListUrl: Boolean = false;
 
 
   constructor( private router:Router, private pageService: PageService, private translate: TranslateService ){
@@ -48,18 +49,26 @@ export class NavComponent implements OnInit {
     console.log(this.router.config);
  
   }
+  cons(){this.underListUrl = true}
 
   ngOnInit() {
     this.pageService.getPageList()
-                    .subscribe(page => {
-                     //console.log(page);
-                      page.pages  //.filter(element => {return element.pages.length})
-                      .forEach(element => {
-                        this.listUrl.push({url: element.slug, title: element.title})
-                        
-                      });
-                      this.listUrl.push({url: 'events', title: 'Мероприятия'})
-                    })
+      .subscribe(page => {
+        //console.log(page);
+        page.pages  //.filter(element => {return element.pages.length})
+          .forEach(element => {
+            if (element.pages.length) {
+              let array: any[] = [];
+              element.pages.forEach(element => {
+                array.push({ url: element.slug, title: element.title ? element.title : element.slug })
+              })
+              
+              this.listUrl.push({ url: element.slug, title: element.title ? element.title : element.slug, underpage: array })
+            }
+            else this.listUrl.push({ url: element.slug, title: element.title ? element.title : element.slug, underpage: false  })
+          });
+        this.listUrl.push({ url: 'events', title: 'Мероприятия' })
+      })
   console.log(this.listUrl);  
 }
 
