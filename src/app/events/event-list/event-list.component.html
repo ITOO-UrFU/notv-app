@@ -1,3 +1,16 @@
 <p>
-  event-list works!
+  Все события: 
 </p>
+
+
+<div class="event-item" *ngFor="let event of eventsList">
+  <p>{{event.title}}</p>
+ <!-- <p>{{event.description}}</p>
+  <p>Спикеры:</p>
+    <div *ngFor="let speaker of event.users">
+        <p>{{speaker.person.first_name}} {{speaker.person.last_name}}</p>
+    </div>
+  <p>{{event.startdate.time}}<p>
+    -->
+
+</div>

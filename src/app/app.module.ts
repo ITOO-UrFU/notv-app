@@ -13,14 +13,16 @@ import { MaterialModule } from '@angular/material';
 
 import {TranslateModule} from "ng2-translate";
 import { EventListComponent } from './events/event-list/event-list.component';
-
+import { EventsService } from 'app/events/events.service';
+import { EventsFilterPipe } from 'app/events/events.filter';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     PageComponent,
-    EventListComponent
+    EventListComponent,
+    EventsFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,7 @@ import { EventListComponent } from './events/event-list/event-list.component';
 
   ],
  // exports:[TranslateModule],
-  providers: [PageService],
+  providers: [PageService, EventsService],
   bootstrap: [AppComponent],
   entryComponents: [ PageComponent ]
 })
