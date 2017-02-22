@@ -31,7 +31,7 @@ export class EventsService {
     let body = res.json();
     let events: Event[] = [];
     for (let i = 0; i < body.length; i++) {
-          events.push(new Event(body[i].id, body[i].title, body[i].description, body[i].get_users, body[i].startdate, body[i].enddate ));
+          events.push(new Event(body[i].id, body[i].title, body[i].description, body[i].get_users, new Date(body[i].startdate), body[i].enddate ));
     } 
     return events;
   }
