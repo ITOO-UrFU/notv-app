@@ -17,7 +17,7 @@ export class NavComponent implements OnInit {
   listUrl: any[] = [];
   underListUrl: Boolean = false;
 
-  activeUrl: any;
+  activeUrl: any = {};
 
   constructor( private router:Router, private pageService: PageService, private translate: TranslateService ){
         translate.addLangs(["en", "ru"]);
@@ -28,17 +28,21 @@ export class NavComponent implements OnInit {
 
 
   showSubMenu(url: any){
-    this.listUrl.forEach(element => {
-      element.showUnderPage = false;
-    });
-    url.showUnderPage = true;
+    if(url.underpage){
+      this.listUrl.forEach(element => {
+        element.showUnderPage = false;
+      });
+      url.showUnderPage = true;
+    }
   }
 
   hideSubMenu(url){
-    this.listUrl.forEach(element => {
-      element.showUnderPage = false;
-    });
+    if(url.showUnderPage != undefined){
+      this.listUrl.forEach(element => {
+        element.showUnderPage = false;
+      });
     this.activeUrl.showUnderPage = true;
+    }
   }
 
   toPage(url: any){
@@ -47,6 +51,13 @@ export class NavComponent implements OnInit {
     });
     url.activePage = true;
     this.activeUrl = url;
+
+    if(!this.activeUrl.underpage){
+      this.listUrl.forEach(element => {
+      element.showUnderPage = false;
+    });
+    }
+    
   }
 
   removePageWithoutSub(list: any){
@@ -74,6 +85,8 @@ export class NavComponent implements OnInit {
 
           this.activeUrl = this.listUrl.filter(item => item.url == this.router.url.split("/")[1])[0];
           
+          console.log(this.activeUrl)
+
           if(this.activeUrl != undefined){
               this.toPage(this.activeUrl);
               this.showSubMenu(this.activeUrl);

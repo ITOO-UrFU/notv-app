@@ -1,3 +1,4 @@
+<div class="main-menu">
 <nav class="l1">
 
     <div *ngFor="let url of listUrl" (mouseover)="showSubMenu(url)" [ngClass]="{active: url.activePage}" (mouseleave)="hideSubMenu(url)"
@@ -21,4 +22,6 @@
           <a *ngFor="let url2 of url.underpage" [routerLink]="[url.url, url2.url]">{{ url2.title }}</a>
         </div>
     </div>
+</div>
+
 </div>
