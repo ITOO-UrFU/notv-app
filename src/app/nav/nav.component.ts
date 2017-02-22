@@ -17,45 +17,59 @@ export class NavComponent implements OnInit {
   listUrl: any[] = [];
   underListUrl: Boolean = false;
 
+  activeUrl: any = {};
 
   constructor( private router:Router, private pageService: PageService, private translate: TranslateService ){
         translate.addLangs(["en", "ru"]);
         translate.setDefaultLang('en');
         let browserLang = translate.getBrowserLang();
         translate.use(browserLang.match(/en|ru/) ? browserLang : 'en');
-
   }
 
-  loadUrls(page: any[]) {
-    page.forEach(element => {
-      console.log(element);
-      this.router.config.push(
-        {
-          path: element.slug,
-          component: PageComponent,
-        }
-      );
+
+  showSubMenu(url: any){
+    if(url.underpage){
+      this.listUrl.forEach(element => {
+        element.showUnderPage = false;
+      });
+      url.showUnderPage = true;
+    }
+  }
+
+  hideSubMenu(url){
+    if(url.showUnderPage != undefined){
+      this.listUrl.forEach(element => {
+        element.showUnderPage = false;
+      });
+    this.activeUrl.showUnderPage = true;
+    }
+  }
+
+  toPage(url: any){
+    this.listUrl.forEach(element => {
+      element.activePage = false;
     });
+    url.activePage = true;
+    this.activeUrl = url;
 
-      this.router.config.push(
-        {
-          path: 'events',
-          component: EventListComponent,
-        }
-      );
-
-
-    this.router.resetConfig(this.router.config);
-    console.log(this.router.config);
- 
+    if(!this.activeUrl.underpage){
+      this.listUrl.forEach(element => {
+      element.showUnderPage = false;
+    });
+    }
+    
   }
-  cons(){this.underListUrl = true}
+
+  removePageWithoutSub(list: any){
+    //console.log(list);
+    let ret = list.filter(item => ((item.underpage != false) && (item.underpage != undefined)) );
+    return ret;
+  }
 
   ngOnInit() {
     this.pageService.getPageList()
       .subscribe(page => {
-        //console.log(page);
-        page.pages  //.filter(element => {return element.pages.length})
+        page.pages
           .forEach(element => {
             if (element.pages.length) {
               let array: any[] = [];
@@ -67,9 +81,22 @@ export class NavComponent implements OnInit {
             }
             else this.listUrl.push({ url: element.slug, title: element.title ? element.title : element.slug, underpage: false  })
           });
+
+
+          this.activeUrl = this.listUrl.filter(item => item.url == this.router.url.split("/")[1])[0];
+          
+          console.log(this.activeUrl)
+
+          if(this.activeUrl != undefined){
+              this.toPage(this.activeUrl);
+              this.showSubMenu(this.activeUrl);
+          }
+          
        this.listUrl.push({ url: 'events', title: 'Мероприятия' })
+       console.log(this.removePageWithoutSub(this.listUrl));
       })
-  console.log(this.listUrl);  
+
+ console.log(this.listUrl);  
 }
 
 }

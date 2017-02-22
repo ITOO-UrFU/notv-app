@@ -3,6 +3,8 @@ import { Http, Response } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 
+import { Event } from 'app/events/event';
+
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -20,12 +22,20 @@ export class EventsService {
   getEventsList (): Observable<any> {
     let eventsList: string;
     return this.http.get(this.eventsUrl)
-                    .map(res => <any>res.json())
+                    .map(this.extractEvents)
                     .catch(this.handleError);
                     
   }
 
-  
+    private extractEvents(res: Response) {
+    let body = res.json();
+    let events: Event[] = [];
+    for (let i = 0; i < body.length; i++) {
+          events.push(new Event(body[i].id, body[i].title, body[i].description, body[i].get_users, new Date(body[i].startdate), body[i].enddate ));
+    } 
+    return events;
+  }
+
   private handleError (error: Response | any) {
     // In a real world app, we might use a remote logging infrastructure
     let errMsg: string;
