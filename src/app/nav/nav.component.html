@@ -19,6 +19,22 @@
         </div>
     </div>
 </nav>
+<nav class="navbar navbar-default" *ngFor="let url of removePageWithoutSub(listUrl)">
+    <div class="container" *ngIf="url.showUnderPage">
+        <div class="collapse navbar-collapse" id="header-menu2" *ngIf="url.underpage">
+             <ul class="nav navbar-nav">
+            <li *ngFor="let url2 of url.underpage"> <a [routerLink]="[url.url, url2.url]"> {{ url2.title }} </a></li> 
+             </ul>
+             <form class="navbar-form navbar-left">
+             <div class="form-group">
+                <select class="form-control" #langSelect (change)="translate.use(langSelect.value)">
+                <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang" >{{ lang }}</option>
+                </select>
+             </div>
+             </form>
+        </div>
+    </div>
+</nav>
 <div class="main-menu">
 <nav class="l1">
 
@@ -38,7 +54,6 @@
  
 <div class="sub-menu" *ngFor="let url of removePageWithoutSub(listUrl)" style="width: 100%">
     <div *ngIf="url.showUnderPage">
-
         <div *ngIf="url.underpage">
           <a *ngFor="let url2 of url.underpage" [routerLink]="[url.url, url2.url]">{{ url2.title }}</a>
         </div>
