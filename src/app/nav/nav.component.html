@@ -1,3 +1,24 @@
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-menu" aria-expanded="false"></button>
+            <a class="navbar-brand" href="#">NOTV</a>
+        </div>
+        <div class="collapse navbar-collapse" id="header-menu">
+             <ul class="nav navbar-nav">
+            <li *ngFor="let url of listUrl" (mouseover)="showSubMenu(url)" [ngClass]="{active: url.activePage}" (mouseleave)="hideSubMenu(url)"
+        (click)="toPage(url)"> <a [routerLink]="url.url"> {{ url.title }} </a></li> 
+             </ul>
+             <form class="navbar-form navbar-left">
+             <div class="form-group">
+                <select class="form-control" #langSelect (change)="translate.use(langSelect.value)">
+                <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang" >{{ lang }}</option>
+                </select>
+             </div>
+             </form>
+        </div>
+    </div>
+</nav>
 <div class="main-menu">
 <nav class="l1">
 
