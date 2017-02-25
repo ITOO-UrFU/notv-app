@@ -25,39 +25,9 @@
              <ul class="nav navbar-nav">
             <li *ngFor="let url2 of url.underpage"> <a [routerLink]="[url.url, url2.url]"> {{ url2.title }} </a></li> 
              </ul>
-             <form class="navbar-form navbar-left">
-             <div class="form-group">
-                <select class="form-control" #langSelect (change)="translate.use(langSelect.value)">
-                <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang" >{{ lang }}</option>
-                </select>
-             </div>
-             </form>
         </div>
     </div>
 </nav>
-<div class="main-menu">
-<nav class="l1">
 
-    <div *ngFor="let url of listUrl" (mouseover)="showSubMenu(url)" [ngClass]="{active: url.activePage}" (mouseleave)="hideSubMenu(url)"
-        (click)="toPage(url)">
-        <a [routerLink]="url.url"> {{ url.title }} </a>
-        </div>
 
-<div class="lang-select">
-   <select #langSelect (change)="translate.use(langSelect.value)">
-          <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang" >{{ lang }}</option>
-    </select>
-</div>
 
-</nav>
-
- 
-<div class="sub-menu" *ngFor="let url of removePageWithoutSub(listUrl)" style="width: 100%">
-    <div *ngIf="url.showUnderPage">
-        <div *ngIf="url.underpage">
-          <a *ngFor="let url2 of url.underpage" [routerLink]="[url.url, url2.url]">{{ url2.title }}</a>
-        </div>
-    </div>
-</div>
-
-</div>
