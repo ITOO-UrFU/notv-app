@@ -61,7 +61,6 @@ export class NavComponent implements OnInit {
   }
 
   removePageWithoutSub(list: any){
-    //console.log(list);
     let ret = list.filter(item => ((item.underpage != false) && (item.underpage != undefined)) );
     return ret;
   }
@@ -71,21 +70,18 @@ export class NavComponent implements OnInit {
       .subscribe(page => {
         page.pages
           .forEach(element => {
-            if (element.pages.length) {
               let array: any[] = [];
               element.pages.forEach(element => {
                 array.push({ url: element.slug, title: element.title ? element.title : element.slug })
               })
               
               this.listUrl.push({ url: element.slug, title: element.title ? element.title : element.slug, underpage: array })
-            }
-            else this.listUrl.push({ url: element.slug, title: element.title ? element.title : element.slug, underpage: false  })
           });
 
 
           this.activeUrl = this.listUrl.filter(item => item.url == this.router.url.split("/")[1])[0];
           
-          console.log(this.activeUrl)
+         // console.log(this.activeUrl)
 
           if(this.activeUrl != undefined){
               this.toPage(this.activeUrl);
@@ -93,7 +89,7 @@ export class NavComponent implements OnInit {
           }
           
        this.listUrl.push({ url: 'events', title: 'Мероприятия' })
-       console.log(this.removePageWithoutSub(this.listUrl));
+       //console.log(this.removePageWithoutSub(this.listUrl));
       })
 
  console.log(this.listUrl);  
