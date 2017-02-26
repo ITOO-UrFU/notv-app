@@ -1,3 +1,25 @@
+<nav class="navbar navbar-toggleable-md navbar-light navbar-inverse bg-inverse">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">NOTV</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" *ngFor="let url of listUrl">
+                <a class="nav-link" [routerLink]="url.url"> {{ url.title }} <span class="sr-only">(current)</span> </a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <select class="form-control mr-sm-2" #langSelect (change)="translate.use(langSelect.value)">
+                <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang" >{{ lang }}</option>
+            </select>
+        </form>
+    </div>
+</nav>
+
+
+<template [ngIf]="true">
 <div class="main-menu">
 <nav class="l1">
 
@@ -7,9 +29,7 @@
         </div>
 
 <div class="lang-select">
-   <select #langSelect (change)="translate.use(langSelect.value)">
-          <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang" >{{ lang }}</option>
-    </select>
+
 </div>
 
 </nav>
@@ -25,3 +45,4 @@
 </div>
 
 </div>
+</template>
