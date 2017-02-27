@@ -18,15 +18,10 @@ export class PageComponent implements OnDestroy {
   errorMessage: string;
 
   page: Page;
-    private id: number;
+  id: string;
     private subscription: Subscription;
   
-  constructor(
-              private router:Router, 
-              private pageService: PageService, 
-              private activateRoute: ActivatedRoute,
-              private titleService: Title 
-              ) { 
+  constructor( private router:Router, private pageService: PageService, private activateRoute: ActivatedRoute, private titleService: Title ) { 
     this.subscription = activateRoute.params.subscribe(
       params=> this.getPages(params['id']),
       error => this.errorMessage = "Неверный адрес!"
@@ -35,42 +30,31 @@ export class PageComponent implements OnDestroy {
     router.events.subscribe((val) => {
           this.errorMessage="";
     });
-
+   
   }
   
   public setTitle( newTitle: string) {
     this.titleService.setTitle( newTitle );
   }
 
-  getPages(id:string)  {   
+  getPages(id:string)  {
+    this.id = id;   
     this.pageService.getPages('/' + id)
       .subscribe(
         page => {
           this.page = page;
           this.setTitle(page.title);
-          this.subPages = [];
-          if(this.page.pages.length > 0)
-          {
-            for (let subpage of this.page.pages){
-              this.subPages.push(subpage);   
-            }
-          }
-      },
-      error => {
-        this.errorMessage = error
-      }
-
-      
+        },
+        error => {
+          this.errorMessage = error
+        }
       );
   }
 
 
   ngOnDestroy() {
-    //console.log("Я отработала")
-    // this.getPages(this.activateRoute.snapshot.params['id'])
     this.errorMessage="";
-    this.subscription.unsubscribe()
-     
+    this.subscription.unsubscribe()  
   }
   
 }

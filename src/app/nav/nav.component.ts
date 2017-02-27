@@ -68,8 +68,8 @@ export class NavComponent implements OnInit {
   ngOnInit() {
     this.pageService.getPageList()
       .subscribe(page => {
-        page.pages
-          .forEach(element => {
+        page.pages.forEach(
+          element => {
             if (element.pages.length){
               let array: any[] = [];
               element.pages.forEach(element => {
@@ -85,18 +85,15 @@ export class NavComponent implements OnInit {
 
           this.activeUrl = this.listUrl.filter(item => item.url == this.router.url.split("/")[1])[0];
           
-         // console.log(this.activeUrl)
+         
 
           if(this.activeUrl != undefined){
               this.toPage(this.activeUrl);
               this.showSubMenu(this.activeUrl);
           }
-          
-      // this.listUrl.push({ url: 'events', title: 'Мероприятия' })
-       //console.log(this.removePageWithoutSub(this.listUrl));
       })
 
- console.log(this.listUrl);  
+ 
 }
 
 }
