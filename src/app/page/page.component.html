@@ -6,9 +6,12 @@
 <div *ngIf="!errorMessage">
 
 
+  <!-- Content here -->
+
 <div *ngIf="page">
   <div [innerHTML]="page.html"></div>
 </div>
 </div>
-
+<div class="container">
 <router-outlet></router-outlet>
+</div>                    

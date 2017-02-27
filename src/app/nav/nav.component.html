@@ -7,12 +7,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <template ngFor let-url [ngForOf]="listUrl">
-                <div [ngSwitch]="url.underpage.length">    
-                    <li *ngSwitchCase="0" class="nav-item">         
-                        <a class="nav-link" [routerLink]="url.url"> {{ url.title }} <span class="sr-only">(true)</span> </a>
+                <div [ngSwitch]="url.type">    
+                    <li *ngSwitchCase="'link'" class="nav-item">         
+                        <a class="nav-link" [routerLink]="url.url"> {{ url.title }} </a>
                     </li>
                     <li *ngSwitchDefault class="nav-item dropdown">         
-                        <a class="nav-link dropdown-toggle" [routerLink]="url.url"> {{ url.title }} <span class="sr-only">(fslse)</span> </a>
+                        <a class="nav-link dropdown-toggle"  [routerLink]="url.url"> {{ url.title }}  </a>
+
+                    <div class="dropdown-menu" >
+                        <a *ngFor="let url2 of url.underpage" class="dropdown-item" [routerLink]="[url.url, url2.url]">{{ url2.title }}</a>
+                    </div>
                     </li>
                 </div>
             </template>
@@ -26,7 +30,12 @@
 </nav>
 
 
-<template [ngIf]="true">
+
+
+
+
+
+<template [ngIf]="false">
 <div class="main-menu">
 <nav class="l1">
 

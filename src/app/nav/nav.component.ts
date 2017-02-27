@@ -70,12 +70,16 @@ export class NavComponent implements OnInit {
       .subscribe(page => {
         page.pages
           .forEach(element => {
+            if (element.pages.length){
               let array: any[] = [];
               element.pages.forEach(element => {
                 array.push({ url: element.slug, title: element.title ? element.title : element.slug })
               })
               
-              this.listUrl.push({ url: element.slug, title: element.title ? element.title : element.slug, underpage: array })
+              this.listUrl.push({ url: element.slug, title: element.title ? element.title : element.slug, underpage: array, type: 'dropdown' })
+            }
+            else {  this.listUrl.push({ url: element.slug, title: element.title ? element.title : element.slug, underpage: false, type: 'link' })
+}  
           });
 
 
@@ -88,7 +92,7 @@ export class NavComponent implements OnInit {
               this.showSubMenu(this.activeUrl);
           }
           
-       this.listUrl.push({ url: 'events', title: 'Мероприятия' })
+      // this.listUrl.push({ url: 'events', title: 'Мероприятия' })
        //console.log(this.removePageWithoutSub(this.listUrl));
       })
 
