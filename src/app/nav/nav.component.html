@@ -1,27 +1,24 @@
-<div class="main-menu">
-<nav class="l1">
+<nav>
 
-    <div *ngFor="let url of listUrl" (mouseover)="showSubMenu(url)" [ngClass]="{active: url.activePage}" (mouseleave)="hideSubMenu(url)"
-        (click)="toPage(url)">
-        <a [routerLink]="url.url"> {{ url.title }} </a>
-        </div>
+    <ul class="menu">
+        <li [routerLinkActive]="['active']" class="item" *ngFor="let url of listUrl" >
+            <a [routerLink]="url.url"> {{ url.title }} </a>
+          
+            <ul class="submenu" *ngIf="url.underpage">
+                <li [routerLinkActive]="['active_sub']" class="subitem" *ngFor="let url2 of url.underpage">
+                <a [routerLink]="[url.url, url2.url]">{{ url2.title }}</a>
+                </li>
+            </ul>
+       
+        </li>
 
-<div class="lang-select">
-   <select #langSelect (change)="translate.use(langSelect.value)">
-          <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang" >{{ lang }}</option>
-    </select>
-</div>
+        <li class="item">
+            <select #langSelect (change)="translate.use(langSelect.value)">
+                    <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang" >{{ lang }}</option>
+                </select>
+        </li>
+        
+    </ul>
 
-</nav>
+</nav> 
 
- 
-<div class="sub-menu" *ngFor="let url of removePageWithoutSub(listUrl)" style="width: 100%">
-    <div *ngIf="url.showUnderPage">
-
-        <div *ngIf="url.underpage">
-          <a *ngFor="let url2 of url.underpage" [routerLink]="[url.url, url2.url]">{{ url2.title }}</a>
-        </div>
-    </div>
-</div>
-
-</div>

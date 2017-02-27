@@ -1,51 +1,83 @@
-$submenu-color: #dcdcdc;
+$menu-color: black;
+$menu-color-text: white;
 
-nav{
-   background:#efefef;
-}
+nav {
+    background-color: $menu-color;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin-bottom: 46px;
+    
 
-div {
-    display: inline-block; 
-}
+    -webkit-box-shadow: 0px 0px 6px 0px black;
+    -moz-box-shadow: 0px 0px 6px 0px black;
+    box-shadow: 0px 0px 6px 0px black;
 
-a {
-    font-family: "Open Sans";
-	font-size: 18px;
-    text-decoration: none;
-    display: inline-block;
-    padding: 5px;
-    margin: 4px;
-    border-radius: 2px;
-}
+    ul.menu { 
+ 
+        position: relative;
+        margin: 0 auto;
+        height: 46px;
+        width: 1024px;
+        display: block;
+        padding: 0px;
 
-a:hover{
-    box-sizing: border-box;
-    background: $submenu-color;
-}
+        li.item {
+            list-style: none;
+            display: block;
+            position: relative;
+            float: left;
+            
+            &:hover {
+                background-color: rgba(242,242,242,.3);
+            }
+            
+            &.active{
+                background-color: rgba(242,242,242,.4);    
+            }
+            
+            &.active ul  {
+                display: block;    
+            }
 
-.sub-menu{
-    position: relative;
-    background:$submenu-color;
-    -webkit-box-shadow: inset 0 12px 6px -10px black;
-    -moz-box-shadow: inset 0 12px 6px -10px black;
-    box-shadow: inset 0 12px 6px -10px black;
-    float : left;
-}
+            &:hover ul  {
+                display: block;
+                z-index: 1001;
+            }
 
-.sub-menu a:hover{
-    background: #efefef;
-}
+            a {
+                text-decoration: none;
+                color: $menu-color-text;
+                font-family: "Open Sans";
+                padding: 0px 0px;
+                float: left;
+                padding: 12px 9px;
+            }
 
-.active{
-    background: $submenu-color;
-}
+            ul {
+                text-align: center;
+                top: 46px;
+                left: 0px;
+                right: 0px;
+                background-color: rgb(242,242,242);
+                position:fixed;
+                display: none;
+                    li{
+                        &.active_sub a  {
+                            font-weight: bold;   
+                        }
 
-.lang-select{
-    float: right;
+                        z-index: 1010;
+                        vertical-align: top;
+                        display: inline-block;
+                        a{
+                            color: black;
+                        }
+                    }
+                }
+        
+        }
+    }
 
-}
-
-.main-menu{
-    height: 85px;
-    width: 100%;
 }

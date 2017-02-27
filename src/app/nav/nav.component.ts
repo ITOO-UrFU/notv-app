@@ -8,7 +8,7 @@ import { EventListComponent } from 'app/events/event-list/event-list.component';
 import {TranslateService} from 'ng2-translate';
 
 @Component({
-  selector: 'app-nav',
+  selector: '[app-nav]',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
@@ -26,45 +26,6 @@ export class NavComponent implements OnInit {
         translate.use(browserLang.match(/en|ru/) ? browserLang : 'en');
   }
 
-
-  showSubMenu(url: any){
-    if(url.underpage){
-      this.listUrl.forEach(element => {
-        element.showUnderPage = false;
-      });
-      url.showUnderPage = true;
-    }
-  }
-
-  hideSubMenu(url){
-    if(url.showUnderPage != undefined){
-      this.listUrl.forEach(element => {
-        element.showUnderPage = false;
-      });
-    this.activeUrl.showUnderPage = true;
-    }
-  }
-
-  toPage(url: any){
-    this.listUrl.forEach(element => {
-      element.activePage = false;
-    });
-    url.activePage = true;
-    this.activeUrl = url;
-
-    if(!this.activeUrl.underpage){
-      this.listUrl.forEach(element => {
-      element.showUnderPage = false;
-    });
-    }
-    
-  }
-
-  removePageWithoutSub(list: any){
-    //console.log(list);
-    let ret = list.filter(item => ((item.underpage != false) && (item.underpage != undefined)) );
-    return ret;
-  }
 
   ngOnInit() {
     this.pageService.getPageList()
@@ -86,14 +47,9 @@ export class NavComponent implements OnInit {
           this.activeUrl = this.listUrl.filter(item => item.url == this.router.url.split("/")[1])[0];
           
           console.log(this.activeUrl)
-
-          if(this.activeUrl != undefined){
-              this.toPage(this.activeUrl);
-              this.showSubMenu(this.activeUrl);
-          }
           
-       this.listUrl.push({ url: 'events', title: 'Мероприятия' })
-       console.log(this.removePageWithoutSub(this.listUrl));
+      // this.listUrl.push({ url: 'events', title: 'Мероприятия' })
+ 
       })
 
  console.log(this.listUrl);  
