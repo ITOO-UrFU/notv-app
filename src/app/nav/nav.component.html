@@ -1,6 +1,9 @@
 <nav>
 
+<a class="menu-button">Меню</a>
+
     <ul class="menu">
+       
         <li [routerLinkActive]="['active']" class="item" *ngFor="let url of listUrl" >
             <a [routerLink]="url.url"> {{ url.title }} </a>
           
@@ -12,12 +15,14 @@
        
         </li>
 
-        <li class="item">
+      <!--  <li class="item">
             <select #langSelect (change)="translate.use(langSelect.value)">
                     <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang" >{{ lang }}</option>
                 </select>
         </li>
-        
+
+       --> 
+
     </ul>
 
 </nav> 
