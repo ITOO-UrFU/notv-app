@@ -1,7 +1,7 @@
 
 <nav>
 
-<input type="checkbox" id="nav" /><label for="nav"></label>
+<input checked type="checkbox" id="nav" /><label for="nav"></label>
     <ul class="menu">
         <li [routerLinkActive]="['active']" class="item" *ngFor="let url of listUrl" >
             <a [routerLink]="url.url"> {{ url.title }} </a>
