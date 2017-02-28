@@ -1,9 +1,8 @@
+
 <nav>
 
-<a class="menu-button">Меню</a>
-
+<input type="checkbox" id="nav" /><label for="nav"></label>
     <ul class="menu">
-       
         <li [routerLinkActive]="['active']" class="item" *ngFor="let url of listUrl" >
             <a [routerLink]="url.url"> {{ url.title }} </a>
           
@@ -14,15 +13,12 @@
             </ul>
        
         </li>
-
       <!--  <li class="item">
             <select #langSelect (change)="translate.use(langSelect.value)">
                     <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang" >{{ lang }}</option>
                 </select>
         </li>
-
        --> 
-
     </ul>
 
 </nav> 

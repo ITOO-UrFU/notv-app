@@ -2,6 +2,7 @@ $menu-color: black;
 $menu-color-text: white;
 
 @media screen and (min-width: 600px) {
+
 .menu-button{
     display: none;
 }
@@ -22,11 +23,10 @@ nav {
 
     ul.menu { 
  
-        position: relative;
+        //position: relative;
         margin: 0 auto;
-        height: 46px;
-        //width: 1024px;
-        display: block;
+        //height: 46px;
+        //display: block;
         padding: 0px;
         text-align: center;
 
@@ -59,7 +59,8 @@ nav {
                 color: $menu-color-text;
                 font-family: "Open Sans";
                 padding: 0px 0px;
-                float: left;
+               // float: left;
+               display: block;
                 padding: 12px 9px;
             }
 
@@ -90,11 +91,14 @@ nav {
     }
 
 }
-
+  [type="checkbox"], label {
+	  display: none;
+}
 }
 
 
 @media screen and (max-width: 600px) {
+
 
 nav {
     background-color: $menu-color;
@@ -109,7 +113,8 @@ nav {
     -moz-box-shadow: 0px 0px 6px 0px black;
     box-shadow: 0px 0px 6px 0px black;
 
-        a.menu-button{
+    /*
+     a.menu-button{
             display: block;
             color: white;
             padding: 10px 0px;
@@ -118,8 +123,38 @@ nav {
         &:hover ul.menu{
                 display: block;
          }
-    
+    */
         
+    label {
+            display: block;
+            width: 61px;
+            height: 40px;
+            cursor: pointer;
+            position: relative;
+            right: -6px;
+            top: 0px;
+            background: black;
+        }
+
+    input{
+        display: none;
+    }
+
+    label:after{
+        content: '';
+        display: block;
+        width: 30px;
+        height: 5px;
+        box-shadow: 0px 8px 0px #777, 0px 16px 0px #777, 0px 24px 0px #777;
+    }
+
+	[type="checkbox"]:checked ~ ul{
+  		display: none;
+  		z-index: 9999;
+  		position: absolute;
+		  right: 20px;
+		  left: 20px;
+	}
 
 
     ul.menu { 
@@ -127,7 +162,7 @@ nav {
         position: relative;
         margin: 0 auto;
         text-align: center;
-        display: none;
+        display: block;
         padding: 0px;
     
 
@@ -151,7 +186,7 @@ nav {
             }
 
             &:hover ul  {
-                display: block;
+               // display: block;
                 z-index: 1001;
             }
 
