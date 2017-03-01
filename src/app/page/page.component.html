@@ -4,11 +4,9 @@
 </div>
 
 <div *ngIf="!errorMessage">
-
-
-<div *ngIf="page">
-  <div [innerHTML]="page.html"></div>
-</div>
+  <div *ngIf="page">
+    <div [innerHTML]="page.html"></div>
+  </div>
 </div>
 
 <router-outlet></router-outlet>

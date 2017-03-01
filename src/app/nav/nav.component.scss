@@ -153,12 +153,12 @@ nav {
     }
 
     ul.submenu{
-        overflow-x: scroll;
-        overflow-x:hidden;
+        overflow-x: auto;
+        //overflow-x:hidden;
         white-space: nowrap;
     }
 
-    
+
     ul.menu { 
         list-style: none;
         position: relative;
