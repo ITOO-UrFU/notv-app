@@ -112,18 +112,6 @@ nav {
     -webkit-box-shadow: 0px 0px 6px 0px black;
     -moz-box-shadow: 0px 0px 6px 0px black;
     box-shadow: 0px 0px 6px 0px black;
-
-    /*
-     a.menu-button{
-            display: block;
-            color: white;
-            padding: 10px 0px;
-        }
-
-        &:hover ul.menu{
-                display: block;
-         }
-    */
         
     label {
             display: block;
@@ -148,19 +136,35 @@ nav {
         box-shadow: 0px 8px 0px #777, 0px 16px 0px #777, 0px 24px 0px #777;
     }
 
-	[type="checkbox"]:checked ~ ul{
-  		display: none;
-  		z-index: 9999;
-  		position: absolute;
-	}
+    ul.showed{
+        display: block !important;  
 
+        li.item{
+            padding: 6px 0px;
 
+            a{
+                display: block !important;
+            }
+            ul{
+                display: none !important;
+            }
+
+        }
+    }
+
+    ul.submenu{
+        overflow-x: scroll;
+        overflow-x:hidden;
+        white-space: nowrap;
+    }
+
+    
     ul.menu { 
         list-style: none;
         position: relative;
         margin: 0 auto;
         text-align: center;
-        display: block;
+      // display: none;
         padding: 0px;
     
 
@@ -169,7 +173,7 @@ nav {
             
             display: block;
             position: relative;
-            padding: 4px 0px;
+           // padding: 4px 0px;
             
             &:hover {
                 background-color: rgba(242,242,242,.3);
@@ -180,16 +184,21 @@ nav {
             }
             
             &.active ul  {
-                display: block;    
+               display: none;
+               display: block;    
             }
 
             &:hover ul  {
-               // display: block;
+               //display: block;
                 z-index: 1001;
             }
 
+           /** &.active a{
+                display: none; 
+            }*/
+
             a {
-                display: block;
+                display: none;
                 text-decoration: none;
                 color: $menu-color-text;
                 font-family: "Open Sans";
@@ -204,9 +213,12 @@ nav {
                 display: none;
                     li{
                         list-style: none;
-                        padding: 5px 0px;
+                        padding: 5px 5px;
+                        display: inline-block;
+
                         &.active_sub a  {
-                            font-weight: bold;   
+                            font-weight: bold;  
+                          
                         }
 
                         z-index: 1010;

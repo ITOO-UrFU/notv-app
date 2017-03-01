@@ -16,8 +16,8 @@ import {TranslateService} from 'ng2-translate';
 export class NavComponent implements OnInit {
   listUrl: any[] = [];
   underListUrl: Boolean = false;
-
   activeUrl: any = {};
+  showMenu: Boolean = false;
 
   constructor( private router:Router, private pageService: PageService, private translate: TranslateService ){
         translate.addLangs(["en", "ru"]);
@@ -26,6 +26,12 @@ export class NavComponent implements OnInit {
         translate.use(browserLang.match(/en|ru/) ? browserLang : 'en');
   }
 
+  toggleMenuVisible(disable: Boolean){
+    this.showMenu = !this.showMenu;
+    if(disable==true){
+      this.showMenu == false;
+    }
+  }
 
   ngOnInit() {
     this.pageService.getPageList()
