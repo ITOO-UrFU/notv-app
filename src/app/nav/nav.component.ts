@@ -70,10 +70,11 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit() {
+      
     this.pageService.getPageList()
-      .subscribe(page => {
-        page.pages
-          .forEach(element => {
+      .subscribe(page => {console.log(page)
+        page.pages.forEach(element => {
+            
             if (element.pages.length) {
               let array: any[] = [];
               element.pages.forEach(element => {
@@ -95,7 +96,7 @@ export class NavComponent implements OnInit {
               this.showSubMenu(this.activeUrl);
           }
           
-       this.listUrl.push({ url: 'events', title: 'Мероприятия' })
+       
        console.log(this.removePageWithoutSub(this.listUrl));
       })
 

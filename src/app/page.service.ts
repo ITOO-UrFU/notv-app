@@ -21,12 +21,14 @@ export class PageService {
   constructor ( private http: Http ) { }
   
   getPageList (): Observable<any> {
-    let pageList: string;
+    console.log("get", this.http.get(this.pageList));
     return this.http.get(this.pageList)
-                    .map(res => <any>res.json())
+                    .map(res => {console.log("res",<Page>res.json());return <any>res.json()})
                     .catch(this.handleError);
                     
   }
+
+
 
 
   /*getPages (url:string ): Observable<Page> {
@@ -42,8 +44,8 @@ export class PageService {
   }
 
   private extractData(res: Response) {
-    let body = res.json();
-    return body || { };
+      let body = res.json();
+      return body || {};
   }
 
   private extractPages(res: Response) {
