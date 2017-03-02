@@ -5,7 +5,7 @@ export class Event {
     public title: string;
     public description: string;
     public users: User[];
-    public startdate: string;
+    public startdate: Date;
     public enddate: string;
 
     constructor(id, title, description, users, startdate, enddate){

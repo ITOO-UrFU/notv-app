@@ -19,7 +19,7 @@ export class EventsService {
   constructor( private http: Http ) { }
 
 
-  getEventsList (): Observable<any> {
+  getEventsList (): Observable<Event[]> {
     let eventsList: string;
     return this.http.get(this.eventsUrl)
                     .map(this.extractEvents)
@@ -27,14 +27,16 @@ export class EventsService {
                     
   }
 
-    private extractEvents(res: Response) {
+    private extractEvents(res: Response):Event[] {
     let body = res.json();
     let events: Event[] = [];
     for (let i = 0; i < body.length; i++) {
-          events.push(new Event(body[i].id, body[i].title, body[i].description, body[i].get_users, new Date(body[i].startdate), body[i].enddate ));
+          let event:Event = new Event(body[i].id, body[i].title, body[i].description, body[i].get_users, new Date(body[i].startdate), body[i].enddate ); 
+          events.push(event);
     } 
     return events;
   }
+
 
   private handleError (error: Response | any) {
     // In a real world app, we might use a remote logging infrastructure

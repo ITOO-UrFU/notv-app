@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, Http } from '@angular/http';
 
@@ -34,7 +34,15 @@ import { EventsFilterPipe } from 'app/events/events.filter';
 
   ],
  // exports:[TranslateModule],
-  providers: [PageService, EventsService],
+  providers: [
+    PageService, 
+    EventsService,
+   { 
+      provide: LOCALE_ID, 
+     //  useValue: "en-EN" 
+     useValue: "ru-RU" 
+    },
+    ],
   bootstrap: [AppComponent],
   entryComponents: [ PageComponent ]
 })

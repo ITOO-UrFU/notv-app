@@ -2,11 +2,12 @@
   Все события: 
 </p>
 
-
-<div class="event-item" *ngFor="let event of eventsList">
-  
-  <p>{{event.title}}</p>
-  <p>{{event.description}}</p>
-  <p>{{event.startdate| date:'yMMMdjms'}} <p>
-
-</div>
+<md-tab-group *ngIf="eventsList">
+  <md-tab *ngFor="let date of conferenceDates; let i = index" label="{{date | date:'yMMMMd'}}">
+    <div class="event-item" *ngFor="let event of eventsList | eventsByDate:date">
+              <p>{{event.title}}</p>
+              <p>{{event.description}}</p>
+              <p>{{event.startdate| date:'yMMMdjms'}} <p>
+      </div>
+  </md-tab>
+</md-tab-group>
