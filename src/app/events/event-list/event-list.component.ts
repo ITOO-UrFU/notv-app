@@ -34,7 +34,6 @@ export class EventListComponent implements OnInit {
           let event: Event = item;
           if(!uniqueDates.find(item => item.getDate() === event.startdate.getDate() && item.getMonth() === event.startdate.getMonth() )){
               uniqueDates.push(event.startdate);
-              //console.log(event.startdate.toLocaleDateString('ru', { year: 'numeric', month: 'long', day: 'numeric' }))
            }
         }
     uniqueDates.sort(function(a,b){return a.getTime() - b.getTime()});

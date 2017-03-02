@@ -7,7 +7,7 @@
     <div class="event-item" *ngFor="let event of eventsList | eventsByDate:date">
               <p>{{event.title}}</p>
               <p>{{event.description}}</p>
-              <p>{{event.startdate| date:'yMMMdjms'}} <p>
+              <p>{{event.startdate | date:'yMMMdjms'}} <p>
       </div>
   </md-tab>
 </md-tab-group>

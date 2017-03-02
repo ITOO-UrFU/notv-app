@@ -52,13 +52,13 @@ export class NavComponent implements OnInit {
 
           this.activeUrl = this.listUrl.filter(item => item.url == this.router.url.split("/")[1])[0];
           
-          console.log(this.activeUrl)
+        //  console.log(this.activeUrl)
           
       // this.listUrl.push({ url: 'events', title: 'Мероприятия' })
  
       })
 
- console.log(this.listUrl);  
+ // console.log(this.listUrl);  
 }
 
 }
