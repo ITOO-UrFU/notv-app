@@ -4,16 +4,9 @@
 
 
 <div class="event-item" *ngFor="let event of eventsList">
-  <!-- 
   
   <p>{{event.title}}</p>
   <p>{{event.description}}</p>
-  <p>Спикеры:</p>
-    <div *ngFor="let speaker of event.users">
-        <p>{{speaker.get_users.person.first_name}} {{speaker.get_users.person.last_name}}</p>
-    </div>
-  <p>{{event.startdate.time}}<p>
+  <p>{{event.startdate| date:'yMMMdjms'}} <p>
 
--->
- 
 </div>

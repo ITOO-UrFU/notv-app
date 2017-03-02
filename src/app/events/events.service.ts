@@ -14,7 +14,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class EventsService {
 
-  private eventsUrl = 'http://localhost:8020/api/v1/events';
+  private eventsUrl = 'http://openedu.urfu.ru:33017/api/v1/events';
 
   constructor( private http: Http ) { }
 
