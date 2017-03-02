@@ -8,12 +8,15 @@ import { EventListComponent } from 'app/events/event-list/event-list.component';
 import {TranslateService} from 'ng2-translate';
 
 @Component({
-  selector: 'app-nav',
+  selector: 'nav.app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
 
 export class NavComponent implements OnInit {
+
+
+
   listUrl: any[] = [];
   underListUrl: Boolean = false;
 
