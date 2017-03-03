@@ -11,9 +11,10 @@ export class EventsFilterPipe implements PipeTransform {
        let date = new Date(arg1.toString());
        console.log(arg2);
        return items
-                    .sort(function(a,b){return a.startdate.getTime() - b.startdate.getTime()})
-                    .filter(
-                            item => item.startdate.getDate() == date.getDate() && item.startdate.getMonth() == date.getMonth()
-                            );
+                .sort(function(a,b){return a.startdate.getTime() - b.startdate.getTime()})
+                .filter(
+                      //  item => item.startdate.getDate() == date.getDate() && item.startdate.getMonth() == date.getMonth()
+                       item => item.startdate.getTime() == date.getTime()
+                        );
     }
 } 

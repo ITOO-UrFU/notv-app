@@ -10,11 +10,14 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
+let eventsList: Event[];
 
 @Injectable()
 export class EventsService {
 
   private eventsUrl = 'http://openedu.urfu.ru:33017/api/v1/events';
+
+  
 
   constructor( private http: Http ) { }
 
@@ -27,6 +30,37 @@ export class EventsService {
                     
   }
 
+  /*
+  getEventsByTime(date: Date): Event[]{
+
+    if(eventsList){
+      return eventsList.filter(item => item.startdate.getDate() == date.getDate() && item.startdate.getMonth() == date.getMonth());
+    }
+    return null;
+  }
+  */
+  getEventsByDayTimes(date: Date): Event[]{
+    return eventsList.filter(item => item.startdate.getTime() == date.getTime());
+  }
+
+
+  getUniqueTimesByDay(date: Date): Date[]{
+    if(eventsList){
+      let uniqueDates:Date[] = [];
+        for(let item of eventsList.filter(item => item.startdate.getDate() == date.getDate() && item.startdate.getMonth() == date.getMonth())){
+          let event: Event = item;
+            if(!uniqueDates.find(item => item.getTime() === event.startdate.getTime() )){
+                uniqueDates.push(event.startdate);
+            }
+        }
+      uniqueDates.sort(function(a,b){return a.getTime() - b.getTime()});
+      return uniqueDates;
+    }
+    else{
+        return null;
+    }
+  }
+
     private extractEvents(res: Response):Event[] {
     let body = res.json();
     let events: Event[] = [];
@@ -34,6 +68,8 @@ export class EventsService {
           let event:Event = new Event(body[i].id, body[i].title, body[i].description, body[i].get_users, new Date(body[i].startdate), body[i].enddate ); 
           events.push(event);
     } 
+    eventsList = events;
+   // console.log("events", eventsList );
     return events;
   }
 

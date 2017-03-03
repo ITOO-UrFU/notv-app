@@ -1,6 +1,13 @@
 .event-item{
     padding: 5px;
     border: 1px solid black;
-   // display: inline-block;
+    display: inline-block;
+    height: 22%;
+    vertical-align: middle;
     margin: 5px;
+    width: 22%;
+}
+
+.time-container{
+    border: 1px solid black;
 }

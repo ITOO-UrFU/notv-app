@@ -1,13 +1,61 @@
-<p>
-  Все события: 
-</p>
+<p>Все события: </p>
 
-<md-tab-group *ngIf="eventsList">
-  <md-tab *ngFor="let date of conferenceDates; let i = index" label="{{date | date:'yMMMMd'}}">
-    <div class="event-item" *ngFor="let event of eventsList | eventsByDate:date">
+
+<!--<div *ngIf="eventsList">
+
+  <div *ngFor="let date of conferenceDates" class="time-container">
+
+    {{date | date:"short"}}
+
+    <div class="event-item" *ngFor="let event of eventsList | eventsByDate:date; let i = index">
+
               <p>{{event.title}}</p>
-              <p>{{event.description}}</p>
-              <p>{{event.startdate | date:'yMMMdjms'}} <p>
-      </div>
-  </md-tab>
-</md-tab-group>
+         <p>{{event.description}}</p> 
+            <p>{{event.startdate | date:'yMMMdjms'}} <p>  
+        <div>
+
+  
+           <div *ngIf="event.users.length != 0">
+             <p>Спикеры: </p>
+              <div *ngFor="let user of event.users">
+                      <p>{{user.person.first_name}} {{user.person.last_name}}</p>
+                      <p>{{user.person.organisation}}, {{user.person.position}}</p>
+              </div>
+            </div>
+   
+
+        </div>
+    </div>
+  </div>
+</div>-->
+
+
+
+<div *ngIf="eventsList">
+  <select multiple="multiple" [ngModel]="selectedDay" (ngModelChange)="funcSelectedDay($event)">
+      <option *ngFor="let i of conferenceDates" [ngValue]="i">{{i | date:'yMMMMd'}}</option>
+  </select>
+</div>
+
+<div *ngIf="uniqueTimes">
+  <select multiple="multiple" [ngModel]="selectedTime" (ngModelChange)="funcSelectedTime($event)">
+      <option *ngFor="let i of uniqueTimes" [ngValue]="i">{{i | date:'shortTime'}}</option>
+  </select>
+</div>
+
+<div *ngIf="currentEvents">
+      <div class="event-item" *ngFor="let event of currentEvents">
+
+              <p>{{event.title}}</p>
+         <p>{{event.description}}</p> 
+            <p>{{event.startdate | date:'yMMMdjms'}} <p>  
+        <!--<div>
+           <div *ngIf="event.users.length != 0">
+             <p>Спикеры: </p>
+              <div *ngFor="let user of event.users">
+                      <p>{{user.person.first_name}} {{user.person.last_name}}</p>
+                      <p>{{user.person.organisation}}, {{user.person.position}}</p>
+              </div>
+            </div>
+        </div>-->
+</div>
