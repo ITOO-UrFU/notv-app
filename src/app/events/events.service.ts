@@ -39,23 +39,41 @@ export class EventsService {
     return null;
   }
   */
-  getEventsByDayTimes(date: Date): Event[]{
-    return eventsList.filter(item => item.startdate.getTime() == date.getTime());
+
+  getEventsByDayTimes(dates: any): Event[]{
+    let list:Event[] = [];
+    dates.forEach(element => {
+          let date = new Date(element);
+           list = list.concat(eventsList.filter(item => item.startdate.getTime() == date.getTime() ));
+    })
+    return list;
   }
 
 
-  getUniqueTimesByDay(date: Date): Date[]{
+  getUniqueTimesByDay(dates: any): Date[]{
     if(eventsList){
+
+
       let uniqueDates:Date[] = [];
+      let allDates:Date[] = [];
+
+      dates.forEach(element => {
+        uniqueDates = [];
+        let date = new Date(element);
         for(let item of eventsList.filter(item => item.startdate.getDate() == date.getDate() && item.startdate.getMonth() == date.getMonth())){
           let event: Event = item;
             if(!uniqueDates.find(item => item.getTime() === event.startdate.getTime() )){
                 uniqueDates.push(event.startdate);
             }
         }
-      uniqueDates.sort(function(a,b){return a.getTime() - b.getTime()});
-      return uniqueDates;
+        allDates = allDates.concat(uniqueDates);
+        })
+      //uniqueDates.sort(function(a,b){return a.getTime() - b.getTime()});
+      return allDates;
+
+
     }
+    
     else{
         return null;
     }

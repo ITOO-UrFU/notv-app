@@ -39,7 +39,7 @@
 
 <div *ngIf="uniqueTimes">
   <select multiple="multiple" [ngModel]="selectedTime" (ngModelChange)="funcSelectedTime($event)">
-      <option *ngFor="let i of uniqueTimes" [ngValue]="i">{{i | date:'shortTime'}}</option>
+      <option *ngFor="let i of uniqueTimes" [ngValue]="i">{{i | date:'short'}}</option>
   </select>
 </div>
 

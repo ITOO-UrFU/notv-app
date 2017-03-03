@@ -15,9 +15,7 @@ export class EventListComponent implements OnInit {
   conferenceDates: Date[] = [];
   selectedDay: any;
   selectedTime: any;
-
   uniqueTimes: any[];
-
   currentEvents: Event[];
 
   constructor(private router:Router, private eventsService: EventsService) { }
@@ -33,13 +31,13 @@ export class EventListComponent implements OnInit {
 
 
   funcSelectedDay(value){
-    this.currentEvents = [];
-    this.uniqueTimes = this.eventsService.getUniqueTimesByDay(new Date(value));
+    //this.currentEvents = [];
+    this.uniqueTimes = this.eventsService.getUniqueTimesByDay(value);
     //console.log(this.uniqueTimes);
   }
 
   funcSelectedTime(value){
-    this.currentEvents = this.eventsService.getEventsByDayTimes(new Date(value));
+    this.currentEvents = this.eventsService.getEventsByDayTimes(value);
     //console.log(this.currentEvents);
 
   }
