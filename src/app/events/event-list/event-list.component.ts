@@ -17,6 +17,7 @@ export class EventListComponent implements OnInit {
   selectedTime: any;
   uniqueTimes: any[];
   currentEvents: Event[];
+  timeGrid: any;
 
   constructor(private router:Router, private eventsService: EventsService) { }
 
@@ -25,6 +26,8 @@ export class EventListComponent implements OnInit {
           .subscribe(eventsList => { 
             this.eventsList = eventsList;
             this.conferenceDates = this.getUniqueDates(eventsList);
+            this.timeGrid = this.eventsService.getEventsObject();
+            console.log(this.timeGrid);
         }
       );
   }
@@ -43,6 +46,11 @@ export class EventListComponent implements OnInit {
   }
 
 
+
+  test(){
+    let lol: any = this.eventsService.getEventsObject();
+    console.log(lol);
+  }
 
 
  // передаем список событий

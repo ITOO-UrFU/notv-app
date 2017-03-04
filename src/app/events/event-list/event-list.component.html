@@ -31,6 +31,7 @@
 
 
 
+<!--<button (click)="test()" >Button</button>
 <div *ngIf="eventsList">
   <select multiple="multiple" [ngModel]="selectedDay" (ngModelChange)="funcSelectedDay($event)">
       <option *ngFor="let i of conferenceDates" [ngValue]="i">{{i | date:'yMMMMd'}}</option>
@@ -49,13 +50,28 @@
               <p>{{event.title}}</p>
          <p>{{event.description}}</p> 
             <p>{{event.startdate | date:'yMMMdjms'}} <p>  
-        <!--<div>
-           <div *ngIf="event.users.length != 0">
-             <p>Спикеры: </p>
-              <div *ngFor="let user of event.users">
-                      <p>{{user.person.first_name}} {{user.person.last_name}}</p>
-                      <p>{{user.person.organisation}}, {{user.person.position}}</p>
-              </div>
-            </div>
-        </div>-->
+</div>-->
+
+
+<div *ngIf="timeGrid">
+    <div *ngFor="let day of timeGrid | eventsByDate">
+            {{day.key}}
+
+    <div style="width: 1000px; border: 1px solid black;">
+        <template ngFor let-time [ngForOf]="day.val | eventsByDate" let-ii="index">
+            <div style="border: 1px solid black;">
+                <div style="display: inline-block; width: 200px;"> -{{time.key}}</div>
+                <div style="display: inline-block; width: 600px;">
+                   
+                       <template ngFor let-event [ngForOf]="time.val" let-i="index" >
+                           <div [style.width] = "600/time.val.length-5 + 'px'" style="display: inline-block;"> 
+                            {{event.title}} {{time.val.length}}
+                              </div>
+                      </template>
+                   
+                </div>
+             </div>
+        </template>
+    </div>
+    </div>
 </div>

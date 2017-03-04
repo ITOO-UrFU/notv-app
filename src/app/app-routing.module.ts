@@ -14,10 +14,7 @@ const routes: Routes = [
         path: 'events',
         component: EventListComponent,
         children: [
-          {
-            path: ':id',
-            component: PageComponent,
-          }
+          
         ]
       },
       

@@ -27,18 +27,36 @@ export class EventsService {
     return this.http.get(this.eventsUrl)
                     .map(this.extractEvents)
                     .catch(this.handleError);
-                    
   }
 
-  /*
-  getEventsByTime(date: Date): Event[]{
 
-    if(eventsList){
-      return eventsList.filter(item => item.startdate.getDate() == date.getDate() && item.startdate.getMonth() == date.getMonth());
-    }
-    return null;
+  getEventsObject(): any{
+      let object:any =  {};
+      let arr = [];
+      eventsList.map(element => {return element.startdate}).forEach(element => {
+        if(arr.map(el => el.toString()).indexOf(element.toString()) == -1) { 
+          if(object[element.getDate()] == undefined){ object[element.getDate()] = []};
+          object[element.getDate()].push(element);
+          
+          arr.push(element) 
+        }
+      });
+      object={};
+      eventsList.forEach(element => {
+        if(object[element.startdate.getDate()] == undefined){ object[element.startdate.getDate()] = {}}
+        if(object[element.startdate.getDate()][element.startdate.getHours()+':'+element.startdate.getMinutes()] == undefined){
+          object[element.startdate.getDate()][element.startdate.getHours()+':'+element.startdate.getMinutes()] =[]
+        }
+        object[element.startdate.getDate()][element.startdate.getHours()+':'+element.startdate.getMinutes()].push(element)
+      });
+      
+
+      //console.log(object)
+
+      return object; 
+
+    //  eventsList
   }
-  */
 
   getEventsByDayTimes(dates: any): Event[]{
     let list:Event[] = [];
