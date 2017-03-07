@@ -58,7 +58,7 @@ export class NavComponent implements OnInit {
  
       })
 
- // console.log(this.listUrl);  
+console.log(this.listUrl);  
 }
 
 }

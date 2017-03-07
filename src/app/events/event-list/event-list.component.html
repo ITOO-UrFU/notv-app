@@ -64,11 +64,12 @@
                        <template ngFor let-event [ngForOf]="time.val" let-i="index" >
                            <div class="event-time-{{time.val.length}}">
                               <strong>{{event.title}}</strong>
-                                <strong>{{event.users.length}}</strong>
-                                <p *ngFor="let user of event.val.users | eventsByDate">
-                                        {{user.val.first_name}}
-                                </p>
-                               
+                              
+                            <div *ngIf="event.users.length">
+                                <p *ngFor="let user of event.users"> 
+                                       {{user.person.first_name}} {{user.person.last_name}}
+                                   </p>
+                            </div>
                            </div>
                       </template>
                 </div>
