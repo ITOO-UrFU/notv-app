@@ -1,0 +1,12 @@
+$menu-color: black;
+$menu-color-text: white;
+
+
+$events_container_width: 1000px;
+$event_height: 100px;
+$time_item_width:  0px;
+$events_at_time_width:($events_container_width - $time_item_width);
+
+$event_item_margin: 10px;
+$event_item_padding: 8px;
+$event_left_border: 8px;

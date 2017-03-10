@@ -1,0 +1,7 @@
+
+<div *ngIf="homePage">
+   {{homePage.html}}
+  <div *ngFor="let page of homePage.pages">
+        <div class="{{page.slug}}" [innerHTML]="page.html"></div>
+  </div>
+</div>

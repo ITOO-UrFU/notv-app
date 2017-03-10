@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from 'app/app.component';
 import { PageComponent } from 'app/page/page.component'
 import { EventListComponent } from 'app/events/event-list/event-list.component';
+import { HomePageComponent } from 'app/home-page/home-page.component';
 
 const routes: Routes = [
   
@@ -17,6 +18,13 @@ const routes: Routes = [
           
         ]
       },
+       {
+        path: 'home',
+        component: HomePageComponent,
+        children: [
+ 
+        ]
+      },
       
       {
         path:':id',
@@ -25,7 +33,11 @@ const routes: Routes = [
           {
             path: ':id',
             component: PageComponent,
-          }
+          },
+          /*{
+           path: 'home',
+           component: HomePageComponent
+          }*/
         ]
       }
     ]

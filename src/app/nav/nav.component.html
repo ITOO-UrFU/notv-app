@@ -4,9 +4,12 @@
 <label class="button-nav" (click)="toggleMenuVisible()"></label>
     <ul class="menu" [ngClass]="{showed: showMenu}">
         <li [routerLinkActive]="['active']" class="item" *ngFor="let url of listUrl" (click)="toggleMenuVisible(true)">
-            <a [routerLink]="url.url"> {{ url.title }} </a>
+            
+            <a *ngIf=" url.type == 'header' " [routerLink]="[url.url, url.underpage[0].url]"> {{ url.title }} </a>
+            <a *ngIf="url.type != 'header' " [routerLink]="url.url"> {{ url.title }} </a>
+            
           
-            <ul class="submenu" *ngIf="url.underpage">
+            <ul class="submenu" *ngIf="url.underpage && url.type != 'homepage'">
                 <li [routerLinkActive]="['active_sub']" class="subitem" *ngFor="let url2 of url.underpage" (click)="toggleMenuVisible(true)">
                     <a [routerLink]="[url.url, url2.url]">{{ url2.title }}</a>
                 </li>

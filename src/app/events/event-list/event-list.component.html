@@ -54,21 +54,24 @@
 <div *ngIf="timeGrid" class="events-container">
 
     <div *ngFor="let day of timeGrid | eventsByDate" class="day-container">
-         <div class="conference-date">   {{day.key}} апреля, 2017 </div>
-
+         <!-- <div class="conference-date">   {{day.key}} апреля, 2017 </div> -->
+        
     <div>
         <template ngFor let-time [ngForOf]="day.val | eventsByDate" let-ii="index">
             <div class="time-container">
-                <div class="time-item" > {{time.key}}</div>
+                <!-- <div class="time-item" > {{time.key}}</div> -->
                 <div class="events-at-day">
                        <template ngFor let-event [ngForOf]="time.val" let-i="index" >
-                           <div class="event-time-{{time.val.length}}">
-                              <strong>{{event.title}}</strong>
+                          <!-- <div class="event-time-{{time.val.length}} {{event.eventtype}}"> -->
+                          <div class="event-time-1 {{event.eventtypeid}}">
+                             <p *ngIf="event.eventtype" class="eventtype-name"> {{event.eventtype}} <br /> </p>
+                              <strong>{{event.title}} </strong>
                               
                             <div *ngIf="event.users.length">
-                                <p *ngFor="let user of event.users"> 
-                                       {{user.person.first_name}} {{user.person.last_name}}
-                                   </p>
+                                <div *ngFor="let user of event.users" class="event-speakers"> 
+                                    <img  class="event-speakers-photo" src="http://placehold.it/150x150" />
+                                    <p class="event-speakers-name">  {{user.person.first_name}} {{user.person.last_name}}   </p>
+                                </div>
                             </div>
                            </div>
                       </template>

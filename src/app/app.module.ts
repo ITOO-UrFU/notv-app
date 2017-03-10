@@ -16,13 +16,18 @@ import { EventListComponent } from './events/event-list/event-list.component';
 import { EventsService } from 'app/events/events.service';
 import { EventsFilterPipe } from 'app/events/events.filter';
 
+import { HomePageComponent } from './home-page/home-page.component';
+import { HomePageService } from './home-page/home-page.service';
+
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     PageComponent,
     EventListComponent,
-    EventsFilterPipe
+    EventsFilterPipe,
+    HomePageComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -30,13 +35,13 @@ import { EventsFilterPipe } from 'app/events/events.filter';
     HttpModule,
     AppRoutingModule,
     MaterialModule.forRoot(),
-    TranslateModule.forRoot()
-
+    TranslateModule.forRoot(),
   ],
  // exports:[TranslateModule],
   providers: [
     PageService, 
     EventsService,
+    HomePageService,
    { 
       provide: LOCALE_ID, 
      //  useValue: "en-EN" 

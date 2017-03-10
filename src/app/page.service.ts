@@ -48,14 +48,14 @@ export class PageService {
     let body = res.json();
     let pages: Page[] = [];
     for (let i = 0; i < body.length; i++) {
-          pages.push(new Page(body[i].slug, body[i].html, body[i].keywords, body[i].pages, body[i].title ));
+          pages.push(new Page(body[i].slug, body[i].html, body[i].keywords, body[i].pages, body[i].title, body[i].type ));
     }
     return pages;
   }
 
   private extractPage(res: Response) {
     let body = res.json();
-    return (new Page(body.slug, body.html, body.keywords, body.pages, body.title ));
+    return (new Page(body.slug, body.html, body.keywords, body.pages, body.title, body.type ));
   }
 
   private handleError (error: Response | any) {

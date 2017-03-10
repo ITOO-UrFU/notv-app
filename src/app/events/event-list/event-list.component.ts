@@ -19,6 +19,10 @@ export class EventListComponent implements OnInit {
   currentEvents: Event[];
   timeGrid: any;
 
+  eventsTypes:{
+    
+  }
+
   constructor(private router:Router, private eventsService: EventsService) { }
 
   ngOnInit() {

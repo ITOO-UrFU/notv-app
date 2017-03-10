@@ -44,16 +44,18 @@ export class NavComponent implements OnInit {
                 array.push({ url: element.slug, title: element.title ? element.title : element.slug })
               })
               
-              this.listUrl.push({ url: element.slug, title: element.title ? element.title : element.slug, underpage: array })
+              this.listUrl.push({ url: element.slug, title: element.title ? element.title : element.slug, underpage: array, type: element.type })
             }
-            else this.listUrl.push({ url: element.slug, title: element.title ? element.title : element.slug, underpage: false  })
+            else this.listUrl.push({ url: element.slug, title: element.title ? element.title : element.slug, underpage: false, type: element.type  })
           });
 
 
           this.activeUrl = this.listUrl.filter(item => item.url == this.router.url.split("/")[1])[0];
           
-        //  console.log(this.activeUrl)
-          
+         //console.log(this.activeUrl)
+         /*if(this.activeUrl.underpage.length>0){
+           this.router.navigate([this.activeUrl.url+'/'+]);
+         }*/
       // this.listUrl.push({ url: 'events', title: 'Мероприятия' })
  
       })
