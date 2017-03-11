@@ -1,7 +1,23 @@
 
 <div *ngIf="homePage">
-   {{homePage.html}}
+   
   <div *ngFor="let page of homePage.pages">
-        <div class="{{page.slug}}" [innerHTML]="page.html"></div>
+
+
+
+<div *ngIf="page.slug=='slider'">
+<carousel>
+
+<div class="slide" [innerHTML]="page.html">
+</div>
+  <div class="slide">
+    <img src="assets/images/nature/2.jpg" alt="Second slide">
+
   </div>
+
+</carousel>
+
+  </div>
+<!--        <div class="{{page.slug}}" [innerHTML]="page.html"></div> -->
+
 </div>

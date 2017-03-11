@@ -65,12 +65,16 @@
                           <!-- <div class="event-time-{{time.val.length}} {{event.eventtype}}"> -->
                           <div class="event-time-1 {{event.eventtypeid}}">
                              <p *ngIf="event.eventtype" class="eventtype-name"> {{event.eventtype}} <br /> </p>
-                              <strong>{{event.title}} </strong>
+                              <p><strong>{{event.title}} </strong></p>
                               
                             <div *ngIf="event.users.length">
+                                Спикеры:
                                 <div *ngFor="let user of event.users" class="event-speakers"> 
-                                    <img  class="event-speakers-photo" src="http://placehold.it/150x150" />
-                                    <p class="event-speakers-name">  {{user.person.first_name}} {{user.person.last_name}}   </p>
+                                    <div class="event-speaker">
+                                        <img  class="event-speakers-photo" src="http://placehold.it/150x150" />
+                                        <p class="event-speakers-name">{{user.person.first_name}} {{user.person.last_name}}</p>
+                                      <!--  <p *ngIf="user.person.position" class="event-speakers-position"> {{user.person.position}} </p> -->
+                                    </div>
                                 </div>
                             </div>
                            </div>

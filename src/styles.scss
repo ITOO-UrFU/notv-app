@@ -1,5 +1,6 @@
 @import "scss/_variables.scss";
 @import "scss/_normalize.scss";
+@import "scss/_carousel.scss";
 
 .time-container{
    display: inline-block;
@@ -7,13 +8,23 @@
 .day-container{
     float: left;
 }
-.event-speakers{
+.event-speaker{
    /* display: inline-block;*/
 }
 
 img.event-speakers-photo{
-    width: 30px;
+    width: 40px;
+    display: inline-block;
+    vertical-align: middle;
     border-radius: 50%;
+}
+.event-speakers-name{
+    display: inline-block;
+    vertical-align: middle;
+}
+.event-speakers-position{
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .time-item{
