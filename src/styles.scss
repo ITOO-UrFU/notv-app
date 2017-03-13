@@ -64,8 +64,13 @@ img.event-speakers-photo{
     font-size: 10pt;
 }
 
+
 .eventtype-empty{
     border-left: $event_left_border solid grey;
+}
+
+.eventtype-working_group{
+        border-left: $event_left_border solid #36e654;
 }
 .eventtype-plenar{
     border-left: $event_left_border solid cornflowerblue;

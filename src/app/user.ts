@@ -13,5 +13,5 @@ export class User {
         this.second_name = second_name;
         this.biography = biography;
         this.alt_email = alt_email
-
+    }
 }

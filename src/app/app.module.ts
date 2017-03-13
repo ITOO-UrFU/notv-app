@@ -14,12 +14,12 @@ import { MaterialModule } from '@angular/material';
 import {TranslateModule} from "ng2-translate";
 import { EventListComponent } from './events/event-list/event-list.component';
 import { EventsService } from 'app/events/events.service';
-import { EventsFilterPipe } from 'app/events/events.filter';
+import { eventsToObjectPipe } from 'app/events/events.filter';
 
 import { HomePageComponent } from './home-page/home-page.component';
 import { HomePageService } from './home-page/home-page.service';
-
-//import { CarouselModule } from './carousel/carousel.module';
+import { SpeakersListComponent } from './speakers/speakers-list/speakers-list.component';
+import { SpeakersService } from './speakers/speakers.service';
 
 @NgModule({
   declarations: [
@@ -27,8 +27,9 @@ import { HomePageService } from './home-page/home-page.service';
     NavComponent,
     PageComponent,
     EventListComponent,
-    EventsFilterPipe,
+    eventsToObjectPipe,
     HomePageComponent,
+    SpeakersListComponent,
 
   ],
   imports: [
@@ -38,13 +39,14 @@ import { HomePageService } from './home-page/home-page.service';
     AppRoutingModule,
     MaterialModule.forRoot(),
     TranslateModule.forRoot(),
-  //  CarouselModule.forRoot(),
+
   ],
- // exports:[TranslateModule],
+
   providers: [
     PageService, 
     EventsService,
     HomePageService,
+    SpeakersService,
    { 
       provide: LOCALE_ID, 
      //  useValue: "en-EN" 

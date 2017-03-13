@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { EventsService } from 'app/events/events.service';
 import { Router, Routes } from '@angular/router';
 import { Event } from 'app/events/event';
@@ -19,6 +19,8 @@ export class EventListComponent implements OnInit {
   currentEvents: Event[];
   timeGrid: any;
 
+@Input() typeFilter: string = '';
+
   eventsTypes:{
     
   }
@@ -30,8 +32,8 @@ export class EventListComponent implements OnInit {
           .subscribe(eventsList => { 
             this.eventsList = eventsList;
             this.conferenceDates = this.getUniqueDates(eventsList);
-            this.timeGrid = this.eventsService.getEventsObject();
-            console.log(this.timeGrid);
+            this.timeGrid = this.eventsService.getEventsObject(this.typeFilter);
+            console.log("this.timeGrid", this.timeGrid);
         }
       );
   }
@@ -48,14 +50,7 @@ export class EventListComponent implements OnInit {
     //console.log(this.currentEvents);
 
   }
-
-
-
-  test(){
-    let lol: any = this.eventsService.getEventsObject();
-    console.log(lol);
-  }
-
+ 
 
  // передаем список событий
  // получаем отсортированный список дат, когда есть события

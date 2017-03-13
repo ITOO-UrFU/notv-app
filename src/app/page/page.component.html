@@ -14,6 +14,12 @@
         <div [innerHTML]="page.html"></div>
       </div>
     </div>
+
+
+<div *ngIf="page.type=='events'">
+  <app-event-list [typeFilter]="page.slug"></app-event-list>
+</div>
+
   </div>
 </div>
 

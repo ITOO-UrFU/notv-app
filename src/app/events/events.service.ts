@@ -29,11 +29,26 @@ export class EventsService {
                     .catch(this.handleError);
   }
 
+  getEventsByType(type: string): any[]{
+    console.log("eventsList",eventsList);
+    if(type=="" || type==undefined){
+        return eventsList;
+    }
+    else {
+      let arr = eventsList.filter(event => { return event.eventtypeid == "eventtype-"+type })
+      return arr;
+    }
+  }
 
-  getEventsObject(): any{
+  getEventsObject(type: string): any{
       let object:any =  {};
       let arr = [];
-      eventsList.map(element => {return element.startdate}).forEach(element => {
+
+      let eventListFiltered = this.getEventsByType(type);
+
+      console.log("eventListFiltered",eventListFiltered);
+
+      eventListFiltered.map(element => {return element.startdate}).forEach(element => {
         if(arr.map(el => el.toString()).indexOf(element.toString()) == -1) { 
           if(object[element.getDate()] == undefined){ object[element.getDate()] = []};
           object[element.getDate()].push(element);
@@ -42,22 +57,18 @@ export class EventsService {
         }
       });
       object={};
-      eventsList.forEach(element => {
+      eventListFiltered.forEach(element => {
         if(object[element.startdate.getDate()] == undefined){ object[element.startdate.getDate()] = {}}
         if(object[element.startdate.getDate()][element.startdate.getHours()+':'+element.startdate.getMinutes()] == undefined){
           object[element.startdate.getDate()][element.startdate.getHours()+':'+element.startdate.getMinutes()] =[]
         }
         object[element.startdate.getDate()][element.startdate.getHours()+':'+element.startdate.getMinutes()].push(element)
       });
-      
-
-
-      //console.log(object)
-
+  
       return object; 
-
-    //  eventsList
   }
+
+
 
   getEventsByDayTimes(dates: any): Event[]{
     let list:Event[] = [];

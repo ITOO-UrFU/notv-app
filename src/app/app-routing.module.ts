@@ -5,12 +5,19 @@ import { AppComponent } from 'app/app.component';
 import { PageComponent } from 'app/page/page.component'
 import { EventListComponent } from 'app/events/event-list/event-list.component';
 import { HomePageComponent } from 'app/home-page/home-page.component';
+import { SpeakersListComponent } from 'app/speakers/speakers-list/speakers-list.component';
 
 const routes: Routes = [
   
   {
     path:'',
     children:[
+      {
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full'
+
+      },
       {
         path: 'events',
         component: EventListComponent,
@@ -25,7 +32,14 @@ const routes: Routes = [
  
         ]
       },
-      
+      {
+        path: 'speakers',
+        component: SpeakersListComponent,
+        children: [
+          
+        ]
+      },
+
       {
         path:':id',
         component: PageComponent,
@@ -41,6 +55,7 @@ const routes: Routes = [
         ]
       }
     ]
+
   },
   
 ];
