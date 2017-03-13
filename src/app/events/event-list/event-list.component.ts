@@ -40,14 +40,11 @@ export class EventListComponent implements OnInit {
 
 
   funcSelectedDay(value){
-    //this.currentEvents = [];
     this.uniqueTimes = this.eventsService.getUniqueTimesByDay(value);
-    //console.log(this.uniqueTimes);
   }
 
   funcSelectedTime(value){
     this.currentEvents = this.eventsService.getEventsByDayTimes(value);
-    //console.log(this.currentEvents);
 
   }
  
@@ -61,14 +58,11 @@ export class EventListComponent implements OnInit {
             if(!uniqueDates.find(item => item.getDate() === event.startdate.getDate() && item.getMonth() === event.startdate.getMonth() )){
                 uniqueDates.push(event.startdate);
             }
-
             /*if(!uniqueDates.find(item => item.getTime() == event.startdate.getTime() )){
                 uniqueDates.push(event.startdate);
             }*/
-
         }
     uniqueDates.sort(function(a,b){return a.getTime() - b.getTime()});
-    //console.log(uniqueDates);
     return uniqueDates;
   }
 
