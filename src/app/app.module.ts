@@ -19,7 +19,7 @@ import { EventsFilterPipe } from 'app/events/events.filter';
 import { HomePageComponent } from './home-page/home-page.component';
 import { HomePageService } from './home-page/home-page.service';
 
-import { CarouselModule } from './carousel/carousel.module';
+//import { CarouselModule } from './carousel/carousel.module';
 
 @NgModule({
   declarations: [
@@ -38,7 +38,7 @@ import { CarouselModule } from './carousel/carousel.module';
     AppRoutingModule,
     MaterialModule.forRoot(),
     TranslateModule.forRoot(),
-    CarouselModule.forRoot(),
+  //  CarouselModule.forRoot(),
   ],
  // exports:[TranslateModule],
   providers: [

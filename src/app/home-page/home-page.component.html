@@ -1,23 +1,24 @@
 
+<div *ngIf="slides">
+  <div class="home-slider"> 
+    <div class="slides-wrap">
+      <div *ngFor="let slide of slides" class="home-slide" [ngClass]="{'active': slide.active}" >
+              <div [innerHTML]="slide.html"></div> 
+      </div>
+    </div>
+    <div class="prev-button" (click)="prevSlide()">prev</div>
+    <div class="next-button" (click)="nextSlide()">next</div> 
+  </div>
+</div>
+
 <div *ngIf="homePage">
-   
-  <div *ngFor="let page of homePage.pages">
-
-
-
-<div *ngIf="page.slug=='slider'">
-<carousel>
-
-<div class="slide" [innerHTML]="page.html">
-</div>
-  <div class="slide">
-    <img src="assets/images/nature/2.jpg" alt="Second slide">
-
+  <div *ngFor="let block of homePage.pages">
+    <div *ngIf="block.type=='block'" class="home-block">
+      <div [innerHTML]="block.html"></div> 
+    </div>
   </div>
-
-</carousel>
-
-  </div>
-<!--        <div class="{{page.slug}}" [innerHTML]="page.html"></div> -->
-
 </div>
+
+
+
+
