@@ -1,6 +1,6 @@
 
 <div *ngIf="slides">
-  <div class="home-slider"> 
+  <div class="home-slider"  (mouseleave)="startSlider()" (mouseover)="pauseSlider()"> 
     <div class="slides-wrap">
       <div *ngFor="let slide of slides" class="home-slide" [ngClass]="{'active': slide.active}" >
               <div [innerHTML]="slide.html"></div> 

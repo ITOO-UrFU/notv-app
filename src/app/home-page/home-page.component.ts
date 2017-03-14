@@ -1,31 +1,24 @@
 import { Component, OnInit, AfterViewInit  } from '@angular/core';
 import { HomePageService } from 'app/home-page/home-page.service';
 import { Router, Routes } from '@angular/router';
-//import { CarouselConfig } from 'app/carousel/carousel.config';
+
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss'],
- /* providers: [
-      {
-        provide: CarouselConfig, 
-        useValue: {interval: 30000, noPause: true}
-      }
-    ]*/
 })
-export class HomePageComponent implements OnInit, AfterViewInit  {
+
+export class HomePageComponent implements OnInit  {
 
  homePage: any;
  public slides: any[] = [];
+ sliderTimeOut:any;
+ public sliderInterval = 5000; //in ms
 
   constructor(private router:Router, private homepageService: HomePageService) {
 
    }
-
-  ngAfterViewInit() {
-  // console.log(document.querySelectorAll(".slide"));
-  }
 
   ngOnInit() {
             this.homepageService.getHomePage()
@@ -38,12 +31,23 @@ export class HomePageComponent implements OnInit, AfterViewInit  {
               this.slides.push(element);
             });
             this.slides[0].active= true;
-
-            setInterval(() =>this.nextSlide(), 5000);
+            this.startSlider();
+           
         })
   }
 
+startSlider(){
+    console.log("start slider!");
+ this.sliderTimeOut =  setInterval(() => { this.nextSlide(); }, this.sliderInterval);
+}
+
+pauseSlider(){
+  console.log("pause slider!");
+  clearTimeout(this.sliderTimeOut);
+}
+
 nextSlide(){
+      console.log("next slide");
       let currentSlide = this.slides.map(x => x.active).indexOf(true);
       this.slides[currentSlide].active = false;
       if(currentSlide == this.slides.length - 1){
@@ -55,6 +59,7 @@ nextSlide(){
 }
 
 prevSlide(){
+      console.log("prev slide");
       let currentSlide = this.slides.map(x => x.active).indexOf(true);
       this.slides[currentSlide].active = false;
       if(currentSlide == 0){

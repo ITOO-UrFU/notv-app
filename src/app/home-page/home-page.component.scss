@@ -3,10 +3,10 @@
 div.active{
     z-index: 2;
      display: block !important;
-    -webkit-animation: fadeInFromNone 0.5s ease-out;
-    -moz-animation: fadeInFromNone 0.5s ease-out;
-    -o-animation: fadeInFromNone 0.5s ease-out;
-    animation: fadeInFromNone 0.5s ease-out;
+    -webkit-animation: fadeInFromNone 0.1s ease-out;
+    -moz-animation: fadeInFromNone 0.1s ease-out;
+    -o-animation: fadeInFromNone 0.1s ease-out;
+    animation: fadeInFromNone 0.1s ease-out;
 }
 
 @-webkit-keyframes fadeInFromNone {

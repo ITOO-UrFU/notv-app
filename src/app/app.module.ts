@@ -21,6 +21,7 @@ import { HomePageService } from './home-page/home-page.service';
 import { SpeakersListComponent } from './speakers/speakers-list/speakers-list.component';
 import { SpeakersService } from './speakers/speakers.service';
 import { EventComponent } from 'app/events/event/event.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { EventComponent } from 'app/events/event/event.component';
     HomePageComponent,
     SpeakersListComponent,
     EventComponent,
+    FooterComponent,
 
   ],
   imports: [
