@@ -1,6 +1,4 @@
 
-<div>{{typeFilter}}</div>
-
 <div *ngIf="timeGrid" class="events-container">
 
     <div *ngFor="let day of timeGrid | eventsToObject" class="day-container">
@@ -15,7 +13,7 @@
                           <!-- <div class="event-time-{{time.val.length}} {{event.eventtype}}"> -->
                           <div class="event-time-1 {{event.eventtypeid}}">
                              <p *ngIf="event.eventtype" class="eventtype-name"> {{event.eventtype}} <br /> </p>
-                              <p><strong>{{event.title}} </strong></p>
+                              <p class="event-title" (click)="toEvent(event)"><strong>{{event.title}} </strong></p>
                               
                             <div *ngIf="event.users.length">
                                 Спикеры:

@@ -20,6 +20,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { HomePageService } from './home-page/home-page.service';
 import { SpeakersListComponent } from './speakers/speakers-list/speakers-list.component';
 import { SpeakersService } from './speakers/speakers.service';
+import { EventComponent } from 'app/events/event/event.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { SpeakersService } from './speakers/speakers.service';
     eventsToObjectPipe,
     HomePageComponent,
     SpeakersListComponent,
+    EventComponent,
 
   ],
   imports: [

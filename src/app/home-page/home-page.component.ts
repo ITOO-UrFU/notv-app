@@ -39,18 +39,18 @@ export class HomePageComponent implements OnInit, AfterViewInit  {
             });
             this.slides[0].active= true;
 
-            setInterval(() =>this.nextSlide(), 300000);
+            setInterval(() =>this.nextSlide(), 5000);
         })
   }
 
 nextSlide(){
       let currentSlide = this.slides.map(x => x.active).indexOf(true);
       this.slides[currentSlide].active = false;
-      if(currentSlide == this.slides.length-1){
+      if(currentSlide == this.slides.length - 1){
         this.slides[0].active = true;
       }
       else{
-        this.slides[currentSlide+1].active = true;
+        this.slides[currentSlide + 1].active = true;
       }
 }
 
@@ -58,10 +58,10 @@ prevSlide(){
       let currentSlide = this.slides.map(x => x.active).indexOf(true);
       this.slides[currentSlide].active = false;
       if(currentSlide == 0){
-        this.slides[this.slides.length-1].active = true;
+        this.slides[this.slides.length - 1].active = true;
       }
       else{
-        this.slides[currentSlide-1].active = true;
+        this.slides[currentSlide - 1].active = true;
       }
 }
 

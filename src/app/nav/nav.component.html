@@ -14,7 +14,7 @@
                 <li [routerLinkActive]="['active_sub']" class="subitem" *ngFor="let url2 of url.underpage" (click)="toggleMenuVisible(true)">
    
                     <a [routerLink]="[url.url, url2.url]">
-                         <img class="subitem-icon" src="assets/images/{{url2.url}}_icon.svg" />
+                         <img class="subitem-icon" src="assets/images/icons/{{url2.url}}_icon.svg" />
                         <span>{{ url2.title }}</span>
                     </a>
                 </li>

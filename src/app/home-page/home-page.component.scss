@@ -105,7 +105,6 @@ div.active{
 }
 
 .next-button{
-
     top: 50%;
     transform: translate(0%,-50%);
     -ms-transform: translate(0%,-50%);
@@ -134,11 +133,14 @@ div.next-button:hover, div.prev-button:hover {
     width: 100% !important;
 }
 
+
+
 :host /deep/ .slide-text{
     position: absolute;
     width: 100%;
     text-align: center;
     bottom: 0;
+    font-size: 3vw;
     background: rgba(0,0,0,0.1);
     max-height: 50%;
     background: rgba(0, 0, 0, 0.8);
@@ -147,11 +149,36 @@ div.next-button:hover, div.prev-button:hover {
 }
 
 .home-block{
-
     text-align: center;
-    margin: 20px;
     min-height: 500px;
     background: rgba(0,0,0,0.1);
-
-
 }
+
+:host /deep/ .slide-text h1{
+    font-size: 3vw;
+    margin: 0.25em;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    div.next-button,div.prev-button {
+	height:50px;
+    }
+    .next-button{
+	    background: #000 url('https://lh4.googleusercontent.com/-JN1IZLtuToI/UUoZnMG3C_I/AAAAAAAAAE8/SEbJ9nqXGnY/s226/sprite.png') no-repeat -167px 6px;
+    }
+    .prev-button{
+        background: #000 url('https://lh4.googleusercontent.com/-JN1IZLtuToI/UUoZnMG3C_I/AAAAAAAAAE8/SEbJ9nqXGnY/s226/sprite.png') no-repeat -200px 6px;
+    }
+    .home-block{
+        margin: 5px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .home-block{
+        margin: 20px;
+    }
+}
+

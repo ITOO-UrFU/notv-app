@@ -29,14 +29,29 @@ export class EventsService {
                     .catch(this.handleError);
   }
 
+  getEvent(id: string): Observable<Event> {
+    return this.http.get(this.eventsUrl + "/" + id)
+                    .map(this.extractEvent)
+                    .catch(this.handleError);
+  }
+
+private extractEvent(res: Response):Event {
+    let body = res.json();
+    let eventTypeClass = "eventtype-empty";
+    if(body.get_event_slug != null){ eventTypeClass = "eventtype-" + body.get_event_slug; }
+    let event:Event = new Event(body.id, body.title, body.description, body.get_users, new Date(body.startdate), body.enddate, eventTypeClass, body.get_type_display); 
+    return event;
+  }
+
   getEventsByType(type: string): any[]{
-    console.log("eventsList",eventsList);
-    if(type=="" || type==undefined){
-        return eventsList;
-    }
-    else {
-      let arr = eventsList.filter(event => { return event.eventtypeid == "eventtype-"+type })
-      return arr;
+    if(eventsList){
+        if(type=="" || type==undefined){
+            return eventsList;
+        }
+        else {
+          let arr = eventsList.filter(event => { return event.eventtypeid == "eventtype-" + type })
+          return arr;
+        }
     }
   }
 

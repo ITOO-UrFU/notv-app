@@ -8,12 +8,30 @@
 
 */
 
+.event-block{
+    //padding-top: $menu-height;
+}
+
+html{
+    overflow-y: scroll;
+}
+
+header{
+	height: 46px;
+}
+
+.static-page{
+    text-align:center;
+   // padding-top: $menu-height;
+}
+
 .time-container{
    display: inline-block;
 }
 .day-container{
     float: left;
 }
+
 .event-speaker{
    /* display: inline-block;*/
 }
@@ -24,10 +42,12 @@ img.event-speakers-photo{
     vertical-align: middle;
     border-radius: 50%;
 }
+
 .event-speakers-name{
     display: inline-block;
     vertical-align: middle;
 }
+
 .event-speakers-position{
     display: inline-block;
     vertical-align: middle;
@@ -41,6 +61,7 @@ img.event-speakers-photo{
     height: $event_height;
     font-family: "Open Sans";
 }
+
 .conference-date{
     font-family: "Open Sans";
     text-align: center;
@@ -49,10 +70,12 @@ img.event-speakers-photo{
     background: #f2f2f2;
 
 }
+
 .events-container{
     width: $events_container_width;
     margin: 0 auto;
 }
+
 .events-at-day{
      float: left;
      width: $events_at_time_width;
@@ -75,7 +98,7 @@ img.event-speakers-photo{
 .eventtype-plenar{
     border-left: $event_left_border solid cornflowerblue;
 }
-.eventtype-panel_disc{
+.eventtype-panel_discussion{
     border-left: $event_left_border solid #36e654;
 }
 .eventtype-round_table{
@@ -129,7 +152,7 @@ nav {
     right: 0;
     left: 0;
     margin-bottom: 46px;
-    width: 1024px;
+  //  width: 1024px;
     margin: 0 auto;
 
     -webkit-box-shadow: 0px 0px 6px 0px black;
@@ -137,19 +160,12 @@ nav {
     box-shadow: 0px 0px 6px 0px black;
 
     ul.menu { 
- 
-        //position: relative;
         margin: 0 auto;
-        //height: 46px;
-        //display: block;
         padding: 0px;
         text-align: center;
 
         li.item {
             list-style: none;
-            /*display: block;
-            position: relative;
-            float: left;*/
             display: inline-block;
 
             &:hover {
@@ -157,7 +173,7 @@ nav {
             }
             
             &.active{
-                background-color: rgba(242,242,242,.4);    
+                background-color: rgba(242,242,242,.4);   
             }
             
             &.active ul  {
@@ -199,6 +215,8 @@ nav {
                         a{
                             padding-top: 0px;
                             color: black;
+                            font-size: 11pt;
+                                max-width: 118px;
                         }
                     }
                 }
@@ -346,6 +364,8 @@ nav {
                              padding-top: 0px;
                             display: block;
                             color: black;
+                            font-size: 11pt;
+                                max-width: 118px;
                         }
                     }
                 }

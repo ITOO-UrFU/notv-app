@@ -7,6 +7,8 @@ import { EventListComponent } from 'app/events/event-list/event-list.component';
 import { HomePageComponent } from 'app/home-page/home-page.component';
 import { SpeakersListComponent } from 'app/speakers/speakers-list/speakers-list.component';
 
+import { EventComponent } from 'app/events/event/event.component';
+
 const routes: Routes = [
   
   {
@@ -21,11 +23,25 @@ const routes: Routes = [
       {
         path: 'events',
         component: EventListComponent,
-        children: [
-          
-        ]
+        /*children: [
+          {
+            path: 'event/:id',
+            component: EventComponent,
+          }
+        ]*/
+      },      
+      {
+        path: 'events/event/:id',
+        component: EventComponent,
+        /*children: [
+          {
+            path: 'event/:id',
+            component: EventComponent,
+          }
+        ]*/
       },
-       {
+      
+      {
         path: 'home',
         component: HomePageComponent,
         children: [
@@ -48,10 +64,7 @@ const routes: Routes = [
             path: ':id',
             component: PageComponent,
           },
-          /*{
-           path: 'home',
-           component: HomePageComponent
-          }*/
+
         ]
       }
     ]

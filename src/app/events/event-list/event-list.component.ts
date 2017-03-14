@@ -21,23 +21,32 @@ export class EventListComponent implements OnInit {
 
 @Input() typeFilter: string = '';
 
-  eventsTypes:{
-    
+
+  constructor(private router:Router, private eventsService: EventsService) { 
+      // this.router.events.subscribe(event => {
+      //     console.log(this.typeFilter);
+      //     this.timeGrid = this.eventsService.getEventsObject(this.typeFilter);
+      // });
   }
 
-  constructor(private router:Router, private eventsService: EventsService) { }
-
   ngOnInit() {
+    console.log("EVENT LIST INIT")
         this.eventsService.getEventsList()
           .subscribe(eventsList => { 
             this.eventsList = eventsList;
             this.conferenceDates = this.getUniqueDates(eventsList);
             this.timeGrid = this.eventsService.getEventsObject(this.typeFilter);
-            console.log("this.timeGrid", this.timeGrid);
+            
         }
       );
   }
 
+ngOnChanges(changes: any) {
+    if(this.eventsList){
+      this.timeGrid = this.eventsService.getEventsObject(this.typeFilter);
+      console.log("Changes: ", this.timeGrid);
+    }
+}
 
   funcSelectedDay(value){
     this.uniqueTimes = this.eventsService.getUniqueTimesByDay(value);
@@ -47,7 +56,10 @@ export class EventListComponent implements OnInit {
     this.currentEvents = this.eventsService.getEventsByDayTimes(value);
 
   }
- 
+
+  public toEvent(event: Event) {
+        this.router.navigate(["events", "event", event.id]);
+    }
 
  // передаем список событий
  // получаем отсортированный список дат, когда есть события

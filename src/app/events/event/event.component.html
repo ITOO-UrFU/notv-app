@@ -1,0 +1,21 @@
+<div class="event-block"  *ngIf="currentEvent">
+  <p>{{currentEvent.eventtype}}</p>
+<h2>{{currentEvent.title}}</h2>
+<p [innerHTML]="currentEvent.description"></p>
+
+<p>{{ currentEvent.startdate | date:'medium' }} - {{ currentEvent.enddate | date:'medium' }}</p>
+
+
+  <div *ngIf="currentEvent.users.length">
+      Спикеры:
+      <div *ngFor="let user of currentEvent.users" class="event-speakers"> 
+          <div class="event-speaker">
+              <img  class="event-speakers-photo" src="http://placehold.it/150x150" />
+              <p class="event-speakers-name">{{user.person.first_name}} {{user.person.last_name}}</p>
+            <!--  <p *ngIf="user.person.position" class="event-speakers-position"> {{user.person.position}} </p> -->
+          </div>
+      </div>
+  </div>
+
+</div>
+<button (click)="goBack()"> К списку всех событий</button>
