@@ -8,9 +8,14 @@ import { HomePageComponent } from 'app/home-page/home-page.component';
 import { SpeakersListComponent } from 'app/speakers/speakers-list/speakers-list.component';
 
 import { EventComponent } from 'app/events/event/event.component';
+import { RegistrationComponent } from 'app/registration/registration.component';
+import { LoginComponent } from 'app/login/login.component';
+
+import { UserProfileComponent } from 'app/user-profile/user-profile.component';
+import { AuthGuard } from 'app/_guards/auth.guard'
 
 const routes: Routes = [
-  
+
   {
     path:'',
     children:[
@@ -20,6 +25,24 @@ const routes: Routes = [
         pathMatch: 'full'
 
       },
+
+      { 
+        path: 'profile', 
+      component: UserProfileComponent, 
+      canActivate: [AuthGuard] 
+      },
+    
+      {
+        path: 'login',
+        component: LoginComponent
+
+      },
+            {
+        path: 'register',
+        component: RegistrationComponent
+
+      },
+
       {
         path: 'events',
         component: EventListComponent,

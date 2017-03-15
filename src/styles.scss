@@ -138,7 +138,7 @@ img.event-speakers-photo{
 }
 
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 768px) {
 
 .menu-button{
     display: none;
@@ -225,13 +225,13 @@ nav {
     }
 
 }
-  [type="checkbox"], label {
+  [type="checkbox"], label.button-nav {
 	  display: none;
 }
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
 
 
 nav {

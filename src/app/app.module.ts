@@ -22,6 +22,16 @@ import { SpeakersListComponent } from './speakers/speakers-list/speakers-list.co
 import { SpeakersService } from './speakers/speakers.service';
 import { EventComponent } from 'app/events/event/event.component';
 import { FooterComponent } from './footer/footer.component';
+import { RegistrationComponent } from './registration/registration.component';
+
+import { UserService} from 'app/services/user-service.service';
+import { LoginComponent } from './login/login.component';
+import { AuthenticationService } from 'app/services/authentication.service';
+import { AlertService } from 'app/services/alert.service';
+
+import { AlertComponent } from 'app/directives/alert.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { AuthGuard } from 'app/_guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -34,6 +44,10 @@ import { FooterComponent } from './footer/footer.component';
     SpeakersListComponent,
     EventComponent,
     FooterComponent,
+    RegistrationComponent,
+    LoginComponent,
+    AlertComponent,
+    UserProfileComponent
 
   ],
   imports: [
@@ -51,6 +65,10 @@ import { FooterComponent } from './footer/footer.component';
     EventsService,
     HomePageService,
     SpeakersService,
+    UserService,
+    AuthenticationService,
+    AlertService,
+    AuthGuard,
    { 
       provide: LOCALE_ID, 
      //  useValue: "en-EN" 

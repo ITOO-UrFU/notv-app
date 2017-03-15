@@ -37,17 +37,17 @@ export class HomePageComponent implements OnInit  {
   }
 
 startSlider(){
-    console.log("start slider!");
+  //  console.log("start slider!");
  this.sliderTimeOut =  setInterval(() => { this.nextSlide(); }, this.sliderInterval);
 }
 
 pauseSlider(){
-  console.log("pause slider!");
+  //console.log("pause slider!");
   clearTimeout(this.sliderTimeOut);
 }
 
 nextSlide(){
-      console.log("next slide");
+     // console.log("next slide");
       let currentSlide = this.slides.map(x => x.active).indexOf(true);
       this.slides[currentSlide].active = false;
       if(currentSlide == this.slides.length - 1){
@@ -59,7 +59,7 @@ nextSlide(){
 }
 
 prevSlide(){
-      console.log("prev slide");
+    //  console.log("prev slide");
       let currentSlide = this.slides.map(x => x.active).indexOf(true);
       this.slides[currentSlide].active = false;
       if(currentSlide == 0){

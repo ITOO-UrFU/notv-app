@@ -13,7 +13,9 @@ export class SpeakersListComponent implements OnInit {
  speakersList: User[];
 
 
-constructor(private router:Router, private speakersService: SpeakersService) { }
+constructor(private router:Router, private speakersService: SpeakersService) { 
+
+}
 
   ngOnInit() {
         this.speakersService.getSpeakersList()
