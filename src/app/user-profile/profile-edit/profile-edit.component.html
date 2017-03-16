@@ -44,7 +44,7 @@
 
 <div class="form-group">
 <label for="sex">Пол:</label>
-    <select  name="sex" [(ngModel)]="model.sex" #sex="ngModel" >
+    <select value="{{currentUser.sex}}"  name="sex" [(ngModel)]="model.sex" #sex="ngModel" >
       <option value="M">Мужской</option>
       <option value="F">Женский</option>
     </select>
@@ -76,7 +76,7 @@
 
         <div class="form-group">
             <button [disabled]="loading" class="btn btn-primary">Сохранить</button>
-            <a [routerLink]="['/profile']" class="btn btn-link">Отмена</a>
+            <!--<a [routerLink]="['/profile']" class="btn btn-link">Отмена</a>-->
         </div>
     </form>
 </div>

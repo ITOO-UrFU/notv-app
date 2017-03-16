@@ -32,7 +32,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-        // this.router.navigate(["profile", "edit"]);
+        this.router.navigate(["profile", "edit"]);
      /*    this.registerService.getProfile().subscribe(userProfile => {
             this.userProfile = userProfile;
            
@@ -40,7 +40,7 @@ export class UserProfileComponent implements OnInit {
   }
     logout(){
        this.authenticationService.logout();
-        this.router.navigate(['/login']);
+      this.router.navigate(['/login']);
     }
     
 }

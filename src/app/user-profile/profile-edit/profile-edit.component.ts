@@ -38,7 +38,7 @@ update() {
             .subscribe(
                 data => {
                  this.alertService.success('Изменения сохранены!', true);
-                  this.router.navigate(["profile", "edit"]);
+             this.router.navigate(["profile", "edit"]);
                     console.log("update ok!");
                 },
                 error => {

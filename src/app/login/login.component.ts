@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
      //  this.authenticationService.logout();
 
         // get return url from route parameters or default to '/'
-    //    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+      this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'profile/edit';
         
     }
 
@@ -37,11 +37,11 @@ export class LoginComponent implements OnInit {
                   
                     console.log("login ok!");
                     window.location.reload();
+                  //   this.router.navigate([this.returnUrl]);
 
                 },
                 error => {
                     this.alertService.error("Ошибка!");
-                    // this.loading = false;
                     console.log("login ne ok!");
                 });
     }
