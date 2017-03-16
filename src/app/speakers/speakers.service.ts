@@ -30,7 +30,11 @@ private extractSpeakers(res: Response): User[]{
     let body = res.json();
     let speakers: User[] = [];
     for (let i = 0; i < body.length; i++) {
-          let speaker:User = new User(body[i].id, body[i].first_name, body[i].last_name, body[i].second_name, body[i].biography, body[i].alt_email); 
+          let photo_src = "http://placehold.it/200x200"
+          if(body[i].photo_url){
+            photo_src=body[i].photo_url
+          }
+          let speaker:User = new User(body[i].id, body[i].first_name, body[i].last_name, body[i].second_name, body[i].biography, body[i].alt_email, photo_src ); 
           speakers.push(speaker);
     } 
     speakersList = speakers;

@@ -24,14 +24,16 @@ import { EventComponent } from 'app/events/event/event.component';
 import { FooterComponent } from './footer/footer.component';
 import { RegistrationComponent } from './registration/registration.component';
 
-import { UserService} from 'app/services/user-service.service';
+import { RegisterService} from 'app/services/register.service';
 import { LoginComponent } from './login/login.component';
-import { AuthenticationService } from 'app/services/authentication.service';
+import { AuthenticationService } from 'app/services/auth.service';
 import { AlertService } from 'app/services/alert.service';
 
 import { AlertComponent } from 'app/directives/alert.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
-import { AuthGuard } from 'app/_guards/auth.guard';
+import { UserProfileComponent } from 'app/user-profile/user-profile.component';
+import { AuthGuard } from 'app/services/auth.guard';
+import { ProfileEditComponent } from 'app/user-profile/profile-edit/profile-edit.component';
+import { UserEventsComponent } from 'app/user-events/user-events.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { AuthGuard } from 'app/_guards/auth.guard';
     RegistrationComponent,
     LoginComponent,
     AlertComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    ProfileEditComponent,
+    UserEventsComponent
 
   ],
   imports: [
@@ -65,7 +69,7 @@ import { AuthGuard } from 'app/_guards/auth.guard';
     EventsService,
     HomePageService,
     SpeakersService,
-    UserService,
+    RegisterService,
     AuthenticationService,
     AlertService,
     AuthGuard,

@@ -25,7 +25,7 @@ export class HomePageComponent implements OnInit  {
           .subscribe(homePage => { 
             this.homePage = homePage;
 
-            console.log(this.homePage);
+         //  console.log(this.homePage);
             this.homePage.pages.find(slider => slider.slug == "slider").pages.forEach(element => {
               element.active = false;
               this.slides.push(element);

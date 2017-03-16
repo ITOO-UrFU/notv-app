@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { AuthenticationService } from 'app/services/authentication.service';
+import { AuthenticationService } from 'app/services/auth.service';
 import { AlertService } from 'app/services/alert.service';
 
 @Component({
@@ -25,7 +25,8 @@ export class LoginComponent implements OnInit {
      //  this.authenticationService.logout();
 
         // get return url from route parameters or default to '/'
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    //    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+        
     }
 
     login() {
@@ -33,11 +34,13 @@ export class LoginComponent implements OnInit {
         this.authenticationService.login(this.model.email, this.model.password)
             .subscribe(
                 data => {
-                  this.router.navigate(["/profile"]);
+                  
                     console.log("login ok!");
+                    window.location.reload();
+
                 },
                 error => {
-                    this.alertService.error(error);
+                    this.alertService.error("Ошибка!");
                     // this.loading = false;
                     console.log("login ne ok!");
                 });

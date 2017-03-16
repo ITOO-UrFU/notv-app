@@ -7,6 +7,9 @@ import { EventListComponent } from 'app/events/event-list/event-list.component';
 
 import {TranslateService} from 'ng2-translate';
 
+import { AuthenticationService } from 'app/services/auth.service';
+import { AuthGuard } from 'app/services/auth.guard';
+
 @Component({
   selector: '[app-nav]',
   templateUrl: './nav.component.html',
@@ -19,7 +22,12 @@ export class NavComponent implements OnInit {
   activeUrl: any = {};
   showMenu: Boolean = false;
 
-  constructor( private router:Router, private pageService: PageService, private translate: TranslateService ){
+  constructor( 
+              private router:Router, 
+              private pageService: PageService, 
+              private translate: TranslateService, 
+              private authGuard: AuthGuard 
+             ){
         translate.addLangs(["en", "ru"]);
         translate.setDefaultLang('en');
         let browserLang = translate.getBrowserLang();
@@ -41,12 +49,24 @@ export class NavComponent implements OnInit {
             if (element.pages.length) {
               let array: any[] = [];
               element.pages.forEach(element => {
-                array.push({ url: element.slug, title: element.title ? element.title : element.slug })
+                array.push({ url: element.slug, title: element.title ? element.title : element.slug })    
               })
               
-              this.listUrl.push({ url: element.slug, title: element.title ? element.title : element.slug, underpage: array, type: element.type })
+          
+                this.listUrl.push({ url: element.slug, title: element.title ? element.title : element.slug, underpage: array, type: element.type })
+            
+
             }
-            else this.listUrl.push({ url: element.slug, title: element.title ? element.title : element.slug, underpage: false, type: element.type  })
+            else {
+              
+              if(element.slug=="login" && this.authGuard.canActivate() ){
+                
+                    this.listUrl.push({ url: "profile", title: "Профиль"  })
+              }
+              else{
+                 this.listUrl.push({ url: element.slug, title: element.title ? element.title : element.slug, underpage: false, type: element.type  })
+              }
+                }
           });
 
 

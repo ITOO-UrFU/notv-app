@@ -12,7 +12,9 @@ import { RegistrationComponent } from 'app/registration/registration.component';
 import { LoginComponent } from 'app/login/login.component';
 
 import { UserProfileComponent } from 'app/user-profile/user-profile.component';
-import { AuthGuard } from 'app/_guards/auth.guard'
+import { AuthGuard } from 'app/services/auth.guard';
+import { ProfileEditComponent } from 'app/user-profile/profile-edit/profile-edit.component';
+import { UserEventsComponent } from './user-events/user-events.component';
 
 const routes: Routes = [
 
@@ -27,9 +29,19 @@ const routes: Routes = [
       },
 
       { 
-        path: 'profile', 
+      path: 'profile',
       component: UserProfileComponent, 
-      canActivate: [AuthGuard] 
+      canActivate: [AuthGuard],
+      children:[
+          {
+            path: 'edit',
+            component: ProfileEditComponent,
+          },
+          {
+            path: 'traectory',
+            component: UserEventsComponent
+          }
+        ]
       },
     
       {

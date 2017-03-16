@@ -1,4 +1,21 @@
 
-    <h1 *ngIf="userProfile">Ты {{userProfile.first_name}} {{userProfile.last_name}} !</h1>
+<div class="col-md text-center">
+<a  [routerLinkActive]="['active']"  routerLink="./traectory" class="btn btn-primary">Ваши мероприятия</a>
+<a  [routerLinkActive]="['active']"  routerLink="./edit" class="btn btn-primary">Профиль</a>
+        <button (click)="logout()" class="btn btn-primary pull-right">Выйти</button>
+</div>
 
-  <button (click)="logout()">Выйти</button>
+<div>
+        <router-outlet></router-outlet>
+
+</div>
+<!--
+    <div *ngIf="userProfile" class="user-profile">
+        <img class="user-profile-photo" src="{{userProfile.photo_url}}">
+        <p> {{userProfile.first_name}} {{userProfile.last_name}} </p>
+        <p> {{userProfile.email}} </p>
+        <a routerLink="./edit" class="btn btn-primary">Редактировать профиль</a>
+        <button (click)="logout()" class="btn btn-primary">Выйти</button>
+        <router-outlet></router-outlet>
+    </div>
+-->

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'app/user';
-import { AuthenticationService } from 'app/services/authentication.service';
-import { UserService} from 'app/services/user-service.service';
+import { AuthenticationService } from 'app/services/auth.service';
+import { RegisterService} from 'app/services/register.service';
 import { Router } from '@angular/router';
 
 
@@ -17,20 +17,30 @@ export class UserProfileComponent implements OnInit {
   constructor(
               private router: Router, 
               private authenticationService: AuthenticationService,
-              private userService: UserService
+              private registerService: RegisterService
               ) {   
-            this.currentUser = JSON.parse(localStorage.getItem('currentUser')).user;
-            console.log(this.currentUser); 
+           
+          /* this.registerService.getProfile().subscribe(userProfile => {
+                  this.userProfile = userProfile;
+                  let photo_src = "http://placehold.it/200x200"
+                  if(this.userProfile.photo_url){
+                      photo_src=this.userProfile.photo_url
+                  }
+                  this.userProfile.photo_url  = photo_src;
+ 
+            });*/
   }
 
   ngOnInit() {
-         this.userService.getProfile().subscribe(userProfile => {
+        // this.router.navigate(["profile", "edit"]);
+     /*    this.registerService.getProfile().subscribe(userProfile => {
             this.userProfile = userProfile;
-            console.log("!!!!!!!!!!", this.userProfile);
-        });
+           
+        });*/
   }
     logout(){
        this.authenticationService.logout();
         this.router.navigate(['/login']);
     }
+    
 }

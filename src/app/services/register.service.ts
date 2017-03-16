@@ -10,16 +10,18 @@ import 'rxjs/add/operator/toPromise';
 
 
 @Injectable()
-export class UserService {
+export class RegisterService {
 
   constructor(private http: Http) { }
 
-registerUrl = 'http://openedu.urfu.ru:33017/api/v1/rest-auth/';
+    registerUrl = 'http://openedu.urfu.ru:33017/api/v1/rest-auth/';
 
     create(user: User) {
-        return this.http.post(this.registerUrl+'registration/', user, this.jwt()).map((response: Response) => response.json());
+        return this.http.post(this.registerUrl + 'registration/', user, this.jwt()).map((response: Response) => response.json());
     }
-
+    update(user: User) {
+        return this.http.put(this.registerUrl + 'profile/update/', user, this.jwt()).map((response: Response) => response.json());
+    }
 
     getProfile(): Observable<any> {
         return this.http.get(this.registerUrl+ 'profile/' +'?format=json', this.jwt())
@@ -30,7 +32,6 @@ registerUrl = 'http://openedu.urfu.ru:33017/api/v1/rest-auth/';
   extractProfile(res: Response) {
     let body = res.json();
     return body;
-     
   }
   
     private jwt() {
