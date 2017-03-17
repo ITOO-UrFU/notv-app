@@ -2,6 +2,7 @@
 
 <div class="event-block"  *ngIf="currentEvent">
     <button (click)="goBack()" class="btn btn-primary">К списку всех мероприятий</button>
+    <button *ngIf="isLogged" (click)="goMyEvents()" class="btn btn-primary">К списку моих мероприятий</button>
   <p style="margin-top: 30px;">{{currentEvent.eventtype}}</p>
 <h2>{{currentEvent.title}}</h2>
 <p [innerHTML]="currentEvent.description"></p>
@@ -21,9 +22,19 @@
       </div>
   </div>
 
-<div *ngIf="isLogged">
-    <button (click)="registerOnEvent(currentEvent)" class="btn btn-primary">Зарегистрироваться</button>
-    <button (click)="unregisterOnEvent(currentEvent)" class="btn btn-primary">Отрегистрироваться</button>
+
+<div *ngIf="showButtons">
+    <div *ngIf="isLogged">
+
+    <div *ngIf="isReg">
+        <button (click)="unregisterOnEvent(currentEvent)" class="btn btn-primary">Отрегистрироваться</button>
+    </div>    
+    
+    <div *ngIf="!isReg">
+        <button (click)="registerOnEvent(currentEvent)" class="btn btn-primary">Зарегистрироваться</button>
+    </div>
+
+    </div>
 </div>
 
 </div>

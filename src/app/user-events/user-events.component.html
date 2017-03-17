@@ -1,3 +1,16 @@
 <p>
   Ваши мероприятия:
 </p>
+
+<div *ngIf="userEvents">
+<div *ngFor="let event of userEvents">
+<div class="event-time-1 {{event.event.get_event_slug}}">
+    <p *ngIf="event.event.eventtype" class="eventtype-name"> {{event.event.eventtype}} <br /> </p>
+     <p class="event-title" (click)="toEvent(event.event)"><strong>{{event.event.title}} </strong></p>
+      <p class="event-title"><strong>{{event.event.startdate |  date}} </strong></p>
+        <p>  {{event.event.startdate |  date:'shortTime'}} - {{event.event.enddate |  date:'shortTime'}} </p>
+    
+  
+  </div>
+</div>
+</div>
