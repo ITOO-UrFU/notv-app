@@ -7,9 +7,14 @@
 }
 
 */
+.container {
+    margin-top: 23px; 
+}
 
 .event-block{
-    //padding-top: $menu-height;
+    width: 1000px;
+    margin: 0 auto;
+     padding-top:130px;
 }
 
 html{
@@ -45,7 +50,7 @@ img.event-speakers-photo{
 
 .event-speakers-name{
     display: inline-block;
-    vertical-align: middle;
+       margin-left: 10px;
 }
 
 .event-speakers-position{
@@ -74,6 +79,7 @@ img.event-speakers-photo{
 .events-container{
     width: $events_container_width;
     margin: 0 auto;
+        margin-top: 130px;
 }
 
 .events-at-day{

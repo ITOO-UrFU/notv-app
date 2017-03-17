@@ -1,9 +1,13 @@
+
+
 <div class="event-block"  *ngIf="currentEvent">
-  <p>{{currentEvent.eventtype}}</p>
+    <button (click)="goBack()" class="btn btn-primary">К списку всех мероприятий</button>
+  <p style="margin-top: 30px;">{{currentEvent.eventtype}}</p>
 <h2>{{currentEvent.title}}</h2>
 <p [innerHTML]="currentEvent.description"></p>
 
-<p>{{ currentEvent.startdate | date:'medium' }} - {{ currentEvent.enddate | date:'medium' }}</p>
+<p><strong> Начало: {{ currentEvent.startdate | date:'medium' }} </strong></p>
+<p><strong>Окончание: {{ currentEvent.enddate | date:'medium' }} </strong></p>
 
 
   <div *ngIf="currentEvent.users.length">
@@ -17,5 +21,9 @@
       </div>
   </div>
 
+<div *ngIf="isLogged">
+    <button (click)="registerOnEvent(currentEvent)" class="btn btn-primary">Зарегистрироваться</button>
+    <button (click)="unregisterOnEvent(currentEvent)" class="btn btn-primary">Отрегистрироваться</button>
 </div>
-<button (click)="goBack()"> К списку всех событий</button>
+
+</div>

@@ -40,6 +40,7 @@ private extractEvent(res: Response):Event {
     let eventTypeClass = "eventtype-empty";
     if(body.get_event_slug != null){ eventTypeClass = "eventtype-" + body.get_event_slug; }
     let event:Event = new Event(body.id, body.title, body.description, body.get_users, new Date(body.startdate), body.enddate, eventTypeClass, body.get_type_display); 
+    event.users = event.users.filter(user => { user.get_type_display == "Спикер" });
     return event;
   }
 
@@ -131,8 +132,11 @@ private extractEvent(res: Response):Event {
           let eventTypeClass = "eventtype-empty";
           if(body[i].get_event_slug != null){ eventTypeClass = "eventtype-" + body[i].get_event_slug; }
           let event:Event = new Event(body[i].id, body[i].title, body[i].description, body[i].get_users, new Date(body[i].startdate), body[i].enddate, eventTypeClass, body[i].get_type_display); 
+          event.users = event.users.filter(user => { user.get_type_display == "Спикер" });
           events.push(event);
     } 
+
+    
     eventsList = events;
    // console.log("events", eventsList );
     return events;

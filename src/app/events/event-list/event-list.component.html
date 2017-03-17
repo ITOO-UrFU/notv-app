@@ -14,6 +14,8 @@
                           <div class="event-time-1 {{event.eventtypeid}}">
                              <p *ngIf="event.eventtype" class="eventtype-name"> {{event.eventtype}} <br /> </p>
                               <p class="event-title" (click)="toEvent(event)"><strong>{{event.title}} </strong></p>
+                               <p class="event-title"><strong>{{event.startdate |  date}} </strong></p>
+                                 <p>  {{event.startdate |  date:'shortTime'}} - {{event.enddate |  date:'shortTime'}} </p>
                               
                             <div *ngIf="event.users.length">
                                 Спикеры:

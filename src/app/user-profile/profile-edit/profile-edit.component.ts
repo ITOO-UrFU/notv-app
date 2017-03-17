@@ -38,11 +38,14 @@ update() {
             .subscribe(
                 data => {
                  this.alertService.success('Изменения сохранены!', true);
-             this.router.navigate(["profile", "edit"]);
+                 this.router.navigate(["profile", "edit"]);
+                    window.scrollTo(0,0);
                     console.log("update ok!");
                 },
                 error => {
+                    window.scrollTo(0,0);
                     this.alertService.error("Ошибка при сохранении данных!", error);
+                    
                     console.log("update ne ok!");
                 });
     }

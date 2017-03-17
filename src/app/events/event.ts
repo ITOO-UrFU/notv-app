@@ -4,7 +4,7 @@ export class Event {
     public id: string;
     public title: string;
     public description: string;
-    public users: User[];
+    public users: any[];
     public startdate: Date;
     public enddate: string;
     public eventtypeid: string;

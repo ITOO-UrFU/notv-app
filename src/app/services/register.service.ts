@@ -27,7 +27,15 @@ export class RegisterService {
         return this.http.get(this.registerUrl+ 'profile/' +'?format=json', this.jwt())
                     .map(this.extractProfile)
                    // .catch(this.handleError);
-  }
+    }
+
+    registerOnEvent(id: string){
+        return this.http.post(this.registerUrl + 'events/register/', {"event_id":id}, this.jwt()).map((response: Response) => response.json());
+    }
+
+        unregisterOnEvent(id: string){
+        return this.http.post(this.registerUrl + 'events/unregister/', {"event_id":id}, this.jwt()).map((response: Response) => response.json());
+    }
 
   extractProfile(res: Response) {
     let body = res.json();
