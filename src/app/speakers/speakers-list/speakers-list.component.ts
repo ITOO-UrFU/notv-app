@@ -21,7 +21,6 @@ constructor(private router:Router, private speakersService: SpeakersService) {
         this.speakersService.getSpeakersList()
           .subscribe(speakersList => { 
             this.speakersList = speakersList;
-            console.log(this.speakersList);
         }
       );
   }

@@ -13,6 +13,7 @@ export class ProfileEditComponent implements OnInit {
 model: any = {};
 currentUser:any =  {};
 currentUserEmail:string = "";
+
   constructor(        
         private router: Router,
         private registerService: RegisterService,
@@ -20,9 +21,8 @@ currentUserEmail:string = "";
         ) { }
 
   ngOnInit() {
-      console.log("edit init");
       
-             this.registerService.getProfile().subscribe(userProfile => {
+            this.registerService.getProfile().subscribe(userProfile => {
             this.currentUser = userProfile;
             let photo_src = "http://placehold.it/200x200"
             if(this.currentUser.photo_url){
@@ -30,6 +30,7 @@ currentUserEmail:string = "";
             }
             this.currentUser.photo_url  = photo_src;
             this.currentUserEmail = JSON.parse(localStorage.getItem('currentUser') || null ).user.email;
+            
         });
   }
 
@@ -37,16 +38,14 @@ update() {
         this.registerService.update(this.model)
             .subscribe(
                 data => {
-                 this.alertService.success('Изменения сохранены!', true);
-                 this.router.navigate(["profile", "edit"]);
-                    window.scrollTo(0,0);
-                    console.log("update ok!");
+                 this.alertService.success('Изменения сохранены.', true);
+                 window.location.reload();
+                 window.scrollTo(0,0);
                 },
                 error => {
                     window.scrollTo(0,0);
                     this.alertService.error("Ошибка при сохранении данных!", error);
                     
-                    console.log("update ne ok!");
                 });
     }
 }
