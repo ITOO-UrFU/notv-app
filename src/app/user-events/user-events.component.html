@@ -9,6 +9,7 @@
      <p class="event-title" (click)="toEvent(event.event)"><strong>{{event.event.title}} </strong></p>
       <p class="event-title"><strong>{{event.event.startdate |  date}} </strong></p>
         <p>  {{event.event.startdate |  date:'shortTime'}} - {{event.event.enddate |  date:'shortTime'}} </p>
+        <button (click)="unregisterOnEvent(event.event.id)" class="btn btn-primary">Отписаться</button> 
     
   
   </div>
