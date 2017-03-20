@@ -132,7 +132,7 @@ div.next-button:hover, div.prev-button:hover {
 
 :host /deep/ .slide-image {
     width: 100% !important;
-    height: 500px;
+    height: 600px;
 }
 
 
@@ -185,9 +185,11 @@ div.next-button:hover, div.prev-button:hover {
 }
 
 :host /deep/ .slide2 {
-    background: url("/assets/images/04.png") 100% no-repeat;
+    background: url("/assets/images/04.png")  no-repeat;
+    background-size: auto 600px;
 }
 
 :host /deep/ .slide7 {
-    background: url("/assets/images/07.png") 100% no-repeat;
+    background: url("/assets/images/07.png")  no-repeat;
+    background-size: auto 600px;
 }
