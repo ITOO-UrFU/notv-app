@@ -11,7 +11,7 @@ import { AuthenticationService } from 'app/services/auth.service';
 import { AuthGuard } from 'app/services/auth.guard';
 
 @Component({
-  selector: '[app-nav]',
+  selector: 'header.app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })

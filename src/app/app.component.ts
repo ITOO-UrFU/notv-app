@@ -9,7 +9,7 @@ import { PageService } from 'app/page.service';
 import { PageComponent } from 'app/page/page.component';
 
 @Component({
-  selector: 'app-root',
+  selector: 'body.app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
