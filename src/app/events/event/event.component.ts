@@ -93,6 +93,6 @@ unregisterOnEvent(event: Event){
     }
 
     public goMyEvents(){
-        this.router.navigate(["profile","traectory"]);
+        this.router.navigate(["profile", "trajectory"]);
     }
 }

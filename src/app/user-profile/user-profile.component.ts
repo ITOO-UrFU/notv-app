@@ -14,7 +14,6 @@ export class UserProfileComponent implements OnInit {
 
     currentUser: User;
     userProfile: any;
-    @Input() whereis: string = "edit";
   constructor(
               private router: Router, 
               private authenticationService: AuthenticationService,
@@ -32,12 +31,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    alert(this.whereis);
-                if (this.whereis == "" || this.whereis == undefined) {
 
-                this.router.navigate(["profile", "edit"]);
-              }
-              this.router.navigate(["profile", this.whereis]);
 
     
      /*    this.registerService.getProfile().subscribe(userProfile => {

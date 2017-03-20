@@ -20,6 +20,7 @@ export class UserEventsComponent implements OnInit {
     isLogged: boolean = false;
     isReg: boolean;
     showButtons:boolean = false;
+    whereis: string = "trajectory";
 
   constructor(        
     private router: Router,

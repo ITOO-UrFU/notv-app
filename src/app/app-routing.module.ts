@@ -38,7 +38,7 @@ const routes: Routes = [
             component: ProfileEditComponent,
           },
           {
-            path: 'traectory',
+            path: 'trajectory',
             component: UserEventsComponent
           }
         ]
