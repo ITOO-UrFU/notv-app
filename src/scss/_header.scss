@@ -1,6 +1,11 @@
+$var: 92px;
 app-page {
-    margin-top: 92px;
+    margin-top: $var;
     display: block;
 }
+$var:300px;
 
-.jumbotron {background: $light_shadow}
+.static-page {
+    background: $light_shadow;
+    height: $var;
+}

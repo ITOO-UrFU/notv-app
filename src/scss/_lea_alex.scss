@@ -1,3 +1,4 @@
+
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575px) { 
     
@@ -21,4 +22,10 @@
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) { 
 
+ }
+ body{
+ margin: 0;
+    background: url(/assets/images/background/1-08.png);
+    background-position-y: -300px;
+    height: 100vh;
  }
