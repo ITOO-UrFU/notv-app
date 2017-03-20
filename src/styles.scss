@@ -1,7 +1,12 @@
 @import "scss/_variables.scss";
 @import "scss/_normalize.scss";
+
+@import "scss/_header.scss";
+
 @import "scss/_carousel.scss";
+
 @import '../node_modules/font-awesome/css/font-awesome.css';
+
 /*
 .slide-content > img{
     width: 100% !important;
@@ -80,7 +85,7 @@ img.event-speakers-photo{
 .events-container{
     width: $events_container_width;
     margin: 0 auto;
-        margin-top: 130px;
+    margin-top: 130px;
 }
 
 .events-at-day{
@@ -222,8 +227,9 @@ nav {
                         a{
                             padding-top: 0px;
                             color: black;
-                            font-size: 11pt;
-                                max-width: 118px;
+                            font-size: 9pt;
+                            line-height: 10pt;
+                            max-width: 118px;
                         }
                     }
                 }
