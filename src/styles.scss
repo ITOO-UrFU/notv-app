@@ -180,6 +180,7 @@ nav {
         margin: 0 auto;
         padding: 0px;
         text-align: center;
+    
 
         li.item {
             list-style: none;
@@ -187,20 +188,20 @@ nav {
 
             &:hover {
                 background-color: rgba(242,242,242,.3);
+                    ul  {
+                    display: block;
+                    z-index: 1001;
+                }
             }
             
             &.active{
                 background-color: rgba(242,242,242,.4);   
+                ul  {
+                    display: block;    
+                }
             }
             
-            &.active ul  {
-                display: block;    
-            }
 
-            &:hover ul  {
-                display: block;
-                z-index: 1001;
-            }
 
             a {
                 text-decoration: none;
@@ -218,7 +219,7 @@ nav {
                 top: 46px;
                 left: 0px;
                 right: 0px;
-                background-color: rgb(242,242,242);
+                background-color: rgba(242, 242, 242, .5);;
                 position: absolute;
                 display: none;
                     li{
