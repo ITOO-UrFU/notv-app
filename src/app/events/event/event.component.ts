@@ -18,6 +18,8 @@ export class EventComponent implements OnInit {
     isLogged: boolean = false;
     userEvents: Event[];
     isReg: boolean;
+    
+    showButtons:boolean = false;
 
     constructor(private eventsService: EventsService,
         private activatedRoute: ActivatedRoute,
@@ -34,43 +36,36 @@ export class EventComponent implements OnInit {
             this.eventsService.getEvent(id)
                 .subscribe(
                 event => {
-                  this.currentEvent = event;
-                  console.log(this.currentEvent);
-
-                  
-                  // this.isReg = this.isRegister();
-                  // console.log(this.isReg);
-
-                 
-
-
-
+                
+                this.currentEvent = event;
+                this.update(this.currentEvent);
                 },
                 error => this.errorMessage = error
                 );
         }
   }
 
-
-        /*isRegister(): boolean{
-       // let reg: boolean = false;
+update(event:Event){
+    console.log("UPDATE");
+    this.isReg = false;
+    this.showButtons = false;
         this.registerService.getProfile().subscribe(userProfile => {
                     userProfile.get_events.forEach(event=>{
-                        console.log(event.event.id, this.currentEvent.id);
                         if (event.event.id == this.currentEvent.id){
-                            return true;
+                            this.isReg = true;
                         }
-                    })
-            });
-            return false;
-        }*/
-
+                    });
+                    this.showButtons = true;
+                }
+            );
+}
 
 registerOnEvent(event: Event){
     this.registerService.registerOnEvent(event.id).subscribe(
                 data => {
                  this.alertService.success('Вы зарегистрированы!', true);
                     window.scrollTo(0,0);
+                     this.update(this.currentEvent);
                 },
                 error => {
                     window.scrollTo(0,0);
@@ -84,6 +79,7 @@ unregisterOnEvent(event: Event){
                 data => {
                  this.alertService.success('Вы отрегистрированы!', true);
                     window.scrollTo(0,0);
+                     this.update(this.currentEvent);
                 },
                 error => {
                     window.scrollTo(0,0);
@@ -96,5 +92,7 @@ unregisterOnEvent(event: Event){
         this.router.navigate(["/events"]);
     }
 
-
+    public goMyEvents(){
+        this.router.navigate(["profile","traectory"]);
+    }
 }
