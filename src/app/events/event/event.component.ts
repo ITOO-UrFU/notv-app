@@ -77,13 +77,13 @@ registerOnEvent(event: Event){
 unregisterOnEvent(event: Event){
     this.registerService.unregisterOnEvent(event.id).subscribe(
                 data => {
-                 this.alertService.success('Вы отрегистрированы!', true);
+                 this.alertService.success('Вы отписаны от события!', true);
                     window.scrollTo(0,0);
                      this.update(this.currentEvent);
                 },
                 error => {
                     window.scrollTo(0,0);
-                    this.alertService.error("Ошибка при отрегистрации!", error);
+                    this.alertService.error("Ошибка отписки от события!", error);
                 });;
        
 }
