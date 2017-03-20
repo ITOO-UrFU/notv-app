@@ -7,6 +7,11 @@
 
 @import '../node_modules/font-awesome/css/font-awesome.css';
 
+@import 'scss/_lea_alex.scss';
+
+$FontPathOpenSans: "../node_modules/npm-font-open-sans/fonts";
+@import '../node_modules/npm-font-open-sans/open-sans.scss';
+
 /*
 .slide-content > img{
     width: 100% !important;
