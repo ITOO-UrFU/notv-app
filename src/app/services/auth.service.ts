@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map'
 
 @Injectable()
 export class AuthenticationService {
-    authUrl = 'http://openedu.urfu.ru:33017/api/v1/rest-auth/login/';
+    authUrl = 'https://openedu.urfu.ru:33017/api/v1/rest-auth/login/';
 
     isLoggedIn: boolean = false;
 

@@ -14,7 +14,7 @@ export class RegisterService {
 
   constructor(private http: Http) { }
 
-    registerUrl = 'http://openedu.urfu.ru:33017/api/v1/rest-auth/';
+    registerUrl = 'https://openedu.urfu.ru:33017/api/v1/rest-auth/';
 
     create(user: User) {
         return this.http.post(this.registerUrl + 'registration/', user, this.jwt()).map((response: Response) => response.json());
