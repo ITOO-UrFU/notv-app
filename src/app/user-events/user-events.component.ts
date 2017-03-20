@@ -33,25 +33,10 @@ export class UserEventsComponent implements OnInit {
              this.registerService.getProfile().subscribe(userProfile => {
              this.currentUser = userProfile;
              this.userEvents = this.currentUser.get_events;
-             console.log(this.userEvents);
 
         });
   }
 
-update(event:Event){
-    console.log("UPDATE");
-    this.isReg = false;
-    this.showButtons = false;
-        this.registerService.getProfile().subscribe(userProfile => {
-                    userProfile.get_events.forEach(event=>{
-                        if (event.event.id == this.currentEvent.id){
-                            this.isReg = true;
-                        }
-                    });
-                    this.showButtons = true;
-                }
-            );
-}
 
   unregisterOnEvent(id: string){
     this.registerService.unregisterOnEvent(id).subscribe(
@@ -68,7 +53,8 @@ update(event:Event){
 }
 
     public toEvent(event: Event) {
-        this.router.navigate(["events", "event", event]);
+      console.log(event.id);
+        this.router.navigate(["events", "event", event.id]);
     }
 
 }
