@@ -1,8 +1,9 @@
-<p>
-  Ваши мероприятия:
-</p>
 
-<div *ngIf="userEvents">
+
+<div *ngIf="userEvents?.length > 0">
+  <h2>
+    Ваши мероприятия:
+  </h2>
 <div *ngFor="let event of userEvents">
 <div class="event-time-1 {{event.event.get_event_slug}}">
     <p *ngIf="event.event.eventtype" class="eventtype-name"> {{event.event.eventtype}} <br /> </p>
@@ -14,4 +15,8 @@
   
   </div>
 </div>
+</div>
+
+<div *ngIf="userEvents?.length == 0">
+  <h2>Вы не зарегистрированы ни на одно мероприятие</h2>
 </div>
