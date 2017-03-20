@@ -24,7 +24,7 @@ userEvents: Event[];
   }
 
     public toEvent(event: Event) {
-        this.router.navigate(["events", "event", event.id]);
+        this.router.navigate(["events", "event", event]);
     }
 
 }
