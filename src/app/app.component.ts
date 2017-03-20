@@ -1,5 +1,6 @@
-import { Component, OnInit  } from '@angular/core';
+import { Component, OnInit,  ViewEncapsulation  } from '@angular/core';
 import { Router, Routes } from '@angular/router';
+
 
 
 
@@ -12,6 +13,7 @@ import { PageComponent } from 'app/page/page.component';
   selector: 'body.app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 
 
