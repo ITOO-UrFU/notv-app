@@ -2,8 +2,12 @@
 <div class="speakers-board">
 
 <div *ngFor="let speaker of speakersList" class="speaker-block">
-    <div class="speaker-board-photo" [ngStyle]="{'background':'url('+speaker.user_photo+')', 'background-size': 'cover'}" >
-    <div class="name"><p>{{speaker.first_name}} {{speaker.last_name}}</p></div>
+    <div class="speaker-board-photo" [ngStyle]="{'background':'url('+speaker.photo_url+')', 'background-size': 'cover'}" >
+    <div class="name"><p>{{speaker.first_name}} {{speaker.last_name}}</p>
+                      <p>{{speaker.organisation}}</p>
+                      <p>{{speaker.division}}</p>
+                      <p>{{speaker.position}}</p>
+    </div>
     </div>
 </div>
 
