@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { AuthenticationService } from 'app/services/auth.service';
 import { AlertService } from 'app/services/alert.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
@@ -17,11 +18,12 @@ export class LoginComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private authenticationService: AuthenticationService,
-        private alertService: AlertService
+        private alertService: AlertService,
+        private title: Title,
        ) { }
 
     ngOnInit() {
-
+        this.title.setTitle("Вход");
       this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'profile/edit';
         
     }

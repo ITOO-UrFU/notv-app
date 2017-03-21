@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { HomePageService } from 'app/home-page/home-page.service';
 import { Router, Routes } from '@angular/router';
-
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'div.app-home-page',
@@ -16,11 +16,15 @@ export class HomePageComponent implements OnInit  {
  sliderTimeOut:any;
  public sliderInterval = 5000; //in ms
 
-  constructor(private router:Router, private homepageService: HomePageService) {
+  constructor(private router:Router, 
+              private homepageService: HomePageService,
+              private title: Title,
+              ) {
 
    }
 
   ngOnInit() {
+          this.title.setTitle("Конференция НОТВ");
             this.homepageService.getHomePage()
           .subscribe(homePage => { 
             this.homePage = homePage;

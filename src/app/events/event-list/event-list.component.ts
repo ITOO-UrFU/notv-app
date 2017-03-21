@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { EventsService } from 'app/events/events.service';
 import { Router, Routes } from '@angular/router';
 import { Event } from 'app/events/event';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'div.app-event-list',
@@ -22,10 +23,14 @@ export class EventListComponent implements OnInit {
 @Input() typeFilter: string = '';
 
 
-  constructor(private router:Router, private eventsService: EventsService) { 
+  constructor(private router:Router, 
+              private eventsService: EventsService,
+              private title: Title,
+              ) { 
   }
 
   ngOnInit() {
+    this.title.setTitle("Мериприятия");
         this.eventsService.getEventsList()
           .subscribe(eventsList => { 
             this.eventsList = eventsList;

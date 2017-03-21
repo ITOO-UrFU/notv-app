@@ -38,6 +38,10 @@ body {
   box-sizing: inherit;
 }
 
+app-user-events{
+    margin-top: 92px;
+    display: block;
+}
 
 #footer{
     position: absolute;
@@ -169,7 +173,16 @@ img.event-speakers-photo{
     border-left: $event_left_border solid $purple;
 }
 
-
+.event-time{
+       // width: ($events_at_time_width / $event_count) - ($event_item_margin*2)- ($event_item_padding*2) - 2 - $event_left_border;
+        margin: 5px $event_item_margin;
+        vertical-align: middle;
+        box-shadow: 0 0 2px grey;
+      //  min-height: $event_height*$event_count;
+        padding: $event_item_padding;
+        font-family: "Open Sans";
+        background-color: #fbfbfb;
+}
 
 @mixin event-time($event_count) {
         float: left;

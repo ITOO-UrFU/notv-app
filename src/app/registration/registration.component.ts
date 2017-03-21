@@ -4,6 +4,7 @@ import { RegisterService} from 'app/services/register.service';
 
 import { AlertService } from 'app/services/alert.service';
 import { AuthenticationService } from 'app/services/auth.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-registration',
@@ -18,9 +19,12 @@ model: any = {};
         private router: Router,
         private registerService: RegisterService,
         private alertService: AlertService,
-        private authenticationService: AuthenticationService) { }
+        private authenticationService: AuthenticationService,
+        private title: Title
+        ) { }
 
   ngOnInit() {
+      this.title.setTitle("Регистрация");
   }
 
       register() {
@@ -29,7 +33,7 @@ model: any = {};
                 data => {
                   // this.alertService.success('Registration successful', true);
                     console.log("register ok!", this.model.password1);
-                   this.authenticationService.login(this.model.email, this.model.password1).subscribe(data => {}, error => {});
+              this.authenticationService.login(this.model.email, this.model.password1).subscribe(data => {}, error => {});
                 },
                 error => {
                     this.alertService.error("Ошибка!");

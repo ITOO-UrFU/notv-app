@@ -1,6 +1,6 @@
 
 <alert></alert>
-<div class="col-md-6 col-md-offset-3">
+<div class="home-block">
     <h2>Ваш профиль</h2>
 
  
@@ -29,23 +29,23 @@
             <input value="{{currentUser.second_name}}" type="text" class="form-control" name="second_name" [(ngModel)]="model.second_name" #second_name="ngModel" required />
         </div>
 
-        <div class="form-group">
+        <!--<div class="form-group">
             <label for="alt_email">Дополнительный e-mail</label>
             <input value="{{currentUser.alt_email}}" type="text" class="form-control" name="alt_email" [(ngModel)]="model.alt_email" #alt_email="ngModel" required />
-        </div>
+        </div>-->
 
-       <div class="form-group">
+       <!--<div class="form-group">
             <label for="birthday_date">Дата рождения:</label>
             <input value="{{currentUser.birthday_date}}" type="date" class="form-control" name="birthday_date" [(ngModel)]="model.birthday_date" #birthday_date="ngModel" required />
-        </div>
+        </div>-->
 
-<div class="form-group">
-<label for="sex">Пол:</label>
-    <select value="{{currentUser.sex}}"  name="sex" [(ngModel)]="model.sex" #sex="ngModel" >
-      <option value="M">Мужской</option>
-      <option value="F">Женский</option>
-    </select>
- </div>
+        <div class="form-group">
+        <label for="sex">Пол:</label>
+            <select value="{{currentUser.sex}}"  name="sex" [(ngModel)]="model.sex" #sex="ngModel" >
+            <option value="M">Мужской</option>
+            <option value="F">Женский</option>
+            </select>
+        </div>
 
 
 
@@ -61,7 +61,7 @@
         
 
 
-        <div class="form-group">
+        <!--<div class="form-group">
             <label for="division">Подразделение:</label>
             <input value="{{currentUser.division}}" type="text" class="form-control" name="division" [(ngModel)]="model.division" #division="ngModel" required />
         </div>
@@ -69,7 +69,7 @@
         <div class="form-group">
             <label for="biography">Биография:</label>
             <input value="{{currentUser.biography}}" type="text" class="form-control" name="biography" [(ngModel)]="model.biography" #biography="ngModel" required />
-        </div>
+        </div>-->
 
         <div class="form-group">
             <button [disabled]="loading" class="btn btn-primary">Сохранить</button>
