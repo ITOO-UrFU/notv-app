@@ -19,18 +19,29 @@ import { UserEventsComponent } from './user-events/user-events.component';
 const routes: Routes = [
 
   {
-    path:'',
+    path: '',
+    data: {
+      meta: {
+        title: '#EDCRUNCH Ural: Новые образовательные технологии в вузе – 2017',
+        description: 'Домашняя страница конференции #EDCRUNCH URAL'
+      }
+    },
     children:[
       {
         path: '',
         redirectTo: '/home',
-        pathMatch: 'full'
-
+        pathMatch: 'full',
+        data: {
+          meta: {
+            title: '#EDCRUNCH Ural: Новые образовательные технологии в вузе – 2017',
+            description: 'Домашняя страница конференции #EDCRUNCH URAL'
+          }
+        },
       },
 
-      { 
+      {
       path: 'profile',
-      component: UserProfileComponent, 
+      component: UserProfileComponent,
       canActivate: [AuthGuard],
       children:[
           {
@@ -43,7 +54,6 @@ const routes: Routes = [
           }*/
         ]
       },
-    
       {
         path: 'login',
         component: LoginComponent
@@ -65,11 +75,27 @@ const routes: Routes = [
       {
         path: 'events',
         component: EventListComponent,
-      },
-
+        data: {
+          meta: {
+            title: '#EDCRUNCH Ural: Новые образовательные технологии в вузе – 2017',
+            description: 'Список мероприятий конференции'
+          }
+        },
+        /*children: [
+          {
+            path: 'event/:id',
+            component: EventComponent,
+          }
+        ]*/
+      },      
       {
         path: 'events/event/:id',
         component: EventComponent,
+        data: {
+          meta: {
+            title: '#EDCRUNCH Ural: Новые образовательные технологии в вузе – 2017'
+          }
+        },
         /*children: [
           {
             path: 'event/:id',
