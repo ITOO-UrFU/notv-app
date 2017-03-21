@@ -3,9 +3,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { PageService } from 'app/page.service';
 
-import { Page } from 'app/page'
-import { Title }     from '@angular/platform-browser';
+import { Page } from 'app/page';
+import { Title } from '@angular/platform-browser';
 import { Subscription } from 'rxjs/Subscription';
+
+import { MetaService } from 'ng2-meta';
 
 @Component({
   selector: 'app-page',
@@ -20,57 +22,54 @@ export class PageComponent implements OnDestroy {
   page: Page;
     private id: number;
     private subscription: Subscription;
-  
+
   constructor(
-              private router:Router, 
-              private pageService: PageService, 
+              private router: Router,
+              private pageService: PageService,
               private activateRoute: ActivatedRoute,
-              private titleService: Title 
-              ) { 
+              private titleService: Title,
+              private metaService: MetaService
+              ) {
     this.subscription = activateRoute.params.subscribe(
-      params=> this.getPages(params['id']),
-      error => this.errorMessage = "Неверный адрес!"
+      params => this.getPages(params['id']),
+      error => this.errorMessage = 'Неверный адрес!'
       );
-      
+
     router.events.subscribe((val) => {
-          this.errorMessage="";
+          this.errorMessage = '';
     });
 
   }
-  
   public setTitle( newTitle: string) {
     this.titleService.setTitle( newTitle );
+    this.metaService.setTitle( newTitle );
   }
 
-  getPages(id:string)  {   
+  getPages(id: string)  {
     this.pageService.getPages('/' + id)
       .subscribe(
         page => {
           this.page = page;
           this.setTitle(page.title);
+          this.metaService.setTag('keywords', page.keywords);
           this.subPages = [];
-          if(this.page.pages.length > 0)
-          {
-            for (let subpage of this.page.pages){
-              this.subPages.push(subpage);   
+          if (this.page.pages.length > 0) {
+            for (const subpage of this.page.pages){
+              this.subPages.push(subpage);
             }
           }
       },
       error => {
-        this.errorMessage = error
+        this.errorMessage = error;
       }
-
-      
       );
   }
 
 
   ngOnDestroy() {
-    //console.log("Я отработала")
+    // console.log("Я отработала")
     // this.getPages(this.activateRoute.snapshot.params['id'])
-    this.errorMessage="";
+    this.errorMessage = '';
     this.subscription.unsubscribe()
-     
   }
-  
 }

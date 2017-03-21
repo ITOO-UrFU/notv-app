@@ -34,6 +34,7 @@ import { UserProfileComponent } from 'app/user-profile/user-profile.component';
 import { AuthGuard } from 'app/services/auth.guard';
 import { ProfileEditComponent } from 'app/user-profile/profile-edit/profile-edit.component';
 import { UserEventsComponent } from 'app/user-events/user-events.component';
+import { MetaModule } from 'ng2-meta';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { UserEventsComponent } from 'app/user-events/user-events.component';
     AppRoutingModule,
     MaterialModule.forRoot(),
     TranslateModule.forRoot(),
+    MetaModule.forRoot()
 
   ],
 

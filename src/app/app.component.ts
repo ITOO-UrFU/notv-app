@@ -1,5 +1,6 @@
 import { Component, OnInit,  ViewEncapsulation  } from '@angular/core';
 import { Router, Routes } from '@angular/router';
+import { MetaService } from 'ng2-meta';
 
 
 
@@ -19,17 +20,17 @@ import { PageComponent } from 'app/page/page.component';
 
 export class AppComponent implements OnInit{
 
-  component:any = {
+  component: any = {
     name: 'AppComponent',
   };
-  
-constructor() {
+
+constructor(private metaService: MetaService) {
 
   }
-  
 
 
-  ngOnInit() { 
+
+  ngOnInit() {
 
 
   }
