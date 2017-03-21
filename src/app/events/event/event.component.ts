@@ -39,6 +39,7 @@ export class EventComponent implements OnInit {
                 
                 this.currentEvent = event;
                 this.update(this.currentEvent);
+                console.log(this.currentEvent);
                 },
                 error => this.errorMessage = error
                 );

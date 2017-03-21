@@ -9,6 +9,7 @@ import { Injectable } from '@angular/core';
 export class eventsToObjectPipe implements PipeTransform {
 
 transform(dict: Object): any {
+  console.log(dict)
     var a = [];
     for (var key in dict) {
       if (dict.hasOwnProperty(key)) {
