@@ -11,7 +11,7 @@ import { NavComponent } from './nav/nav.component';
 import { PageComponent } from './page/page.component';
 import { MaterialModule } from '@angular/material';
 
-import {TranslateModule} from "ng2-translate";
+import {TranslateModule} from 'ng2-translate';
 import { EventListComponent } from './events/event-list/event-list.component';
 import { EventsService } from 'app/events/events.service';
 import { eventsToObjectPipe } from 'app/events/events.filter';
@@ -67,7 +67,7 @@ import { MetaModule } from 'ng2-meta';
   ],
 
   providers: [
-    PageService, 
+    PageService,
     EventsService,
     HomePageService,
     SpeakersService,
@@ -75,10 +75,10 @@ import { MetaModule } from 'ng2-meta';
     AuthenticationService,
     AlertService,
     AuthGuard,
-   { 
-      provide: LOCALE_ID, 
-     //  useValue: "en-EN" 
-     useValue: "ru-RU" 
+   {
+      provide: LOCALE_ID,
+     //  useValue: "en-EN"
+     useValue: 'ru-RU'
     },
     ],
   bootstrap: [AppComponent],
