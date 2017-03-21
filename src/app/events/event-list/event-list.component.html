@@ -67,6 +67,7 @@
         <template ngFor let-time [ngForOf]="day.val | eventsToObject" let-ii="index">
             <div class="time-container">
                 <div class="time-item" > {{time.key}}</div>
+                <div class="events-at-day">
                        <template ngFor let-event [ngForOf]="time.val" let-i="index" >
                            <div  (click)="toEvent(event)" class="event-time-{{time.val.length}} {{event.eventtypeid}}">
                               <strong >{{event.title}}</strong>
@@ -78,6 +79,7 @@
                             </div>
                            </div>
                       </template>
+                </div>
              </div>
         </template>
     </div>

@@ -11,7 +11,7 @@ import { NavComponent } from './nav/nav.component';
 import { PageComponent } from './page/page.component';
 import { MaterialModule } from '@angular/material';
 
-import {TranslateModule} from 'ng2-translate';
+import { TranslateModule } from 'ng2-translate';
 import { EventListComponent } from './events/event-list/event-list.component';
 import { EventsService } from 'app/events/events.service';
 import { eventsToObjectPipe } from 'app/events/events.filter';
@@ -34,8 +34,17 @@ import { UserProfileComponent } from 'app/user-profile/user-profile.component';
 import { AuthGuard } from 'app/services/auth.guard';
 import { ProfileEditComponent } from 'app/user-profile/profile-edit/profile-edit.component';
 import { UserEventsComponent } from 'app/user-events/user-events.component';
-
 import { SafePipe } from 'app/page/safe.pipe';
+import { MetaConfig, MetaModule } from 'ng2-meta';
+
+const metaConfig: MetaConfig = {
+
+  useTitleSuffix: true,
+  defaults: {
+    title: '#EDCRUNCH Ural: Новые образовательные технологии в вузе – 2017',
+    titleSuffix: ' | #EDCRUNCH Ural'
+  }
+};
 
 @NgModule({
   declarations: [
@@ -64,7 +73,7 @@ import { SafePipe } from 'app/page/safe.pipe';
     AppRoutingModule,
     MaterialModule.forRoot(),
     TranslateModule.forRoot(),
-
+    MetaModule.forRoot(metaConfig),
   ],
 
   providers: [

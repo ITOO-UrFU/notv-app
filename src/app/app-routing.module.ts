@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from 'app/app.component';
-import { PageComponent } from 'app/page/page.component'
+import { PageComponent } from 'app/page/page.component';
 import { EventListComponent } from 'app/events/event-list/event-list.component';
 import { HomePageComponent } from 'app/home-page/home-page.component';
 import { SpeakersListComponent } from 'app/speakers/speakers-list/speakers-list.component';
@@ -26,7 +26,7 @@ const routes: Routes = [
         description: 'Домашняя страница конференции #EDCRUNCH URAL'
       }
     },
-    children:[
+    children: [
       {
         path: '',
         redirectTo: '/home',
@@ -59,17 +59,15 @@ const routes: Routes = [
         component: LoginComponent
 
       },
-      
       {
         path: 'register',
         component: RegistrationComponent
 
       },
-      
       {
         path: 'events/my_events',
         component: UserEventsComponent,
-        //canActivate: [AuthGuard],
+        // canActivate: [AuthGuard],
       },
 
       {
@@ -87,7 +85,7 @@ const routes: Routes = [
             component: EventComponent,
           }
         ]*/
-      },      
+      },
       {
         path: 'events/event/:id',
         component: EventComponent,
@@ -103,19 +101,16 @@ const routes: Routes = [
           }
         ]*/
       },
-      
       {
         path: 'home',
         component: HomePageComponent,
         children: [
- 
         ]
       },
       {
         path: 'speakers',
         component: SpeakersListComponent,
         children: [
-          
         ]
       },
 
@@ -133,7 +128,6 @@ const routes: Routes = [
     ]
 
   },
-  
 ];
 
 @NgModule({

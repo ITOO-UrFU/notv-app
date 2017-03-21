@@ -17,19 +17,17 @@ import { PageComponent } from 'app/page/page.component';
 })
 
 
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
 
-  component:any = {
+  component: any = {
     name: 'AppComponent',
   };
-  
+
 constructor() {
 
   }
-  
 
-
-  ngOnInit() { 
+  ngOnInit() {
 
 
   }
