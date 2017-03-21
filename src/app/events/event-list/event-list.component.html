@@ -71,7 +71,7 @@
                        <template ngFor let-event [ngForOf]="time.val" let-i="index" >
                            <div  (click)="toEvent(event)" class="event-time-{{time.val.length}} {{event.eventtypeid}}">
                               <strong >{{event.title}}</strong>
-                              Спикеры
+                    
                             <div *ngIf="event.users.length">
                                 Спикеры
                                 <p *ngFor="let user of event.users"> 

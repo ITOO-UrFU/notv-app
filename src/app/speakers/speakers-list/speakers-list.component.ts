@@ -10,7 +10,7 @@ import { SpeakersService } from 'app/speakers/speakers.service';
 })
 export class SpeakersListComponent implements OnInit {
 
- speakersList: User[];
+ speakersList: any[];
 
 
 constructor(private router:Router, private speakersService: SpeakersService) { 
@@ -21,6 +21,7 @@ constructor(private router:Router, private speakersService: SpeakersService) {
         this.speakersService.getSpeakersList()
           .subscribe(speakersList => { 
             this.speakersList = speakersList;
+            console.log(this.speakersList)
         }
       );
   }

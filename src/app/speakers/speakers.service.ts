@@ -10,7 +10,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
-let speakersList: User[];
+let speakersList: any[];
 
 @Injectable()
 export class SpeakersService {
@@ -26,16 +26,17 @@ export class SpeakersService {
   }
 
 
-private extractSpeakers(res: Response): User[]{
+private extractSpeakers(res: Response): any[]{
     let body = res.json();
-    let speakers: User[] = [];
+    let speakers: any[] = [];
     for (let i = 0; i < body.length; i++) {
           let photo_src = "http://placehold.it/200x200"
-          if(body[i].photo_url){
-            photo_src=body[i].photo_url
+          if(!body[i].photo_url){
+            body[i].photo_url = photo_src 
           }
-          let speaker:User = new User(body[i].id, body[i].first_name, body[i].last_name, body[i].second_name, body[i].biography, body[i].alt_email, photo_src ); 
-          speakers.push(speaker);
+          
+          //let speaker:any = new User(body[i].id, body[i].first_name, body[i].last_name, body[i].second_name, body[i].biography, body[i].alt_email, photo_src ); 
+          speakers.push(body[i]);
     } 
     speakersList = speakers;
    // console.log("events", eventsList );
