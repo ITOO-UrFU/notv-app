@@ -10,7 +10,8 @@
       "assets": [
         "assets",
         "i18n",
-        "favicon-32x32.png"
+        "favicon-32x32.png",
+        ".htaccess"
       ],
       "index": "index.html",
       "main": "main.ts",
