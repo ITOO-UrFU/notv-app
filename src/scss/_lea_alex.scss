@@ -32,22 +32,25 @@
 @media (max-width: 575px) { 
  .home-block{
         padding:30px;
-        margin: 30px auto;
+        margin: 20px;
         background: rgba($light_shadow, .5);
         
     }
     
     $width: 600;
-    $height: 366;
+    $height: 300;
 
 
     .homeBanner{
 
         section.banner {
+            margin-top:-6px;
+            padding-top: 1px;
             position: relative;
             background: url("http://placehold.it/"+$width+"x"+$height+"?text=baner1--small_"+$width+"x"+$height)  no-repeat;
+             background: url("/assets/images/a-2-01.png") no-repeat;
             background-size: auto $height+px;
-            background-position:50%;
+            background-position:67%;
             height: $height+px;
             
             h1{
@@ -61,19 +64,22 @@
 @media (min-width: 576px) and (max-width: 767px) { 
     .home-block{
         padding:30px;
-        margin: 30px auto;
+        margin: 20px ;
        background: rgba($light_shadow, .5);
         
     }
     
     $width: 1000;
-    $height: 306;
+    $height: 300;
 
     .homeBanner{
 
         section.banner {
+            margin-top:-6px;
+            padding-top: 1px;
             position: relative;
             background: url("http://placehold.it/"+$width+"x"+$height+"?text=baner1--small_"+$width+"x"+$height)  no-repeat;
+             background: url("/assets/images/a-2-01.png") no-repeat;
             background-size: auto $height+px;
             background-position:50%;
             height: $height+px;
@@ -90,22 +96,24 @@
 
     .home-block{
         padding:30px;
-        margin: 30px auto;
+        margin: 30px;
    background: rgba($light_shadow, .5);
-        width: 768px;
+        
     }
 
 
 
         
-    $width: 1200;
-    $height: 558;
+    $width: 1000;
+    $height: 460;
 
     .homeBanner{
 
         section.banner {
+            padding-top: 1px;
             position: relative;
             background: url("http://placehold.it/"+$width+"x"+$height+"?text=baner1--small_"+$width+"x"+$height)  no-repeat;
+             background: url("/assets/images/a-2-01.png") no-repeat;
             background-size: auto $height+px;
             background-position:50%;
             height: $height+px;
@@ -122,9 +130,9 @@
 
     .home-block{
         padding:30px;
-        margin: 30px auto;
+        margin: 30px ;
      background: rgba($light_shadow, .5);
-        width: 992px;
+        
     }
 
 
@@ -136,8 +144,10 @@
     .homeBanner{
 
         section.banner {
+            padding-top: 1px;
             position: relative;
             background: url("http://placehold.it/"+$width+"x"+$height+"?text=baner1--small_"+$width+"x"+$height)  no-repeat;
+             background: url("/assets/images/a-2-01.png") no-repeat;
             background-size: auto $height+px;
             background-position:50%;
             height: $height+px;
@@ -167,11 +177,11 @@
     .homeBanner{
 
         section.banner {
-            padding: 1px;
+            padding-top: 1px;
             position: relative;
             background: url("http://placehold.it/"+$width+"x"+$height+"?text=baner1--small_"+$width+"x"+$height)  no-repeat;
-            background: url("/assets/images/A2.png") no-repeat;
-            //background-size: auto $height+px;
+            background: url("/assets/images/a-2-01.png") no-repeat;
+            background-size: auto $height+px;
             background-position:50%;
             height: $height+px;
             
