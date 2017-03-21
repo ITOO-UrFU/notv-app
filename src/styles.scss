@@ -110,28 +110,28 @@ img.event-speakers-photo{
 }
 
 .eventtype-working_group{
-        border-left: $event_left_border solid #36e654;
+        border-left: $event_left_border solid $green;
 }
 .eventtype-plenar{
     border-left: $event_left_border solid cornflowerblue;
 }
 .eventtype-panel_discussion{
-    border-left: $event_left_border solid #36e654;
+    border-left: $event_left_border solid $green;
 }
 .eventtype-round_table{
-    border-left: $event_left_border solid #ff0000;
+    border-left: $event_left_border solid $red;
 }
 .eventtype-master_class{
-    border-left: $event_left_border solid #3f00ff;
+    border-left: $event_left_border solid $blue;
 }
 .eventtype-interview{
-    border-left: $event_left_border solid #00fff3;
+    border-left: $event_left_border solid $turquoise;
 }
 .eventtype-report{
     border-left: $event_left_border solid #ffc107;
 }
 .eventtype-hackaton{
-    border-left: $event_left_border solid #9c27b0;
+    border-left: $event_left_border solid $purple;
 }
 
 
