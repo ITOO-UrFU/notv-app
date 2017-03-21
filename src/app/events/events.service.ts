@@ -62,7 +62,7 @@ private extractEvent(res: Response):Event {
 
       let eventListFiltered = this.getEventsByType(type);
 
-      console.log("eventListFiltered",eventListFiltered);
+      console.log("eventListFiltered", eventListFiltered);
 
       eventListFiltered.map(element => {return element.startdate}).forEach(element => {
         if(arr.map(el => el.toString()).indexOf(element.toString()) == -1) { 

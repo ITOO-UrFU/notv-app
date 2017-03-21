@@ -16,7 +16,7 @@ transform(dict: Object): any {
       }
       
     }
-    console.log(a);
+ //   console.log(a);
     return a;
   }
 } 
