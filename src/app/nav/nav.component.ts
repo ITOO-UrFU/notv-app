@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, Routes } from '@angular/router';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Router, Routes, ActivatedRoute } from '@angular/router';
 
 import { PageService } from 'app/page.service';
 import { PageComponent } from 'app/page/page.component';
@@ -16,7 +16,7 @@ import { AuthGuard } from 'app/services/auth.guard';
   styleUrls: ['./nav.component.scss']
 })
 
-export class NavComponent implements OnInit {
+export class NavComponent implements OnInit, AfterViewInit {
   listUrl: any[] = [];
   underListUrl: Boolean = false;
   activeUrl: any = {};
@@ -26,7 +26,8 @@ export class NavComponent implements OnInit {
               private router:Router, 
               private pageService: PageService, 
               private translate: TranslateService, 
-              private authGuard: AuthGuard 
+              private authGuard: AuthGuard,
+              private activatedRoute: ActivatedRoute
              ){
         translate.addLangs(["en", "ru"]);
         translate.setDefaultLang('en');
@@ -77,15 +78,22 @@ export class NavComponent implements OnInit {
            this.router.navigate([this.activeUrl.url+'/'+]);
          }*/
       // this.listUrl.push({ url: 'events', title: 'Мероприятия' })
- 
-      })
 
-console.log(this.listUrl);  
+    });
 }
+
+ngAfterViewInit(){
+    if (window.location.hash) {
+      this.goTo(window.location.hash.replace('#', ''));
+    }
+}
+
 goTo(location: string): void {
 
-    history.pushState(null, null, window.location.pathname + '#' + location);
-    window.scrollTo(0, document.getElementById(location).getBoundingClientRect().top);
+  if (document.getElementById(location) != null) {
+      history.pushState(null, null, window.location.pathname + '#' + location);
+      window.scrollTo(0, document.getElementById(location).getBoundingClientRect().top);
+  }
 }
 
 }
