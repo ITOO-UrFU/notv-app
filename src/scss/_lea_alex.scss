@@ -30,6 +30,13 @@
 
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575px) { 
+ .home-block{
+        padding:30px;
+        margin: 30px auto;
+        background: rgba($light, .5);
+        
+    }
+    
     $width: 600;
     $height: 366;
 
@@ -52,6 +59,13 @@
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) and (max-width: 767px) { 
+    .home-block{
+        padding:30px;
+        margin: 30px auto;
+        background: rgba($light, .5);
+        
+    }
+    
     $width: 1000;
     $height: 306;
 
@@ -73,6 +87,16 @@
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) and (max-width: 991px) { 
+
+    .home-block{
+        padding:30px;
+        margin: 30px auto;
+        background: rgba($light, .5);
+        width: 768px;
+    }
+
+
+
         
     $width: 1200;
     $height: 558;
@@ -96,6 +120,16 @@
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) and (max-width: 1199px) { 
 
+    .home-block{
+        padding:30px;
+        margin: 30px auto;
+        background: rgba($light, .5);
+        width: 992px;
+    }
+
+
+
+
     $width: 1200;
     $height: 558;
 
@@ -117,6 +151,16 @@
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) { 
+
+    .home-block{
+        padding:30px;
+        margin: 30px auto;
+        background: rgba($light, .5);
+        width: 1000px;
+    }
+
+
+
     $width: 1920;
     $height: 668;
 
@@ -137,6 +181,14 @@
  }
  
 @media (min-width: 1921px) { 
+    .home-block{
+        padding:30px;
+        margin: 30px auto;
+        background: rgba($light, .5);
+        width: 1200px;
+    }
+
+
     $width: 2560;
     $height: 856;
 
@@ -157,12 +209,7 @@
 
 }
 
-.home-block{
-    padding:30px;
-    margin: 30px auto;
-    background: rgba($light, .5);
-    width: 600px;
-}
+
 
 
 
