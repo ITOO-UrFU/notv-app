@@ -49,12 +49,12 @@ export class NavComponent implements OnInit {
             if (element.pages.length) {
               let array: any[] = [];
               element.pages.forEach(element => {
-                array.push({ url: element.slug, title: element.title ? element.title : element.slug })    
+
+                  array.push({ url: element.slug, title: element.title ? element.title : element.slug, type: element.type })    
+                
               })
-              
           
                 this.listUrl.push({ url: element.slug, title: element.title ? element.title : element.slug, underpage: array, type: element.type })
-            
 
             }
             else {

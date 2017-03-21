@@ -31,11 +31,16 @@ export class UserEventsComponent implements OnInit {
     private authGuard: AuthGuard) { }
 
   ngOnInit() {
+          if(this.authGuard.canActivate()){
              this.registerService.getProfile().subscribe(userProfile => {
              this.currentUser = userProfile;
              this.userEvents = this.currentUser.get_events;
-
         });
+          }
+          else{
+             this.router.navigate(["login"]);
+          }
+
   }
 
 
