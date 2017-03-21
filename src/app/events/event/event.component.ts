@@ -85,7 +85,6 @@ unregisterOnEvent(event: Event){
                     window.scrollTo(0,0);
                     this.alertService.error("Ошибка отписки от события!", error);
                 });;
-       
 }
 
     public goBack() {
@@ -93,6 +92,6 @@ unregisterOnEvent(event: Event){
     }
 
     public goMyEvents(){
-        this.router.navigate(["profile", "trajectory"]);
+        this.router.navigate(["events", "my_events"]);
     }
 }

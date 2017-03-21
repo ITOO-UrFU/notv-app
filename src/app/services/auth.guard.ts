@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router, CanActivate } from '@angular/router';
+import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -11,6 +11,8 @@ export class AuthGuard implements CanActivate {
             // logged in so return true
             return true;
         }
+       
+       // this.router.navigate(['/login'], { queryParams: { returnUrl: "state.url" }});
         console.log("AuthGuard called");
 
         return false;

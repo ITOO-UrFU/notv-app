@@ -34,6 +34,7 @@ import { UserProfileComponent } from 'app/user-profile/user-profile.component';
 import { AuthGuard } from 'app/services/auth.guard';
 import { ProfileEditComponent } from 'app/user-profile/profile-edit/profile-edit.component';
 import { UserEventsComponent } from 'app/user-events/user-events.component';
+
 import { MetaService, MetaConfig, MetaModule } from 'ng2-meta';
 
 const metaConfig: MetaConfig = {

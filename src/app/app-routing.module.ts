@@ -48,10 +48,10 @@ const routes: Routes = [
             path: 'edit',
             component: ProfileEditComponent,
           },
-          {
+          /*{
             path: 'trajectory',
             component: UserEventsComponent
-          }
+          }*/
         ]
       },
       {
@@ -59,10 +59,17 @@ const routes: Routes = [
         component: LoginComponent
 
       },
-            {
+      
+      {
         path: 'register',
         component: RegistrationComponent
 
+      },
+      
+      {
+        path: 'events/my_events',
+        component: UserEventsComponent,
+        //canActivate: [AuthGuard],
       },
 
       {
