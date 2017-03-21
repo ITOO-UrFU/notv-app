@@ -23,3 +23,149 @@
 @media (min-width: 1200px) { 
 
  }
+
+
+
+// баннер
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575px) { 
+    $width: 600;
+    $height: 366;
+
+
+    .homeBanner{
+
+        section.banner {
+            position: relative;
+            background: url("http://placehold.it/"+$width+"x"+$height+"?text=baner1--small_"+$width+"x"+$height)  no-repeat;
+            background-size: auto $height+px;
+            background-position:50%;
+            height: $height+px;
+            
+            h1{
+                position: relative;
+            }
+        }
+    }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) and (max-width: 767px) { 
+    $width: 1000;
+    $height: 306;
+
+    .homeBanner{
+
+        section.banner {
+            position: relative;
+            background: url("http://placehold.it/"+$width+"x"+$height+"?text=baner1--small_"+$width+"x"+$height)  no-repeat;
+            background-size: auto $height+px;
+            background-position:50%;
+            height: $height+px;
+            
+            h1{
+                position: relative;
+            }
+        }
+    }
+ }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991px) { 
+        
+    $width: 1200;
+    $height: 558;
+
+    .homeBanner{
+
+        section.banner {
+            position: relative;
+            background: url("http://placehold.it/"+$width+"x"+$height+"?text=baner1--small_"+$width+"x"+$height)  no-repeat;
+            background-size: auto $height+px;
+            background-position:50%;
+            height: $height+px;
+            
+            h1{
+                position: relative;
+            }
+        }
+    }
+ }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) and (max-width: 1199px) { 
+
+    $width: 1200;
+    $height: 558;
+
+    .homeBanner{
+
+        section.banner {
+            position: relative;
+            background: url("http://placehold.it/"+$width+"x"+$height+"?text=baner1--small_"+$width+"x"+$height)  no-repeat;
+            background-size: auto $height+px;
+            background-position:50%;
+            height: $height+px;
+            
+            h1{
+                position: relative;
+            }
+        }
+    }
+ }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { 
+    $width: 1920;
+    $height: 668;
+
+    .homeBanner{
+
+        section.banner {
+            position: relative;
+            background: url("http://placehold.it/"+$width+"x"+$height+"?text=baner1--small_"+$width+"x"+$height)  no-repeat;
+            background-size: auto $height+px;
+            background-position:50%;
+            height: $height+px;
+            
+            h1{
+                position: relative;
+            }
+        }
+    }
+ }
+ 
+@media (min-width: 1921px) { 
+    $width: 2560;
+    $height: 856;
+
+    .homeBanner{
+
+        section.banner {
+            position: relative;
+            background: url("http://placehold.it/"+$width+"x"+$height+"?text=baner1--small_"+$width+"x"+$height)  no-repeat;
+            background-size: auto $height+px;
+            background-position:50%;
+            height: $height+px;
+            
+            h1{
+                position: relative;
+            }
+        }
+    }
+
+}
+
+.home-block{
+    padding:30px;
+    margin: 30px auto;
+    background: rgba($light, .5);
+    width: 600px;
+}
+
+
+
+
+
+

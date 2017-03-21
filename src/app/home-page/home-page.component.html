@@ -1,5 +1,5 @@
 
-<div *ngIf="slides">
+<!--<div *ngIf="slides">
   <div class="home-slider"  (mouseleave)="startSlider()" (mouseover)="pauseSlider()"> 
     <div class="slides-wrap">
       <div *ngFor="let slide of slides" class="home-slide" [ngClass]="{'active': slide.active}" >
@@ -9,14 +9,20 @@
     <div class="prev-button" (click)="prevSlide()">prev</div>
     <div class="next-button" (click)="nextSlide()">next</div> 
   </div>
-</div>
+</div>-->
 
 <div *ngIf="homePage">
-  <div *ngFor="let block of homePage.pages">
-    <div *ngIf="block.type=='block'" class="home-block">
+  <template ngFor let-block [ngForOf]="homePage.pages" let-i="index">
+  
+    <div *ngIf="block.type=='banner'" class="homeBanner">
       <div [innerHTML]="block.html"></div> 
     </div>
-  </div>
+    <div *ngIf="block.type=='block'" class="home-block">
+      <h2>{{ block.title }}</h2>
+      <div [innerHTML]="block.html"></div>
+      <button>Подробнее</button> 
+    </div>
+  </template>
 </div>
 
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit  } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { HomePageService } from 'app/home-page/home-page.service';
 import { Router, Routes } from '@angular/router';
 

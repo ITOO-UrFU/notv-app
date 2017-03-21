@@ -1,195 +1,141 @@
 
 
-div.active{
-    z-index: 2;
-     display: block !important;
-    -webkit-animation: fadeInFromNone 0.1s ease-out;
-    -moz-animation: fadeInFromNone 0.1s ease-out;
-    -o-animation: fadeInFromNone 0.1s ease-out;
-    animation: fadeInFromNone 0.1s ease-out;
-}
+// div.active{
+//     z-index: 2;
+//      display: block !important;
+//     -webkit-animation: fadeInFromNone 0.1s ease-out;
+//     -moz-animation: fadeInFromNone 0.1s ease-out;
+//     -o-animation: fadeInFromNone 0.1s ease-out;
+//     animation: fadeInFromNone 0.1s ease-out;
+// }
 
-@-webkit-keyframes fadeInFromNone {
-    0% {
-        display: none;
-        opacity: 0;
-    }
+// @-webkit-keyframes fadeInFromNone {
+//     0% {
+//         display: none;
+//         opacity: 0;
+//     }
 
-    1% {
-        display: block;
-        opacity: 0;
-    }
+//     1% {
+//         display: block;
+//         opacity: 0;
+//     }
 
-    100% {
-        display: block;
-        opacity: 1;
-    }
-}
+//     100% {
+//         display: block;
+//         opacity: 1;
+//     }
+// }
 
-@-moz-keyframes fadeInFromNone {
-    0% {
-        display: none;
-        opacity: 0;
-    }
+// @-moz-keyframes fadeInFromNone {
+//     0% {
+//         display: none;
+//         opacity: 0;
+//     }
 
-    1% {
-        display: block;
-        opacity: 0;
-    }
+//     1% {
+//         display: block;
+//         opacity: 0;
+//     }
 
-    100% {
-        display: block;
-        opacity: 1;
-    }
-}
+//     100% {
+//         display: block;
+//         opacity: 1;
+//     }
+// }
 
-@-o-keyframes fadeInFromNone {
-    0% {
-        display: none;
-        opacity: 0;
-    }
+// @-o-keyframes fadeInFromNone {
+//     0% {
+//         display: none;
+//         opacity: 0;
+//     }
 
-    1% {
-        display: block;
-        opacity: 0;
-    }
+//     1% {
+//         display: block;
+//         opacity: 0;
+//     }
 
-    100% {
-        display: block;
-        opacity: 1;
-    }
-}
+//     100% {
+//         display: block;
+//         opacity: 1;
+//     }
+// }
 
-@keyframes fadeInFromNone {
-    0% {
-        display: none;
-        opacity: 0;
-    }
+// @keyframes fadeInFromNone {
+//     0% {
+//         display: none;
+//         opacity: 0;
+//     }
 
-    1% {
-        display: block;
-        opacity: 0;
-    }
+//     1% {
+//         display: block;
+//         opacity: 0;
+//     }
 
-    100% {
-        display: block;
-        opacity: 1;
-    }
-}
+//     100% {
+//         display: block;
+//         opacity: 1;
+//     }
+// }
 
-.home-slider {
-    padding: 0px;
-    margin: 0px;
-    list-style-type: none;
-    position: relative;
-}
+// .home-slider {
+//     padding: 0px;
+//     margin: 0px;
+//     list-style-type: none;
+//     position: relative;
+// }
  
-.home-slide {
-    position: relative;
-    width: 100%;
-    height: 60vh;
-    max-height: 750px;
-    overflow: hidden;
+// .home-slide {
+//     position: relative;
+//     width: 100%;
+//     overflow: hidden;
 
-    display: none;
-    z-index: 1;
-}
+//     display: none;
+//     z-index: 1;
+// }
 
 
-.prev-button{
-    top: 50%;
-    transform: translate(0%,-50%);
-    -ms-transform: translate(0%,-50%);
-    z-index: 3;
-    left:5px;
-	background: #000 url('https://lh4.googleusercontent.com/-JN1IZLtuToI/UUoZnMG3C_I/AAAAAAAAAE8/SEbJ9nqXGnY/s226/sprite.png') no-repeat -200px 25px;
-}
+// .prev-button{
+//     top: 50%;
+//     transform: translate(0%,-50%);
+//     -ms-transform: translate(0%,-50%);
+//     z-index: 3;
+//     left:5px;
+// 	background: #000 url('https://lh4.googleusercontent.com/-JN1IZLtuToI/UUoZnMG3C_I/AAAAAAAAAE8/SEbJ9nqXGnY/s226/sprite.png') no-repeat -200px 25px;
+// }
 
-.next-button{
-    top: 50%;
-    transform: translate(0%,-50%);
-    -ms-transform: translate(0%,-50%);
-    z-index: 3;
-    right:5px;
-	background: #000 url('https://lh4.googleusercontent.com/-JN1IZLtuToI/UUoZnMG3C_I/AAAAAAAAAE8/SEbJ9nqXGnY/s226/sprite.png') no-repeat -167px 25px;
-}
+// .next-button{
+//     top: 50%;
+//     transform: translate(0%,-50%);
+//     -ms-transform: translate(0%,-50%);
+//     z-index: 3;
+//     right:5px;
+// 	background: #000 url('https://lh4.googleusercontent.com/-JN1IZLtuToI/UUoZnMG3C_I/AAAAAAAAAE8/SEbJ9nqXGnY/s226/sprite.png') no-repeat -167px 25px;
+// }
 
-div.next-button,div.prev-button {
-	height:91px;
-	position:absolute;
-	width:43px;
-	top:50%;
+// div.next-button,div.prev-button {
+// 	height:91px;
+// 	position:absolute;
+// 	width:43px;
+// 	top:50%;
 
-	opacity:0.6;
-	text-indent:-99999px;
-	cursor:pointer;
-}
+// 	opacity:0.6;
+// 	text-indent:-99999px;
+// 	cursor:pointer;
+// }
 
-div.next-button:hover, div.prev-button:hover {
-	opacity:1;
+// div.next-button:hover, div.prev-button:hover {
+// 	opacity:1;
 
-}
-
-:host /deep/ .slide-image {
-    width: 100% !important;
-    height: 600px;
-}
+// }
 
 
 
-:host /deep/ .slide-text{
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    bottom: 0;
-    font-size: 3vw;
-    background: rgba(0,0,0,0.1);
-    max-height: 50%;
-    background: rgba(0, 0, 0, 0.8);
-    color: #fdfdfd;
-    font-family: "Open Sans";
-}
-
-.home-block{
-    text-align: center;
-    min-height: 500px;
-    background: rgba(0,0,0,0.1);
-}
-
-:host /deep/ .slide-text h1{
-    font-size: 3vw;
-    margin: 0.25em;
-}
 
 
-@media screen and (max-width: 768px) {
 
-    div.next-button,div.prev-button {
-	    height:50px;
-    }
-    .next-button{
-	    background: #000 url('https://lh4.googleusercontent.com/-JN1IZLtuToI/UUoZnMG3C_I/AAAAAAAAAE8/SEbJ9nqXGnY/s226/sprite.png') no-repeat -167px 6px;
-    }
-    .prev-button{
-        background: #000 url('https://lh4.googleusercontent.com/-JN1IZLtuToI/UUoZnMG3C_I/AAAAAAAAAE8/SEbJ9nqXGnY/s226/sprite.png') no-repeat -200px 6px;
-    }
-    .home-block{
-        margin: 5px;
-    }
-}
 
-@media screen and (min-width: 768px) {
-    .home-block{
-        margin: 20px;
-    }
-}
 
-:host /deep/ .slide2 {
-    background: url("/assets/images/04.png")  no-repeat;
-    background-size: auto 600px;
-}
 
-:host /deep/ .slide7 {
-    background: url("/assets/images/07.png")  no-repeat;
-    background-size: auto 600px;
-}
+
+
+
