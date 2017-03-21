@@ -1,16 +1,13 @@
-
+<!--
 <div *ngIf="timeGrid" class="events-container">
 
     <div *ngFor="let day of timeGrid | eventsToObject" class="day-container">
-         <!-- <div class="conference-date">   {{day.key}} апреля, 2017 </div> -->
         
     <div>
         <template ngFor let-time [ngForOf]="day.val | eventsToObject" let-ii="index">
             <div class="time-container">
-                <!-- <div class="time-item" > {{time.key}}</div> -->
                 <div class="events-at-day">
                        <template ngFor let-event [ngForOf]="time.val" let-i="index" >
-                          <!-- <div class="event-time-{{time.val.length}} {{event.eventtype}}"> -->
                           <div class="event-time-1 {{event.eventtypeid}}">
                              <p *ngIf="event.eventtype" class="eventtype-name"> {{event.eventtype}} <br /> </p>
                               <p class="event-title" (click)="toEvent(event)"><strong>{{event.title}} </strong></p>
@@ -23,13 +20,64 @@
                                     <div class="event-speaker">
                                         <img  class="event-speakers-photo" src="http://placehold.it/150x150" />
                                         <p class="event-speakers-name">{{user.person.first_name}} {{user.person.last_name}}</p>
-                                      <!--  <p *ngIf="user.person.position" class="event-speakers-position"> {{user.person.position}} </p> -->
                                     </div>
                                 </div>
                             </div>
                            </div>
                       </template>
                 </div>
+             </div>
+        </template>
+    </div>
+    </div>
+</div>
+-->
+
+
+
+
+<!--<button (click)="test()" >Button</button>
+<div *ngIf="eventsList">
+  <select multiple="multiple" [ngModel]="selectedDay" (ngModelChange)="funcSelectedDay($event)">
+      <option *ngFor="let i of conferenceDates" [ngValue]="i">{{i | date:'yMMMMd'}}</option>
+  </select>
+</div>
+
+<div *ngIf="uniqueTimes">
+  <select multiple="multiple" [ngModel]="selectedTime" (ngModelChange)="funcSelectedTime($event)">
+      <option *ngFor="let i of uniqueTimes" [ngValue]="i">{{i | date:'short'}}</option>
+  </select>
+</div>
+
+<div *ngIf="currentEvents">
+      <div class="event-item" *ngFor="let event of currentEvents">
+
+              <p>{{event.title}}</p>
+         <p>{{event.description}}</p> 
+            <p>{{event.startdate | date:'yMMMdjms'}} <p>  
+</div>-->
+
+
+<div *ngIf="timeGrid" class="events-container">
+
+    <div *ngFor="let day of timeGrid | eventsToObject" class="day-container">
+         <div class="conference-date">   {{day.key}} апреля, 2017 </div>
+
+    <div>
+        <template ngFor let-time [ngForOf]="day.val | eventsToObject" let-ii="index">
+            <div class="time-container">
+                <div class="time-item" > {{time.key}}</div>
+                       <template ngFor let-event [ngForOf]="time.val" let-i="index" >
+                           <div  (click)="toEvent(event)" class="event-time-{{time.val.length}} {{event.eventtypeid}}">
+                              <strong >{{event.title}}</strong>
+                              
+                            <div *ngIf="event.users.length">
+                                <p *ngFor="let user of event.users"> 
+                                       {{user.person.first_name}} {{user.person.last_name}}
+                                   </p>
+                            </div>
+                           </div>
+                      </template>
              </div>
         </template>
     </div>

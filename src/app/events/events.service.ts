@@ -80,7 +80,8 @@ private extractEvent(res: Response):Event {
         }
         object[element.startdate.getDate()][element.startdate.getHours()+':'+element.startdate.getMinutes()].push(element)
       });
-  
+      
+      console.log("OBJECT: ", object);
       return object; 
   }
 

@@ -23,10 +23,6 @@ export class EventListComponent implements OnInit {
 
 
   constructor(private router:Router, private eventsService: EventsService) { 
-      // this.router.events.subscribe(event => {
-      //     console.log(this.typeFilter);
-      //     this.timeGrid = this.eventsService.getEventsObject(this.typeFilter);
-      // });
   }
 
   ngOnInit() {
@@ -34,9 +30,9 @@ export class EventListComponent implements OnInit {
         this.eventsService.getEventsList()
           .subscribe(eventsList => { 
             this.eventsList = eventsList;
-            this.conferenceDates = this.getUniqueDates(eventsList);
+            //this.conferenceDates = this.getUniqueDates(eventsList);
             this.timeGrid = this.eventsService.getEventsObject(this.typeFilter);
-            
+             console.log("timeGrid: ", this.timeGrid);
         }
       );
   }
@@ -44,7 +40,7 @@ export class EventListComponent implements OnInit {
 ngOnChanges(changes: any) {
     if(this.eventsList){
       this.timeGrid = this.eventsService.getEventsObject(this.typeFilter);
-      console.log("Changes: ", this.timeGrid);
+     
     }
 }
 

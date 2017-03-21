@@ -14,7 +14,9 @@ transform(dict: Object): any {
       if (dict.hasOwnProperty(key)) {
         a.push({key: key, val: dict[key]});
       }
+      
     }
+    console.log(a);
     return a;
   }
 } 

@@ -35,6 +35,8 @@ import { AuthGuard } from 'app/services/auth.guard';
 import { ProfileEditComponent } from 'app/user-profile/profile-edit/profile-edit.component';
 import { UserEventsComponent } from 'app/user-events/user-events.component';
 
+import { SafePipe } from 'app/page/safe.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +53,8 @@ import { UserEventsComponent } from 'app/user-events/user-events.component';
     AlertComponent,
     UserProfileComponent,
     ProfileEditComponent,
-    UserEventsComponent
+    UserEventsComponent,
+    SafePipe
 
   ],
   imports: [

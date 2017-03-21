@@ -82,5 +82,8 @@ export class NavComponent implements OnInit {
 
 console.log(this.listUrl);  
 }
+goTo(location: string): void {
+    window.scrollTo(0, document.getElementById(location).getBoundingClientRect().top);
+}
 
 }
