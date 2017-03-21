@@ -31,10 +31,15 @@
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575px) { 
  .home-block{
-        padding:30px;
+        padding:13px;
         margin: 20px;
+        background: rgba($light_shadow, .5);     
+    }
+    .speakers-board{
+        padding:30px;
+        margin: 30px auto;
         background: rgba($light_shadow, .5);
-        
+        width: 408px;
     }
     
     $width: 600;
@@ -68,7 +73,14 @@
        background: rgba($light_shadow, .5);
         
     }
-    
+
+    .speakers-board{
+        padding:30px;
+        margin: 30px auto;
+        background: rgba($light_shadow, .5);
+        width: 408px;
+    }
+
     $width: 1000;
     $height: 300;
 
@@ -100,7 +112,12 @@
    background: rgba($light_shadow, .5);
         
     }
-
+    .speakers-board{
+        padding:30px;
+        margin: 30px auto;
+        background: rgba($light_shadow, .5);
+        width: 612px;
+    }
 
 
         
@@ -131,10 +148,15 @@
     .home-block{
         padding:30px;
         margin: 30px ;
-     background: rgba($light_shadow, .5);
+        background: rgba($light_shadow, .5);
         
     }
-
+    .speakers-board{
+        padding:30px;
+        margin: 30px auto;
+        background: rgba($light_shadow, .5);
+        width: 816px;
+    }
 
 
 
@@ -165,8 +187,14 @@
     .home-block{
         padding:30px;
         margin: 30px auto;
-         background: rgba($light_shadow, .5);
+        background: rgba($light_shadow, .5);
         width: 1000px;
+    }
+    .speakers-board{
+        padding:30px;
+        margin: 30px auto;
+        background: rgba($light_shadow, .5);
+        width: 1020px;
     }
 
 
@@ -199,6 +227,12 @@
          background: rgba($light_shadow, .5);
         width: 1200px;
     }
+        .speakers-board{
+        padding:30px;
+        margin: 30px auto;
+        background: rgba($light_shadow, .5);
+        width: 1224px;
+    }
 
 
     $width: 2560;
@@ -227,6 +261,49 @@ section.banner{
     box-shadow: 0 0 36px black;
 }
 
+.home-block{
+    .participants-block{
+        padding-top:20px;
+    }
+}
 
+
+
+
+.speakers-board{
+    
+
+}
+
+.speaker-block{
+text-align: center;
+    display: inline-block;
+    margin: 0px 2px;
+}
+
+.speaker-board-photo{
+    display: inline-block;
+    height: 200px;
+    width: 200px;
+    position: relative;
+    
+    .name{
+        position: absolute;
+        display: none;
+    }
+    &:hover{
+        .name{
+            height: 200px;
+            width: 200px;
+            display: block;
+            background: rgba($blue, .8);
+
+            p{
+                color:$light
+            }
+
+        }
+    }
+}
 
 

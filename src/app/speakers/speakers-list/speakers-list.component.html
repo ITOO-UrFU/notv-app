@@ -2,8 +2,9 @@
 <div class="speakers-board">
 
 <div *ngFor="let speaker of speakersList" class="speaker-block">
-    <img class="speaker-board-photo" src="{{speaker.user_photo}}" />
-    <p>{{speaker.first_name}} {{speaker.last_name}}</p>
+    <div class="speaker-board-photo" [ngStyle]="{'background':'url('+speaker.user_photo+')', 'background-size': 'cover'}" >
+    <div class="name"><p>{{speaker.first_name}} {{speaker.last_name}}</p></div>
+    </div>
 </div>
 
 </div>
