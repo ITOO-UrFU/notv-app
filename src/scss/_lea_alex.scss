@@ -33,7 +33,7 @@
  .home-block{
         padding:30px;
         margin: 30px auto;
-        background: rgba($light, .5);
+        background: rgba($light_shadow, .5);
         
     }
     
@@ -62,7 +62,7 @@
     .home-block{
         padding:30px;
         margin: 30px auto;
-        background: rgba($light, .5);
+       background: rgba($light_shadow, .5);
         
     }
     
@@ -91,7 +91,7 @@
     .home-block{
         padding:30px;
         margin: 30px auto;
-        background: rgba($light, .5);
+   background: rgba($light_shadow, .5);
         width: 768px;
     }
 
@@ -123,7 +123,7 @@
     .home-block{
         padding:30px;
         margin: 30px auto;
-        background: rgba($light, .5);
+     background: rgba($light_shadow, .5);
         width: 992px;
     }
 
@@ -155,7 +155,7 @@
     .home-block{
         padding:30px;
         margin: 30px auto;
-        background: rgba($light, .5);
+         background: rgba($light_shadow, .5);
         width: 1000px;
     }
 
@@ -167,9 +167,11 @@
     .homeBanner{
 
         section.banner {
+            padding: 1px;
             position: relative;
             background: url("http://placehold.it/"+$width+"x"+$height+"?text=baner1--small_"+$width+"x"+$height)  no-repeat;
-            background-size: auto $height+px;
+            background: url("/assets/images/A2.png") no-repeat;
+            //background-size: auto $height+px;
             background-position:50%;
             height: $height+px;
             
@@ -184,7 +186,7 @@
     .home-block{
         padding:30px;
         margin: 30px auto;
-        background: rgba($light, .5);
+         background: rgba($light_shadow, .5);
         width: 1200px;
     }
 
@@ -211,7 +213,9 @@
 
 
 
-
+section.banner{
+    box-shadow: 0 0 36px black;
+}
 
 
 
