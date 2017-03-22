@@ -15,7 +15,7 @@ let speakersList: any[];
 @Injectable()
 export class SpeakersService {
 
-  private speakersUrl = 'https://openedu.urfu.ru:33017/api/v1/speakers/';
+  private speakersUrl = 'https://openedu.urfu.ru/edcrunch/api/v1/speakers/';
 
   constructor( private http: Http ) { }
 

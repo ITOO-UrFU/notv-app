@@ -12,7 +12,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class HomePageService {
 
-  private homepageUrl = 'https://openedu.urfu.ru:33017/api/v1/pages/home/?format=json';
+  private homepageUrl = 'https://openedu.urfu.ru/edcrunch/api/v1/pages/home/?format=json';
 
   
 

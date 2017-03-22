@@ -13,8 +13,8 @@ import { Page } from 'app/page'
 @Injectable()
 export class PageService {
 
-  private pageUrl = 'https://openedu.urfu.ru:33017/api/v1/pages';
-  private pageList = 'https://openedu.urfu.ru:33017/api/v1/pages/map/?format=json'
+  private pageUrl = 'https://openedu.urfu.ru/edcrunch/api/v1/pages';
+  private pageList = 'https://openedu.urfu.ru/edcrunch/api/v1/pages/map/?format=json'
 
   constructor ( private http: Http ) { }
   

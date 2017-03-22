@@ -33,7 +33,7 @@ html {
 body {
   position: relative;
   margin: 0;
-  padding-bottom: 6rem;
+  padding-bottom: 14rem;
   min-height: 100%;
   box-sizing: inherit;
 }
@@ -51,7 +51,20 @@ app-user-events{
   padding: 1rem;
   background-color: $dark_gray;
   text-align: center;
-  span{
+  .edcrunch-logo{
+      height: 100px;
+      background: url('http://promo.ruvents.com/assets/img/clients/EdCrunch_logo.png') 100% no-repeat;
+  }
+  .contact-info p:first-child  {
+      font-size: 1.5em;
+  }
+
+  p{
+      color: white;
+    margin: 10px 2px;
+    text-align: left;
+  }
+  a{
       color: white;
   }
 }
