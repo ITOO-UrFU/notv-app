@@ -70,15 +70,16 @@
                 <div class="events-at-day">
                        <template ngFor let-event [ngForOf]="time.val" let-i="index" >
 
-                         <div  (click)="toEvent(event)" class="event-time-{{time.val.length}} {{event.eventtypeid}}">
+                         <div class="event-time-{{time.val.length}} {{event.eventtypeid}}">
                               <strong >{{event.title}}</strong>
                     
-                            <ul *ngIf="event.users.length">
-                                Спикеры
-                                <li *ngFor="let user of event.users"> 
-                                       {{user.person.first_name}} {{user.person.last_name}}
-                                   </li>
-                            </ul>
+                            <div *ngIf="event.users.length">
+                               
+                                <div   data-title="Польский костел" *ngFor="let user of event.users" class="event-speaker-photo" [ngStyle]="{'background':'url('+user.person.photo_url+')', 'background-size': 'cover'}" >  
+                                       <!--{{user.person.first_name}} {{user.person.last_name}}-->
+                                       <!--<img src="{{user.person.photo_url}}" />-->
+                                   </div>
+                            </div>
                            </div>
                       </template>
                 </div>

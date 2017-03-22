@@ -13,13 +13,27 @@
 
   <div *ngIf="currentEvent.users.length">
       Спикеры:
-      <div *ngFor="let user of currentEvent.users" class="event-speakers"> 
+
+<div class="speakers-board">
+
+<div *ngFor="let user of currentEvent.users" class="speaker-block">
+    <div class="speaker-board-photo" [ngStyle]="{'background':'url('+user.person.photo_url+')', 'background-size': 'cover'}" >
+    <div class="name"><p>{{user.person.first_name}} {{user.person.last_name}}</p>
+                      <p>{{user.person.organisation}}</p>
+                      <p>{{user.person.division}}</p>
+                      <p>{{user.person.position}}</p>
+    </div>
+    </div>
+</div>
+
+</div>
+
+      <!--<div *ngFor="let user of currentEvent.users" class="event-speakers"> 
           <div class="event-speaker">
-              <img  class="event-speakers-photo" src="http://placehold.it/150x150" />
+              <img  class="event-speakers-photo" src="{{user.person.photo_url}}" />
               <p class="event-speakers-name">{{user.person.first_name}} {{user.person.last_name}}</p>
-            <!--  <p *ngIf="user.person.position" class="event-speakers-position"> {{user.person.position}} </p> -->
           </div>
-      </div>
+      </div>-->
   </div>
 
 

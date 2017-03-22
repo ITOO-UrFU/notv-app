@@ -93,7 +93,7 @@ app-user-events{
 }
 
 .event-block{
-    width: 1000px;
+    width: 80%;
     margin: 0 auto;
      padding-top:130px;
 }
@@ -122,11 +122,20 @@ header.app-nav{
    /* display: inline-block;*/
 }
 
-img.event-speakers-photo{
-    width: 40px;
-    display: inline-block;
-    vertical-align: middle;
+// img.event-speakers-photo{
+//     width: 90px;
+//     display: inline-block;
+//     vertical-align: middle;
+//     border-radius: 50%;
+// }
+
+ .event-speaker-photo{
+display: inline-block;
+    height: 70px;
     border-radius: 50%;
+    width: 70px;
+        margin: 5px;
+    position: relative;
 }
 
 .event-speakers-name{
