@@ -37,6 +37,7 @@ import { UserEventsComponent } from 'app/user-events/user-events.component';
 import { SafePipe } from 'app/page/safe.pipe';
 import { MetaConfig, MetaModule } from 'ng2-meta';
 
+
 const metaConfig: MetaConfig = {
 
   useTitleSuffix: true,
@@ -65,6 +66,7 @@ const metaConfig: MetaConfig = {
     UserEventsComponent,
     SafePipe,
 
+
   ],
   imports: [
     BrowserModule,
@@ -73,7 +75,7 @@ const metaConfig: MetaConfig = {
     AppRoutingModule,
     MaterialModule.forRoot(),
     TranslateModule.forRoot(),
-    MetaModule.forRoot(metaConfig),
+    MetaModule.forRoot(metaConfig), 
   ],
 
   providers: [
@@ -85,6 +87,7 @@ const metaConfig: MetaConfig = {
     AuthenticationService,
     AlertService,
     AuthGuard,
+    
    {
       provide: LOCALE_ID,
      //  useValue: "en-EN"
@@ -92,6 +95,6 @@ const metaConfig: MetaConfig = {
     },
     ],
   bootstrap: [AppComponent],
-  entryComponents: [ PageComponent ]
+  entryComponents: [ PageComponent ],
 })
 export class AppModule { }

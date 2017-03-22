@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, HostListener } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { PageService } from 'app/page.service';
@@ -47,6 +47,7 @@ export class PageComponent implements OnDestroy {
       .subscribe(
         page => {
           this.page = page;
+          console.log(this.page)
           this.setTitle(page.title);
           this.subPages = [];
           if(this.page.pages.length > 0)
@@ -63,6 +64,35 @@ export class PageComponent implements OnDestroy {
       
       );
   }
+
+@HostListener("window:scroll", [])
+  onWindowScroll() {
+   // console.log("scroll")
+    this.scrollFunction();
+  }
+
+ scrollFunction() {
+   if(document.getElementById("return-to-top")){
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        document.getElementById("return-to-top").style.display = "block";
+    } else {
+        document.getElementById("return-to-top").style.display = "none";
+    }
+   }
+}
+
+  topFunction() {
+    // document.body.scrollTop = 0;
+    // document.documentElement.scrollTop = 0;
+    let scrollDuration = 300;
+    var scrollStep = -window.scrollY / (scrollDuration / 15),
+        scrollInterval = setInterval(function(){
+        if ( window.scrollY != 0 ) {
+            window.scrollBy( 0, scrollStep );
+        }
+        else clearInterval(scrollInterval); 
+    },15);
+}
 
 
   ngOnDestroy() {

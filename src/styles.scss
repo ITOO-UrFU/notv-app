@@ -86,9 +86,14 @@ app-user-events{
       color: white;
   }
 }
-
 .app-event-list{
-        padding-top: 90px;
+            padding: 30px;
+        margin: 100px auto;
+        background: rgba($light_shadow, .5);
+        width: 1000px;
+}
+.app-event-list{
+      //  padding-top: 90px;
 }
 .container {
     margin-top: 23px; 

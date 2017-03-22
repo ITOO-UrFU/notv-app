@@ -13,15 +13,15 @@
     <form name="form" (ngSubmit)="update()" #f="ngForm" novalidate>
 
 
-
-        <div class="form-group">
-            <label for="first_name">Имя:</label>
-            <input value="{{currentUser.first_name}}" type="text" class="form-control" name="first_name" [(ngModel)]="model.first_name" #first_name="ngModel" required />
-        </div>
         
         <div class="form-group">
             <label for="last_name">Фамилия:</label>
             <input value="{{currentUser.last_name}}" type="text" class="form-control" name="last_name" [(ngModel)]="model.last_name" #last_name="ngModel" required />
+        </div>
+
+        <div class="form-group">
+            <label for="first_name">Имя:</label>
+            <input value="{{currentUser.first_name}}" type="text" class="form-control" name="first_name" [(ngModel)]="model.first_name" #first_name="ngModel" required />
         </div>
 
         <div class="form-group">
@@ -59,7 +59,12 @@
             <input value="{{currentUser.organisation}}" type="text" class="form-control" name="organisation" [(ngModel)]="model.organisation" #organisation="ngModel" required />
         </div>
         
-
+    
+        <div class="form-group">
+            <label for="phone">Номер телефона</label>
+            <input value="{{currentUser.phone}}"  type="text" class="form-control" name="phone" [(ngModel)]="model.phone" #phone="ngModel" required />
+        </div> 
+       
 
         <!--<div class="form-group">
             <label for="division">Подразделение:</label>

@@ -57,7 +57,7 @@
             <p>{{event.startdate | date:'yMMMdjms'}} <p>  
 </div>-->
 
-<div  class="home-block">
+<div  class="event-list-block">
 <div *ngIf="timeGrid" class="events-container">
 
     <div *ngFor="let day of timeGrid | eventsToObject" class="day-container">

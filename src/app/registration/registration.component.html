@@ -10,16 +10,16 @@
              <div *ngIf="f.submitted && !email.valid" class="help-block">Необходимо ввести электронный адрес</div>
         </div>
         
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !last_name.valid }">
+            <label for="last_name">Фамилия</label>
+            <input type="text" class="form-control" name="last_name" [(ngModel)]="model.last_name" #last_name="ngModel" required />
+             <div *ngIf="f.submitted && !last_name.valid" class="help-block">Необходимо ввести Ваше имя</div>
+        </div>
+
          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !first_name.valid }">
             <label for="first_name">Имя</label>
             <input type="text" class="form-control" name="first_name" [(ngModel)]="model.first_name" #first_name="ngModel" required />
              <div *ngIf="f.submitted && !first_name.valid" class="help-block">Необходимо ввести Вашу фамилию</div>
-        </div>
-
-       <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !last_name.valid }">
-            <label for="last_name">Фамилия</label>
-            <input type="text" class="form-control" name="last_name" [(ngModel)]="model.last_name" #last_name="ngModel" required />
-             <div *ngIf="f.submitted && !last_name.valid" class="help-block">Необходимо ввести Ваше имя</div>
         </div>
 
        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !second_name.valid }">
@@ -39,6 +39,13 @@
             <input type="text" class="form-control" name="position" [(ngModel)]="model.position" #position="ngModel" required />
              <div *ngIf="f.submitted && !position.valid" class="help-block">Необходимо ввести Вашу должность</div>
         </div>
+
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !phone.valid }">
+            <label for="phone">Номер телефона</label>
+            <input type="text" class="form-control" name="phone" [(ngModel)]="model.phone" #phone="ngModel" required />
+             <div *ngIf="f.submitted && !phone.valid" class="help-block">Необходимо ввести Ваш номер телефона</div>
+        </div>
+
       <!--  
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
             <label for="username">Username</label>
