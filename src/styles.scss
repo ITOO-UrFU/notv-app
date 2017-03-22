@@ -51,10 +51,28 @@ app-user-events{
   padding: 1rem;
   background-color: $dark_gray;
   text-align: center;
-  .edcrunch-logo{
-      height: 100px;
-      background: url('http://promo.ruvents.com/assets/img/clients/EdCrunch_logo.png') 100% no-repeat;
+  .footer-content div{
+           display: inline-block;
   }
+  .edcrunch-logo{
+    display: inline-block;
+    width: 250px;
+    height: 80px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 100%;
+    background-image: url(http://promo.ruvents.com/assets/img/clients/EdCrunch_logo.png);
+  }
+    .urfu-logo{
+    display: inline-block;
+    width: 250px;
+    height: 80px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 100%;
+    background-image: url(http://urfu.ru/fileadmin/_processed_/7/f/csm_UrFULogo_Full_Russian_f4adbf623f.jpg);
+  }
+
   .contact-info p:first-child  {
       font-size: 1.5em;
   }
