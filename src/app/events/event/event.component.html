@@ -1,40 +1,29 @@
 
 
 <div class="event-block"  *ngIf="currentEvent">
-    <button (click)="goBack()" class="btn btn-primary">К списку всех мероприятий</button>
-    <button *ngIf="isLogged" (click)="goMyEvents()" class="btn btn-primary">К списку моих мероприятий</button>
-  <p style="margin-top: 30px;">{{currentEvent.eventtype}}</p>
-<h2>{{currentEvent.title}}</h2>
-<p [innerHTML]="currentEvent.description"></p>
+    <!--<button (click)="goBack()" class="btn btn-primary">К списку всех мероприятий</button>
+    <button *ngIf="isLogged" (click)="goMyEvents()" class="btn btn-primary">К списку моих мероприятий</button>-->
+  <p style="margin-top: 5px;">{{currentEvent.eventtype}}</p>
+<p>{{currentEvent.title}}</p>
+<!--<p [innerHTML]="currentEvent.description"></p>-->
 
-<p><strong> Начало: {{ currentEvent.startdate | date:'medium' }} </strong></p>
-<p><strong>Окончание: {{ currentEvent.enddate | date:'medium' }} </strong></p>
+<!--<p>Начало: {{ currentEvent.startdate | date:'medium' }}</p>
+<p>Окончание: {{ currentEvent.enddate | date:'medium' }}</p>-->
 
 
-  <div *ngIf="currentEvent.users.length">
-      Спикеры:
-
-<div class="speakers-board">
-
-<div *ngFor="let user of currentEvent.users" class="speaker-block">
-    <div class="speaker-board-photo" [ngStyle]="{'background':'url('+user.person.photo_url+')', 'background-size': 'cover'}" >
-    <div class="name"><p>{{user.person.first_name}} {{user.person.last_name}}</p>
-                      <p>{{user.person.organisation}}</p>
-                      <p>{{user.person.division}}</p>
-                      <p>{{user.person.position}}</p>
+<div *ngIf="currentEvent.users.length">
+    <div *ngFor="let user of currentEvent.users" class="event-speaker-photo" [ngStyle]="{'background':'url('+user.person.photo+')', 'background-size': 'cover'}" >  
+    
     </div>
+
+        <!--<div class="speaker-board-photo" [ngStyle]="{'background':'url('+user.person.photo+')', 'background-size': 'cover'}" >
+        <div class="name"><p>{{user.person.first_name}} {{user.person.last_name}}</p>
+                        <p>{{user.person.organisation}}</p>
+                        <p>{{user.person.division}}</p>
+                        <p>{{user.person.position}}</p>
+        </div>
+        </div>-->
     </div>
-</div>
-
-</div>
-
-      <!--<div *ngFor="let user of currentEvent.users" class="event-speakers"> 
-          <div class="event-speaker">
-              <img  class="event-speakers-photo" src="{{user.person.photo_url}}" />
-              <p class="event-speakers-name">{{user.person.first_name}} {{user.person.last_name}}</p>
-          </div>
-      </div>-->
-  </div>
 
 
 <div *ngIf="showButtons">

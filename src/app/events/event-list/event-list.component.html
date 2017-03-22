@@ -57,34 +57,30 @@
             <p>{{event.startdate | date:'yMMMdjms'}} <p>  
 </div>-->
 
-
+<div  class="home-block">
 <div *ngIf="timeGrid" class="events-container">
 
     <div *ngFor="let day of timeGrid | eventsToObject" class="day-container">
-         <div class="conference-date">   {{day.key}} апреля, 2017 </div>
+         <div class="conference-date">  <strong> {{day.key}} апреля, 2017 </strong></div>
 
     <div>
         <template ngFor let-time [ngForOf]="day.val | eventsToObject" let-ii="index">
             <div class="time-container">
-                <div class="time-item" > {{time.key}}</div>
-                <div class="events-at-day">
+                <div class="time-item" > <strong> {{ time.key | date:'shortTime' }} </strong> </div>
+            <div class="events-at-day">
                        <template ngFor let-event [ngForOf]="time.val" let-i="index" >
 
                          <div class="event-time-{{time.val.length}} {{event.eventtypeid}}">
-                              <strong >{{event.title}}</strong>
-                    
-                            <div *ngIf="event.users.length">
-                               
-                                <div   data-title="Польский костел" *ngFor="let user of event.users" class="event-speaker-photo" [ngStyle]="{'background':'url('+user.person.photo_url+')', 'background-size': 'cover'}" >  
-                                       <!--{{user.person.first_name}} {{user.person.last_name}}-->
-                                       <!--<img src="{{user.person.photo_url}}" />-->
-                                   </div>
-                            </div>
-                           </div>
+                             
+                    <div class="app-event" [currentEvent]="event" [isLogged]="isLogged"></div>
+
+
+                             </div>
                       </template>
                 </div>
              </div>
         </template>
     </div>
     </div>
+</div>
 </div>

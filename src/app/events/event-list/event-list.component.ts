@@ -3,6 +3,8 @@ import { EventsService } from 'app/events/events.service';
 import { Router, Routes } from '@angular/router';
 import { Event } from 'app/events/event';
 import { Title } from '@angular/platform-browser';
+import { AuthGuard } from 'app/services/auth.guard';
+import { RegisterService} from 'app/services/register.service';
 
 @Component({
   selector: 'div.app-event-list',
@@ -20,23 +22,30 @@ export class EventListComponent implements OnInit {
   currentEvents: Event[];
   timeGrid: any;
 
+  isLogged: boolean = false;
+
+
 @Input() typeFilter: string = '';
 
 
   constructor(private router:Router, 
               private eventsService: EventsService,
               private title: Title,
+              private authGuard: AuthGuard,
+              private registerService: RegisterService,
               ) { 
   }
 
   ngOnInit() {
-    this.title.setTitle("Мериприятия");
+    this.isLogged = this.authGuard.canActivate();
+    this.title.setTitle("Мероприятия");
         this.eventsService.getEventsList()
           .subscribe(eventsList => { 
             this.eventsList = eventsList;
             //this.conferenceDates = this.getUniqueDates(eventsList);
             this.timeGrid = this.eventsService.getEventsObject(this.typeFilter);
              console.log("timeGrid: ", this.timeGrid);
+
         }
       );
   }
@@ -44,7 +53,6 @@ export class EventListComponent implements OnInit {
 ngOnChanges(changes: any) {
     if(this.eventsList){
       this.timeGrid = this.eventsService.getEventsObject(this.typeFilter);
-     
     }
 }
 

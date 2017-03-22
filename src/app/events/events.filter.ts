@@ -17,7 +17,7 @@ transform(dict: Object): any {
       }
       
     }
- //   console.log(a);
-    return a;
+ 
+    return a.sort(function(c, b) {return c.key - b.key;});
   }
 } 

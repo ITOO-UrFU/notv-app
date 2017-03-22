@@ -63,7 +63,7 @@ const metaConfig: MetaConfig = {
     UserProfileComponent,
     ProfileEditComponent,
     UserEventsComponent,
-    SafePipe
+    SafePipe,
 
   ],
   imports: [

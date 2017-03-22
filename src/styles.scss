@@ -87,15 +87,17 @@ app-user-events{
   }
 }
 
-
+.app-event-list{
+        padding-top: 90px;
+}
 .container {
     margin-top: 23px; 
 }
 
 .event-block{
-    width: 80%;
+   
     margin: 0 auto;
-     padding-top:130px;
+    // padding-top:130px;
 }
 
 html{
@@ -169,7 +171,7 @@ display: inline-block;
 .events-container{
     width: $events_container_width;
     margin: 0 auto;
-    margin-top: 130px;
+    //margin-top: 130px;
 }
 
 .events-at-day{
