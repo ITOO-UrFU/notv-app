@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { User } from 'app/user';
 import { Observable } from 'rxjs/Observable';
+import { Event } from 'app/events/event';
 
 import 'rxjs/add/observable/throw';
 //import 'rxjs/add/operator/catch';
@@ -45,6 +46,33 @@ export class RegisterService {
     return body;
   }
   
+ extractEvents(res: any): Event[] {
+    const body = res;
+    console.log(body);
+    const events: Event[] = [];
+    for (let i = 0; i < body.length; i++) {
+          let eventTypeClass = "eventtype-empty";
+          if (body[i].event.get_event_slug != null) { eventTypeClass = "eventtype-" + body[i].event.get_event_slug; }
+          const event: Event = new Event(
+            body[i].event.id,
+            body[i].event.title,
+            body[i].event.description,
+            body[i].event.get_speakers,
+            new Date(body[i].event.startdate),
+            body[i].event.enddate,
+            eventTypeClass,
+            body[i].event.get_type_display,
+            body[i].event.block
+            );
+
+          //event.get_speakers = event.get_speakers.filter(user => user.get_type_display !== 'Участник');
+          events.push(event);
+    }
+
+    // eventsList = events;
+    return events;
+  }
+
     private jwt() {
         // create authorization header with jwt token
         let currentUser = JSON.parse(localStorage.getItem('currentUser'));

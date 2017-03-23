@@ -13,8 +13,8 @@ import { AlertService } from 'app/services/alert.service';
 })
 export class UserEventsComponent implements OnInit {
 
-  currentUser: any =  {};
-  userEvents: Event[];
+    currentUser: any =  {};
+    userEvents: any[];
     currentEvent: Event;
     errorMessage: string;
     isLogged: boolean = false;
@@ -32,11 +32,7 @@ export class UserEventsComponent implements OnInit {
 
   ngOnInit() {
           if(this.authGuard.canActivate()){
-             this.registerService.getProfile().subscribe(userProfile => {
-             this.currentUser = userProfile;
-             this.userEvents = this.currentUser.get_events;
-             console.log(this.userEvents );
-        });
+            this.update();
           }
           else{
              this.router.navigate(["login"]);
@@ -44,24 +40,12 @@ export class UserEventsComponent implements OnInit {
 
   }
 
-/*
-  unregisterOnEvent(id: string){
-    this.registerService.unregisterOnEvent(id).subscribe(
-                data => {
-                 this.alertService.success('Вы отписаны от события!', true);
-                    window.scrollTo(0,0);
-                    window.location.reload()
-                },
-                error => {
-                    window.scrollTo(0,0);
-                    this.alertService.error("Ошибка отписки от события!", error);
-                });;
-       
-}
+  update(){
+     this.registerService.getProfile().subscribe(userProfile => {
+             this.currentUser = userProfile;
+             this.userEvents =  this.registerService.extractEvents(userProfile.get_events);
+             console.log(this.userEvents );
+        });
+  }
 
-    public toEvent(event: Event) {
-      console.log(event.id);
-        this.router.navigate(["events", "event", event.id]);
-    }
-*/
 }
