@@ -23,9 +23,9 @@ export class NavComponent implements OnInit, AfterViewInit {
   showMenu: Boolean = false;
 
   constructor( 
-              private router:Router, 
-              private pageService: PageService, 
-              private translate: TranslateService, 
+              private router: Router,
+              private pageService: PageService,
+              private translate: TranslateService,
               private authGuard: AuthGuard,
               private activatedRoute: ActivatedRoute
              ){
@@ -37,7 +37,7 @@ export class NavComponent implements OnInit, AfterViewInit {
 
   toggleMenuVisible(disable: Boolean){
     this.showMenu = !this.showMenu;
-    if(disable==true){
+    if(disable == true){
       this.showMenu == false;
     }
   }
@@ -60,8 +60,7 @@ export class NavComponent implements OnInit, AfterViewInit {
             }
             else {
               
-              if(element.slug=="login" && this.authGuard.canActivate() ){
-                
+              if(element.slug == "login" && this.authGuard.canActivate() ){
                     this.listUrl.push({ url: "profile/edit", title: "Профиль",   })
               }
               else{
@@ -72,7 +71,6 @@ export class NavComponent implements OnInit, AfterViewInit {
 
 
           this.activeUrl = this.listUrl.filter(item => item.url == this.router.url.split("/")[1])[0];
-          
          //console.log(this.activeUrl)
          /*if(this.activeUrl.underpage.length>0){
            this.router.navigate([this.activeUrl.url+'/'+]);

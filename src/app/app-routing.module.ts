@@ -69,6 +69,11 @@ const routes: Routes = [
         component: UserEventsComponent,
         // canActivate: [AuthGuard],
       },
+      {
+        path: 'events/all_events',
+        component: EventListComponent,
+        // canActivate: [AuthGuard],
+      },
 
       {
         path: 'events',
@@ -115,7 +120,7 @@ const routes: Routes = [
       },
 
       {
-        path:':id',
+        path: ':id',
         component: PageComponent,
         children: [
           {
