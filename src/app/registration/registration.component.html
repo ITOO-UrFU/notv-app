@@ -1,7 +1,9 @@
 <alert></alert>
 
 <div class="home-block">
+    <div class="form-group-header" >
     <h2>Регистрация</h2>
+    </div>
     <form name="form" (ngSubmit)="register()" #f="ngForm" novalidate>
 
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">

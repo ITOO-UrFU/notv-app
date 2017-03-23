@@ -62,7 +62,7 @@ export class NavComponent implements OnInit, AfterViewInit {
               
               if(element.slug=="login" && this.authGuard.canActivate() ){
                 
-                    this.listUrl.push({ url: "profile/edit", title: "Профиль"  })
+                    this.listUrl.push({ url: "profile/edit", title: "Профиль",   })
               }
               else{
                  this.listUrl.push({ url: element.slug, title: element.title ? element.title : element.slug, underpage: false, type: element.type  })

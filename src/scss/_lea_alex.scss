@@ -265,6 +265,16 @@ section.banner{
     .participants-block{
         padding-top:20px;
     }
+    .form-group-header{
+        display: block;
+        width: 500px;
+        margin: 12px auto;
+        padding: 8px 12px;
+        position: relative;
+        &.center{
+            text-align:center
+            }
+    }
     .form-group{
         display: block;
         width: 500px;
@@ -293,7 +303,15 @@ section.banner{
             
         }
         a{
+            display: block;
+            width: 100%;
             
+            background: $blue;
+            border: none;
+            color:$light;
+            text-decoration: none;
+            text-align: center;
+            padding: 22px 0;
         }
     }
 
