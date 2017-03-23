@@ -1,8 +1,9 @@
 
 <alert></alert>
 <div class="home-block">
-    <h2>Ваш профиль</h2>
-
+   <div class="form-group-header">
+        <h2>Ваш профиль</h2>
+</div>
  
          <div class="form-group">
                <label >
@@ -39,13 +40,13 @@
             <input value="{{currentUser.birthday_date}}" type="date" class="form-control" name="birthday_date" [(ngModel)]="model.birthday_date" #birthday_date="ngModel" required />
         </div>-->
 
-        <div class="form-group">
+        <!--<div class="form-group">
         <label for="sex">Пол:</label>
             <select value="{{currentUser.sex}}"  name="sex" [(ngModel)]="model.sex" #sex="ngModel" >
             <option value="M">Мужской</option>
             <option value="F">Женский</option>
             </select>
-        </div>
+        </div>-->
 
 
 

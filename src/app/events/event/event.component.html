@@ -3,8 +3,9 @@
 <div class="event-block"  *ngIf="currentEvent">
     <!--<button (click)="goBack()" class="btn btn-primary">К списку всех мероприятий</button>
     <button *ngIf="isLogged" (click)="goMyEvents()" class="btn btn-primary">К списку моих мероприятий</button>-->
-  <p style="margin-top: 5px;">{{currentEvent.eventtype}}</p>
-<p>{{currentEvent.title}}</p>
+  <h3 style="margin-top: 5px;">{{currentEvent.eventtype}}</h3>
+    <p *ngIf="currentEvent.eventtypeid!='eventtype-plenar'" >{{currentEvent.title}}</p>
+    <p *ngIf="currentEvent.eventtypeid=='eventtype-plenar'" [innerHTML]='currentEvent.description'></p>
 <!--<p [innerHTML]="currentEvent.description"></p>-->
 
 <!--<p>Начало: {{ currentEvent.startdate | date:'medium' }}</p>
