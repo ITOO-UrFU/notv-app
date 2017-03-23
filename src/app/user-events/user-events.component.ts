@@ -7,7 +7,7 @@ import { AuthGuard } from 'app/services/auth.guard';
 import { AlertService } from 'app/services/alert.service';
 
 @Component({
-  selector: 'app-user-events',
+  selector: 'div.app-user-events',
   templateUrl: './user-events.component.html',
   styleUrls: ['./user-events.component.scss']
 })

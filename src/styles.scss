@@ -38,9 +38,16 @@ body {
   box-sizing: inherit;
 }
 
-app-user-events{
-   // margin-top: 92px;
+.app-user-events{
+    margin-top: 90px;
     display: block;
+}
+.app-profile-edit{
+    margin-top: 90px;
+}
+
+.app-load-materials{
+    margin-top: 90px;
 }
 
 #footer{
@@ -88,7 +95,7 @@ app-user-events{
 }
 .app-event-list{
             padding: 30px;
-        margin: 100px auto;
+        margin: 90px auto;
         background: rgba($light_shadow, .5);
         width: 1000px;
 }
@@ -111,6 +118,7 @@ html{
 
 header.app-nav{
 	height: 46px;
+   // padding-bottom: 61px;
 }
 
 .static-page{

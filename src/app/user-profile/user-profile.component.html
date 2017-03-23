@@ -1,13 +1,11 @@
+<ul class="profile-menu" >
 
-<div class="col-md text-center">
-<a  [routerLinkActive]="['active']"  routerLink="./my_events" class="btn btn-primary"><i class="fa fa-list" aria-hidden="true"></i> Мои мероприятия</a>
-<a  [routerLinkActive]="['active']"  routerLink="./edit" class="btn btn-primary"><i class="fa fa-address-book" aria-hidden="true"></i> Профиль</a>
-<a  [routerLinkActive]="['active']"  routerLink="./materials" class="btn btn-primary"><i class="fa fa-address-book" aria-hidden="true"></i> Загрузка материалов</a>
-<a  [routerLinkActive]="['active']"   (click)="logout()" class="btn btn-primary"> Выйти</a>
+ <li [routerLinkActive]="['active']" class="profile-item"><a  [routerLinkActive]="['active']"  routerLink="./my_events" class="btn btn-primary"><i class="fa fa-list" aria-hidden="true"></i> Мои мероприятия</a></li>
+ <li [routerLinkActive]="['active']" class="profile-item"><a  [routerLinkActive]="['active']"  routerLink="./edit" class="btn btn-primary"><i class="fa fa-address-book" aria-hidden="true"></i> Профиль</a></li>
+ <li [routerLinkActive]="['active']" class="profile-item"><a  [routerLinkActive]="['active']"  routerLink="./materials" class="btn btn-primary"><i class="fa fa-address-book" aria-hidden="true"></i> Загрузка материалов</a></li>
+ <li [routerLinkActive]="['active']" class="profile-item logout-button"><a  [routerLinkActive]="['active']"   (click)="logout()" class=""> Выйти</a>
 
-        
-</div>
-
+</ul>
 <div>
         <router-outlet></router-outlet>
 

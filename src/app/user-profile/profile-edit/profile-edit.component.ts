@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { AlertService } from 'app/services/alert.service';
 
 @Component({
-  selector: 'app-profile-edit',
+  selector: 'div.app-profile-edit',
   templateUrl: './profile-edit.component.html',
   styleUrls: ['./profile-edit.component.scss']
 })

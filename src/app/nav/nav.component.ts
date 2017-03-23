@@ -50,23 +50,18 @@ export class NavComponent implements OnInit, AfterViewInit {
             if (element.pages.length) {
               let array: any[] = [];
               element.pages.forEach(element => {
-
                   array.push({ url: element.slug, title: element.title ? element.title : element.slug, type: element.type })    
-                
               })
-          
                 this.listUrl.push({ url: element.slug, title: element.title ? element.title : element.slug, underpage: array, type: element.type })
-
             }
             else {
-              
-              if(element.slug == "login" && this.authGuard.canActivate() ){
+              if (element.slug == "login" && this.authGuard.canActivate() ){
                     this.listUrl.push({ url: "profile/edit", title: "Профиль",   })
               }
               else{
                  this.listUrl.push({ url: element.slug, title: element.title ? element.title : element.slug, underpage: false, type: element.type  })
               }
-                }
+            }
           });
 
 
