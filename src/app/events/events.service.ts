@@ -36,23 +36,31 @@ export class EventsService {
   }
 
 private extractEvent(res: Response):Event {
-    let body = res.json();
+    const body = res.json();
     let eventTypeClass = "eventtype-empty";
-    if(body.get_event_slug != null){ eventTypeClass = "eventtype-" + body.get_event_slug; }
-    let event:Event = new Event(body.id, body.title, body.description, body.get_speakers, new Date(body.startdate), body.enddate, eventTypeClass, body.get_type_display); 
+    if ( body.get_event_slug != null ) { eventTypeClass = "eventtype-" + body.get_event_slug; }
+    const event: Event = new Event(
+          body.id,
+          body.title,
+          body.description,
+          body.get_speakers,
+          new Date(body.startdate),
+          body.enddate,
+          eventTypeClass,
+          body.get_type_display,
+          body.block
+      );
 
-    event.users  = event.users.filter(user =>  user.get_type_display == "Спикер" );
-  
+    event.users  = event.users.filter(user =>  user.get_type_display !== "Участник" );
     return event;
   }
 
   getEventsByType(type: string): any[]{
-    if(eventsList){
-        if(type=="" || type==undefined){
+    if (eventsList) {
+        if (type === '' || type === undefined) {
             return eventsList;
-        }
-        else {
-          let arr = eventsList.filter(event => { return event.eventtypeid == "eventtype-" + type })
+        } else {
+          const arr = eventsList.filter(event => { return event.block === "eventtype-" + type });
           return arr;
         }
     }
@@ -131,16 +139,28 @@ private extractEvent(res: Response):Event {
     }
   }
 
-    private extractEvents(res: Response):Event[] {
-    let body = res.json();
-    let events: Event[] = [];
+    private extractEvents(res: Response): Event[] {
+    const body = res.json();
+    const events: Event[] = [];
     for (let i = 0; i < body.length; i++) {
           let eventTypeClass = "eventtype-empty";
-          if(body[i].get_event_slug != null){ eventTypeClass = "eventtype-" + body[i].get_event_slug; }
-          let event:Event = new Event(body[i].id, body[i].title, body[i].description, body[i].get_speakers, new Date(body[i].startdate), body[i].enddate, eventTypeClass, body[i].get_type_display); 
-          event.users = event.users.filter(user => user.get_type_display == "Спикер");
+          if (body[i].get_event_slug != null) { eventTypeClass = "eventtype-" + body[i].get_event_slug; }
+          const event: Event = new Event(
+            body[i].id,
+            body[i].title,
+            body[i].description,
+            body[i].get_speakers,
+            new Date(body[i].startdate),
+            body[i].enddate,
+            eventTypeClass,
+            body[i].get_type_display,
+            body[i].block
+            );
+
+          event.users = event.users.filter(user => user.get_type_display !== 'Участник');
           events.push(event);
-    } 
+    }
+
     eventsList = events;
     return events;
   }
@@ -156,9 +176,8 @@ private extractEvent(res: Response):Event {
     } else {
       errMsg = error.message ? error.message : error.toString();
     }
-    
-    let customMsg: string = "Нет такой страницы!"
+
+    const customMsg = 'Нет такой страницы!';
     return Observable.throw(customMsg);
-    //return errMsg;
   }
 }

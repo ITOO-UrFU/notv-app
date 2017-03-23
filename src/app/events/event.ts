@@ -9,8 +9,9 @@ export class Event {
     public enddate: string;
     public eventtypeid: string;
     public eventtype: string;
-    
-    constructor(id, title, description, users, startdate, enddate, eventtypeid, eventtype){
+    public block: string;
+
+    constructor(id, title, description, users, startdate, enddate, eventtypeid, eventtype, block){
         this.id = id;
         this.title = title;
         this.description = description;
@@ -19,6 +20,7 @@ export class Event {
         this.enddate = enddate;
         this.eventtypeid = eventtypeid;
         this.eventtype = eventtype;
+        this.block = block;
     }
 
 }
