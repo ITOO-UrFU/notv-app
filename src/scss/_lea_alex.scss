@@ -209,9 +209,15 @@
             padding-top: 1px;
             position: relative;
             background: url("http://placehold.it/"+$width+"x"+$height+"?text=baner1--small_"+$width+"x"+$height)  no-repeat;
-            background: url("/assets/images/a-2-01.png") no-repeat;
-            background-size: auto $height+px;
-            background-position:50%;
+            background: url("/assets/images/banner/1-06.png") no-repeat, 
+                        url("/assets/images/banner/1-05.png") no-repeat,
+                        url("/assets/images/banner/1-04.png") no-repeat,
+                        url("/assets/images/banner/1-03.png") no-repeat,
+                        url("/assets/images/banner/1-02.png") no-repeat,
+                        url("/assets/images/banner/1-01.png") no-repeat;
+            background-size: auto 22%, auto 24%, auto 16%, auto 13%, auto 105%, auto 103%;
+            background-position-x: 75%,21%,75%,20%,130%,50%;
+            background-position-y: 11%,8%,92%,89%,-510%,50%;
             height: $height+px;
             
             h1{
