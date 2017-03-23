@@ -24,8 +24,7 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
         this.title.setTitle("Вход");
-      this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'profile/edit';
-        
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'events';
     }
 
     login() {
@@ -33,10 +32,9 @@ export class LoginComponent implements OnInit {
         this.authenticationService.login(this.model.email, this.model.password)
             .subscribe(
                 data => {
-                  
                     console.log("login ok!");
                     window.location.reload();
-                  //   this.router.navigate([this.returnUrl]);
+                    this.router.navigate([this.returnUrl]);
 
                 },
                 error => {
