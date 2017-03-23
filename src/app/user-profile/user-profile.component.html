@@ -1,11 +1,11 @@
+<ul class="profile-menu" >
 
-<div class="col-md text-center">
-<!--<a  [routerLinkActive]="['active']"  routerLink="/events/my_events" class="btn btn-primary"><i class="fa fa-list" aria-hidden="true"></i> Ваши мероприятия</a> -->
-<!--<a  [routerLinkActive]="['active']"  routerLink="./edit" class="btn btn-primary"><i class="fa fa-address-book" aria-hidden="true"></i> Профиль</a>-->
-        <button (click)="logout()" class="btn btn-primary pull-right">Выйти</button>
-        
-</div>
+ <li [routerLinkActive]="['active']" class="profile-item"><a routerLink="./my_events" class="btn btn-primary"><i class="fa fa-list" aria-hidden="true"></i><span>Мои мероприятия</span></a></li>
+ <li [routerLinkActive]="['active']" class="profile-item"><a routerLink="./edit" class="btn btn-primary"><i class="fa fa-address-book" aria-hidden="true"></i><span>Профиль</span></a></li>
+ <li [routerLinkActive]="['active']" class="profile-item"><a routerLink="./materials" class="btn btn-primary"><i class="fa fa-cloud-upload" aria-hidden="true"></i><span>Загрузка материалов</span></a></li>
+ <li [routerLinkActive]="['active']" class="profile-item logout-button"><a  [routerLinkActive]="['active']"   (click)="logout()" class=""><i class="fa fa-sign-out" aria-hidden="true"></i><span>Выйти</span></a></li>
 
+</ul>
 <div>
         <router-outlet></router-outlet>
 

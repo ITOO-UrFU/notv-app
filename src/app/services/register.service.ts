@@ -16,10 +16,7 @@ export class RegisterService {
   constructor(private http: Http) { }
 
     registerUrl = 'https://openedu.urfu.ru/edcrunch/api/v1/rest-auth/';
-    
-// login( email: string, password: string, first_name: string, last_name: string, second_name: string, organisation: string, position: string) {
-//         return this.http.post(this.authUrl, { email: email, password: password, first_name: first_name, last_name: last_name, second_name: second_name, organisation: organisation, position: position}, this.jwt())
-    
+
     create(user: User) {
         return this.http.post(this.registerUrl + 'registration/', user, this.jwt()).map((response: Response) => response.json());
     }
@@ -28,24 +25,32 @@ export class RegisterService {
     }
 
     getProfile(): Observable<any> {
-        return this.http.get(this.registerUrl+ 'profile/' +'?format=json', this.jwt())
-                    .map(this.extractProfile)
+        return this.http.get(this.registerUrl + 'profile/' + '?format=json', this.jwt())
+                    .map(this.extractProfile);
                    // .catch(this.handleError);
     }
 
     registerOnEvent(id: string){
-        return this.http.post(this.registerUrl + 'events/register/', {"event_id":id}, this.jwt()).map((response: Response) => response.json());
+        return this.http.post(
+                              this.registerUrl + 'events/register/',
+                              {"event_id": id},
+                              this.jwt()).map((response: Response) => response.json()
+                              );
     }
 
-        unregisterOnEvent(id: string){
-        return this.http.post(this.registerUrl + 'events/unregister/', {"event_id":id}, this.jwt()).map((response: Response) => response.json());
+    unregisterOnEvent(id: string){
+        return this.http.post(
+                            this.registerUrl + 'events/unregister/',
+                            {"event_id": id},
+                            this.jwt()).map((response: Response) => response.json()
+                            );
     }
 
   extractProfile(res: Response) {
     let body = res.json();
     return body;
   }
-  
+
  extractEvents(res: any): Event[] {
     const body = res;
     console.log(body);
@@ -64,8 +69,6 @@ export class RegisterService {
             body[i].event.get_type_display,
             body[i].event.block
             );
-
-          //event.get_speakers = event.get_speakers.filter(user => user.get_type_display !== 'Участник');
           events.push(event);
     }
 

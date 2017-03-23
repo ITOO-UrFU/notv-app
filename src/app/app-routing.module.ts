@@ -16,6 +16,8 @@ import { AuthGuard } from 'app/services/auth.guard';
 import { ProfileEditComponent } from 'app/user-profile/profile-edit/profile-edit.component';
 import { UserEventsComponent } from './user-events/user-events.component';
 
+import { LoadMaterialsComponent } from './user-profile/load-materials/load-materials.component';
+
 const routes: Routes = [
 
   {
@@ -48,10 +50,14 @@ const routes: Routes = [
             path: 'edit',
             component: ProfileEditComponent,
           },
-          /*{
-            path: 'trajectory',
+         {
+            path: 'my_events',
             component: UserEventsComponent
-          }*/
+          },
+          {
+            path: 'materials',
+            component: LoadMaterialsComponent
+          }
         ]
       },
       {

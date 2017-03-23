@@ -36,6 +36,7 @@ import { ProfileEditComponent } from 'app/user-profile/profile-edit/profile-edit
 import { UserEventsComponent } from 'app/user-events/user-events.component';
 import { SafePipe } from 'app/page/safe.pipe';
 import { MetaConfig, MetaModule } from 'ng2-meta';
+import { LoadMaterialsComponent } from './user-profile/load-materials/load-materials.component';
 
 
 const metaConfig: MetaConfig = {
@@ -65,6 +66,7 @@ const metaConfig: MetaConfig = {
     ProfileEditComponent,
     UserEventsComponent,
     SafePipe,
+    LoadMaterialsComponent,
 
 
   ],

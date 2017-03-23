@@ -14,34 +14,18 @@ export class UserProfileComponent implements OnInit {
 
     currentUser: User;
     userProfile: any;
-  constructor(
-              private router: Router, 
-              private authenticationService: AuthenticationService,
-              private registerService: RegisterService
-              ) {
-          /* this.registerService.getProfile().subscribe(userProfile => {
-                  this.userProfile = userProfile;
-                  let photo_src = "http://placehold.it/200x200"
-                  if(this.userProfile.photo_url){
-                      photo_src=this.userProfile.photo_url
-                  }
-                  this.userProfile.photo_url  = photo_src;
- 
-            });*/
-  }
+    constructor(
+                private router: Router,
+                private authenticationService: AuthenticationService,
+                private registerService: RegisterService
+                ) {
+    }
 
   ngOnInit() {
-
-        this.router.navigate(['profile','edit']);
-            
-     /*    this.registerService.getProfile().subscribe(userProfile => {
-            this.userProfile = userProfile;
-           
-        });*/
+      //  this.router.navigate(['profile', 'edit']);
   }
     logout(){
        this.authenticationService.logout();
       this.router.navigate(['/login']);
     }
-    
 }

@@ -5,6 +5,7 @@ import { RegisterService} from 'app/services/register.service';
 import { AlertService } from 'app/services/alert.service';
 import { AuthenticationService } from 'app/services/auth.service';
 import { Title } from '@angular/platform-browser';
+import { AuthGuard } from 'app/services/auth.guard';
 
 @Component({
   selector: 'app-registration',
@@ -20,11 +21,18 @@ model: any = {};
         private registerService: RegisterService,
         private alertService: AlertService,
         private authenticationService: AuthenticationService,
-        private title: Title
+        private title: Title,
+        private authGuard: AuthGuard,
         ) { }
 
   ngOnInit() {
-      this.title.setTitle("Регистрация");
+      if (this.authGuard.canActivate()){
+            this.router.navigate(['profile', 'edit']);
+      }
+      else {
+          this.title.setTitle("Регистрация");
+      }
+
   }
 
       register() {
