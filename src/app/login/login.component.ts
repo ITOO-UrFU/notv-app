@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from 'app/services/auth.service';
 import { AlertService } from 'app/services/alert.service';
 import { Title } from '@angular/platform-browser';
+import { AuthGuard } from 'app/services/auth.guard';
 
 @Component({
   selector: 'app-login',
@@ -20,11 +21,17 @@ export class LoginComponent implements OnInit {
         private authenticationService: AuthenticationService,
         private alertService: AlertService,
         private title: Title,
+        private authGuard: AuthGuard,
        ) { }
 
     ngOnInit() {
+      if (this.authGuard.canActivate()){
+            this.router.navigate(['profile']);
+      }
+      else{ 
         this.title.setTitle("Вход");
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'events';
+      }
     }
 
     login() {

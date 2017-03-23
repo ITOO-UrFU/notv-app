@@ -15,7 +15,7 @@ export class UserProfileComponent implements OnInit {
     currentUser: User;
     userProfile: any;
   constructor(
-              private router: Router, 
+              private router: Router,
               private authenticationService: AuthenticationService,
               private registerService: RegisterService
               ) {
