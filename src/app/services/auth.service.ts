@@ -21,17 +21,15 @@ export class AuthenticationService {
                 console.log(user);
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
                     localStorage.setItem('currentUser', JSON.stringify(user));
-                    this.router.navigate(["profile","edit"]);
+                    this.router.navigate(["profile", "edit"]);
                     window.location.reload();
               }
             });
     }
     private jwt() {
-        // create authorization header with jwt token
-
             let headers = new Headers({ 'Content-Type': 'application/json'});
             return new RequestOptions({ headers: headers });
-        
+
     }
     logout() {
         // remove user from local storage to log user out
