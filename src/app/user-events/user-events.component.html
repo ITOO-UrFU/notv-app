@@ -5,11 +5,11 @@
       Ваши мероприятия:
     </h2>
   <div *ngFor="let event of userEvents">
-  <div class="event-time eventtype-{{event.event.get_event_slug}}">
+  <div class="event-time eventtype-{{event.get_event_slug}}">
 
 
 
-<div *ngIf="currentUser" class="app-event" [currentUser]="currentUser" [currentEvent]="event.event" [isLogged]="true"></div>
+<div *ngIf="currentUser" class="app-event" [currentUser]="currentUser" [currentEvent]="event" [isLogged]="true"></div>
 
 
 
