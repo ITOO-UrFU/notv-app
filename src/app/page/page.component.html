@@ -11,7 +11,7 @@
     <div [class.jumbotron]="this.router.url.split('/').indexOf(id)==1" >
       <div *ngIf="page.slug!='events'" class="container" [ngClass]="{'static-page': page.type=='header'}">
 
-     <button (click)="LoadMap()">Загрузить карту</button>
+    <!-- <button (click)="LoadMap()">Загрузить карту</button> -->
 
         <h1 [class.display-3]="this.router.url.split('/').indexOf(id)==1" class="page-title">{{ page.title }}</h1>
         <div [innerHTML]="page.html | safe: 'html'"></div>

@@ -26,7 +26,7 @@
 
     &.logout-button{
         position: absolute;
-        right: 20px;
+        right: 5%;
         &:hover{
             cursor: pointer;
             background: rgba(231, 229, 229, 0.8);
@@ -44,5 +44,5 @@ margin: 0px auto;
     background-color: rgba(242, 242, 242, 0.5);
     position: absolute;
     padding: 15px 0px;
-    max-width: 1268px;
+    max-width: 100%;
    }
