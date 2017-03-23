@@ -45,19 +45,18 @@ export class EventListComponent implements OnInit {
           .subscribe(eventsList => {
             this.eventsList = eventsList;
             this.timeGrid = this.eventsService.getEventsObject(this.typeFilter);
-             console.log("timeGrid: ", this.timeGrid);
-
-                this.registerService.getProfile().subscribe(userProfile => {
-                                  this.currentUser = userProfile;
-                              }
-                  );
+            this.registerService.getProfile().subscribe(userProfile => {
+                              this.currentUser = userProfile;
+                          }
+              );
         }
       );
   }
 
 ngOnChanges(changes: any) {
-    if(this.eventsList){
+    if (this.eventsList){
       this.timeGrid = this.eventsService.getEventsObject(this.typeFilter);
+      // console.log(this.timeGrid);
     }
 }
 

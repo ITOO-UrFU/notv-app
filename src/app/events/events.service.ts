@@ -56,23 +56,26 @@ private extractEvent(res: Response):Event {
   }
 
   getEventsByType(type: string): any[]{
+    //console.log(type);
     if (eventsList) {
-        if (type === '' || type === undefined) {
+        if (type === '' || type === undefined || type === "all_events") {
+         // console.log("Все мероприятия: ", eventsList);
             return eventsList;
         } else {
-          const arr = eventsList.filter(event => { return event.block === "eventtype-" + type });
+          const arr = eventsList.filter(event => { return event.get_line_of_work_slug ===  type });
+         // console.log("Выборка мероприятий: ", arr);
           return arr;
         }
     }
   }
 
   getEventsObject(type: string): any{
-      let object:any =  {};
+      let object: any =  {};
       let arr = [];
 
       let eventListFiltered = this.getEventsByType(type);
 
-      console.log("eventListFiltered", eventListFiltered);
+     // console.log("eventListFiltered", eventListFiltered);
 
       eventListFiltered.map(element => {return element.startdate}).forEach(element => {
         if(arr.map(el => el.toString()).indexOf(element.toString()) == -1) { 
@@ -154,7 +157,7 @@ private extractEvent(res: Response):Event {
             body[i].enddate,
             eventTypeClass,
             body[i].get_type_display,
-            body[i].block
+            body[i].get_line_of_work_slug
             );
 
           event.get_speakers = event.get_speakers.filter(user => user.get_type_display !== 'Участник');

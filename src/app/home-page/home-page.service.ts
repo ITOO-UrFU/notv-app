@@ -14,8 +14,6 @@ export class HomePageService {
 
   private homepageUrl = 'https://openedu.urfu.ru/edcrunch/api/v1/pages/home/?format=json';
 
-  
-
   constructor( private http: Http ) { }
 
 

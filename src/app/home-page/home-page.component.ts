@@ -16,7 +16,7 @@ export class HomePageComponent implements OnInit  {
  sliderTimeOut:any;
  public sliderInterval = 5000; //in ms
 
-  constructor(private router:Router, 
+  constructor(private router: Router, 
               private homepageService: HomePageService,
               private title: Title,
               ) {
@@ -24,9 +24,9 @@ export class HomePageComponent implements OnInit  {
    }
 
   ngOnInit() {
-          this.title.setTitle("Конференция НОТВ");
+          this.title.setTitle("#EDCRUNCH Ural: Новые образовательные технологии в вузе – 2017");
             this.homepageService.getHomePage()
-          .subscribe(homePage => { 
+          .subscribe(homePage => {
             this.homePage = homePage;
 
          //  console.log(this.homePage);
@@ -34,19 +34,19 @@ export class HomePageComponent implements OnInit  {
               element.active = false;
               this.slides.push(element);
             });
-            this.slides[0].active= true;
+            this.slides[0].active = true;
             this.startSlider();
-           
-        })
+
+
+
+        });
   }
 
 startSlider(){
-  //  console.log("start slider!");
  this.sliderTimeOut =  setInterval(() => { this.nextSlide(); }, this.sliderInterval);
 }
 
 pauseSlider(){
-  //console.log("pause slider!");
   clearTimeout(this.sliderTimeOut);
 }
 
@@ -73,6 +73,5 @@ prevSlide(){
         this.slides[currentSlide - 1].active = true;
       }
 }
-
 
 }

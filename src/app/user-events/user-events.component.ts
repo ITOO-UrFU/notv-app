@@ -12,15 +12,8 @@ import { AlertService } from 'app/services/alert.service';
   styleUrls: ['./user-events.component.scss']
 })
 export class UserEventsComponent implements OnInit {
-
     currentUser: any =  {};
     userEvents: any[];
-    currentEvent: Event;
-    errorMessage: string;
-    isLogged: boolean = false;
-    isReg: boolean;
-    showButtons:boolean = false;
-    whereis: string = "trajectory";
 
   constructor(
     private router: Router,
@@ -44,7 +37,7 @@ export class UserEventsComponent implements OnInit {
      this.registerService.getProfile().subscribe(userProfile => {
              this.currentUser = userProfile;
              this.userEvents =  this.registerService.extractEvents(userProfile.get_events);
-             console.log(this.userEvents );
+             console.log("Мероприятия пользователя: ", this.userEvents );
         });
   }
 

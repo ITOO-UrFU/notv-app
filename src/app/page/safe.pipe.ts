@@ -10,7 +10,7 @@ export class SafePipe {
 
 	}
 
-	public transform(value: string, type: string = 'html'): SafeHtml | SafeStyle | SafeScript | SafeUrl | SafeResourceUrl {
+	public transform(value: string, type: string): SafeHtml | SafeStyle | SafeScript | SafeUrl | SafeResourceUrl {
 		switch (type) {
 			case 'html': return this._sanitizer.bypassSecurityTrustHtml(value);
 			case 'style': return this._sanitizer.bypassSecurityTrustStyle(value);

@@ -13,17 +13,13 @@ export class SpeakersListComponent implements OnInit {
 
  speakersList: any[];
 
-
-constructor(private router:Router, private speakersService: SpeakersService, private title: Title) { 
-
-}
+constructor(private router: Router, private speakersService: SpeakersService, private title: Title) {}
 
   ngOnInit() {
     this.title.setTitle("Спикеры");
         this.speakersService.getSpeakersList()
-          .subscribe(speakersList => { 
+          .subscribe(speakersList => {
             this.speakersList = speakersList;
-            console.log(this.speakersList)
         }
       );
   }

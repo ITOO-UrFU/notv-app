@@ -12,17 +12,15 @@
             <ul class="submenu" *ngIf="url.underpage && url.type != 'homepage'">
                 
                 <li [routerLinkActive]="['active_sub']" class="subitem" *ngFor="let url2 of url.underpage" (click)="toggleMenuVisible(true)">
-
-
                     
                     <a *ngIf=" url.type == 'longpage' && url.url != 'profile/edit'" (click)="goTo(url2.url)">
                          <img class="subitem-icon" src="assets/images/icons/{{url2.url}}_icon.svg" />
-                        <span>{{ url2.title }}</span>
+                        <span *ngIf="url2.type != 'events'">{{ url2.title }}</span>
                     </a>
                    
                    <a *ngIf=" url.type != 'longpage' && url.url != 'profile/edit'" [routerLink]="[url.url, url2.url]">
                          <img class="subitem-icon" src="assets/images/icons/{{url2.url}}_icon.svg" />
-                        <span>{{ url2.title }}</span>
+                        <span *ngIf="url2.url == 'all_events' || url2.type != 'events'">{{ url2.title }}</span>
                     </a>
                    
                 </li>

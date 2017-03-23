@@ -9,15 +9,12 @@ import { Injectable } from '@angular/core';
 export class eventsToObjectPipe implements PipeTransform {
 
 transform(dict: Object): any {
-  console.log(dict)
-    var a = [];
-    for (var key in dict) {
+    let a = [];
+    for (const key in dict) {
       if (dict.hasOwnProperty(key)) {
         a.push({key: key, val: dict[key]});
       }
-      
     }
- 
-    return a.sort(function(c, b) {return c.key - b.key;});
+    return a.sort(function(c, b) {return c.key - b.key; });
   }
-} 
+}

@@ -64,13 +64,7 @@ export class NavComponent implements OnInit, AfterViewInit {
             }
           });
 
-
           this.activeUrl = this.listUrl.filter(item => item.url == this.router.url.split("/")[1])[0];
-         //console.log(this.activeUrl)
-         /*if(this.activeUrl.underpage.length>0){
-           this.router.navigate([this.activeUrl.url+'/'+]);
-         }*/
-      // this.listUrl.push({ url: 'events', title: 'Мероприятия' })
 
     });
 }

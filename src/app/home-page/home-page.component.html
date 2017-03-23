@@ -17,6 +17,7 @@
     <div *ngIf="block.type=='banner'" class="homeBanner">
       <div [innerHTML]="block.html"></div> 
     </div>
+
     <div *ngIf="block.type=='block'" class="home-block">
       <h2>{{ block.title }}</h2>
       <div [innerHTML]="block.html"></div>

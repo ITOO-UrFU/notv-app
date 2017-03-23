@@ -18,11 +18,10 @@ export class AuthenticationService {
             let user = response.json();
             console.log(user);
             if (user && user.token) {
-                console.log(user);
-                    // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser', JSON.stringify(user));
-                    this.router.navigate(["profile", "edit"]);
-                    window.location.reload();
+                // console.log(user);
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                this.router.navigate(["profile", "edit"]);
+                window.location.reload();
               }
             });
     }

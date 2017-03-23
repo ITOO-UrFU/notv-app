@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-
 import { Observable } from 'rxjs/Observable';
-
 import { User } from 'app/user';
 
 import 'rxjs/add/observable/throw';
@@ -34,17 +32,14 @@ private extractSpeakers(res: Response): any[]{
           if(!body[i].photo_url){
             body[i].photo_url = photo_src 
           }
-          
           //let speaker:any = new User(body[i].id, body[i].first_name, body[i].last_name, body[i].second_name, body[i].biography, body[i].alt_email, photo_src ); 
           speakers.push(body[i]);
-    } 
+    }
     speakersList = speakers;
-   // console.log("events", eventsList );
     return speakers;
   }
 
     private handleError (error: Response | any) {
-    // In a real world app, we might use a remote logging infrastructure
     let errMsg: string;
     if (error instanceof Response) {
       const body = error.json() || '';
@@ -53,7 +48,6 @@ private extractSpeakers(res: Response): any[]{
     } else {
       errMsg = error.message ? error.message : error.toString();
     }
-   // return Observable.throw(customMsg);
     return errMsg;
   }
 

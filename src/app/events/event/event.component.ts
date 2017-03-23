@@ -34,23 +34,7 @@ export class EventComponent implements OnInit {
         ) { }
 
   ngOnInit() {
-      //this.isLogged = this.authGuard.canActivate();
-      //console.log(this.isLogged)
-        //let id = this.activatedRoute.snapshot.params["id"];
           this.update(this.currentEvent);
-       console.log(this.currentEvent);
-    //    if (id) {
-
-    //         this.eventsService.getEvent(this.currentEvent.id)
-    //             .subscribe(
-    //             event => {   
-    //                 this.currentEvent = event;
-    //                 this.update(this.currentEvent);
-    //                 console.log(this.currentEvent);
-    //             },
-    //             error => this.errorMessage = error
-    //             );
-    //    }
   }
 
 update(event:Event){

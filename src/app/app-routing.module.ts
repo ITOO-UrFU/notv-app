@@ -45,7 +45,7 @@ const routes: Routes = [
       path: 'profile',
       component: UserProfileComponent,
       canActivate: [AuthGuard],
-      children:[
+      children: [
           {
             path: 'edit',
             component: ProfileEditComponent,
@@ -75,27 +75,24 @@ const routes: Routes = [
         component: UserEventsComponent,
         // canActivate: [AuthGuard],
       },
-      {
-        path: 'events/all_events',
-        component: EventListComponent,
-        // canActivate: [AuthGuard],
-      },
+      // {
+      //   path: 'events/all_events',
+      //   component: EventListComponent,
+
+      // },
 
       {
         path: 'events',
-        component: EventListComponent,
-        data: {
-          meta: {
-            title: '#EDCRUNCH Ural: Новые образовательные технологии в вузе – 2017',
-            description: 'Список мероприятий конференции'
-          }
-        },
-        /*children: [
-          {
-            path: 'event/:id',
-            component: EventComponent,
-          }
-        ]*/
+        redirectTo: 'events/all_events',
+        pathMatch: 'full',
+        // component: EventListComponent,
+        // data: {
+        //   meta: {
+        //     title: '#EDCRUNCH Ural: Новые образовательные технологии в вузе – 2017',
+        //     description: 'Список мероприятий конференции'
+        //   }
+        // },
+
       },
       {
         path: 'events/event/:id',

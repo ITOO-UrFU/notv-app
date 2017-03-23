@@ -53,7 +53,7 @@ export class RegisterService {
 
  extractEvents(res: any): Event[] {
     const body = res;
-    console.log(body);
+    // console.log(body);
     const events: Event[] = [];
     for (let i = 0; i < body.length; i++) {
           let eventTypeClass = "eventtype-empty";
@@ -67,7 +67,7 @@ export class RegisterService {
             body[i].event.enddate,
             eventTypeClass,
             body[i].event.get_type_display,
-            body[i].event.block
+            body[i].event.get_line_of_work_slug
             );
           events.push(event);
     }
