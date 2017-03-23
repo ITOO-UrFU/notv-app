@@ -7,18 +7,21 @@
     padding: 10px 15px;
     &.active{
                 background: rgba(231, 229, 229, 0.8);
-        a{
-               // font-weight: bold;
-
-        }
     }
     a{
-        padding-top: 0px;
+    padding-top: 0px;
     color: black;
     font-size: 12pt;
     line-height: 10pt;
     /* max-width: 118px; */
     text-align: center;
+    padding: 12px 9px;
+    text-decoration: none;
+    i{
+        &:first-child{
+            margin-right: 7px;
+        }
+    }
     }
 
     &.logout-button{
@@ -33,7 +36,7 @@
    }
 
    .profile-menu{
-    margin: 0px;
+margin: 0px auto;
     text-align: center;
     top: 46px;
     left: 0px;
@@ -41,4 +44,5 @@
     background-color: rgba(242, 242, 242, 0.5);
     position: absolute;
     padding: 15px 0px;
+    max-width: 1268px;
    }

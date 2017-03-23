@@ -27,7 +27,7 @@ model: any = {};
 
   ngOnInit() {
       if (this.authGuard.canActivate()){
-            this.router.navigate(['profile']);
+            this.router.navigate(['profile', 'edit']);
       }
       else {
           this.title.setTitle("Регистрация");

@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
       if (this.authGuard.canActivate()){
-            this.router.navigate(['profile']);
+            this.router.navigate(['profile', 'edit']);
       }
       else{ 
         this.title.setTitle("Вход");
@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
 
                 },
                 error => {
-                    this.alertService.error("Ошибка!");
+                    this.alertService.error(error.response);
                     console.log("login ne ok!");
                 });
     }
