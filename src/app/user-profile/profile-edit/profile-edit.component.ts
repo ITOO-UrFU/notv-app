@@ -40,10 +40,10 @@ update() {
                 data => {
                  this.alertService.success('Изменения сохранены.', true);
                  window.location.reload();
-                 window.scrollTo(0,0);
+                 window.scrollTo(0, 0);
                 },
                 error => {
-                    window.scrollTo(0,0);
+                    window.scrollTo(0, 0);
                     this.alertService.error('Ошибка при сохранении данных!', error);
                 });
     }
