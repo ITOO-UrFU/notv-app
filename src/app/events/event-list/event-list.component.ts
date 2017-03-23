@@ -22,6 +22,8 @@ export class EventListComponent implements OnInit {
   currentEvents: Event[];
   timeGrid: any;
 
+  currentUser: any;
+
   isLogged: boolean = false;
 
 
@@ -40,12 +42,15 @@ export class EventListComponent implements OnInit {
     this.isLogged = this.authGuard.canActivate();
     this.title.setTitle("Мероприятия");
         this.eventsService.getEventsList()
-          .subscribe(eventsList => { 
+          .subscribe(eventsList => {
             this.eventsList = eventsList;
-            //this.conferenceDates = this.getUniqueDates(eventsList);
             this.timeGrid = this.eventsService.getEventsObject(this.typeFilter);
              console.log("timeGrid: ", this.timeGrid);
 
+                this.registerService.getProfile().subscribe(userProfile => {
+                                  this.currentUser = userProfile;
+                              }
+                  );
         }
       );
   }

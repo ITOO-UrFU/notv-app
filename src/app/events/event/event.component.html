@@ -12,8 +12,8 @@
 <p>Окончание: {{ currentEvent.enddate | date:'medium' }}</p>-->
 
 
-<div *ngIf="currentEvent.users.length">
-    <div *ngFor="let user of currentEvent.users" class="event-speaker-photo" [ngStyle]="{'background':'url('+user.person.photo+')', 'background-size': 'cover'}" >  
+<div *ngIf="currentEvent.get_speakers.length">
+    <div *ngFor="let user of currentEvent.get_speakers" class="event-speaker-photo" [ngStyle]="{'background':'url('+user.person.photo+')', 'background-size': 'cover'}" >  
     
     </div>
 

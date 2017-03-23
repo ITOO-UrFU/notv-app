@@ -22,7 +22,7 @@ export class UserEventsComponent implements OnInit {
     showButtons:boolean = false;
     whereis: string = "trajectory";
 
-  constructor(        
+  constructor(
     private router: Router,
     private registerService: RegisterService,
     private alertService: AlertService,
@@ -35,6 +35,7 @@ export class UserEventsComponent implements OnInit {
              this.registerService.getProfile().subscribe(userProfile => {
              this.currentUser = userProfile;
              this.userEvents = this.currentUser.get_events;
+             console.log(this.userEvents );
         });
           }
           else{
@@ -43,7 +44,7 @@ export class UserEventsComponent implements OnInit {
 
   }
 
-
+/*
   unregisterOnEvent(id: string){
     this.registerService.unregisterOnEvent(id).subscribe(
                 data => {
@@ -62,5 +63,5 @@ export class UserEventsComponent implements OnInit {
       console.log(event.id);
         this.router.navigate(["events", "event", event.id]);
     }
-
+*/
 }
