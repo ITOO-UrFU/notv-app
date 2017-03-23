@@ -18,6 +18,8 @@ export class EventComponent implements OnInit {
     //currentEvent: Event;
     errorMessage: string;
     //isLogged: boolean = false;
+    @Input() currentUser: any;
+    
     userEvents: Event[];
     isReg: boolean;
     
@@ -35,8 +37,8 @@ export class EventComponent implements OnInit {
       //this.isLogged = this.authGuard.canActivate();
       //console.log(this.isLogged)
         //let id = this.activatedRoute.snapshot.params["id"];
-          this.update(this.currentEvent);     
-       //console.log(this.currentEvent)
+          this.update(this.currentEvent);
+       console.log(this.currentEvent);
     //    if (id) {
 
     //         this.eventsService.getEvent(this.currentEvent.id)
@@ -53,24 +55,37 @@ export class EventComponent implements OnInit {
 
 update(event:Event){
     this.showButtons = false;
-    this.registerService.getProfile().subscribe(userProfile => {
-                    userProfile.get_events.forEach(event=>{
+    this.currentUser.get_events.forEach(event => {
                         if (event.event.id == this.currentEvent.id){
                             this.isReg = true;
                         }
                     });
                     this.showButtons = true;
-                }
-            );
+
+    // this.registerService.getProfile().subscribe(userProfile => {
+    //                 userProfile.get_events.forEach(event=>{
+    //                     if (event.event.id == this.currentEvent.id){
+    //                         this.isReg = true;
+    //                     }
+    //                 });
+    //                 this.showButtons = true;
+    //             }
+    //         );
 
 }
 
 registerOnEvent(event: Event){
     this.isReg = false;
+
+                
     this.registerService.registerOnEvent(event.id).subscribe(
                 data => {
+                        this.registerService.getProfile().subscribe(userProfile => {
+                    this.currentUser = userProfile;
+                    this.update(this.currentEvent);
+                });
                  this.alertService.success('Вы зарегистрированы!', true);
-                 this.update(this.currentEvent);
+                 
                 },
                 error => {
                     this.alertService.error("Ошибка при регистрации!", error);
@@ -83,7 +98,10 @@ unregisterOnEvent(event: Event){
     this.registerService.unregisterOnEvent(event.id).subscribe(
                 data => {
                  this.alertService.success('Вы отписаны от события!', true);
-                     this.update(this.currentEvent);
+                                         this.registerService.getProfile().subscribe(userProfile => {
+                    this.currentUser = userProfile;
+                    this.update(this.currentEvent);
+                });
                 },
                 error => {
                     this.alertService.error("Ошибка отписки от события!", error);

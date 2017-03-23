@@ -72,7 +72,7 @@
 
                          <div class="event-time-{{time.val.length}} {{event.eventtypeid}}">
                              
-                    <div class="app-event" [currentEvent]="event" [isLogged]="isLogged"></div>
+                                <div *ngIf="currentUser" class="app-event" [currentEvent]="event" [currentUser]="currentUser" [isLogged]="isLogged"></div>
 
 
                              </div>
