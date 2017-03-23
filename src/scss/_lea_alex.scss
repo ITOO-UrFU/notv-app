@@ -203,6 +203,7 @@
     $height: 668;
 
     .homeBanner{
+        background: $light_gray;
 
         section.banner {
             padding-top: 1px;
@@ -215,6 +216,23 @@
             
             h1{
                 position: relative;
+            }
+        }
+        div div{ 
+            height: 100px;
+            
+            a{
+                display: block;
+                width: 74%;
+                margin: 35px auto;
+                background: #ee4037;
+                border: none;
+                color: #fafafa;
+                text-decoration: none;
+                text-align: center;
+                padding: 20px 0;
+                font-size: 22px;
+                text-transform: uppercase;
             }
         }
     }
@@ -258,7 +276,7 @@
 
 
 section.banner{
-    box-shadow: 0 0 36px black;
+    //box-shadow: 0 0 36px black;
 }
 
 .home-block{
