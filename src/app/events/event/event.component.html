@@ -9,8 +9,7 @@
     <p *ngIf="currentEvent.eventtypeid=='eventtype-plenar'" [innerHTML]='currentEvent.description'></p>
 <!--<p [innerHTML]="currentEvent.description"></p>-->
 
-<!--<p>Начало: {{ currentEvent.startdate | date:'medium' }}</p>
-<p>Окончание: {{ currentEvent.enddate | date:'medium' }}</p>-->
+<p style="font-weight: 600;"><i class="fa fa-clock-o" aria-hidden="true"></i>  {{ currentEvent.startdate | date:'shortTime' }} - {{ currentEvent.enddate | date:'shortTime' }}</p>
 
 
 <div *ngIf="currentEvent.get_speakers.length">
@@ -32,13 +31,16 @@
     <div *ngIf="isLogged">
 
     <div *ngIf="isReg">
-        <button (click)="attemptUnregisterOnEvent(currentEvent)" class="btn btn-primary">Я не участвую</button>
+        <button (click)="attemptUnregisterOnEvent(currentEvent)" class="btn button-event-unregister">Я не участвую</button>
     </div>    
     
     <div *ngIf="!isReg">
-        <button (click)="attemptRegisterOnEvent(currentEvent)" class="btn btn-primary">Я участвую</button>
+        <button (click)="attemptRegisterOnEvent(currentEvent)" class="btn button-event-register">Я участвую</button>
+    </div>
     </div>
 
+    <div *ngIf="!isLogged">
+        <button (click)="toRegister()" class="btn button-event-tologin"><ins style="font-weight: 500;">Войдите</ins>, чтобы принять участие</button>
     </div>
 </div>
 

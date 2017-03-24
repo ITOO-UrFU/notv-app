@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RegisterService} from 'app/services/register.service';
 import { Router } from '@angular/router';
 import { AlertService } from 'app/services/alert.service';
+import { ActivatedRoute} from '@angular/router';
+import { AuthenticationService } from 'app/services/auth.service';
 
 @Component({
   selector: 'div.app-profile-edit',
@@ -12,15 +14,27 @@ export class ProfileEditComponent implements OnInit {
     model: any = {};
     currentUser: any =  {};
     currentUserEmail = '';
-    userEvents: Event[];
+    userEvents: Event[]; 
 
-
+    showNewRegister: boolean = false;
 
   constructor(
         private router: Router,
         private registerService: RegisterService,
+        private authenticationService: AuthenticationService,
         private alertService: AlertService,
-        ) { }
+        private activatedRoute: ActivatedRoute
+        ) {
+            activatedRoute.queryParams.subscribe(
+            (queryParam: any) => {
+                if(queryParam['newreg'])
+                {
+                    this.showNewRegister = true;
+                }
+            }
+        );
+
+         }
 
   ngOnInit() {
             this.registerService.getProfile().subscribe(userProfile => {
@@ -50,5 +64,10 @@ update() {
 
                     this.alertService.error("Ошибка при сохранении данных!", error);
                 });
+    }
+
+    toNewRegiser(){
+      this.authenticationService.logout();
+      this.router.navigate(['/register']);
     }
 }

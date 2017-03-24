@@ -2,6 +2,7 @@
 <alert></alert>
 
 <div class="home-block">
+<div *ngIf="showNewRegister" class="reg-new-user">Хотите выйти и зарегистрировать нового участника? <button (click)="toNewRegiser()">Да</button> <button (click)="showNewRegister=false">Нет</button> </div>
 
    <div class="form-group-header">
         <h2>Изменить профиль</h2>

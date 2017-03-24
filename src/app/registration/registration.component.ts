@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { RegisterService} from 'app/services/register.service';
 
 import { AlertService } from 'app/services/alert.service';
@@ -15,6 +15,7 @@ import { AuthGuard } from 'app/services/auth.guard';
 export class RegistrationComponent implements OnInit {
 
 model: any = {};
+previousUrl: string;
 
   constructor(
         private router: Router,
@@ -23,13 +24,31 @@ model: any = {};
         private authenticationService: AuthenticationService,
         private title: Title,
         private authGuard: AuthGuard,
-        ) { }
+        private activatedRoute: ActivatedRoute
+        ) {
+            
+        }
 
   ngOnInit() {
       if (this.authGuard.canActivate()){
-            this.router.navigate(['profile', 'edit']);
+          this.activatedRoute.queryParams.subscribe(
+                    data => {
+                        console.log("data['newreg']",data['newreg'])
+                        if(data['newreg']){
+                                this.router.navigate(['profile', 'edit'], { queryParams: { newreg: data['newreg'] } });
+                        }
+                        else{
+                            this.router.navigate(['profile', 'edit']);
+                        }
+                    },
+                    nodata => {
+                        this.router.navigate(['profile', 'edit']);
+                    }
+                );
+            
       }
       else {
+       
           this.title.setTitle("Регистрация");
       }
 

@@ -39,7 +39,6 @@ export class EventComponent implements OnInit {
   }
 
 update(event: Event){
-    console.log("!!!!!!!!!!!", event);
     this.showButtons = false;
     this.currentUser.get_events.forEach(event => {
                         if (event.event.id == this.currentEvent.id){
@@ -52,14 +51,12 @@ update(event: Event){
 
 checkSameTimeEvents(potentialEvent: Event): any[] {
     let sameTimeEvents: any[] = [];
-  // console.log(potentialEvent.startdate.getTime());
     this.currentUser.get_events.forEach(event => {
                         let currentDate = new Date(event.event.startdate).getTime();
                         if (currentDate == potentialEvent.startdate.getTime()){
                             sameTimeEvents.push(event);
                         }
                     });
-    // console.log(sameTimeEvents);
     return sameTimeEvents;
 }
 
@@ -69,16 +66,14 @@ this.registerService.getProfile().subscribe(userProfile => {
                         this.currentUser = userProfile;
                         let sameEvents: any[] = this.checkSameTimeEvents(event);
                         if (sameEvents.length > 0) {
-                          //  console.log("sameEvents", sameEvents);
                         let sameEventsTitles = '';
                             for (let sameEvent of sameEvents){
                                 console.log(event);
                                sameEventsTitles += sameEvent.event.title + '\r\n';
                             }
-                            console.log(sameEventsTitles);
                            if (confirm('В это время проходят мероприятия, на которые Вы подписаны: \r\n' +
                                         sameEventsTitles +
-                                       'Вы уверены что хотите зарегистрироваться на' +
+                                       'Вы уверены что хотите зарегистрироваться на ' +
                                         event.title + '?')) {
                                     this.registerOnEvent(event);
                             } else {
@@ -86,9 +81,7 @@ this.registerService.getProfile().subscribe(userProfile => {
                                 }
                         } else {
                             this.registerOnEvent(event);
-                            // console.log("Регистрируем пользователя");
                         }
-
             });
 
 
@@ -104,7 +97,6 @@ registerOnEvent(event: Event) {
                         this.update(this.currentEvent);
                 });
                  this.alertService.success('Вы зарегистрированы!', true);
-
                 },
                 error => {
                     this.alertService.error("Ошибка при регистрации!", error);
@@ -138,7 +130,9 @@ unregisterOnEvent(event: Event) {
     public goBack() {
         this.router.navigate(["/events"]);
     }
-
+    public toRegister(){
+        this.router.navigate(["login"]);
+    }
     public goMyEvents(){
         this.router.navigate(["events", "my_events"]);
     }
