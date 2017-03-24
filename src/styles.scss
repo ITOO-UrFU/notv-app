@@ -122,13 +122,18 @@ alert .alert-danger{
 
 
 .app-event-list{
-            padding: 30px;
+        padding: 30px;
         margin: 35px auto;
         background: rgba($light_shadow, .5);
         width: 1000px;
 }
+
 .app-event-list{
       //  padding-top: 90px;
+}
+
+.app-event {
+    height: 100%;
 }
 .container {
     margin-top: 23px;
@@ -137,7 +142,10 @@ alert .alert-danger{
 .event-block{
    
     margin: 0 auto;
-    position: relative;
+    height: 100%;
+    height: 100%;
+
+
     
     button{
         font-family: inherit;
@@ -159,6 +167,9 @@ alert .alert-danger{
         -moz-user-select: none;
         -ms-user-select: none;
         box-sizing: border-box;
+
+        position: absolute;
+        bottom: 1rem;
     }
     img {
         height: 2em;
@@ -306,6 +317,9 @@ display: inline-block;
         padding: $event_item_padding;
         font-family: "Open Sans";
         background-color: #fbfbfb;
+        overflow: hidden;
+        position: relative;
+        padding-bottom: 4rem;
 }
 
 @for $i from 1 through 4{
