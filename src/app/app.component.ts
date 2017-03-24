@@ -1,6 +1,6 @@
 import { Component, OnInit,  ViewEncapsulation  } from '@angular/core';
 import { Router, Routes } from '@angular/router';
-
+import {Location} from '@angular/common';
 
 
 
@@ -23,12 +23,14 @@ export class AppComponent implements OnInit {
     name: 'AppComponent',
   };
 
-constructor() {
+constructor(private _location: Location) {
 
   }
 
   ngOnInit() {
-
-
   }
+
+  // backClicked() {
+  //       this._location.back();
+  //   }
 }

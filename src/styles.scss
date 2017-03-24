@@ -137,7 +137,28 @@ alert .alert-danger{
 .event-block{
    
     margin: 0 auto;
-    // padding-top:130px;
+    
+    button{
+        font-family: inherit;
+        font-size: 100%;
+        padding: .5em 1em;
+        color: rgba(0,0,0,.8);
+        border: transparent;
+        background-color: #E6E6E6;
+        text-decoration: none;
+        border-radius: 2px;
+        display: inline-block;
+        zoom: 1;
+        white-space: nowrap;
+        vertical-align: middle;
+        text-align: center;
+        cursor: pointer;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        box-sizing: border-box;
+    }
 }
 
 html{
