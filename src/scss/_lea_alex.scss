@@ -24,6 +24,73 @@
 
  }
 
+article{
+    h1{
+        font-size: 30pt;
+        font-weight: 100;
+    }
+    p{
+        font-size: 15pt;
+        font-weight: 100;
+        line-height: 22pt;
+    }
+    ul{
+        li{
+            font-size: 15pt;
+            font-weight: 100;
+            padding-bottom: 4pt
+        }
+    }
+    table{
+        
+        width: 100%;
+        tbody{
+            tr{
+                &:first-child{
+                    p{
+                        font-size: 15pt;
+                    }
+                }
+                
+                &:nth-child(even){
+                    border-bottom:2px solid rgba($blue, .2);
+                    border-top:2px solid rgba($blue, .2);
+                    background: rgba($blue, .05);
+                }
+                 
+                td{ 
+                    padding: 12px;
+                    vertical-align: top;
+
+               
+
+                    &:last-child{
+                        border-right:none;
+                    }
+
+                    p{
+                        font-size: 13pt;
+                        line-height: 18pt;
+                        margin:2px
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+.home-block{
+    background: rgba(#fafafa, .8);  
+    border: 12px solid $light;
+    border-radius: 4px;
+}
+
+
+
+
+
+
 
 
 // баннер
@@ -32,8 +99,7 @@
 @media (max-width: 575px) { 
  .home-block{
         padding:13px;
-        margin: 20px;
-        background: rgba($light_shadow, .5);     
+        margin: 20px;   
     }
     .speakers-board{
         padding:30px;
@@ -47,7 +113,7 @@
 
 
     .homeBanner{
-
+        background: $light_gray;
         section.banner {
             margin-top:-6px;
             padding-top: 1px;
@@ -59,24 +125,39 @@
                         url("/assets/images/banner/1-03.png") no-repeat,
                         url("/assets/images/banner/1-02.png") no-repeat,
                         url("/assets/images/banner/1-01.png") no-repeat;
-            background-size: auto 22%, auto 24%, auto 16%, auto 13%, auto 105%, auto 103%;
-            background-position-x: 75%,21%,75%,20%,50%,50%;
-            background-position-y: 11%,8%,92%,89%,-645%,50%;
+            background-size: auto 22%, auto 24%, auto 16%, auto 13%, auto 125%, auto 103%;
+            background-position-x: 90%,8%,90%,8%,50%,50%;
+            background-position-y: 10%,8%,92%,89%,-80%,50%;
             height: $height+px;
             
             h1{
                 position: relative;
             }
         }
+        div div{ 
+            height: 65px;
+            
+            a{
+                display: block;
+                margin: 20px 20px;
+                background: #ee4037;
+                border: none;
+                color: #fafafa;
+                text-decoration: none;
+                text-align: center;
+                padding: 10px 0;
+                font-size: 18px;
+                text-transform: uppercase;
+            }
+        }
     }
-}
+ }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) and (max-width: 767px) { 
     .home-block{
         padding:30px;
-        margin: 20px ;
-       background: rgba($light_shadow, .5);
+        margin: 20px;
         
     }
 
@@ -91,7 +172,7 @@
     $height: 300;
 
     .homeBanner{
-
+        background: $light_gray;
         section.banner {
             margin-top:-6px;
             padding-top: 1px;
@@ -103,13 +184,31 @@
                         url("/assets/images/banner/1-03.png") no-repeat,
                         url("/assets/images/banner/1-02.png") no-repeat,
                         url("/assets/images/banner/1-01.png") no-repeat;
-            background-size: auto 22%, auto 24%, auto 16%, auto 13%, auto 105%, auto 103%;
-            background-position-x: 75%,21%,75%,20%,50%,50%;
-            background-position-y: 11%,8%,92%,89%,-645%,50%;
+            background-size: auto 22%, auto 24%, auto 16%, auto 13%, auto 125%, auto 103%;
+            background-position-x: 90%,8%,90%,8%,50%,50%;
+            background-position-y: 10%,8%,92%,89%,-80%,50%;
             height: $height+px;
             
             h1{
                 position: relative;
+            }
+        }
+        div div{ 
+            height: 100px;
+            
+            a{
+                display: block;
+
+                margin: 30px 40px;
+                background: #ee4037;
+                border: none;
+                color: #fafafa;
+                text-decoration: none;
+                text-align: center;
+                padding: 18px 0;
+                font-size: 20px;
+                text-transform: uppercase;
+
             }
         }
     }
@@ -121,7 +220,6 @@
     .home-block{
         padding:30px;
         margin: 30px;
-        background: rgba($light_shadow, .5);
         
     }
     .speakers-board{
@@ -137,7 +235,7 @@
     $height: 460;
 
     .homeBanner{
-
+        background: $light_gray;
         section.banner {
             padding-top: 1px;
             position: relative;
@@ -148,13 +246,29 @@
                         url("/assets/images/banner/1-03.png") no-repeat,
                         url("/assets/images/banner/1-02.png") no-repeat,
                         url("/assets/images/banner/1-01.png") no-repeat;
-            background-size: auto 22%, auto 24%, auto 16%, auto 13%, auto 105%, auto 103%;
-            background-position-x: 75%,21%,75%,20%,50%,50%;
-            background-position-y: 11%,8%,92%,89%,-645%,50%;
+            background-size: auto 22%, auto 24%, auto 16%, auto 13%, auto 125%, auto 103%;
+            background-position-x: 90%,8%,90%,8%,50%,50%;
+            background-position-y: 10%,8%,92%,89%,-80%,50%;
             height: $height+px;
             
             h1{
                 position: relative;
+            }
+        }
+        div div{ 
+            height: 100px;
+            
+            a{
+                display: block;
+                margin: 30px 60px;
+                background: #ee4037;
+                border: none;
+                color: #fafafa;
+                text-decoration: none;
+                text-align: center;
+                padding: 20px 0;
+                font-size: 22px;
+                text-transform: uppercase;
             }
         }
     }
@@ -166,7 +280,6 @@
     .home-block{
         padding:30px;
         margin: 30px ;
-        background: rgba($light_shadow, .5);
         
     }
     .speakers-board{
@@ -182,7 +295,7 @@
     $height: 558;
 
     .homeBanner{
-
+        background: $light_gray;
         section.banner {
             padding-top: 1px;
             position: relative;
@@ -193,13 +306,30 @@
                         url("/assets/images/banner/1-03.png") no-repeat,
                         url("/assets/images/banner/1-02.png") no-repeat,
                         url("/assets/images/banner/1-01.png") no-repeat;
-            background-size: auto 22%, auto 24%, auto 16%, auto 13%, auto 105%, auto 103%;
-            background-position-x: 75%,21%,75%,20%,50%,50%;
-            background-position-y: 11%,8%,92%,89%,-645%,50%;
+            background-size: auto 22%, auto 24%, auto 16%, auto 13%, auto 125%, auto 103%;
+            background-position-x: 92%,6%,92%,6%,50%,50%;
+            background-position-y: 10%,8%,92%,89%,-80%,50%;
             height: $height+px;
             
             h1{
                 position: relative;
+            }
+        }
+        div div{ 
+            height: 100px;
+            
+            a{
+                display: block;
+                margin: 30px 60px;
+                background: #ee4037;
+                border: none;
+                color: #fafafa;
+                text-decoration: none;
+                text-align: center;
+                padding: 20px 0;
+                font-size: 22px;
+                text-transform: uppercase;
+                
             }
         }
     }
@@ -211,7 +341,6 @@
     .home-block{
         padding:30px;
         margin: 30px auto;
-        background: rgba($light_shadow, .5);
         width: 1000px;
     }
     .speakers-board{
@@ -239,9 +368,9 @@
                         url("/assets/images/banner/1-03.png") no-repeat,
                         url("/assets/images/banner/1-02.png") no-repeat,
                         url("/assets/images/banner/1-01.png") no-repeat;
-            background-size: auto 22%, auto 24%, auto 16%, auto 13%, auto 105%, auto 103%;
-            background-position-x: 75%,21%,75%,20%,50%,50%;
-            background-position-y: 11%,8%,92%,89%,-645%,50%;
+            background-size: auto 22%, auto 24%, auto 16%, auto 13%, auto 125%, auto 103%;
+            background-position-x: 90%,8%,90%,8%,50%,50%;
+            background-position-y: 10%,8%,92%,89%,-80%,50%;
             height: $height+px;
             
             h1{
@@ -254,7 +383,7 @@
             a{
                 display: block;
                 width: 74%;
-                margin: 35px auto;
+                margin: 30px auto;
                 background: #ee4037;
                 border: none;
                 color: #fafafa;
@@ -263,6 +392,7 @@
                 padding: 20px 0;
                 font-size: 22px;
                 text-transform: uppercase;
+                width: 1000px;
             }
         }
     }
@@ -272,7 +402,6 @@
     .home-block{
         padding:30px;
         margin: 30px auto;
-         background: rgba($light_shadow, .5);
         width: 1200px;
     }
         .speakers-board{
