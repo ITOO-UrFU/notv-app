@@ -112,6 +112,7 @@ article, section{
   position: absolute;
   right: 0;
   left: 0;
+  bottom: 0;
   background-color: $light_gray;
   text-align: center;
   .footer-content div{
@@ -165,7 +166,6 @@ article, section{
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575px) { 
     #footer{
-        bottom: 0;
   .footer-content div{
           margin: 0px 0px;
       h4{
@@ -243,6 +243,25 @@ article, section{
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) and (max-width: 767px) { 
+        #footer{
+  .footer-content div{
+          margin: 0px 0px;
+      h4{
+            text-align: left;
+            font-size: 17pt;
+            font-family: "Open Sans";
+            font-weight: 100;
+      }
+  }
+  p{
+      font-size: 12pt;
+
+  }
+  a{
+      font-size: 12pt;
+  }
+  }
+
     .home-block{
         padding:30px;
         margin: 20px;
