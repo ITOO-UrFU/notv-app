@@ -36,6 +36,7 @@ body {
   padding-bottom: 14rem;
   min-height: 100%;
   box-sizing: inherit;
+  font-family: "Open Sans";
 }
 
 .app-user-events{
@@ -75,44 +76,50 @@ alert .alert-danger{
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 1rem;
-  background-color: $dark_gray;
+  padding: .3rem;
+  background-color: $light_gray;
   text-align: center;
   .footer-content div{
-           display: inline-block;
-  }
-  .edcrunch-logo{
-    display: inline-block;
-    width: 250px;
-    height: 80px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: auto 100%;
-    background-image: url(http://promo.ruvents.com/assets/img/clients/EdCrunch_logo.png);
-  }
-    .urfu-logo{
-    display: inline-block;
-    width: 250px;
-    height: 80px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: auto 100%;
-    background-image: url(http://urfu.ru/fileadmin/_processed_/7/f/csm_UrFULogo_Full_Russian_f4adbf623f.jpg);
+      display: inline-block;
+      vertical-align: top;
+      h4{
+          text-align: left;
+                    font-size: 20pt;
+      font-family: "Open Sans";
+      font-weight: 100;
+      }
   }
 
-  .contact-info p:first-child  {
-      font-size: 1.5em;
-  }
+.footer-content {
+  max-width: 1000px;
+    margin: 0 auto;
+}
+
+    .footer-organizators{
+         width: 50%;
+    }
+
+    .footer-contact-info{
+         width: 40%;
+    }
+
 
   p{
-      color: white;
+      font-size: 14pt;
+      font-family: "Open Sans";
+      color: black;
     margin: 10px 2px;
     text-align: left;
   }
   a{
-      color: white;
+          font-size: 14pt;
+      font-family: "Open Sans";
+      color: black;
   }
+
 }
+
+
 .app-event-list{
             padding: 30px;
         margin: 35px auto;
