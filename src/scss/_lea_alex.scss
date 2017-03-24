@@ -108,7 +108,53 @@ article, section{
 }
 
 
+#footer{
+  position: absolute;
+  right: 0;
+  left: 0;
+  background-color: $light_gray;
+  text-align: center;
+  .footer-content div{
+      width: 49%;
+      display: inline-block;
+      vertical-align: top;
+      margin: 12px 0px;
+      h4{
+          text-align: left;
+                    font-size: 20pt;
+      font-family: "Open Sans";
+      font-weight: 100;
+      }
+  }
 
+.footer-content {
+  max-width: 1000px;
+    margin: 0 auto;
+}
+
+    // .footer-organizators{
+    //      width: 50%;
+    // }
+
+    // .footer-contact-info{
+    //      width: 40%;
+    // }
+
+
+  p{
+      font-size: 14pt;
+      font-family: "Open Sans";
+      color: black;
+    margin: 10px 2px;
+    text-align: left;
+  }
+  a{
+      font-size: 14pt;
+      font-family: "Open Sans";
+      color: black;
+  }
+
+}
 
 
 
@@ -118,6 +164,27 @@ article, section{
 
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575px) { 
+    #footer{
+        bottom: 0;
+  .footer-content div{
+          margin: 0px 0px;
+      h4{
+            margin: 4px 0px;
+            text-align: left;
+            font-size: 17pt;
+            font-family: "Open Sans";
+            font-weight: 100;
+      }
+  }
+  p{
+      font-size: 12pt;
+
+  }
+  a{
+      font-size: 12pt;
+  }
+  }
+
  .home-block{
         padding:13px;
         margin: 20px;   
