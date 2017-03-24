@@ -4,6 +4,7 @@
     <!--<button (click)="goBack()" class="btn btn-primary">К списку всех мероприятий</button>
     <button *ngIf="isLogged" (click)="goMyEvents()" class="btn btn-primary">К списку моих мероприятий</button>-->
   <h3 style="margin-top: 5px;">{{currentEvent.eventtype}}</h3>
+  <img src="assets/images/icons/{{currentEvent.get_event_slug}}_icon.svg"/>
     <p *ngIf="currentEvent.eventtypeid!='eventtype-plenar'" >{{currentEvent.title}}</p>
     <p *ngIf="currentEvent.eventtypeid=='eventtype-plenar'" [innerHTML]='currentEvent.description'></p>
 <!--<p [innerHTML]="currentEvent.description"></p>-->

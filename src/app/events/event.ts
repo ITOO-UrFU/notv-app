@@ -10,8 +10,9 @@ export class Event {
     public eventtypeid: string;
     public eventtype: string;
     public get_line_of_work_slug: string;
+    public get_event_slug: string;
 
-    constructor(id, title, description, get_speakers, startdate, enddate, eventtypeid, eventtype, get_line_of_work_slug){
+    constructor(id, title, description, get_speakers, startdate, enddate, eventtypeid, eventtype, get_line_of_work_slug, get_event_slug){
         this.id = id;
         this.title = title;
         this.description = description;
@@ -21,6 +22,7 @@ export class Event {
         this.eventtypeid = eventtypeid;
         this.eventtype = eventtype;
         this.get_line_of_work_slug = get_line_of_work_slug;
+        this.get_event_slug = get_event_slug;
     }
 
 }

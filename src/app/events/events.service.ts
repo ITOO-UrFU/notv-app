@@ -36,7 +36,11 @@ export class EventsService {
 private extractEvent(res: Response): Event {
     const body = res.json();
     let eventTypeClass = "eventtype-empty";
-    if ( body.get_event_slug != null ) { eventTypeClass = "eventtype-" + body.get_event_slug; }
+    let slug = 'empty';
+    if ( body.get_event_slug != null ) {
+      eventTypeClass = "eventtype-" + body.get_event_slug;
+      slug = body.get_event_slug;
+    }
     const event: Event = new Event(
           body.id,
           body.title,
@@ -46,7 +50,8 @@ private extractEvent(res: Response): Event {
           body.enddate,
           eventTypeClass,
           body.get_type_display,
-          body.block
+          body.block,
+          slug,
       );
 
     event.get_speakers  = event.get_speakers.filter(user =>  user.get_type_display !== "Участник" );
@@ -158,7 +163,12 @@ private extractEvent(res: Response): Event {
     const events: Event[] = [];
     for (let i = 0; i < body.length; i++) {
           let eventTypeClass = "eventtype-empty";
-          if (body[i].get_event_slug != null) { eventTypeClass = "eventtype-" + body[i].get_event_slug; }
+          let slug = 'empty';
+
+          if (body[i].get_event_slug != null) { 
+            eventTypeClass = "eventtype-" + body[i].get_event_slug;
+            slug = body[i].get_event_slug;
+         }
           const event: Event = new Event(
             body[i].id,
             body[i].title,
@@ -168,7 +178,8 @@ private extractEvent(res: Response): Event {
             body[i].enddate,
             eventTypeClass,
             body[i].get_type_display,
-            body[i].get_line_of_work_slug
+            body[i].get_line_of_work_slug,
+            slug,
             );
 
           event.get_speakers = event.get_speakers.filter(user => user.get_type_display !== 'Участник');

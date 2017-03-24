@@ -30,7 +30,5 @@ constructor(private _location: Location) {
   ngOnInit() {
   }
 
-  // backClicked() {
-  //       this._location.back();
-  //   }
+
 }

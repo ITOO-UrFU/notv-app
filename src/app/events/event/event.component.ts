@@ -39,6 +39,7 @@ export class EventComponent implements OnInit {
   }
 
 update(event: Event){
+    console.log("!!!!!!!!!!!", event);
     this.showButtons = false;
     this.currentUser.get_events.forEach(event => {
                         if (event.event.id == this.currentEvent.id){

@@ -57,7 +57,11 @@ export class RegisterService {
     const events: Event[] = [];
     for (let i = 0; i < body.length; i++) {
           let eventTypeClass = "eventtype-empty";
-          if (body[i].event.get_event_slug != null) { eventTypeClass = "eventtype-" + body[i].event.get_event_slug; }
+          let slug = 'empty';
+          if (body[i].event.get_event_slug != null) {
+              eventTypeClass = "eventtype-" + body[i].event.get_event_slug;
+              slug = body[i].event.get_event_slug;
+         }
           const event: Event = new Event(
             body[i].event.id,
             body[i].event.title,
@@ -67,7 +71,8 @@ export class RegisterService {
             body[i].event.enddate,
             eventTypeClass,
             body[i].event.get_type_display,
-            body[i].event.get_line_of_work_slug
+            body[i].event.get_line_of_work_slug,
+            slug,
             );
           events.push(event);
     }

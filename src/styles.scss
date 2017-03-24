@@ -137,6 +137,7 @@ alert .alert-danger{
 .event-block{
    
     margin: 0 auto;
+    position: relative;
     
     button{
         font-family: inherit;
@@ -158,6 +159,13 @@ alert .alert-danger{
         -moz-user-select: none;
         -ms-user-select: none;
         box-sizing: border-box;
+    }
+    img {
+        height: 2em;
+        width: 2em;
+        position: absolute;
+        right: 0px;
+        top: 0px;
     }
 }
 
