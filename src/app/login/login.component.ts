@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
 
                 },
                 error => {
-                    this.alertService.error(error.response);
+                    this.alertService.error("Ошибка при входе. Проверьте правильность введенных данных.");
                     console.log("login ne ok!");
                 });
     }
