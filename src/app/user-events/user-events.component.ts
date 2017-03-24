@@ -14,6 +14,7 @@ import { AlertService } from 'app/services/alert.service';
 export class UserEventsComponent implements OnInit {
     currentUser: any =  {};
     userEvents: any[];
+    eventsGrid: any = {};
 
   constructor(
     private router: Router,
@@ -30,14 +31,18 @@ export class UserEventsComponent implements OnInit {
           else{
              this.router.navigate(["login"]);
           }
-
   }
 
   update(){
      this.registerService.getProfile().subscribe(userProfile => {
              this.currentUser = userProfile;
              this.userEvents =  this.registerService.extractEvents(userProfile.get_events);
-             console.log("Мероприятия пользователя: ", this.userEvents );
+
+             this.eventsGrid = this.eventsService.eventsListToObject(this.userEvents);
+
+             // console.log("Мероприятия пользователя: ", this.userEvents );
+
+
         });
   }
 

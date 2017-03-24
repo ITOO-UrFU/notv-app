@@ -53,12 +53,11 @@ export class EventListComponent implements OnInit {
       );
   }
 
-ngOnChanges(changes: any) {
-    if (this.eventsList){
-      this.timeGrid = this.eventsService.getEventsObject(this.typeFilter);
-      //console.log(this.timeGrid);
-    }
-}
+  ngOnChanges(changes: any) {
+      if (this.eventsList){
+        this.timeGrid = this.eventsService.getEventsObject(this.typeFilter);
+      }
+  }
 
   funcSelectedDay(value){
     this.uniqueTimes = this.eventsService.getUniqueTimesByDay(value);

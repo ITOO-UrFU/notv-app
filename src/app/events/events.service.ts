@@ -17,8 +17,6 @@ export class EventsService {
 
   private eventsUrl = 'https://openedu.urfu.ru/edcrunch/api/v1/events';
 
-  
-
   constructor( private http: Http ) { }
 
 
@@ -35,7 +33,7 @@ export class EventsService {
                     .catch(this.handleError);
   }
 
-private extractEvent(res: Response):Event {
+private extractEvent(res: Response): Event {
     const body = res.json();
     let eventTypeClass = "eventtype-empty";
     if ( body.get_event_slug != null ) { eventTypeClass = "eventtype-" + body.get_event_slug; }
@@ -55,8 +53,7 @@ private extractEvent(res: Response):Event {
     return event;
   }
 
-  getEventsByType(type: string): any[]{
-    //console.log(type);
+  getEventsByType(type: string): any[] {
     if (eventsList) {
         if (type === '' || type === undefined || type === "all_events") {
             return eventsList;
@@ -70,38 +67,53 @@ private extractEvent(res: Response):Event {
     }
   }
 
-  getEventsObject(type: string): any{
+  getEventsObject(type: string): any {
       let object: any =  {};
       let arr = [];
 
       let eventListFiltered = this.getEventsByType(type);
 
-     // console.log("eventListFiltered", eventListFiltered);
-
       eventListFiltered.map(element => {return element.startdate}).forEach(element => {
-        if(arr.map(el => el.toString()).indexOf(element.toString()) == -1) { 
-          if(object[element.getDate()] == undefined){ object[element.getDate()] = []};
+        if (arr.map(el => el.toString()).indexOf(element.toString()) == -1) {
+          if (object[element.getDate()] == undefined){ object[element.getDate()] = []};
           object[element.getDate()].push(element);
-          arr.push(element)
+          arr.push(element);
         }
       });
-      object={};
+      object = {};
       eventListFiltered.forEach(element => {
-        if(object[element.startdate.getDate()] == undefined){ object[element.startdate.getDate()] = {}}
-        if(object[element.startdate.getDate()][element.startdate.getTime()] == undefined){
-          object[element.startdate.getDate()][element.startdate.getTime()] =[]
+        if (object[element.startdate.getDate()] == undefined){ object[element.startdate.getDate()] = {}}
+        if (object[element.startdate.getDate()][element.startdate.getTime()] == undefined){
+          object[element.startdate.getDate()][element.startdate.getTime()] = [];
         }
-        object[element.startdate.getDate()][element.startdate.getTime()].push(element)
+        object[element.startdate.getDate()][element.startdate.getTime()].push(element);
       });
-      
-      /*
-      element.startdate.getHours()+':'+element.startdate.getMinutes() <=> element.startdate.getTime()
-      */
-      
-      return object; 
+      return object;
   }
 
+  eventsListToObject(events: Event[]): any {
+      let object: any =  {};
+      let arr = [];
 
+      const eventListFiltered = events;
+
+      eventListFiltered.map(element => {return element.startdate;  }).forEach(element => {
+        if (arr.map(el => el.toString()).indexOf(element.toString()) == -1) {
+          if (object[element.getDate()] == undefined) { object[element.getDate()] = []; };
+          object[element.getDate()].push(element);
+          arr.push(element);
+        }
+      });
+      object = {};
+      eventListFiltered.forEach(element => {
+        if (object[element.startdate.getDate()] == undefined){ object[element.startdate.getDate()] = {}; }
+        if (object[element.startdate.getDate()][element.startdate.getTime()] == undefined) {
+          object[element.startdate.getDate()][element.startdate.getTime()] = [];
+        }
+        object[element.startdate.getDate()][element.startdate.getTime()].push(element);
+      });
+      return object;
+  }
 
 
   getEventsByDayTimes(dates: any): Event[]{
@@ -126,19 +138,17 @@ private extractEvent(res: Response):Event {
         let date = new Date(element);
         for(let item of eventsList.filter(item => item.startdate.getDate() == date.getDate() && item.startdate.getMonth() == date.getMonth())){
           let event: Event = item;
-            if(!uniqueDates.find(item => item.getTime() === event.startdate.getTime() )){
+            if (!uniqueDates.find(item => item.getTime() === event.startdate.getTime() )){
                 uniqueDates.push(event.startdate);
             }
         }
         allDates = allDates.concat(uniqueDates);
-        })
-      //uniqueDates.sort(function(a,b){return a.getTime() - b.getTime()});
+        });
       return allDates;
 
 
     }
-    
-    else{
+    else {
         return null;
     }
   }
@@ -171,7 +181,6 @@ private extractEvent(res: Response):Event {
 
 
   private handleError (error: Response | any) {
-    // In a real world app, we might use a remote logging infrastructure
     let errMsg: string;
     if (error instanceof Response) {
       const body = error.json() || '';
