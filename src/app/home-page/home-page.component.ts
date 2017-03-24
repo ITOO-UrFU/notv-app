@@ -42,6 +42,10 @@ export class HomePageComponent implements OnInit  {
         });
   }
 
+toEventByDirection(direction: string){
+  this.router.navigate(['events', direction]);
+}
+
 startSlider(){
  this.sliderTimeOut =  setInterval(() => { this.nextSlide(); }, this.sliderInterval);
 }

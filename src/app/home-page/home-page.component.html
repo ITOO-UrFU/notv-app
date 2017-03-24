@@ -18,10 +18,10 @@
       <div [innerHTML]="block.html"></div> 
     </div>
 
-    <div *ngIf="block.type=='block'" class="home-block">
+    <div *ngIf="block.type=='block' || block.type=='events'" class="home-block">
       <h2>{{ block.title }}</h2>
       <div [innerHTML]="block.html"></div>
-      <button>Подробнее</button> 
+      <button *ngIf="block.type=='events'" (click)="toEventByDirection(block.slug)">Подробнее</button> 
     </div>
   </template>
 </div>
