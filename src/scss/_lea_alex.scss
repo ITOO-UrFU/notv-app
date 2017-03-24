@@ -523,22 +523,48 @@ article, section{
     $height: 856;
 
     .homeBanner{
+        background: $light_gray;
 
         section.banner {
+            padding-top: 1px;
             position: relative;
             background: url("http://placehold.it/"+$width+"x"+$height+"?text=baner1--small_"+$width+"x"+$height)  no-repeat;
-            background-size: auto $height+px;
-            background-position:50%;
+            background: url("/assets/images/banner/1-06.png") no-repeat, 
+                        url("/assets/images/banner/1-05.png") no-repeat,
+                        url("/assets/images/banner/1-04.png") no-repeat,
+                        url("/assets/images/banner/1-03.png") no-repeat,
+                        url("/assets/images/banner/1-02.png") no-repeat,
+                        url("/assets/images/banner/1-01.png") no-repeat;
+            background-size: auto 22%, auto 24%, auto 16%, auto 13%, auto 125%, auto 103%;
+            background-position-x: 90%,8%,90%,8%,50%,50%;
+            background-position-y: 10%,8%,92%,89%,-80%,50%;
             height: $height+px;
             
             h1{
                 position: relative;
             }
         }
+        div div{ 
+            height: 100px;
+            
+            a{
+                display: block;
+                width: 74%;
+                margin: 30px auto;
+                background: #ee4037;
+                border: none;
+                color: #fafafa;
+                text-decoration: none;
+                text-align: center;
+                padding: 20px 0;
+                font-size: 22px;
+                text-transform: uppercase;
+                width: 1000px;
+            }
+        }
     }
 
 }
-
 
 
 section.banner{
