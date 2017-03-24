@@ -18,10 +18,12 @@
       <div [innerHTML]="block.html"></div> 
     </div>
 
-    <section *ngIf="block.type=='block' || block.type=='events'" class="home-block" (click)="toEventByDirection(block.slug)">
+    <section *ngIf="block.type=='block' || block.type=='events'" class="home-block" >
       <h1>{{ block.title }}</h1>
       <div [innerHTML]="block.html"></div>
-      <div class="more"><h1>Подробнее <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h1></div>
+      <div class="more" (click)="toEventByDirection(block.slug)">
+        <h1>Подробнее <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h1>
+      </div>
     </section>
   </template>
 </div>

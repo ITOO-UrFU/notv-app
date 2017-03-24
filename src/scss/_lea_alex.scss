@@ -26,13 +26,15 @@
 
  section{
      text-align: center;
-     cursor: pointer;
+     
      &:hover {
          .home-block{
+            
             border: 12px solid rgba($blue, .2)
          }
      }
      .more{
+         cursor: pointer;
          h1{
              font-size:22pt
             }
