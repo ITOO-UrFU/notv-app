@@ -76,7 +76,7 @@ ngOnChanges(changes: any) {
  // передаем список событий
  // получаем отсортированный список дат, когда есть события
   getUniqueDates(eventsList:Event[]){
-    let uniqueDates:Date[] = [];
+    let uniqueDates: Date[] = [];
         for(let item of eventsList){
           let event: Event = item;
             if(!uniqueDates.find(item => item.getDate() === event.startdate.getDate() && item.getMonth() === event.startdate.getMonth() )){
