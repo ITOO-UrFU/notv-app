@@ -51,11 +51,6 @@ export class PageComponent implements OnDestroy, OnInit {
 
 }
 
-LoadMap(){
-  const fragment = document.createRange().createContextualFragment('<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A416166cf5c7cfc16ad8b56e6c3f87885dd7ea8d54dae469c2c59c86e8d23c4fa&amp;width=100%25&amp;height=700&amp;lang=ru_RU&amp;scroll=true"></script>');
-  document.getElementById("accomodation").appendChild(fragment);
-
-}
   public setTitle( newTitle: string) {
     this.titleService.setTitle( newTitle );
   }
