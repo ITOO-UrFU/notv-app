@@ -59,11 +59,12 @@ private extractEvent(res: Response):Event {
     //console.log(type);
     if (eventsList) {
         if (type === '' || type === undefined || type === "all_events") {
-         // console.log("Все мероприятия: ", eventsList);
             return eventsList;
         } else {
-          const arr = eventsList.filter(event => { return event.get_line_of_work_slug ===  type });
-         // console.log("Выборка мероприятий: ", arr);
+          const arr = eventsList.filter(event => {
+            if (event.get_line_of_work_slug) {event.get_line_of_work_slug = event.get_line_of_work_slug.toLowerCase(); }
+            return event.get_line_of_work_slug ===  type;
+           });
           return arr;
         }
     }

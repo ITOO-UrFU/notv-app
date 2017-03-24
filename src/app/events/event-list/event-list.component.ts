@@ -30,7 +30,7 @@ export class EventListComponent implements OnInit {
 @Input() typeFilter: string = '';
 
 
-  constructor(private router:Router, 
+  constructor(private router: Router,
               private eventsService: EventsService,
               private title: Title,
               private authGuard: AuthGuard,
@@ -56,7 +56,7 @@ export class EventListComponent implements OnInit {
 ngOnChanges(changes: any) {
     if (this.eventsList){
       this.timeGrid = this.eventsService.getEventsObject(this.typeFilter);
-      // console.log(this.timeGrid);
+      //console.log(this.timeGrid);
     }
 }
 
