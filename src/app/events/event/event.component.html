@@ -13,18 +13,11 @@
 
 
 <div *ngIf="currentEvent.get_speakers.length">
-    <div *ngFor="let user of currentEvent.get_speakers" class="event-speaker-photo" [ngStyle]="{'background':'url('+user.person.photo+')', 'background-size': 'cover'}" >  
+    <div *ngFor="let user of currentEvent.get_speakers" class="event-speaker-photo" [ngStyle]="{'background':'url('+user.person.photo+')', 'background-size': 'cover'}" > 
+        <div class='label'>{{user.person.first_name}} {{user.person.last_name}}</div> 
     
     </div>
-
-        <!--<div class="speaker-board-photo" [ngStyle]="{'background':'url('+user.person.photo+')', 'background-size': 'cover'}" >
-        <div class="name"><p>{{user.person.first_name}} {{user.person.last_name}}</p>
-                        <p>{{user.person.organisation}}</p>
-                        <p>{{user.person.division}}</p>
-                        <p>{{user.person.position}}</p>
-        </div>
-        </div>-->
-    </div>
+</div>
 
 
 <div *ngIf="showButtons">

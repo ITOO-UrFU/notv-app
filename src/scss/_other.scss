@@ -205,10 +205,32 @@ display: inline-block;
     height: 60px;
     border-radius: 50%;
     width: 60px;
-        margin: 5px;
+    margin: 5px;
     position: relative;
-}
+    &:hover .label{display:block}
+    .label{
+        bottom: -35px;
+        font-size: 10pt;
+        padding: 3px 6px;
+        position:absolute;
+        display:none;
+        background: $light;
+        border-radius: 4px;
+        border:2px solid rgba(gray, .8);
+        white-space:nowrap;
+        z-index: 100;
+        &::after{
+            content: '';
+            border: 10px solid transparent; border-bottom: 10px solid rgba(gray, .8); 
+            position: absolute;
+            top: -22px;
+            left: 18px;
 
+        }
+
+    }
+}
+la
 .event-speakers-name{
     display: inline-block;
        margin-left: 10px;
