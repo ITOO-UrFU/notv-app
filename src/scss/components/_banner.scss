@@ -42,25 +42,25 @@
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) and (max-width: 767px) { 
-    @include banner(767px, 300px, 1.5em)
+    @include banner(767px, 300px, 1.2em)
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) and (max-width: 991px) { 
-    @include banner(991px, 460px, 1.5em)
+    @include banner(991px, 460px, 1.2em)
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) and (max-width: 1199px) { 
-    @include banner(1199px, 558px, 1.5em)
+    @include banner(1199px, 558px, 1.2em)
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) and (max-width: 1920px){ 
-    @include banner(1920px, 668px, 1.5em)
+    @include banner(1920px, 668px, 1.2em)
 }
 
 // Ultra large devices (large desktops, 1921px and up)
 @media (min-width: 1921px) { 
-    @include banner(2560px, 856px, 1.5em)
+    @include banner(2560px, 856px, 1.2em)
 }
