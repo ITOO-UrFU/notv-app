@@ -23,10 +23,7 @@
             height: $height;
         }
         div.bigButton{ 
-            padding-top: $size;
-            padding-bottom: $size;
-            padding-left: $size * 2;
-            padding-right: $size * 2;
+            padding: $size;
             a{
                 display: block;
                 background: #ee4037;
@@ -35,7 +32,7 @@
                 text-decoration: none;
                 text-align: center;
                 font-size: $size;
-                padding: $size - 0.5em;
+                padding: $size;
                 text-transform: uppercase;
             }
         }
@@ -43,7 +40,7 @@
 }
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575px) { 
-    @include banner(575px, 300px, 1.2em)
+    @include banner(575px, 300px, 1em)
 }
 
 // Small devices (landscape phones, 576px and up)
@@ -68,5 +65,5 @@
 
 // Ultra large devices (large desktops, 1921px and up)
 @media (min-width: 1921px) { 
-    @include banner(2560px, 856px, 1.6em)
+    @include banner(2560px, 856px, 1.5em)
 }

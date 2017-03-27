@@ -1,43 +1,25 @@
 
 
- section{
-     text-align: center;
-     
-     &.home-block:hover {
-         
-            border: 12px solid rgba($blue, .2)
-         
-     }
-     .more{
-         cursor: pointer;
-         h1{
-             font-size:22pt
-            }
 
-         &:hover{
-            color:rgba($blue, .8);
-         }
-     }
- }
 
 
 article, section{
-    // h1{
-    //     font-size: 30pt;
-    //     font-weight: 100;
-    // }
-    // p{
-    //     font-size: 15pt;
-    //     font-weight: 100;
-    //     line-height: 22pt;
-    // }
-    // ul{
-    //     li{
-    //         font-size: 15pt;
-    //         font-weight: 100;
-    //         padding-bottom: 4pt
-    //     }
-    // }
+    h1{
+        font-size: 30pt;
+        font-weight: 100;
+    }
+    p{
+        font-size: 15pt;
+        font-weight: 100;
+        line-height: 22pt;
+    }
+    ul{
+        li{
+            font-size: 15pt;
+            font-weight: 100;
+            padding-bottom: 4pt
+        }
+    }
     table{
         
         width: 100%;
@@ -66,7 +48,7 @@ article, section{
                     }
 
                     p{
-                        font-size: 1em;
+                        
                         line-height: 1.15em;
                         margin:2px
                     }
