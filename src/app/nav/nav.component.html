@@ -18,9 +18,10 @@
                         <span *ngIf="url2.type != 'events'">{{ url2.title }}</span>
                     </a>
                    
-                   <a *ngIf=" url.type != 'longpage' && url.url != 'profile/edit'" [routerLink]="[url.url, url2.url]">
+                   <a *ngIf=" url.type != 'longpage' && url.url != 'profile/edit'" [attr.alt]="url2.title" [routerLink]="[url.url, url2.url]">
                          <img class="subitem-icon" src="assets/images/icons/{{url2.url}}_icon.svg" />
-                        <span *ngIf="url2.url == 'all_events' || url2.type != 'events'">{{ url2.title }}</span>
+                        <span>{{ url2.title }}</span>
+                         <!--*ngIf="url2.url == 'all_events' || url2.type != 'events'"-->
                     </a>
                    
                 </li>

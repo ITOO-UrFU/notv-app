@@ -69,7 +69,13 @@
             <input value="{{currentUser.phone}}"  type="text" class="form-control" name="phone" [(ngModel)]="model.phone" #phone="ngModel" required />
         </div> 
        
-
+        <div class="form-group">
+            <label for="participation">Тип участия:</label>
+            <select value="{{currentUser.participation}}"  name="participation" [(ngModel)]="model.participation" #participation="ngModel" >
+            <option value="O">Очно</option>
+            <option value="T">Трансляция</option>
+            </select>
+         </div>
         <!--<div class="form-group">
             <label for="division">Подразделение:</label>
             <input value="{{currentUser.division}}" type="text" class="form-control" name="division" [(ngModel)]="model.division" #division="ngModel" required />

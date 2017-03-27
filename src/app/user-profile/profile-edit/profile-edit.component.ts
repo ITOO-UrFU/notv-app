@@ -27,8 +27,7 @@ export class ProfileEditComponent implements OnInit {
         ) {
             activatedRoute.queryParams.subscribe(
             (queryParam: any) => {
-                if(queryParam['newreg'])
-                {
+                if (queryParam['newreg']) {
                     this.showNewRegister = true;
                 }
             }
@@ -47,7 +46,7 @@ export class ProfileEditComponent implements OnInit {
             this.currentUser.photo_url  = photo_src;
             this.currentUserEmail = JSON.parse(localStorage.getItem('currentUser') || null ).user.email;
             this.userEvents = this.currentUser.get_events;
-
+          //  console.log(this.currentUser);
         });
   }
 

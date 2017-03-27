@@ -25,9 +25,7 @@ previousUrl: string;
         private title: Title,
         private authGuard: AuthGuard,
         private activatedRoute: ActivatedRoute
-        ) {
-            
-        }
+        ) {}
 
   ngOnInit() {
       if (this.authGuard.canActivate()){
@@ -37,18 +35,16 @@ previousUrl: string;
                         if(data['newreg']){
                                 this.router.navigate(['profile', 'edit'], { queryParams: { newreg: data['newreg'] } });
                         }
-                        else{
+                        else {
                             this.router.navigate(['profile', 'edit']);
                         }
                     },
                     nodata => {
                         this.router.navigate(['profile', 'edit']);
                     }
-                );
-            
+                ); 
       }
       else {
-       
           this.title.setTitle("Регистрация");
       }
 
@@ -60,7 +56,7 @@ previousUrl: string;
                 data => {
                   // this.alertService.success('Registration successful', true);
                     console.log("register ok!", this.model.password1);
-              this.authenticationService.login(this.model.email, this.model.password1).subscribe(data => {}, error => {});
+             // this.authenticationService.login(this.model.email, this.model.password1).subscribe(data => {}, error => {});
                 },
                 error => {
                     this.alertService.error("Ошибка!");

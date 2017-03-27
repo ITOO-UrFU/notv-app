@@ -70,6 +70,7 @@ alert .alert-danger{
     margin-top: 23px;
     margin: 0 auto;
     text-align: center;
+    padding-bottom: 20px;
 }
 
 .app-event-list{
@@ -89,7 +90,7 @@ alert .alert-danger{
     height: 100%;
 }
 .container {
-    margin-top: 23px;
+    margin-top: 90px;
 }
 
 .event-block{
@@ -159,7 +160,7 @@ alert .alert-danger{
         height: 4em;
         width: 4em;
         position: relative;
-        margin-top:-1.5em;
+       // margin-top:-3.3em;
         float:right;
 
 
@@ -186,7 +187,7 @@ header.app-nav{
    display: inline-block;
 }
 .day-container{
-   // float: left;
+      padding-bottom: 32px;
 }
 
 .event-speaker{
@@ -244,21 +245,29 @@ la
 }
 
 .time-item{
-   float: left; 
-   // width: $time_item_width;
+    border: 2px solid gray;
+    /* height: 45px; */
+    width: 52px;
+    padding: 13px 0px;
+    border-radius: 50%;
+    background: #9e9e9e;
+    color: white;
+    margin: 10px -24px;
+    float: left;
     text-align: center;
- //   padding: $event_item_padding  0px;
-  //  height: $event_height;
     font-family: "Open Sans";
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .conference-date{
     font-family: "Open Sans";
     text-align: center;
     padding: 10px 0px;
-    margin: 0px $event_item_margin;
-    background: #f2f2f2;
-
+    /* margin: 0px 10px; */
+    background: #dcdcdc;
 }
 
 .events-container{
@@ -268,9 +277,11 @@ la
 }
 
 .events-at-day{
+    border-spacing: 22px 5px;
      float: left;
      width: $events_at_time_width;
-     margin-bottom: -4px;
+     margin-bottom: -6px;
+         border-left: 6px solid gray;
 }
 
 .eventtype-name{
@@ -320,13 +331,14 @@ la
 }
 
 @mixin event-time($event_count) {
-        float: left;
+        //float: left;
+        display: table-cell;
         width: ($events_at_time_width / $event_count) - ($event_item_margin*2)- ($event_item_padding*2) - 2 - $event_left_border;
-        margin: 5px $event_item_margin;
-        vertical-align: middle;
+      //  margin: 5px $event_item_margin;
+       // vertical-align: middle;
         box-shadow: 0 0 2px grey;
         min-height: $event_height*$event_count;
-        padding: $event_item_padding;
+        padding: 8px;
         font-family: "Open Sans";
         background-color: #fbfbfb;
 
