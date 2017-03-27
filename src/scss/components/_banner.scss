@@ -2,25 +2,22 @@
 @mixin banner($width, $height, $size){
     .homeBanner{
         background: $light_gray;
-        section.banner {;
+        section.banner {
+            height: $height;
             position: relative;
-            background: url("/assets/images/banner/1-06.png") no-repeat, // Урфу
-                        url("/assets/images/banner/1-05.png") no-repeat, // edcrunch урал
-                        url("/assets/images/banner/1-04.png") no-repeat, // Конференция
-                        url("/assets/images/banner/1-03.png") no-repeat, // Дата
-                        url("/assets/images/banner/1-02.png") no-repeat,
-                        url("/assets/images/banner/1-01.png") no-repeat;
+            background: url("/assets/images/banner/1-06.png")  no-repeat, // Урфу
+                        url("/assets/images/banner/1-05.png")  no-repeat, // edcrunch урал
+                        url("/assets/images/banner/1-04.png")  no-repeat, // Конференция
+                        url("/assets/images/banner/1-03.png")  no-repeat, // Дата
+                        url("/assets/images/banner/1-02.png")  no-repeat,
+                        url("/assets/images/banner/1-01.png")  no-repeat;
+            background-position: 93% 5%, 3% 5.5%,93% 95%, 2% 91%, 50% -80%, 50% 50%;
             @if($width<767px){
-                background-size: auto 20%, auto 20%, auto 23%, auto 11%, auto 125%, auto 103%;
-                background-position-x: 93%,3%,93%,2%,50%,50%;
-                background-position-y: 5%,5.5%,95%,91%,-80%,50%;
+                background-size: auto 20%, auto 20%, auto 23%, auto 11%, auto 125%, auto 103%;  
             }
             @else if{
                 background-size: auto 20%, auto 20%, auto 30%, auto 14%, auto 125%, auto 103%;
-                background-position-x: 93%,3%,93%,2%,50%,50%;
-                background-position-y: 5%,5.5%,95%,91%,-80%,50%;
             }
-            height: $height;
         }
         div.bigButton{ 
             padding: $size;
