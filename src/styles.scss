@@ -1,16 +1,26 @@
-@import "scss/_variables.scss";
-@import "scss/_normalize.scss";
+$FontPathOpenSans: "../node_modules/npm-font-open-sans/fonts";
+@import '../node_modules/npm-font-open-sans/open-sans.scss';
 
-@import "scss/_header.scss";
+@import 'scss/base/module';         // включает глобальные стили, такие как сброс стилей, типография, цвета и т.д.
+@import 'scss/components/module';   //содержит отдельные компоненты с отдельным файлом .scss для каждого из них.
 
-@import "scss/_carousel.scss";
+// @import 'scss/layout/module';    // содержит стили для основных компонентов макета, таких как хедер, футер, навигация и т.д.
+// @import 'scss/pages/module';     // содержит стили, специфичные для отдельных страниц, если это необходимо.
+// @import 'scss/themes/module';    // стили для разных тем
+// @import 'scss/utils/module';     // глобальные миксины, функции, вспомогательные селекторы и т.д.
+@import 'scss/vendors/module';   // стили, миксины и прочее от третьих сторон
+
+
+
+
+
+
 
 @import '../node_modules/font-awesome/css/font-awesome.css';
 
-@import 'scss/_lea_alex.scss';
 
-$FontPathOpenSans: "../node_modules/npm-font-open-sans/fonts";
-@import '../node_modules/npm-font-open-sans/open-sans.scss';
+
+
 
 /*
 .slide-content > img{
@@ -176,20 +186,14 @@ alert .alert-danger{
     }
 
     img {
-        height: 2em;
-        width: 2em;
-        position: absolute;
-        right: 0px;
-        top: 0px;
+        height: 4em;
+        width: 4em;
+        position: relative;
+        margin-top:-1.5em;
+        float:right;
 
-        /*
-        width: 100%;
-    position: absolute;
-    right: 0px;
-    left: 0;
-    opacity: 0.05;
-    top: 0px;
-        */
+
+
 
     }
 }
