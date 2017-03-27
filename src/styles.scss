@@ -1,3 +1,4 @@
+
 $FontPathOpenSans: "../node_modules/npm-font-open-sans/fonts";
 @import '../node_modules/npm-font-open-sans/open-sans.scss';
 
@@ -9,6 +10,7 @@ $FontPathOpenSans: "../node_modules/npm-font-open-sans/fonts";
 // @import 'scss/themes/module';    // стили для разных тем
 @import 'scss/utils/module';        // глобальные миксины, функции, вспомогательные селекторы и т.д.
 @import 'scss/vendors/module';      // стили, миксины и прочее от третьих сторон
+
 
 
 @import '../node_modules/font-awesome/css/font-awesome.css';
