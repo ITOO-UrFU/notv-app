@@ -2,9 +2,10 @@
 
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575px) { 
-     body.app-root{
+    body.app-root{
     margin: 0;
-    background: url(/assets/images/background/fon-09-small.gif) repeat-y, url(/assets/images/background/fon-10-small.gif) 100% 0 repeat-y;
+    //background: url(/assets/images/background/fon-09-small.gif) repeat-y, url(/assets/images/background/fon-10-small.gif) 100% 0 repeat-y;
+ 	  background: url(/assets/images/background/fon-10-small.gif) 100% 0 repeat-y;
  
     
  }
@@ -14,8 +15,9 @@
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) and (max-width: 767px) { 
      body.app-root{
-    margin: 0;
-    background: url(/assets/images/background/fon-09-small.gif) repeat-y, url(/assets/images/background/fon-10-small.gif) 100% 0 repeat-y;
+      margin: 0;
+      //background: url(/assets/images/background/fon-09-small.gif) repeat-y, url(/assets/images/background/fon-10-small.gif) 100% 0 repeat-y;
+ 	  background: url(/assets/images/background/fon-10-small.gif) 100% 0 repeat-y;
  
     
  }
@@ -25,9 +27,9 @@
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) and (max-width: 991px) { 
      body.app-root{
-    margin: 0;
-    background: url(/assets/images/background/fon-09.png) repeat-y, url(/assets/images/background/fon-10.png) 100% 0 repeat-y;
- 
+    	margin: 0;
+    	// background: url(/assets/images/background/fon-09.png) repeat-y, url(/assets/images/background/fon-10.png) 100% 0 repeat-y;
+ 		background: url(/assets/images/background/fon-10.png) 100% 0 repeat-y;
     
  }
     
@@ -37,7 +39,8 @@
 @media (min-width: 992px) and (max-width: 1199px) { 
      body.app-root{
     margin: 0;
-    background: url(/assets/images/background/fon-09.png) repeat-y, url(/assets/images/background/fon-10.png) 100% 0 repeat-y;
+    // background: url(/assets/images/background/fon-09.png) repeat-y, url(/assets/images/background/fon-10.png) 100% 0 repeat-y;
+    background: url(/assets/images/background/fon-10.png) 100% 0 repeat-y;
  
     
  }
@@ -48,7 +51,8 @@
 @media (min-width: 1200px) { 
  body.app-root{
     margin: 0;
-    background: url(/assets/images/background/fon-09.png) repeat-y, url(/assets/images/background/fon-10.png) 100% 0 repeat-y;
+    //background: url(/assets/images/background/fon-09.png) repeat-y, url(/assets/images/background/fon-10.png) 100% 0 repeat-y;
+    background: url(/assets/images/background/fon-10.png) 100% 0 repeat-y;
  
     
  }
