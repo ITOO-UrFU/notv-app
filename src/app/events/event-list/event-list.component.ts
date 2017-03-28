@@ -54,7 +54,7 @@ export class EventListComponent implements OnInit {
   }
 
   ngOnChanges(changes: any) {
-      if (this.eventsList){
+      if (this.eventsList) {
         this.timeGrid = this.eventsService.getEventsObject(this.typeFilter);
       }
   }

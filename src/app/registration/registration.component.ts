@@ -55,12 +55,10 @@ previousUrl: string;
             .subscribe(
                 data => {
                   // this.alertService.success('Registration successful', true);
-                    console.log("register ok!", this.model.password1);
-             // this.authenticationService.login(this.model.email, this.model.password1).subscribe(data => {}, error => {});
+                  this.authenticationService.login(this.model.email, this.model.password1).subscribe(data => {}, error => {});
                 },
                 error => {
                     this.alertService.error("Ошибка!");
-                    console.log("register ne ok!");
                 });
     }
 

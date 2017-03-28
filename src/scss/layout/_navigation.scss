@@ -31,7 +31,7 @@ nav {
                 i{
                     color: white;
                     padding: 0.3em;
-                    font-size: 2em !important;
+                    font-size: 2.2em !important;
                 }
             }
 
@@ -76,6 +76,7 @@ nav {
         @media screen and (max-width: 768px) {
             list-style: none;
             position: relative;
+            height: auto;
         }
 
         li.item {
@@ -88,6 +89,7 @@ nav {
             @media screen and (max-width: 768px) {
                 display: block;
                 position: relative;
+                font-size: 1.2em;
             }
 
             &:hover {
@@ -132,6 +134,7 @@ nav {
                  @media screen and (min-width: 768px) {
                     top: 46px;
                     position: absolute;
+                    max-height: 90px;
                 } 
                 @media screen and (max-width: 768px) {
                     background-color: rgb(242,242,242);
@@ -139,6 +142,8 @@ nav {
                     li{
                         &.active_sub{
                             background: gainsboro;
+                           
+                            
                         }
                         &.active_sub a  {
                             font-weight: bold;   
@@ -147,13 +152,16 @@ nav {
                         z-index: 1010;
                         vertical-align: top;
                         display: inline-block;
-                        
-                        //height: 100px;
                         width: 132px;
-      
 
                         &:hover{
+                            background: #ececec;
                             height: auto;
+                            
+                            a span{
+                                text-overflow: ellipsis;
+                                    white-space: normal;
+                            }
                         }
 
                         @media screen and (max-width: 768px) {
@@ -188,5 +196,6 @@ nav {
 	  display: none;
       @media screen and (max-width: 768px) {
         display: block;
+       // position: absolute;
       }
 }

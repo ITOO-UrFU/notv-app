@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { RegisterService} from 'app/services/register.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { EventsService } from 'app/events/events.service';
@@ -11,7 +11,7 @@ import { AlertService } from 'app/services/alert.service';
   templateUrl: './user-events.component.html',
   styleUrls: ['./user-events.component.scss']
 })
-export class UserEventsComponent implements OnInit {
+export class UserEventsComponent implements OnInit, OnChanges {
     currentUser: any =  {};
     userEvents: any[];
     eventsGrid: any = {};
@@ -25,7 +25,7 @@ export class UserEventsComponent implements OnInit {
     private authGuard: AuthGuard) { }
 
   ngOnInit() {
-          if(this.authGuard.canActivate()){
+          if(this.authGuard.canActivate()) {
             this.update();
           }
           else{
@@ -33,17 +33,20 @@ export class UserEventsComponent implements OnInit {
           }
   }
 
-  update(){
+  update() {
      this.registerService.getProfile().subscribe(userProfile => {
              this.currentUser = userProfile;
              this.userEvents =  this.registerService.extractEvents(userProfile.get_events);
-
              this.eventsGrid = this.eventsService.eventsListToObject(this.userEvents);
-
-             // console.log("Мероприятия пользователя: ", this.userEvents );
-
-
         });
+  }
+
+  ngOnChanges(changes: any) {
+      console.log("Changes");
+      if (this.userEvents) {
+        //this.timeGrid = this.eventsService.getEventsObject(this.typeFilter);
+      }
+
   }
 
 }

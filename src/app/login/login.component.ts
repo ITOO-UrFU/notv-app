@@ -13,8 +13,8 @@ import { AuthGuard } from 'app/services/auth.guard';
 })
 export class LoginComponent implements OnInit {
     model: any = {};
-    
     returnUrl: string;
+
     constructor(
         private route: ActivatedRoute,
         private router: Router,
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
       if (this.authGuard.canActivate()){
             this.router.navigate(['profile', 'edit']);
       }
-      else{ 
+      else {
         this.title.setTitle("Вход");
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'events';
       }
@@ -39,17 +39,15 @@ export class LoginComponent implements OnInit {
         this.authenticationService.login(this.model.email, this.model.password)
             .subscribe(
                 data => {
-                    console.log("login ok!");
                     window.location.reload();
                     this.router.navigate([this.returnUrl]);
 
                 },
                 error => {
                     this.alertService.error("Ошибка при входе. Проверьте правильность введенных данных.");
-                    console.log("login ne ok!");
                 });
     }
-    logout(){
+    logout() {
        this.authenticationService.logout();
     }
 
