@@ -1,11 +1,11 @@
 <div class="home-block">
 
-<form name="form" (ngSubmit)="update()" #f="ngForm" novalidate>
-   <div class="">
-  <label for="material">Загрузите ваши документы</label>
+<form name="form" (ngSubmit)="fileChange($event)" #f="ngForm" novalidate>
 
-  <input type="file" name="material" multiple accept="doc,docx" [(ngModel)]="model.position" #position="ngModel">
-   </div>
-   <button type="submit" value="Отправить">Отправить</button>
+      <label for="material">Загрузите ваши документы</label>
+      <input type="file" placeholder="Upload file" accept=".pdf,.doc,.docx">
+      
+      <button value="Отправить">Отправить</button>
+
   </form>
 </div>
