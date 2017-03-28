@@ -25,10 +25,6 @@ console.log(fileList);
         let file: File = fileList[0];
         let formData: FormData = new FormData();
         formData.append('uploadFile', file, file.name);
-        // let headers = new Headers();
-        // headers.append('Content-Type', 'multipart/form-data');
-        // headers.append('Accept', 'application/json');
-        // let options = new RequestOptions({ headers: headers });
        this.http.post('https://openedu.urfu.ru/edcrunch/api/v1/docs/upload/', formData, this.jwt())
             .map(res => res.json())
             .catch(error => Observable.throw(error))
@@ -45,7 +41,9 @@ console.log(fileList);
         if (currentUser && currentUser.token) {
             let headers = new Headers({ 'Authorization': currentUser.token,
                                         'Content-Type': 'multipart/form-data',
-                                        'Accept': 'application/json' });
+                                        'Accept': 'application/json',
+                                        //'Content-Disposition': 'attachment; filename="filename.jpg"'
+                                      });
             return new RequestOptions({ headers: headers });
         }
     }
