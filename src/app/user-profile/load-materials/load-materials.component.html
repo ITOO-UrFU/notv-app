@@ -1,3 +1,11 @@
 <div class="home-block">
-  Загрузка материалов будет доступна в ближайшие несколько дней!
+
+<form name="form" (ngSubmit)="update()" #f="ngForm" novalidate>
+   <div class="">
+  <label for="material">Загрузите ваши документы</label>
+
+  <input type="file" name="material" multiple accept="doc,docx" [(ngModel)]="model.position" #position="ngModel">
+   </div>
+   <button type="submit" value="Отправить">Отправить</button>
+  </form>
 </div>
