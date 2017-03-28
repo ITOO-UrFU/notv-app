@@ -47,6 +47,9 @@ article, section{
     background: rgba(#fafafa, .8);  
     border: 12px solid $light;
     border-radius: 4px;
+        .more{
+        cursor: pointer;
+    }
 }
 
 
@@ -145,7 +148,9 @@ article, section{
         background: rgba($light_shadow, .5);
         width: 408px;
     }
-    
+        .more{
+        cursor: pointer;
+    }
 
  }
 
@@ -184,7 +189,9 @@ article, section{
         background: rgba($light_shadow, .5);
         width: 408px;
     }
-
+    .more{
+        cursor: pointer;
+    }
 
 
  }
@@ -203,7 +210,9 @@ article, section{
         background: rgba($light_shadow, .5);
         width: 612px;
     }
-
+    .more{
+        cursor: pointer;
+    }
 
         
     $width: 1000;
@@ -227,7 +236,9 @@ article, section{
         width: 816px;
     }
 
-
+    .more{
+        cursor: pointer;
+    }
 
     $width: 1200;
     $height: 558;
@@ -250,7 +261,9 @@ article, section{
         width: 1020px;
     }
 
-
+    .more{
+        cursor: pointer;
+    }
 
    
 
@@ -269,6 +282,9 @@ article, section{
         background: rgba($light_shadow, .5);
         width: 1224px;
     }
+    .more{
+        cursor: pointer;
+    }
 
 
     $width: 2560;
@@ -284,6 +300,9 @@ section.banner{
 }
 
 .home-block{
+        .more{
+        cursor: pointer;
+    }
     .participants-block{
         padding-top:20px;
     }
