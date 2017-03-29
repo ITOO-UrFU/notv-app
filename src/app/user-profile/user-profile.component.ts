@@ -24,8 +24,10 @@ export class UserProfileComponent implements OnInit {
   ngOnInit() {
       //  this.router.navigate(['profile', 'edit']);
   }
-    logout(){
-       this.authenticationService.logout();
-      this.router.navigate(['/login']);
-    }
+
+  logout() {
+      this.authenticationService.logout();
+    this.router.navigate(['/login']);
+  }
+
 }
