@@ -12,6 +12,7 @@
       <article *ngIf="page.slug!='events'" class="container home-block" [ngClass]="{'static-page': page.type=='header'}">
 
         <h1 [class.display-3]="this.router.url.split('/').indexOf(id)==1" class="page-title">{{ page.title }}</h1>
+        <div *ngIf="page.slug=='all_events'" class="all_events_message"><p>В программе возможны изменения. Следите за обновлениями.</p></div>
         <div *ngIf="page.type!='events'" [innerHTML]="page.html | safe: 'html'"></div>
 
 
