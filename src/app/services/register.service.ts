@@ -52,23 +52,28 @@ export class RegisterService {
   }
 
  extractEvents(res: any): Event[] {
+    const offset = new Date().getTimezoneOffset();
     const body = res;
-    // console.log(body);
     const events: Event[] = [];
     for (let i = 0; i < body.length; i++) {
-          let eventTypeClass = "eventtype-empty";
+          let eventTypeClass = 'eventtype-empty';
           let slug = 'empty';
           if (body[i].event.get_event_slug != null) {
-              eventTypeClass = "eventtype-" + body[i].event.get_event_slug;
+              eventTypeClass = 'eventtype-' + body[i].event.get_event_slug;
               slug = body[i].event.get_event_slug;
          }
+          const startdate = new Date(body[i].event.startdate);
+          const enddate = new Date(body[i].event.enddate);
+          startdate.setMinutes(startdate.getMinutes() + offset.valueOf());
+          enddate.setMinutes(enddate.getMinutes() + offset.valueOf());
+
           const event: Event = new Event(
             body[i].event.id,
             body[i].event.title,
             body[i].event.description,
             body[i].event.get_speakers,
-            new Date(body[i].event.startdate),
-            body[i].event.enddate,
+            startdate,
+            enddate,
             eventTypeClass,
             body[i].event.get_type_display,
             body[i].event.get_line_of_work_slug,
@@ -76,8 +81,6 @@ export class RegisterService {
             );
           events.push(event);
     }
-
-    // eventsList = events;
     return events;
   }
 
