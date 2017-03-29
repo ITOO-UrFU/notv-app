@@ -132,16 +132,18 @@ private extractEvent(res: Response): Event {
 
 
   getUniqueTimesByDay(dates: any): Date[]{
-    if(eventsList){
+    if (eventsList) {
 
 
-      let uniqueDates:Date[] = [];
-      let allDates:Date[] = [];
+      let uniqueDates: Date[] = [];
+      let allDates: Date[] = [];
 
       dates.forEach(element => {
         uniqueDates = [];
         let date = new Date(element);
-        for(let item of eventsList.filter(item => item.startdate.getDate() == date.getDate() && item.startdate.getMonth() == date.getMonth())){
+        for (let item of eventsList.filter(
+          item => item.startdate.getDate() === date.getDate() && item.startdate.getMonth() === date.getMonth()
+          )){
           let event: Event = item;
             if (!uniqueDates.find(item => item.getTime() === event.startdate.getTime() )){
                 uniqueDates.push(event.startdate);
@@ -159,6 +161,7 @@ private extractEvent(res: Response): Event {
   }
 
     private extractEvents(res: Response): Event[] {
+    const offset = new Date().getTimezoneOffset();
     const body = res.json();
     const events: Event[] = [];
     for (let i = 0; i < body.length; i++) {
@@ -169,13 +172,18 @@ private extractEvent(res: Response): Event {
             eventTypeClass = "eventtype-" + body[i].get_event_slug;
             slug = body[i].get_event_slug;
          }
+
+         const startdate = new Date(body[i].startdate);
+         const enddate = new Date(body[i].enddate);
+         startdate.setMinutes(startdate.getMinutes() + offset.valueOf());
+         enddate.setMinutes(enddate.getMinutes() + offset.valueOf());
           const event: Event = new Event(
             body[i].id,
             body[i].title,
             body[i].description,
             body[i].get_speakers,
-            new Date(body[i].startdate),
-            body[i].enddate,
+            startdate,
+            enddate,
             eventTypeClass,
             body[i].get_type_display,
             body[i].get_line_of_work_slug,
