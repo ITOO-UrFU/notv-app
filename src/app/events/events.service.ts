@@ -34,6 +34,7 @@ export class EventsService {
   }
 
 private extractEvent(res: Response): Event {
+  const offset = new Date().getTimezoneOffset();
     const body = res.json();
     let eventTypeClass = "eventtype-empty";
     let slug = 'empty';
@@ -41,13 +42,17 @@ private extractEvent(res: Response): Event {
       eventTypeClass = "eventtype-" + body.get_event_slug;
       slug = body.get_event_slug;
     }
+    const startdate = new Date(body.startdate);
+    const enddate = new Date(body.enddate);
+    startdate.setMinutes(startdate.getMinutes() + offset.valueOf());
+    enddate.setMinutes(enddate.getMinutes() + offset.valueOf());
     const event: Event = new Event(
           body.id,
           body.title,
           body.description,
           body.get_speakers,
-          new Date(body.startdate),
-          body.enddate,
+          startdate,
+          enddate,
           eventTypeClass,
           body.get_type_display,
           body.block,
