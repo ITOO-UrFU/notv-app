@@ -1,0 +1,19 @@
+.event-title{
+    cursor: pointer;
+}
+.same-time-events{
+    background: rgba(238, 64, 55, 0.2);
+    padding: 0 0 1em 0;
+    margin-bottom: 1em;
+}
+
+.same-time-events-message {
+    background-color: #ee4037;
+    margin-bottom: 1em;
+    color: white;
+    font-weight: 700;
+    display: table;
+    width: 100%;
+    text-align: center;
+    cursor: default;
+}

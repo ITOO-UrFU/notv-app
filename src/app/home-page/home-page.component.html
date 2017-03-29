@@ -1,0 +1,33 @@
+
+<!--<div *ngIf="slides">
+  <div class="home-slider"  (mouseleave)="startSlider()" (mouseover)="pauseSlider()"> 
+    <div class="slides-wrap">
+      <div *ngFor="let slide of slides" class="home-slide" [ngClass]="{'active': slide.active}" >
+              <div [innerHTML]="slide.html"></div> 
+      </div>
+    </div>
+    <div class="prev-button" (click)="prevSlide()">prev</div>
+    <div class="next-button" (click)="nextSlide()">next</div> 
+  </div>
+</div>-->
+
+<div *ngIf="homePage">
+  <template ngFor let-block [ngForOf]="homePage.pages" let-i="index">
+  
+    <div *ngIf="block.type=='banner'" class="homeBanner">
+      <div [innerHTML]="block.html"></div> 
+    </div>
+
+    <section *ngIf="block.type=='block' || block.type=='events'" class="home-block" >
+      <h1>{{ block.title }}</h1>
+      <div [innerHTML]="block.html"></div>
+      <div class="more" (click)="toEventByDirection(block.slug)">
+        <h4>Посмотреть мероприятия <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h4>
+      </div>
+    </section>
+  </template>
+</div>
+
+
+
+

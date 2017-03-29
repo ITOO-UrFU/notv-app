@@ -1,0 +1,22 @@
+<ul class="profile-menu" >
+
+ <li [routerLinkActive]="['active']" class="profile-item"><a routerLink="./my_events" class="btn btn-primary"><i class="fa fa-list" aria-hidden="true"></i><span>Мои мероприятия</span></a></li>
+ <li [routerLinkActive]="['active']" class="profile-item"><a routerLink="./edit" class="btn btn-primary"><i class="fa fa-address-book" aria-hidden="true"></i><span>Профиль</span></a></li>
+ <li [routerLinkActive]="['active']" class="profile-item"><a routerLink="./materials" class="btn btn-primary"><i class="fa fa-cloud-upload" aria-hidden="true"></i><span>Загрузка материалов</span></a></li>
+ <li [routerLinkActive]="['active']" class="profile-item logout-button"><a  [routerLinkActive]="['active']"   (click)="logout()" class=""><i class="fa fa-sign-out" aria-hidden="true"></i><span>Выйти</span></a></li>
+
+</ul>
+<div>
+        <router-outlet></router-outlet>
+
+</div>
+<!--
+    <div *ngIf="userProfile" class="user-profile">
+        <img class="user-profile-photo" src="{{userProfile.photo_url}}">
+        <p> {{userProfile.first_name}} {{userProfile.last_name}} </p>
+        <p> {{userProfile.email}} </p>
+        <a routerLink="./edit" class="btn btn-primary">Редактировать профиль</a>
+        <button (click)="logout()" class="btn btn-primary">Выйти</button>
+        <router-outlet></router-outlet>
+    </div>
+-->

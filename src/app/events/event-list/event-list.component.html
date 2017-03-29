@@ -1,16 +1,86 @@
-<p>
-  Все события: 
-</p>
+<!--
+<div *ngIf="timeGrid" class="events-container">
 
-
-<div class="event-item" *ngFor="let event of eventsList">
-  <p>{{event.title}}</p>
-  <p>{{event.description}}</p>
-  <p>Спикеры:</p>
-    <div *ngFor="let speaker of event.users">
-        <p>{{speaker.get_users.person.first_name}} {{speaker.get_users.person.last_name}}</p>
+    <div *ngFor="let day of timeGrid | eventsToObject" class="day-container">
+        
+    <div>
+        <template ngFor let-time [ngForOf]="day.val | eventsToObject" let-ii="index">
+            <div class="time-container">
+                <div class="events-at-day">
+                       <template ngFor let-event [ngForOf]="time.val" let-i="index" >
+                          <div class="event-time-1 {{event.eventtypeid}}">
+                             <p *ngIf="event.eventtype" class="eventtype-name"> {{event.eventtype}} <br /> </p>
+                              <p class="event-title" (click)="toEvent(event)"><strong>{{event.title}} </strong></p>
+                               <p class="event-title"><strong>{{event.startdate |  date}} </strong></p>
+                                 <p>  {{event.startdate |  date:'shortTime'}} - {{event.enddate |  date:'shortTime'}} </p>
+                              
+                            <div *ngIf="event.users.length">
+                                Спикеры:
+                                <div *ngFor="let user of event.users" class="event-speakers"> 
+                                    <div class="event-speaker">
+                                        <img  class="event-speakers-photo" src="http://placehold.it/150x150" />
+                                        <p class="event-speakers-name">{{user.person.first_name}} {{user.person.last_name}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                           </div>
+                      </template>
+                </div>
+             </div>
+        </template>
     </div>
-  <p>{{event.startdate.time}}<p>
+    </div>
+</div>
+-->
 
 
+
+
+<!--<button (click)="test()" >Button</button>
+<div *ngIf="eventsList">
+  <select multiple="multiple" [ngModel]="selectedDay" (ngModelChange)="funcSelectedDay($event)">
+      <option *ngFor="let i of conferenceDates" [ngValue]="i">{{i | date:'yMMMMd'}}</option>
+  </select>
+</div>
+
+<div *ngIf="uniqueTimes">
+  <select multiple="multiple" [ngModel]="selectedTime" (ngModelChange)="funcSelectedTime($event)">
+      <option *ngFor="let i of uniqueTimes" [ngValue]="i">{{i | date:'short'}}</option>
+  </select>
+</div>
+
+<div *ngIf="currentEvents">
+      <div class="event-item" *ngFor="let event of currentEvents">
+
+              <p>{{event.title}}</p>
+         <p>{{event.description}}</p> 
+            <p>{{event.startdate | date:'yMMMdjms'}} <p>  
+</div>-->
+
+<div  class="event-list-block">
+<div *ngIf="timeGrid" class="events-container">
+
+    <div *ngFor="let day of timeGrid | eventsToObject" class="day-container">
+         <div class="conference-date">  <strong> {{day.key}} апреля, 2017 </strong></div>
+
+    <div>
+        <template ngFor let-time [ngForOf]="day.val | eventsToObject" let-ii="index">
+            <div class="time-container">
+                <div class="time-item" > <strong> {{ time.key | date:'shortTime' }} </strong> </div>
+            <div class="events-at-day">
+                       <template ngFor let-event [ngForOf]="time.val" let-i="index" >
+
+                         <div class="event-time-{{time.val.length}} {{event.eventtypeid}}">
+                             
+                                <div *ngIf="currentUser" class="app-event" [currentEvent]="event" [currentUser]="currentUser" [isLogged]="isLogged"></div>
+
+
+                             </div>
+                      </template>
+                </div>
+             </div>
+        </template>
+    </div>
+    </div>
+</div>
 </div>

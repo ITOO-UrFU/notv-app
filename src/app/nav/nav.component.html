@@ -1,27 +1,40 @@
-<div class="main-menu">
-<nav class="l1">
 
-    <div *ngFor="let url of listUrl" (mouseover)="showSubMenu(url)" [ngClass]="{active: url.activePage}" (mouseleave)="hideSubMenu(url)"
-        (click)="toPage(url)">
-        <a [routerLink]="url.url"> {{ url.title }} </a>
-        </div>
+<nav>
 
-<div class="lang-select">
-   <select #langSelect (change)="translate.use(langSelect.value)">
-          <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang" >{{ lang }}</option>
-    </select>
-</div>
+<label class="button-nav" (click)="toggleMenuVisible()"><i class="fa fa-bars" aria-hidden="true"></i></label>
+    <ul class="menu" [ngClass]="{showed: showMenu}">
+        <li [routerLinkActive]="['active']" class="item" *ngFor="let url of listUrl" (click)="toggleMenuVisible(true)">
+            
+            <a *ngIf=" url.type == 'header' " [routerLink]="[url.url, url.underpage[0].url]"> {{ url.title }} </a>
+            <a *ngIf="url.type != 'header' " [routerLink]="url.url"> {{ url.title }} </a>
+            
+          
+            <ul class="submenu" *ngIf="url.underpage && url.type != 'homepage'">
+                
+                <li [routerLinkActive]="['active_sub']" class="subitem" *ngFor="let url2 of url.underpage" (click)="toggleMenuVisible(true)">
+                    
+                    <a *ngIf=" url.type == 'longpage' && url.url != 'profile/edit'" (click)="goTo(url2.url)">
+                         <img class="subitem-icon" src="assets/images/icons/{{url2.url}}_icon.svg" />
+                        <span *ngIf="url2.type != 'events'">{{ url2.title }}</span>
+                    </a>
+                   
+                   <a *ngIf=" url.type != 'longpage' && url.url != 'profile/edit'" [attr.alt]="url2.title" [routerLink]="[url.url, url2.url]">
+                         <img class="subitem-icon" src="assets/images/icons/{{url2.url}}_icon.svg" />
+                        <span>{{ url2.title }}</span>
+                         <!--*ngIf="url2.url == 'all_events' || url2.type != 'events'"-->
+                    </a>
+                   
+                </li>
+            </ul>
+       
+        </li>
+      <!--  <li class="item">
+            <select #langSelect (change)="translate.use(langSelect.value)">
+                    <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang" >{{ lang }}</option>
+                </select>
+        </li>
+       --> 
+    </ul>
 
-</nav>
+</nav> 
 
- 
-<div class="sub-menu" *ngFor="let url of removePageWithoutSub(listUrl)" style="width: 100%">
-    <div *ngIf="url.showUnderPage">
-
-        <div *ngIf="url.underpage">
-          <a *ngFor="let url2 of url.underpage" [routerLink]="[url.url, url2.url]">{{ url2.title }}</a>
-        </div>
-    </div>
-</div>
-
-</div>

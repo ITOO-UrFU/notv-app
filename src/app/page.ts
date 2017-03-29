@@ -4,13 +4,15 @@ export class Page {
     public keywords: string;
     public pages: string[];
     public title: string;
+    public type: string;
 
-    constructor(slug, html, keywords, pages, title){
+    constructor(slug, html, keywords, pages, title, type){
         this.slug = slug;
         this.html = html;
         this.keywords = keywords;
         this.pages = pages;
         this.title = title;
+        this.type = type;
     }
 
 }

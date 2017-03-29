@@ -1,5 +1,6 @@
-import { Component, OnInit  } from '@angular/core';
+import { Component, OnInit,  ViewEncapsulation  } from '@angular/core';
 import { Router, Routes } from '@angular/router';
+import {Location} from '@angular/common';
 
 
 
@@ -9,26 +10,25 @@ import { PageService } from 'app/page.service';
 import { PageComponent } from 'app/page/page.component';
 
 @Component({
-  selector: 'app-root',
+  selector: 'body.app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 
 
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
 
-  component:any = {
+  component: any = {
     name: 'AppComponent',
   };
-  
-constructor() {
+
+constructor(private _location: Location) {
 
   }
-  
 
-
-  ngOnInit() { 
-
-
+  ngOnInit() {
   }
+
+
 }

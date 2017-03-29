@@ -1,0 +1,141 @@
+
+
+// div.active{
+//     z-index: 2;
+//      display: block !important;
+//     -webkit-animation: fadeInFromNone 0.1s ease-out;
+//     -moz-animation: fadeInFromNone 0.1s ease-out;
+//     -o-animation: fadeInFromNone 0.1s ease-out;
+//     animation: fadeInFromNone 0.1s ease-out;
+// }
+
+// @-webkit-keyframes fadeInFromNone {
+//     0% {
+//         display: none;
+//         opacity: 0;
+//     }
+
+//     1% {
+//         display: block;
+//         opacity: 0;
+//     }
+
+//     100% {
+//         display: block;
+//         opacity: 1;
+//     }
+// }
+
+// @-moz-keyframes fadeInFromNone {
+//     0% {
+//         display: none;
+//         opacity: 0;
+//     }
+
+//     1% {
+//         display: block;
+//         opacity: 0;
+//     }
+
+//     100% {
+//         display: block;
+//         opacity: 1;
+//     }
+// }
+
+// @-o-keyframes fadeInFromNone {
+//     0% {
+//         display: none;
+//         opacity: 0;
+//     }
+
+//     1% {
+//         display: block;
+//         opacity: 0;
+//     }
+
+//     100% {
+//         display: block;
+//         opacity: 1;
+//     }
+// }
+
+// @keyframes fadeInFromNone {
+//     0% {
+//         display: none;
+//         opacity: 0;
+//     }
+
+//     1% {
+//         display: block;
+//         opacity: 0;
+//     }
+
+//     100% {
+//         display: block;
+//         opacity: 1;
+//     }
+// }
+
+// .home-slider {
+//     padding: 0px;
+//     margin: 0px;
+//     list-style-type: none;
+//     position: relative;
+// }
+ 
+// .home-slide {
+//     position: relative;
+//     width: 100%;
+//     overflow: hidden;
+
+//     display: none;
+//     z-index: 1;
+// }
+
+
+// .prev-button{
+//     top: 50%;
+//     transform: translate(0%,-50%);
+//     -ms-transform: translate(0%,-50%);
+//     z-index: 3;
+//     left:5px;
+// 	background: #000 url('https://lh4.googleusercontent.com/-JN1IZLtuToI/UUoZnMG3C_I/AAAAAAAAAE8/SEbJ9nqXGnY/s226/sprite.png') no-repeat -200px 25px;
+// }
+
+// .next-button{
+//     top: 50%;
+//     transform: translate(0%,-50%);
+//     -ms-transform: translate(0%,-50%);
+//     z-index: 3;
+//     right:5px;
+// 	background: #000 url('https://lh4.googleusercontent.com/-JN1IZLtuToI/UUoZnMG3C_I/AAAAAAAAAE8/SEbJ9nqXGnY/s226/sprite.png') no-repeat -167px 25px;
+// }
+
+// div.next-button,div.prev-button {
+// 	height:91px;
+// 	position:absolute;
+// 	width:43px;
+// 	top:50%;
+
+// 	opacity:0.6;
+// 	text-indent:-99999px;
+// 	cursor:pointer;
+// }
+
+// div.next-button:hover, div.prev-button:hover {
+// 	opacity:1;
+
+// }
+
+
+
+
+
+
+
+
+
+
+
+

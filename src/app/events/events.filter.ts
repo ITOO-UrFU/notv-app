@@ -2,14 +2,19 @@ import {Pipe, PipeTransform} from '@angular/core';
 import { Injectable } from '@angular/core';
 
 @Pipe({
-    name: 'eventsByDate',
+    name: 'eventsToObject',
 })
 
 @Injectable()
-export class EventsFilterPipe implements PipeTransform {
-    transform(items: any[], date: number): any[] {
-       console.log(date)
-       console.log(items[1].startdate.getDate())
-       return items.filter(item => item.startdate.getDate() == date);
+export class eventsToObjectPipe implements PipeTransform {
+
+transform(dict: Object): any {
+    let a = [];
+    for (const key in dict) {
+      if (dict.hasOwnProperty(key)) {
+        a.push({key: key, val: dict[key]});
+      }
     }
+    return a.sort(function(c, b) {return c.key - b.key; });
+  }
 }

@@ -1,0 +1,94 @@
+
+<alert></alert>
+
+<div class="home-block">
+<div *ngIf="showNewRegister" class="reg-new-user">Хотите выйти и зарегистрировать нового участника? <button (click)="toNewRegiser()">Да</button> <button (click)="showNewRegister=false">Нет</button> </div>
+
+   <div class="form-group-header">
+        <h2>Изменить профиль</h2>
+</div>
+ 
+         <div class="form-group">
+               <label >
+               Email: {{currentUserEmail}} 
+                </label> 
+        </div>
+           
+    <form name="form" (ngSubmit)="update()" #f="ngForm" novalidate>
+
+
+        
+        <div class="form-group">
+            <label for="last_name">Фамилия:</label>
+            <input value="{{currentUser.last_name}}" type="text" class="form-control" name="last_name" [(ngModel)]="model.last_name" #last_name="ngModel" required />
+        </div>
+
+        <div class="form-group">
+            <label for="first_name">Имя:</label>
+            <input value="{{currentUser.first_name}}" type="text" class="form-control" name="first_name" [(ngModel)]="model.first_name" #first_name="ngModel" required />
+        </div>
+
+        <div class="form-group">
+            <label for="second_name">Отчество:</label>
+            <input value="{{currentUser.second_name}}" type="text" class="form-control" name="second_name" [(ngModel)]="model.second_name" #second_name="ngModel" required />
+        </div>
+
+        <!--<div class="form-group">
+            <label for="alt_email">Дополнительный e-mail</label>
+            <input value="{{currentUser.alt_email}}" type="text" class="form-control" name="alt_email" [(ngModel)]="model.alt_email" #alt_email="ngModel" required />
+        </div>-->
+
+       <!--<div class="form-group">
+            <label for="birthday_date">Дата рождения:</label>
+            <input value="{{currentUser.birthday_date}}" type="date" class="form-control" name="birthday_date" [(ngModel)]="model.birthday_date" #birthday_date="ngModel" required />
+        </div>-->
+
+        <!--<div class="form-group">
+        <label for="sex">Пол:</label>
+            <select value="{{currentUser.sex}}"  name="sex" [(ngModel)]="model.sex" #sex="ngModel" >
+            <option value="M">Мужской</option>
+            <option value="F">Женский</option>
+            </select>
+        </div>-->
+
+
+
+        <div class="form-group">
+            <label for="position">Должность:</label>
+            <input value="{{currentUser.position}}" type="text" class="form-control" name="position" [(ngModel)]="model.position" #position="ngModel" required />
+        </div>
+        
+        <div class="form-group">
+            <label for="organisation">Организация:</label>
+            <input value="{{currentUser.organisation}}" type="text" class="form-control" name="organisation" [(ngModel)]="model.organisation" #organisation="ngModel" required />
+        </div>
+        
+    
+        <div class="form-group">
+            <label for="phone">Номер телефона</label>
+            <input value="{{currentUser.phone}}"  type="text" class="form-control" name="phone" [(ngModel)]="model.phone" #phone="ngModel" required />
+        </div> 
+       
+        <div class="form-group">
+            <label for="participation">Тип участия:</label>
+            <select value="{{currentUser.participation}}"  name="participation" [(ngModel)]="model.participation" #participation="ngModel" >
+            <option value="O">Очно</option>
+            <option value="T">Трансляция</option>
+            </select>
+         </div>
+        <!--<div class="form-group">
+            <label for="division">Подразделение:</label>
+            <input value="{{currentUser.division}}" type="text" class="form-control" name="division" [(ngModel)]="model.division" #division="ngModel" required />
+        </div>
+
+        <div class="form-group">
+            <label for="biography">Биография:</label>
+            <input value="{{currentUser.biography}}" type="text" class="form-control" name="biography" [(ngModel)]="model.biography" #biography="ngModel" required />
+        </div>-->
+
+        <div class="form-group">
+            <button [disabled]="loading" class="btn btn-primary">Сохранить</button>
+            <!--<a [routerLink]="['/profile']" class="btn btn-link">Отмена</a>-->
+        </div>
+    </form>
+</div>

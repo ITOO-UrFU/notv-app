@@ -1,0 +1,36 @@
+$menu-color: black;
+$menu-color-text: white;
+
+$menu-height: 96px;
+
+$events_container_width: 1000px;
+$event_height: 100px;
+$time_item_width:  0px;
+$events_at_time_width:($events_container_width - $time_item_width);
+
+$event_item_margin: 10px;
+$event_item_padding: 8px;
+$event_left_border: 8px;
+
+// color
+// edcrunch
+
+$blue: #2d58a7;
+$red: #ee4037;
+$purple: #683894;
+$turquoise: #23b9e2;
+$green: #30b84b;
+$lilac: #cf3ed5;
+$dark_gray: #323232;
+$light_gray: #e7e5e5;
+
+$dark_shadow: rgba($dark_gray, .7);
+$light_shadow: rgba($light_gray, .7);
+
+//apple
+$light: #fafafa;
+
+
+
+// font
+$font_size_default: 10pt;

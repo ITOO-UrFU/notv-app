@@ -1,0 +1,34 @@
+<article class="container home-block">
+  <h1  class="page-title">Мои мероприятия</h1>
+  
+  <div  class="event-list-block">
+    <div *ngIf="eventsGrid" class="events-container">
+      <div *ngFor="let day of eventsGrid | eventsToObject" class="day-container">
+        <div class="conference-date">  <strong> {{day.key}} апреля, 2017 </strong></div>
+        <div>
+
+        <template ngFor let-time [ngForOf]="day.val | eventsToObject" let-ii="index">
+          <div class="time-container">
+            <div class="time-item" > <strong> {{ time.key | date:'shortTime' }} </strong> </div>
+            <div class="events-at-day"  [class.same-time-events]="time.val.length>1" >
+              <div *ngIf="time.val.length>1" class="same-time-events-message"><p>Эти события пересекаются по времени</p></div>
+
+              <template ngFor let-event [ngForOf]="time.val" let-i="index" >
+                <div class="event-time-{{time.val.length}} {{event.eventtypeid}}">
+                  <div *ngIf="currentUser" class="app-event" [currentEvent]="event" [currentUser]="currentUser" [isLogged]="true"></div>
+                </div>
+              </template>
+
+              </div>
+            </div>
+
+        </template>
+        </div>
+    </div>
+    </div>
+    </div>
+
+  <div *ngIf="userEvents?.length == 0">
+    <h2>Вы не зарегистрированы ни на одно мероприятие</h2>
+  </div>
+</article>
