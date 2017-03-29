@@ -30,11 +30,11 @@
     <div *ngIf="isLogged">
 
     <div *ngIf="isReg">
-        <button (click)="attemptUnregisterOnEvent(currentEvent)" class="btn button-event-unregister">Я не участвую</button>
+        <button (click)="attemptUnregisterOnEvent(currentEvent)" class="btn button-event-unregister">Не принимать участие</button>
     </div>    
     
     <div *ngIf="!isReg">
-        <button (click)="attemptRegisterOnEvent(currentEvent)" class="btn button-event-register">Я участвую</button>
+        <button (click)="attemptRegisterOnEvent(currentEvent)" class="btn button-event-register">Участвовать</button>
     </div>
     </div>
 
