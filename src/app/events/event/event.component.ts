@@ -51,8 +51,12 @@ update(event: Event){
 
 checkSameTimeEvents(potentialEvent: Event): any[] {
     let sameTimeEvents: any[] = [];
+    const offset = new Date().getTimezoneOffset();
     this.currentUser.get_events.forEach(event => {
-                        let currentDate = new Date(event.event.startdate).getTime();
+                        const startdate = new Date(event.event.startdate);
+                        startdate.setMinutes(startdate.getMinutes() + offset.valueOf());
+                        let currentDate = startdate.getTime();
+
                         if (currentDate == potentialEvent.startdate.getTime()){
                             sameTimeEvents.push(event);
                         }

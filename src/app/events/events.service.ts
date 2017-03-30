@@ -167,6 +167,7 @@ private extractEvent(res: Response): Event {
 
     private extractEvents(res: Response): Event[] {
     const offset = new Date().getTimezoneOffset();
+    console.log(offset);
     const body = res.json();
     const events: Event[] = [];
     for (let i = 0; i < body.length; i++) {
