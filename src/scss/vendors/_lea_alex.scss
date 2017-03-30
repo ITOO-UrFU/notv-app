@@ -60,52 +60,31 @@ article, section{
   bottom: 0;
   background-color: $light_gray;
   text-align: center;
-  .footer-content div{
-      width: 49%;
-      display: inline-block;
+  .footer-element{
+      width: 33%;
+      display: table-cell;
       vertical-align: top;
-      margin: 12px 0px;
-      h4{
-     //     text-align: left;
-                    font-size: 20pt;
-      font-family: "Open Sans";
-      font-weight: 100;
-      }
-  }
-
-.footer-content {
-  max-width: 1000px;
-    margin: 0 auto;
-}
-
-    // .footer-organizators{
-    //      width: 50%;
-    // }
-
-    // .footer-contact-info{
-    //      width: 40%;
-    // }
-
-
-  p{
-      font-size: 14pt;
-      font-family: "Open Sans";
-      color: black;
-    margin: 22px 2px;
- //   text-align: left;
-  }
-  a{
-      font-size: 14pt;
-      font-family: "Open Sans";
-      color: black;
-  }
-  
-    .footer-logos{
-        width: 98%!important;
-        img{
-            width: 49%;
+      p {
+           font-size: 1em;
+           color: black;
+           margin: 16px 2px;
         }
+      a {
+           font-size: 1em;
+           color: black;
+        }
+  }
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+    
+  .footer-logos{
+    img{
+        width: 49%;
     }
+  }
 
 }
 
@@ -117,26 +96,6 @@ article, section{
 
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575px) { 
-    #footer{
-  .footer-content div{
-          margin: 0px 0px;
-      h4{
-            margin: 8px 0px;
-          //  text-align: left;
-            font-size: 14pt;
-            font-family: "Open Sans";
-            font-weight: 100;
-            line-height: 1;
-      }
-  }
-  p{
-      font-size: 12pt;
-
-  }
-  a{
-      font-size: 12pt;
-  }
-  }
 
  .home-block{
         padding:13px;
@@ -156,26 +115,6 @@ article, section{
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) and (max-width: 767px) { 
-        #footer{
-  .footer-content div{
-          margin: 0px 0px;
-      h4{
-           margin: 10px 0px;
-           // text-align: left;
-            font-size: 17pt;
-            font-family: "Open Sans";
-            font-weight: 100;
-            line-height: 1;
-      }
-  }
-  p{
-      font-size: 12pt;
-
-  }
-  a{
-      font-size: 12pt;
-  }
-  }
 
     .home-block{
         padding:30px;
@@ -305,7 +244,16 @@ section.banner{
     }
     .participants-block{
         padding-top:20px;
+
+        .participants-table{
+            overflow: auto;
+
+        }
+        a{
+                word-wrap: break-word;
+            }
     }
+
     .form-group-header{
         display: block;
         width: 500px;

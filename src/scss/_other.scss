@@ -20,8 +20,14 @@ body {
 }
 
 .app-user-events{
-    margin-top: 80px;
+
     display: block;
+    padding: 30px;
+    margin: 0px auto;
+    background: rgba(231, 229, 229, 0.5);
+    max-width: 1000px;
+    margin-top: 80px;
+    margin-bottom: 35px;
 }
 .app-profile-edit{
     margin-top: 80px;
@@ -77,7 +83,7 @@ alert .alert-danger{
         padding: 30px;
         margin: 0px auto;
         background: rgba($light_shadow, .5);
-        width: 1000px;
+        max-width: 1000px;
         margin-top: -30px;
         margin-bottom: 35px;
 }
@@ -124,9 +130,12 @@ alert .alert-danger{
         box-sizing: border-box;
         position: absolute;
         bottom: 0.5rem;
-        
+        font-size: 12pt;
+        @media screen and (max-width: 768px) {
+            font-size: inherit;
+        }
         &.button-event-tologin{
-            font-size: 12pt;
+            
             font-weight: 100;
             background-color: #E6E6E6;
             &:hover{
@@ -135,7 +144,7 @@ alert .alert-danger{
         }
 
         &.button-event-unregister{
-            font-size: 13pt;
+            
             font-weight: 200;
             color: #fff;
             background-color: #ee4037;
@@ -145,7 +154,7 @@ alert .alert-danger{
         }
 
         &.button-event-register{
-            font-size: 13pt;
+            
             font-weight: 200;
             color: #fff;
             background-color:#5cb85c;
@@ -187,8 +196,29 @@ header.app-nav{
 }
 
 .time-container{
-   display: inline-block;
+    @media screen and (max-width: 768px) {
+        display: block;
+    }
+    @media screen and (min-width: 768px) {
+        display: inline-block;
+    }
+
 }
+
+.events-at-day{
+    border-spacing: 22px 5px;
+    @media screen and (max-width: 768px) {
+     float: none;
+    }
+    @media screen and (min-width: 768px) {
+    float: left;
+    }
+    // width: $events_at_time_width;
+     margin-bottom: -6px;
+         border-left: 6px solid gray;
+}
+
+
 .day-container{
       padding-bottom: 32px;
 }
@@ -207,8 +237,13 @@ header.app-nav{
  .event-speaker-photo{
 display: inline-block;
     height: 60px;
-    border-radius: 50%;
     width: 60px;
+    border-radius: 50%;
+
+    @media screen and (max-width: 768px) {
+        height: 40px;
+        width: 40px;
+    }
     margin: 5px;
     position: relative;
     &:hover .label{display:block}
@@ -270,23 +305,15 @@ la
     font-family: "Open Sans";
     text-align: center;
     padding: 10px 0px;
-    /* margin: 0px 10px; */
     background: #dcdcdc;
 }
 
-.events-container{
-    width: $events_container_width;
-    margin: 0 auto;
-    //margin-top: 130px;
-}
+// .events-container{
+//     width: $events_container_width;
+//     margin: 0 auto;
+// }
 
-.events-at-day{
-    border-spacing: 22px 5px;
-     float: left;
-     width: $events_at_time_width;
-     margin-bottom: -6px;
-         border-left: 6px solid gray;
-}
+
 
 .eventtype-name{
     margin: 0px;
@@ -336,10 +363,19 @@ la
 
 @mixin event-time($event_count) {
         //float: left;
-        display: table-cell;
-        width: ($events_at_time_width / $event_count) - ($event_item_margin*2)- ($event_item_padding*2) - 2 - $event_left_border;
-      //  margin: 5px $event_item_margin;
-       // vertical-align: middle;
+        @media screen and (min-width: 768px) {
+            display: table-cell;
+            width:  ($events_at_time_width / $event_count) - ($event_item_margin*2)- ($event_item_padding*2) - 2 - $event_left_border;
+             min-height: $event_height*$event_count;
+        }
+        @media screen and (max-width: 768px) {
+            display: inline-block;
+            width: 100%;
+             min-height: auto;
+             margin: 5px 0px;
+        }
+
+
         box-shadow: 0 0 2px grey;
         min-height: $event_height*$event_count;
         padding: 8px;
