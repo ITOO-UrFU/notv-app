@@ -246,11 +246,10 @@ display: inline-block;
     }
     margin: 5px;
     position: relative;
-    @media screen and (max-width: 768px) {
-        &:hover .label{
-            display:block
-        }
+    &:hover .label{
+        display:block
     }
+    
     .label{
         top: 72px;
         vertical-align: top;
