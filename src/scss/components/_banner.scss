@@ -13,7 +13,12 @@
                         url("/assets/images/banner/1-02.png")  no-repeat,
                         url("/assets/images/banner/1-01.png")  no-repeat;
             background-position: 93% 6%, 60% 2%, 3% 5.5%,93% 95%, 2% 91%, 50% -80%, 50% 50%;
-            @if($width<767px){
+            @if($width<576px){
+                background-size: auto 13%, auto 19%, auto 20%, auto 23%, auto 11%, auto 125%, auto 103%;
+                background-position: 93% 6%, 52% 2%, 3% 5.5%,93% 95%, 2% 91%, 50% -80%, 50% 50%;
+            }
+            @else if($width>577px and $width<767px){
+                  
                 background-size: auto 20%, auto 25%, auto 20%, auto 23%, auto 11%, auto 125%, auto 103%;  
             }
             @else if{
@@ -38,7 +43,8 @@
 }
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575px) { 
-    @include banner(575px, 300px, 1em)
+    @include banner(575px, 300px, 1em);
+
 }
 
 // Small devices (landscape phones, 576px and up)

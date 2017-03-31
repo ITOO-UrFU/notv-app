@@ -246,7 +246,11 @@ display: inline-block;
     }
     margin: 5px;
     position: relative;
-    &:hover .label{display:block}
+    @media screen and (max-width: 768px) {
+        &:hover .label{
+            display:block
+        }
+    }
     .label{
         top: 72px;
         vertical-align: top;
@@ -348,6 +352,9 @@ la
 }
 .eventtype-hackaton{
     border-top: $event_left_border solid $purple;
+}
+.eventtype-master_class_series{
+    border-top: $event_left_border solid $blue;
 }
 
 .event-time{

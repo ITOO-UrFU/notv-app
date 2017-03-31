@@ -158,12 +158,14 @@ nav {
                         width: 132px;
 
                         &:hover{
-                            background: #ececec;
-                            height: auto;
-                            
-                            a span{
-                                text-overflow: ellipsis;
-                                    white-space: normal;
+                            @media screen and (min-width: 768px) {
+                                background: #ececec;
+                                height: auto;
+                                
+                                a span{
+                                    text-overflow: ellipsis;
+                                        white-space: normal;
+                                }
                             }
                         }
 
