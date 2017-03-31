@@ -60,6 +60,11 @@ article, section{
   bottom: 0;
   background-color: $light_gray;
   text-align: center;
+  
+  .footer-content.small{
+        display: none;
+  }
+  
   .footer-element{
       width: 33%;
       display: table-cell;
@@ -96,7 +101,24 @@ article, section{
 
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575px) { 
-
+#footer{
+    .footer-content.big{
+        display: none;
+    }
+      .footer-content.small{
+        display: block;
+        .footer-element{
+            width: 100%;
+            display: block;
+             .footer-logos img {
+                width: 20%;
+            }
+            p {
+                margin: 5px 2px;
+            }
+        }
+  }
+}
  .home-block{
         padding:13px;
         margin: 20px;   
