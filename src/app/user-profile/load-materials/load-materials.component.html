@@ -8,4 +8,15 @@
       <button value="Отправить">Отправить</button>
 
   </form>
+
+<div *ngIf="currentUser">
+  <div *ngIf="currentUser.docs.length>0">
+    <p>ваши документы:</p>
+ 
+    <div *ngFor="let doc of currentUser.docs">
+        <a [href]="doc.file">{{doc.title}}</a><button (click)="fileDelete(doc.file_id)">Удалить</button>
+    </div>
+ </div>
+</div>
+
 </div>

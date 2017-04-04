@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { RegisterService} from 'app/services/register.service';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -11,16 +12,26 @@ import { Observable } from 'rxjs/Observable';
 export class LoadMaterialsComponent implements OnInit {
 
 model: any = {};
+filesList: any[] = [];
+@Input() currentUser: any ;
 
-constructor( private http: Http ) { }
+constructor( private http: Http, private registerService: RegisterService) { }
 
   ngOnInit() {
+    this.update();
+  }
+
+  update(){
+           this.registerService.getProfile().subscribe(userProfile => {
+            this.currentUser = userProfile;
+            console.log(userProfile);
+        });
   }
 
 fileChange(event) {
-     console.log(event);
-   let fileList: FileList = event.target[0].files;
-console.log(fileList);
+    console.log(event);
+    let fileList: FileList = event.target[0].files;
+    console.log(fileList);
     if (fileList.length > 0) {
         let file: File = fileList[0];
         let formData: FormData = new FormData();
@@ -29,12 +40,20 @@ console.log(fileList);
             .map(res => res.json())
             .catch(error => Observable.throw(error))
             .subscribe(
-                data => console.log('success'),
-                error => console.log(error)
+                data => {console.log('success');  this.update() },
+                error => {console.log(error)}
             );
     }
 }
-
+fileDelete(file_id: string){
+           this.http.post('https://openedu.urfu.ru/edcrunch/api/v1/docs/delete/', {'file_id' : file_id}, this.jwt())
+            .map(res => res.json())
+            .catch(error => Observable.throw(error))
+            .subscribe(
+                data => {console.log('success');  this.update() },
+                error => {console.log(error)}
+            );
+}
     private jwt() {
         // create authorization header with jwt token
         let currentUser = JSON.parse(localStorage.getItem('currentUser'));
