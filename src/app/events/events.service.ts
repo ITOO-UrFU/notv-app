@@ -15,7 +15,7 @@ let eventsList: Event[];
 @Injectable()
 export class EventsService {
 
-  private eventsUrl = 'https://openedu.urfu.ru/edcrunch/api/v1/events';
+  private eventsUrl = 'http://127.0.0.1:8020/edcrunch/api/v1/events';
 
   constructor( private http: Http ) { }
 
