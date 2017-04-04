@@ -28,9 +28,7 @@ export class LoadMaterialsComponent implements OnInit {
     }
 
     fileChange(event) {
-        console.log(event);
         const fileList: FileList = event.target[0].files;
-        console.log(fileList);
         if (fileList.length > 0) {
             const file: File = fileList[0];
             const formData: FormData = new FormData();
@@ -39,7 +37,7 @@ export class LoadMaterialsComponent implements OnInit {
                 .map(res => res.json())
                 .catch(error => Observable.throw(error))
                 .subscribe(
-                    data => { console.log('success');  this.update(); },
+                    data => { this.update(); },
                     error => { console.log(error); }
                 );
         }
@@ -55,20 +53,13 @@ export class LoadMaterialsComponent implements OnInit {
             JSON.stringify(body),
             options
             )
-        .toPromise()
-        .then(this.extractData)
-        .catch(this.handleError);
-    }
 
-    private extractData(res: Response) {
-        return res.status || 500;
-    }
-
-    private handleError (error: Response | any) {
-        let errMsg: string;
-        errMsg =  error.status || 500;
-        console.error('I can not delete this: ' + errMsg);
-        return Promise.resolve(errMsg);
+            .map(res => res)
+            .catch(error => Observable.throw(error))
+            .subscribe(
+                data => { this.update(); },
+                error => { console.log(error); }
+            );
     }
 
     private jwt() {
