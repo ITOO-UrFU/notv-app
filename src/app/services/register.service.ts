@@ -15,7 +15,7 @@ export class RegisterService {
 
   constructor(private http: Http) { }
 
-    registerUrl = 'http://127.0.0.1:8020/edcrunch/api/v1/rest-auth/';
+    registerUrl = 'https://openedu.urfu.ru/edcrunch/api/v1/rest-auth/';
 
     create(user: User) {
         return this.http.post(this.registerUrl + 'registration/', user, this.jwt()).map((response: Response) => response.json());

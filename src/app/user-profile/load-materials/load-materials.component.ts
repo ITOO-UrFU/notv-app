@@ -25,7 +25,7 @@ console.log(fileList);
         let file: File = fileList[0];
         let formData: FormData = new FormData();
         formData.append('uploadFile', file, file.name);
-       this.http.post('http://127.0.0.1:8020/edcrunch/api/v1/docs/upload/', formData, this.jwt())
+       this.http.post('https://openedu.urfu.ru/edcrunch/api/v1/docs/upload/', formData, this.jwt())
             .map(res => res.json())
             .catch(error => Observable.throw(error))
             .subscribe(
