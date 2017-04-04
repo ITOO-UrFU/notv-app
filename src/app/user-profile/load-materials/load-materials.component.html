@@ -3,7 +3,7 @@
 <form name="form" (ngSubmit)="fileChange($event)" #f="ngForm" novalidate>
 
       <label for="material">Загрузите ваши документы</label>
-      <input type="file" placeholder="Upload file" accept=".pdf,.doc,.docx">
+      <input type="file" placeholder="Upload file" accept=".odt,.doc,.docx">
       
       <button value="Отправить">Отправить</button>
 
@@ -11,7 +11,7 @@
 
 <div *ngIf="currentUser">
   <div *ngIf="currentUser.docs.length>0">
-    <p>ваши документы:</p>
+    <p>Ваши публикации:</p>
  
     <div *ngFor="let doc of currentUser.docs">
         <a [href]="doc.file">{{doc.title}}</a><button (click)="fileDelete(doc.id)">Удалить</button>

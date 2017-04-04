@@ -15,18 +15,16 @@ export class AuthenticationService {
     login( email: string, password: string) {
         return this.http.post(this.authUrl, { email: email, password: password }, this.jwt())
             .map((response: Response) => {
-            let user = response.json();
-            console.log(user);
+            const user = response.json();
             if (user && user.token) {
-                // console.log(user);
                 localStorage.setItem('currentUser', JSON.stringify(user));
-                this.router.navigate(["profile", "edit"]);
+                this.router.navigate(['profile', 'edit']);
                 window.location.reload();
               }
             });
     }
     private jwt() {
-            let headers = new Headers({ 'Content-Type': 'application/json'});
+            const headers = new Headers({ 'Content-Type': 'application/json'});
             return new RequestOptions({ headers: headers });
 
     }
