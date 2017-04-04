@@ -37,6 +37,7 @@ import { UserEventsComponent } from 'app/user-events/user-events.component';
 import { SafePipe } from 'app/page/safe.pipe';
 import { MetaConfig, MetaModule } from 'ng2-meta';
 import { LoadMaterialsComponent } from './user-profile/load-materials/load-materials.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 const metaConfig: MetaConfig = {
@@ -67,6 +68,7 @@ const metaConfig: MetaConfig = {
     UserEventsComponent,
     SafePipe,
     LoadMaterialsComponent,
+    SpinnerComponent,
 
 
   ],

@@ -1,46 +1,36 @@
+<div class="notification"></div>
 
+<div class="event-block" *ngIf="currentEvent">
 
-<div class="event-block"  *ngIf="currentEvent">
-    <!--<button (click)="goBack()" class="btn btn-primary">К списку всех мероприятий</button>
-    <button *ngIf="isLogged" (click)="goMyEvents()" class="btn btn-primary">К списку моих мероприятий</button>-->
-<i class="fa fa-clock-o" aria-hidden="true"></i>  {{ currentEvent.startdate | date:'shortTime' }} - {{ currentEvent.enddate | date:'shortTime' }} 
-<img src="assets/images/icons/{{currentEvent.get_event_slug}}_icon.svg"/>
+    <i class="fa fa-clock-o" aria-hidden="true"></i> {{ currentEvent.startdate | date:'shortTime' }} - {{ currentEvent.enddate
+    | date:'shortTime' }}
+    <img src="assets/images/icons/{{currentEvent.get_event_slug}}_icon.svg" />
 
-  <h3 style="margin-top: 5px;">{{currentEvent.eventtype}}</h3>
-
-
-  
-
-    <p *ngIf="currentEvent.eventtypeid!='eventtype-plenar'" >{{currentEvent.title}}</p>
+    <h3 style="margin-top: 5px;">{{currentEvent.eventtype}}</h3>
+    <p *ngIf="currentEvent.eventtypeid!='eventtype-plenar'">{{currentEvent.title}}</p>
     <p *ngIf="currentEvent.eventtypeid=='eventtype-plenar'" [innerHTML]='currentEvent.description'></p>
-<!--<p [innerHTML]="currentEvent.description"></p>-->
 
-
-
-
-<div *ngIf="currentEvent.get_speakers.length">
-    <div *ngFor="let user of currentEvent.get_speakers" class="event-speaker-photo" [ngStyle]="{'background':'url('+user.person.photo+')', 'background-size': 'cover'}" > 
-        <div class='label'>{{user.person.first_name}} {{user.person.last_name}}<br />{{user.person.position}}<br />{{user.person.organisation}}</div> 
-    
-    </div>
-</div>
-
-
-<div *ngIf="showButtons">
-    <div *ngIf="isLogged">
-
-    <div *ngIf="isReg">
-        <button (click)="attemptUnregisterOnEvent(currentEvent)" class="btn button-event-unregister">Я не участвую</button>
-    </div>    
-    
-    <div *ngIf="!isReg">
-        <button (click)="attemptRegisterOnEvent(currentEvent)" class="btn button-event-register">Я участвую</button>
-    </div>
+    <div *ngIf="currentEvent.get_speakers.length">
+        <div *ngFor="let user of currentEvent.get_speakers" class="event-speaker-photo" [ngStyle]="{'background':'url('+user.person.photo+')', 'background-size': 'cover'}">
+            <div class='label'>{{user.person.first_name}} {{user.person.last_name}}<br />{{user.person.position}}<br />{{user.person.organisation}}</div>
+        </div>
     </div>
 
-    <div *ngIf="!isLogged">
-        <button (click)="toRegister()" class="btn button-event-tologin"><ins style="font-weight: 500;">Войдите</ins>, чтобы принять участие</button>
+    <div *ngIf="showButtons">
+        <div *ngIf="isLogged">
+
+            <div *ngIf="isReg">
+                <button (click)="attemptUnregisterOnEvent(currentEvent)" class="btn button-event-unregister"><div class="app-spinner" *ngIf="spinnerVisibility"></div><span *ngIf="!spinnerVisibility">Я не участвую</span></button>
+            </div>
+
+            <div *ngIf="!isReg">
+                <button (click)="attemptRegisterOnEvent(currentEvent)" class="btn button-event-register"><div class="app-spinner" *ngIf="spinnerVisibility"></div><span *ngIf="!spinnerVisibility">Я участвую</span></button>
+            </div>
+        </div>
+
+        <div *ngIf="!isLogged">
+            <button (click)="toRegister()" class="btn button-event-tologin"><ins style="font-weight: 500;">Войдите</ins>, чтобы принять участие</button>
+        </div>
     </div>
-</div>
 
 </div>

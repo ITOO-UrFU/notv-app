@@ -111,11 +111,16 @@ article, section{
         .footer-element{
             width: 100%;
             display: block;
+            margin-top: 15px;
+
              .footer-logos img {
                 width: 20%;
             }
             p {
                 margin: 5px 2px;
+            }
+            h3{
+                 margin: .36em 0;
             }
         }
   }

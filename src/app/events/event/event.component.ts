@@ -22,7 +22,7 @@ export class EventComponent implements OnInit {
 
     userEvents: Event[];
     isReg: boolean;
-
+    spinnerVisibility: boolean = false;
 
     showButtons: boolean = true;
 
@@ -65,7 +65,7 @@ checkSameTimeEvents(potentialEvent: Event): any[] {
 }
 
 attemptRegisterOnEvent(event: Event) {
-
+this.spinnerVisibility = true;
 this.registerService.getProfile().subscribe(userProfile => {
                         this.currentUser = userProfile;
                         let sameEvents: any[] = this.checkSameTimeEvents(event);
@@ -81,7 +81,7 @@ this.registerService.getProfile().subscribe(userProfile => {
                                         event.title + '?')) {
                                     this.registerOnEvent(event);
                             } else {
-                                // Do nothing!
+                                this.spinnerVisibility = false;
                                 }
                         } else {
                             this.registerOnEvent(event);
@@ -94,6 +94,7 @@ this.registerService.getProfile().subscribe(userProfile => {
 
 registerOnEvent(event: Event) {
     this.isReg = false;
+    this.spinnerVisibility = true;
     this.registerService.registerOnEvent(event.id).subscribe(
                 data => {
                         this.registerService.getProfile().subscribe(userProfile => {
@@ -101,33 +102,39 @@ registerOnEvent(event: Event) {
                         this.update(this.currentEvent);
                 });
                  this.alertService.success('Вы зарегистрированы!', true);
+                  this.spinnerVisibility = false;
                 },
                 error => {
                     this.alertService.error("Ошибка при регистрации!", error);
+                        this.spinnerVisibility = false;
                 });
 }
 
 
 attemptUnregisterOnEvent(event) {
+    this.spinnerVisibility = true;
     if (confirm('Вы уверены, что хотите отписаться от события ' + event.title)) {
             this.unregisterOnEvent(event);
     } else {
-        // Do nothing!
+        this.spinnerVisibility = false;
         }
 }
 
 unregisterOnEvent(event: Event) {
     this.isReg = false;
+    this.spinnerVisibility = true;
     this.registerService.unregisterOnEvent(event.id).subscribe(
                 data => {
                     this.alertService.success('Вы отписаны от события!', true);
                     this.registerService.getProfile().subscribe(userProfile => {
                     this.currentUser = userProfile;
                     this.update(this.currentEvent);
-                })
+                });
+                this.spinnerVisibility = false;
                 },
                 error => {
                     this.alertService.error("Ошибка отписки от события!", error);
+                    this.spinnerVisibility = false;
                 });
 }
 
