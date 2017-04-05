@@ -15,6 +15,8 @@ export class LoadMaterialsComponent implements OnInit {
     model: any = {};
     filesList: any[] = [];
     @Input() currentUser: any ;
+    is_choiced: boolean = false;
+    current_file = '';
 
     constructor( private http: Http, private registerService: RegisterService) { }
 
@@ -26,6 +28,15 @@ export class LoadMaterialsComponent implements OnInit {
             this.registerService.getProfile().subscribe(userProfile => {
                 this.currentUser = userProfile;
             });
+    }
+
+    public choiced(fileInput: any) {
+        if (fileInput.target.files && fileInput.target.files[0]) {
+                this.is_choiced = true;
+                this.current_file = (<HTMLInputElement>document.querySelector('input.file-input')).value.replace(/^.*[\\\/]/, '');
+                console.log("choiced ", this.current_file);
+
+        }
     }
 
     fileChange(event) {
@@ -41,6 +52,7 @@ export class LoadMaterialsComponent implements OnInit {
                     data => {
                         this.update();
                         (<HTMLInputElement>document.querySelector('input.file-input')).value = '';
+                        this.is_choiced = false;
                     },
                     error => { console.log(error); }
                 );

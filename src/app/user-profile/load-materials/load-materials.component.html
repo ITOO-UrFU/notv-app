@@ -8,8 +8,11 @@
         
       
       <label class="file_upload">
-        <span class="button">Выбрать</span>
-        <input type="file" placeholder="Загрузка документов" accept=".odt,.doc,.docx" class="file-input">
+        <span class="button">
+          <span *ngIf="is_choiced">Выбрано: {{current_file}}</span>
+          <span *ngIf="is_choiced==false">Выбрать</span>
+          </span>
+        <input type="file" placeholder="Загрузка документов" accept=".odt,.doc,.docx" class="file-input" (change)="choiced($event)">
       </label>
       <button class="file-send" value="Отправить">Отправить</button>
           </div>
