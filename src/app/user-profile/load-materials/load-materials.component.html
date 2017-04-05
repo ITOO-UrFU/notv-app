@@ -1,22 +1,32 @@
 <div class="home-block">
 
-<form name="form" (ngSubmit)="fileChange($event)" #f="ngForm" novalidate>
+<section class="upload-form">
+  <h3 for="material">Загрузка публикаций:</h3>
+  <p><strong>Загрузка публикаций доступна до 20.04.2017</strong></p>
+  <form name="form" (ngSubmit)="fileChange($event)" #f="ngForm" novalidate>
+      <div class="file-container">
+        <input type="file" placeholder="Загрузка документов" accept=".odt,.doc,.docx" class="file-input">
+      </div>
+      <button class="file-send" value="Отправить">Отправить</button>
+   </form>
+</section>
 
-      <label for="material">Загрузите ваши документы</label>
-      <input type="file" placeholder="Upload file" accept=".odt,.doc,.docx">
-      
-      <button value="Отправить">Отправить</button>
 
-  </form>
 
-<div *ngIf="currentUser">
+<section *ngIf="currentUser">
   <div *ngIf="currentUser.docs.length>0">
-    <p>Ваши публикации:</p>
+    <h3>Ваши публикации ({{currentUser.docs.length}}):</h3>
+    <ul class="publications">
  
-    <div *ngFor="let doc of currentUser.docs">
-        <a [href]="doc.file">{{doc.title}}</a><button (click)="fileDelete(doc.id)">Удалить</button>
-    </div>
+    <li class="publication" *ngFor="let doc of currentUser.docs">
+      <i class="fa fa-times" aria-hidden="true" (click)="fileDelete(doc.id)"></i>
+        <a [href]="doc.file">
+          <i class="fa fa-file-word-o" aria-hidden="true"></i>
+          {{doc.title}}
+        </a>
+    </li>
+    </ul>
  </div>
-</div>
+</section>
 
 </div>
