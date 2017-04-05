@@ -5,25 +5,36 @@
   <p><strong>Загрузка публикаций доступна до 20.04.2017</strong></p>
   <form name="form" (ngSubmit)="fileChange($event)" #f="ngForm" novalidate>
       <div class="file-container">
+        
+      
+      <label class="file_upload">
+        <span class="button">Выбрать</span>
         <input type="file" placeholder="Загрузка документов" accept=".odt,.doc,.docx" class="file-input">
-      </div>
+      </label>
       <button class="file-send" value="Отправить">Отправить</button>
+          </div>
    </form>
 </section>
 
 
 
 <section *ngIf="currentUser">
-  <div *ngIf="currentUser.docs.length>0">
+  <div *ngIf="currentUser.docs.length>0"><br/>
     <h3>Ваши публикации ({{currentUser.docs.length}}):</h3>
     <ul class="publications">
  
     <li class="publication" *ngFor="let doc of currentUser.docs">
-      <i class="fa fa-times" aria-hidden="true" (click)="fileDelete(doc.id)"></i>
         <a [href]="doc.file">
-          <i class="fa fa-file-word-o" aria-hidden="true"></i>
-          {{doc.title}}
+             <svg viewBox="0 0 185 185">
+                <path stroke="#999" fill="#FFF" stroke-width="2" d="m131,10H43v164h124V46zv36h36"/>
+                <path stroke="#999" stroke-width="72" stroke-dasharray="6,10" d="m94,25v135m23-1V56"/>
+                <path fill="#359" d="m90,60-67,8v80l67,8"/>
+                <path fill="#FFF" d="m40,92 6,32h6l5-22 5,22h6l6-32h-5.3l-4,22-5-22h-6l-4,22-5-22"/>
+              </svg>
+          <br />
+          <span class="filename">{{doc.title}}</span>
         </a>
+        <i class="fa fa-times del" aria-hidden="true" (click)="fileDelete(doc.id)"></i>
     </li>
     </ul>
  </div>
