@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { RegisterService } from 'app/services/register.service';
 
@@ -7,7 +7,8 @@ import { Observable } from 'rxjs/Observable';
 @Component({
   selector: 'div.app-load-materials',
   templateUrl: './load-materials.component.html',
-  styleUrls: ['./load-materials.component.scss']
+  styleUrls: ['./load-materials.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class LoadMaterialsComponent implements OnInit {
 
@@ -37,7 +38,10 @@ export class LoadMaterialsComponent implements OnInit {
                 .map(res => res.json())
                 .catch(error => Observable.throw(error))
                 .subscribe(
-                    data => { this.update(); },
+                    data => {
+                        this.update();
+                        (<HTMLInputElement>document.querySelector('input.file-input')).value = '';
+                    },
                     error => { console.log(error); }
                 );
         }

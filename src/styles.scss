@@ -4,6 +4,7 @@ $FontPathOpenSans: "../node_modules/npm-font-open-sans/fonts";
 
 @import 'scss/base/module';         // включает глобальные стили, такие как сброс стилей, типография, цвета и т.д.
 @import 'scss/components/module';   // содержит отдельные компоненты с отдельным файлом .scss для каждого из них.
+@import 'scss/components/publication'; // стили компонента загрузки файлов
 
 @import 'scss/layout/module';       // содержит стили для основных компонентов макета, таких как хедер, футер, навигация и т.д.
 @import 'scss/pages/module';        // содержит стили, специфичные для отдельных страниц, если это необходимо.
