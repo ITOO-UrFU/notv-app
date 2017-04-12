@@ -5,6 +5,7 @@ import { Event } from 'app/events/event';
 import { Title } from '@angular/platform-browser';
 import { AuthGuard } from 'app/services/auth.guard';
 import { RegisterService} from 'app/services/register.service';
+import { AuthenticationService } from 'app/services/auth.service';
 
 @Component({
   selector: 'div.app-event-list',
@@ -13,7 +14,6 @@ import { RegisterService} from 'app/services/register.service';
 })
 
 export class EventListComponent implements OnInit {
- 
   eventsList: Event[];
   conferenceDates: Date[] = [];
   selectedDay: any;
@@ -21,6 +21,7 @@ export class EventListComponent implements OnInit {
   uniqueTimes: any[];
   currentEvents: Event[];
   timeGrid: any;
+
 
   currentUser: any;
 
@@ -35,7 +36,8 @@ export class EventListComponent implements OnInit {
               private title: Title,
               private authGuard: AuthGuard,
               private registerService: RegisterService,
-              ) { 
+              private authenticationService: AuthenticationService
+              ) {
   }
 
   ngOnInit() {
@@ -46,9 +48,9 @@ export class EventListComponent implements OnInit {
             this.eventsList = eventsList;
             console.log(this.eventsList)
             this.timeGrid = this.eventsService.getEventsObject(this.typeFilter);
-            this.registerService.getProfile().subscribe(userProfile => {
-                              this.currentUser = userProfile;
-                          }
+            this.registerService.getProfile().subscribe(
+              userProfile => { this.currentUser = userProfile; },
+              error => { this.authenticationService.logout(); }
               );
         }
       );

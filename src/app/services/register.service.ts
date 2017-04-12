@@ -4,8 +4,9 @@ import { User } from 'app/user';
 import { Observable } from 'rxjs/Observable';
 import { Event } from 'app/events/event';
 
+
 import 'rxjs/add/observable/throw';
-//import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/catch';
 //import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
@@ -26,9 +27,13 @@ export class RegisterService {
 
     getProfile(): Observable<any> {
         return this.http.get(this.registerUrl + 'profile/' + '?format=json', this.jwt())
-                    .map(this.extractProfile);
-                   // .catch(this.handleError);
+                    .map(this.extractProfile)
+                    .catch(this.handleError);
     }
+
+  private handleError (error: Response | any) {
+    return Observable.throw("error");
+  }
 
     registerOnEvent(id: string){
         return this.http.post(

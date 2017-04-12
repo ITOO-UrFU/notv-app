@@ -22,7 +22,7 @@ export class UserProfileComponent implements OnInit {
     }
 
   ngOnInit() {
-      //  this.router.navigate(['profile', 'edit']);
+      // this.router.navigate(['profile', 'edit']);
   }
 
   logout() {

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { RegisterService } from 'app/services/register.service';
-
+import { AuthenticationService } from 'app/services/auth.service';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
@@ -18,7 +18,7 @@ export class LoadMaterialsComponent implements OnInit {
     is_choiced: boolean = false;
     current_file = '';
 
-    constructor( private http: Http, private registerService: RegisterService) { }
+    constructor( private http: Http, private registerService: RegisterService, private authenticationService: AuthenticationService) { }
 
     ngOnInit() {
         this.update();
@@ -27,7 +27,8 @@ export class LoadMaterialsComponent implements OnInit {
     update() {
             this.registerService.getProfile().subscribe(userProfile => {
                 this.currentUser = userProfile;
-            });
+            },
+              error => { this.authenticationService.logout(); });
     }
 
     public choiced(fileInput: any) {
