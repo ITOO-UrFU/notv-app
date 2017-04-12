@@ -77,7 +77,7 @@ const metaConfig: MetaConfig = {
     AppRoutingModule,
     MaterialModule.forRoot(),
     TranslateModule.forRoot(),
-    MetaModule.forRoot(metaConfig), 
+    MetaModule.forRoot(metaConfig),
   ],
 
   providers: [
@@ -89,7 +89,7 @@ const metaConfig: MetaConfig = {
     AuthenticationService,
     AlertService,
     AuthGuard,
-    
+
    {
       provide: LOCALE_ID,
      //  useValue: "en-EN"

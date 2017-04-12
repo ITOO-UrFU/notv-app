@@ -47,7 +47,9 @@ export class ProfileEditComponent implements OnInit {
             this.currentUserEmail = JSON.parse(localStorage.getItem('currentUser') || null ).user.email;
             this.userEvents = this.currentUser.get_events;
           //  console.log(this.currentUser);
-        });
+        },
+              error => { this.authenticationService.logout(); }
+        );
   }
 
 update() {
