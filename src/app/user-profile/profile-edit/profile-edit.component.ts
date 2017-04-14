@@ -14,7 +14,7 @@ export class ProfileEditComponent implements OnInit {
     model: any = {};
     currentUser: any =  {};
     currentUserEmail = '';
-    userEvents: Event[]; 
+    userEvents: Event[];
 
     showNewRegister: boolean = false;
 
