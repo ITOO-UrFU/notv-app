@@ -19,7 +19,6 @@ export class AuthenticationService {
     }
 
     changePassword(password_old: string, password1: string, password2: string) {
-        console.log(password_old, password1, password2);
             return this.http.post(this.passwordUrl + "change_password/",
             {
               password_old: password_old,

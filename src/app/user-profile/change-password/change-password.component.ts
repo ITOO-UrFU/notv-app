@@ -17,11 +17,9 @@ export class ChangePasswordComponent implements OnInit {
     this.title.setTitle("Изменение пароля");
   }
 
-    newPasswod(){
+    newPassword(){
           this.authenticationService.changePassword(this.model.password_old, this.model.password1, this.model.password2).subscribe(
                 data => {
-                  // console.log(data.json())
-                //  if("Пароль неверен" == data.json())
                  this.alertService.success('Пароль успешно изменен.', true);
                  window.scrollTo(0, 0);
                 },

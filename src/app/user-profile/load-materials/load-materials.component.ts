@@ -38,8 +38,6 @@ export class LoadMaterialsComponent implements OnInit {
         if (fileInput.target.files && fileInput.target.files[0]) {
                 this.is_choiced = true;
                 this.current_file = (<HTMLInputElement>document.querySelector('input.file-input')).value.replace(/^.*[\\\/]/, '');
-                console.log("choiced ", this.current_file);
-
         }
     }
 

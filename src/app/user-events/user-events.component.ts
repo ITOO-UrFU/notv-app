@@ -49,7 +49,6 @@ export class UserEventsComponent implements OnInit, OnChanges {
 
 
   ngOnChanges(changes: any) {
-      console.log("Changes");
       if (this.userEvents) {
         //this.timeGrid = this.eventsService.getEventsObject(this.typeFilter);
       }

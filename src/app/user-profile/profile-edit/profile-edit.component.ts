@@ -51,7 +51,6 @@ export class ProfileEditComponent implements OnInit {
             this.currentUser.photo_url  = photo_src;
             this.currentUserEmail = JSON.parse(localStorage.getItem('currentUser') || null ).user.email;
             this.userEvents = this.currentUser.get_events;
-          //  console.log(this.currentUser);
         },
               error => { this.authenticationService.logout(); }
         );

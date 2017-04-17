@@ -1,23 +1,27 @@
 
 
 <div class="home-block">
+    <div *ngIf="showPassReset" class="pass-alert-success">
+       Новый пароль отправлен на Ваш электронный адрес: <span>{{this.model.email}}</span>
+    </div>
+
     <div class="form-group-header">
     <h2>Вход</h2>
     </div>
     <alert></alert>
-    <form name="form" (ngSubmit)="login()" #f="ngForm" novalidate>
+    <form name="form" (ngSubmit)="login()" #f="ngForm" novalidate >
        
  
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
             <label for="email">Электронный адрес</label>
-            <input type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" required />
+            <input type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" required (ngModelChange)="hideBlock()"/>
 
          <div *ngIf="f.submitted && !email.valid" class="help-block">Введите адрес электронной почты</div>
         </div>
 
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
             <label for="password">Пароль</label>
-            <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
+            <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required (ngModelChange)="hideBlock()"/>
            <div *ngIf="f.submitted && !password.valid" class="help-block">Введите пароль</div>
         </div>
 

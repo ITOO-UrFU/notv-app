@@ -14,6 +14,7 @@ import { AuthGuard } from 'app/services/auth.guard';
 export class LoginComponent implements OnInit {
     model: any = {};
     returnUrl: string;
+    showPassReset: boolean = false;
 
     constructor(
         private route: ActivatedRoute,
@@ -23,7 +24,16 @@ export class LoginComponent implements OnInit {
         private title: Title,
         private authGuard: AuthGuard,
         private activatedRoute: ActivatedRoute
-       ) { }
+       ) {
+          activatedRoute.queryParams.subscribe(
+            (queryParam: any) => {
+                if (queryParam['reset']) {
+                    this.showPassReset = true;
+                    this.model.email = queryParam['reset']
+                }
+            }
+        );
+       }
 
     ngOnInit() {
       if (this.authGuard.canActivate()){
@@ -32,14 +42,6 @@ export class LoginComponent implements OnInit {
       else {
         this.title.setTitle("Вход");
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'events';
-                  this.activatedRoute.queryParams.subscribe(
-                    data => {
-                        if(data['reset']){
-                              this.alertService.success('Пароль успешно изменен.', true);
-                        }
-                    }
-                );
-
       }
     }
 
@@ -58,6 +60,10 @@ export class LoginComponent implements OnInit {
     }
     logout() {
        this.authenticationService.logout();
+    }
+
+    hideBlock(){
+        this.showPassReset = false;
     }
 
 }

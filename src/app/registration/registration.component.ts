@@ -31,7 +31,6 @@ previousUrl: string;
       if (this.authGuard.canActivate()){
           this.activatedRoute.queryParams.subscribe(
                     data => {
-                        console.log("data['newreg']",data['newreg'])
                         if(data['newreg']){
                                 this.router.navigate(['profile', 'edit'], { queryParams: { newreg: data['newreg'] } });
                         }

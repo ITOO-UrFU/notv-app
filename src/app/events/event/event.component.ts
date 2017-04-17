@@ -72,7 +72,6 @@ this.registerService.getProfile().subscribe(userProfile => {
                         if (sameEvents.length > 0) {
                         let sameEventsTitles = '';
                             for (let sameEvent of sameEvents){
-                                console.log(event);
                                sameEventsTitles += sameEvent.event.title + '\r\n';
                             }
                            if (confirm('В это время проходят мероприятия, на которые Вы подписаны: \r\n' +

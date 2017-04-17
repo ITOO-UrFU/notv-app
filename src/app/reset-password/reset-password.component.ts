@@ -26,7 +26,7 @@ export class ResetPasswordComponent implements OnInit {
           this.authenticationService.resetPassword(this.model.email).subscribe(
                 data => {
                     this.alertService.success('Новый пароль отправлен на Ваш электронный адрес.', true);
-                   // this.router.navigate(['/login'], { queryParams: { reset: true } });
+                   this.router.navigate(['/login'], { queryParams: { reset: this.model.email } });
                 },
                 error => {
                     window.scrollTo(0, 0);
