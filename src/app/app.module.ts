@@ -37,6 +37,10 @@ import { UserEventsComponent } from 'app/user-events/user-events.component';
 import { SafePipe } from 'app/page/safe.pipe';
 import { MetaConfig, MetaModule } from 'ng2-meta';
 import { LoadMaterialsComponent } from './user-profile/load-materials/load-materials.component';
+import { MyProfileComponent } from './user-profile/my-profile/my-profile.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+
+import { ChangePasswordComponent } from './user-profile/change-password/change-password.component';
 
 
 const metaConfig: MetaConfig = {
@@ -67,6 +71,9 @@ const metaConfig: MetaConfig = {
     UserEventsComponent,
     SafePipe,
     LoadMaterialsComponent,
+    MyProfileComponent,
+    ResetPasswordComponent, 
+    ChangePasswordComponent,
 
 
   ],

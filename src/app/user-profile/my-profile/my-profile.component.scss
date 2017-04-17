@@ -1,0 +1,25 @@
+.user-profile{
+    label{
+            width: 100%;
+    }
+}
+
+.edit-link{
+    a{
+        color: black;
+        text-align: center;
+        text-decoration: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .edit-link{
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 768px) {
+     .edit-link{
+        text-align: right;
+    }
+}

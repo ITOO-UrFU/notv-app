@@ -3,6 +3,7 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { RegisterService } from 'app/services/register.service';
 import { AuthenticationService } from 'app/services/auth.service';
 import { Observable } from 'rxjs/Observable';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'div.app-load-materials',
@@ -18,11 +19,13 @@ export class LoadMaterialsComponent implements OnInit {
     is_choiced: boolean = false;
     current_file = '';
 
-    constructor( private http: Http, private registerService: RegisterService, private authenticationService: AuthenticationService) { }
+    constructor( private http: Http, private registerService: RegisterService, private authenticationService: AuthenticationService, private title: Title,) { }
 
     ngOnInit() {
+        this.title.setTitle("Загрузка материалов");
         this.update();
     }
+
 
     update() {
             this.registerService.getProfile().subscribe(userProfile => {

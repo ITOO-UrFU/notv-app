@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AlertService } from 'app/services/alert.service';
 import { ActivatedRoute} from '@angular/router';
 import { AuthenticationService } from 'app/services/auth.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'div.app-profile-edit',
@@ -23,7 +24,8 @@ export class ProfileEditComponent implements OnInit {
         private registerService: RegisterService,
         private authenticationService: AuthenticationService,
         private alertService: AlertService,
-        private activatedRoute: ActivatedRoute
+        private activatedRoute: ActivatedRoute,
+        private title: Title,
         ) {
             activatedRoute.queryParams.subscribe(
             (queryParam: any) => {
@@ -35,7 +37,10 @@ export class ProfileEditComponent implements OnInit {
 
          }
 
+
+
   ngOnInit() {
+      this.title.setTitle("Редактирование профиля");
             this.registerService.getProfile().subscribe(userProfile => {
 
             this.currentUser = userProfile;

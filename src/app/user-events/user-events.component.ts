@@ -6,6 +6,7 @@ import { Event } from 'app/events/event';
 import { AuthGuard } from 'app/services/auth.guard';
 import { AlertService } from 'app/services/alert.service';
 import { AuthenticationService } from 'app/services/auth.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'div.app-user-events',
@@ -24,9 +25,11 @@ export class UserEventsComponent implements OnInit, OnChanges {
     private eventsService: EventsService,
     private activatedRoute: ActivatedRoute,
     private authGuard: AuthGuard,
-    private authenticationService: AuthenticationService) { }
+    private authenticationService: AuthenticationService,
+    private title: Title) { }
 
   ngOnInit() {
+    this.title.setTitle("Мои мероприятия");
           if(this.authGuard.canActivate()) {
             this.update();
           }
@@ -43,6 +46,7 @@ export class UserEventsComponent implements OnInit, OnChanges {
         },
               error => { this.authenticationService.logout(); });
   }
+
 
   ngOnChanges(changes: any) {
       console.log("Changes");

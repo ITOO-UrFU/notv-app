@@ -22,15 +22,24 @@ export class LoginComponent implements OnInit {
         private alertService: AlertService,
         private title: Title,
         private authGuard: AuthGuard,
+        private activatedRoute: ActivatedRoute
        ) { }
 
     ngOnInit() {
       if (this.authGuard.canActivate()){
-            this.router.navigate(['profile', 'edit']);
+            this.router.navigate(['profile', 'my']);
       }
       else {
         this.title.setTitle("Вход");
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'events';
+                  this.activatedRoute.queryParams.subscribe(
+                    data => {
+                        if(data['reset']){
+                              this.alertService.success('Пароль успешно изменен.', true);
+                        }
+                    }
+                );
+
       }
     }
 

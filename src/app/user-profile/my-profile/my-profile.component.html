@@ -1,0 +1,41 @@
+<div class="home-block">
+       <div class="form-group-header">
+        <h2>Ваш профиль</h2>
+    </div>
+<div class="edit-link">
+<div>
+      <a routerLink="/profile/edit" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><span>  Редактировать</span></a>
+  <br />
+      <a routerLink="/profile/change-password" class="btn btn-primary"><i class="fa fa-key" aria-hidden="true"></i><span>  Изменить пароль</span></a>
+  </div>
+</div>
+
+<div *ngIf="currentUser" class="user-profile">
+
+    <div class="form-group">
+         <label for="last_name">{{currentUser.last_name}} {{currentUser.first_name}} {{currentUser.second_name}}</label> 
+    </div>
+
+    <div class="form-group">
+               <label > <em>e-mail:</em> {{currentUserEmail}} </label> 
+    </div>
+
+        <div class="form-group">
+         <label for="position"><em>Должность:</em> {{currentUser.position}}</label>
+    </div>
+
+    <div class="form-group">
+            <label for="organisation"><em>Организация:</em> {{currentUser.organisation}}</label> 
+    </div>
+
+    <div class="form-group">
+        <label for="phone"><em>Номер телефона:</em> {{currentUser.phone}}</label>
+    </div> 
+
+   <div class="form-group">
+        <label *ngIf="currentUser.participation == 'O' " for="phone"><em>Тип участия:</em> очное</label>
+        <label *ngIf="currentUser.participation == 'T' " for="phone"><em>Тип участия:</em> трансляция</label>
+   </div> 
+
+ </div>
+</div>

@@ -40,7 +40,7 @@ previousUrl: string;
                         }
                     },
                     nodata => {
-                        this.router.navigate(['profile', 'edit']);
+                        this.router.navigate(['profile', 'my']);
                     }
                 ); 
       }
@@ -58,7 +58,7 @@ previousUrl: string;
                   this.authenticationService.login(this.model.email, this.model.password1).subscribe(data => {}, error => {});
                 },
                 error => {
-                    this.alertService.error("Ошибка!");
+                    this.alertService.error("Ошибка при регистрации. Проверьте правильность введенных данных.");
                 });
     }
 
