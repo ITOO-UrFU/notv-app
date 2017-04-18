@@ -21,6 +21,7 @@ import { MyProfileComponent } from './user-profile/my-profile/my-profile.compone
 
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ChangePasswordComponent } from './user-profile/change-password/change-password.component';
+import { RegisterStudentsComponent } from './register-students/register-students.component';
 
 const routes: Routes = [
 
@@ -80,6 +81,11 @@ const routes: Routes = [
       {
         path: 'register',
         component: RegistrationComponent
+
+      },
+      {
+        path: 'register-students',
+        component: RegisterStudentsComponent
 
       },
 

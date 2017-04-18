@@ -1,0 +1,65 @@
+
+
+<div class="home-block">
+    <div class="form-group-header" >
+    <h2>Регистрация</h2>
+    <p>Именно твое мнение важно для того, каким будет онлайн-образование в будущем! <br />Регистрируйся, пиши свои предложения и приходи на встречу 28 апреля с 10.00 до 12.30. Аудитория будет обозначена в программе 20 апреля.</p>
+    </div>
+    
+    <alert></alert>
+    <form name="form" (ngSubmit)="register()" #f="ngForm" novalidate>
+
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+            <label for="email">Электронная почта</label>
+            <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" required />
+             <div *ngIf="f.submitted && !email.valid" class="help-block">Необходимо ввести электронный адрес</div>
+        </div>
+        
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !last_name.valid }">
+            <label for="last_name">Фамилия</label>
+            <input type="text" class="form-control" name="last_name" [(ngModel)]="model.last_name" #last_name="ngModel" required />
+             <div *ngIf="f.submitted && !last_name.valid" class="help-block">Необходимо ввести Ваше имя</div>
+        </div>
+
+         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !first_name.valid }">
+            <label for="first_name">Имя</label>
+            <input type="text" class="form-control" name="first_name" [(ngModel)]="model.first_name" #first_name="ngModel" required />
+             <div *ngIf="f.submitted && !first_name.valid" class="help-block">Необходимо ввести Вашу фамилию</div>
+        </div>
+
+       <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !second_name.valid }">
+            <label for="second_name">Отчество</label>
+            <input type="text" class="form-control" name="second_name" [(ngModel)]="model.second_name" #second_name="ngModel" required />
+             <div *ngIf="f.submitted && !second_name.valid" class="help-block">Необходимо ввести Ваше отчество</div>
+        </div>
+
+       <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !institute.valid }">
+            <label for="institute">Ваш ВУЗ</label>
+            <input type="text" class="form-control" name="institute" [(ngModel)]="model.institute" #institute="ngModel" required />
+             <div *ngIf="f.submitted && !institute.valid" class="help-block">Необходимо ввести Ваше место учебы</div>
+        </div>
+
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !suggestions.valid }">
+            <label for="suggestions">Ваши предложения</label>
+            <textarea type="text" class="form-control" name="suggestions" [(ngModel)]="model.suggestions" #suggestions="ngModel" required rows="8"></textarea>
+             <div *ngIf="f.submitted && !suggestions.valid" class="help-block">Необходимо ввести Ваши предложения</div>
+        </div>
+
+
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password1.valid }">
+            <label for="password1">Пароль</label>
+            <input type="password" class="form-control" name="password1" [(ngModel)]="model.password1" #password1="ngModel" required/>
+            <div *ngIf="f.submitted && !password1.valid" class="help-block">Необходимо ввести пароль</div>
+        </div>
+
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password2.valid }">
+            <label for="password2">Повторите пароль:</label>
+            <input type="password" class="form-control" name="password2" [(ngModel)]="model.password2" #password2="ngModel" required />
+             <div *ngIf="f.submitted && !password2.valid" class="help-block">Необходимо повторно ввести пароль</div>
+        </div>
+
+        <div class="form-group">
+            <button [disabled]="loading" class="btn btn-primary">Зарегистрироваться</button>
+        </div>
+    </form>
+</div>

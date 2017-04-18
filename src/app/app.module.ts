@@ -41,6 +41,7 @@ import { MyProfileComponent } from './user-profile/my-profile/my-profile.compone
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 import { ChangePasswordComponent } from './user-profile/change-password/change-password.component';
+import { RegisterStudentsComponent } from './register-students/register-students.component';
 
 
 const metaConfig: MetaConfig = {
@@ -73,7 +74,7 @@ const metaConfig: MetaConfig = {
     LoadMaterialsComponent,
     MyProfileComponent,
     ResetPasswordComponent, 
-    ChangePasswordComponent,
+    ChangePasswordComponent, RegisterStudentsComponent,
 
 
   ],
