@@ -4,6 +4,7 @@ import { RegisterService } from 'app/services/register.service';
 import { AuthenticationService } from 'app/services/auth.service';
 import { Observable } from 'rxjs/Observable';
 import { Title } from '@angular/platform-browser';
+import { AlertService } from 'app/services/alert.service';
 
 @Component({
   selector: 'div.app-load-materials',
@@ -18,8 +19,13 @@ export class LoadMaterialsComponent implements OnInit {
     @Input() currentUser: any ;
     is_choiced: boolean = false;
     current_file = '';
+    showSuccess: boolean = false;
 
-    constructor( private http: Http, private registerService: RegisterService, private authenticationService: AuthenticationService, private title: Title,) { }
+    constructor( private http: Http,
+                 private registerService: RegisterService,
+                 private authenticationService: AuthenticationService,
+                 private title: Title,
+                 private alertService: AlertService) { }
 
     ngOnInit() {
         this.title.setTitle("Загрузка материалов");
@@ -55,6 +61,8 @@ export class LoadMaterialsComponent implements OnInit {
                         this.update();
                         (<HTMLInputElement>document.querySelector('input.file-input')).value = '';
                         this.is_choiced = false;
+                        this.showSuccess = true;
+                        setTimeout(function(){ this.showSuccess = false;}.bind(this), 4000);
                     },
                     error => { console.log(error); }
                 );
