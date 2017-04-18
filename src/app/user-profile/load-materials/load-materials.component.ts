@@ -62,7 +62,7 @@ export class LoadMaterialsComponent implements OnInit {
                         (<HTMLInputElement>document.querySelector('input.file-input')).value = '';
                         this.is_choiced = false;
                         this.showSuccess = true;
-                        setTimeout(function(){ this.showSuccess = false;}.bind(this), 4000);
+                        setTimeout(function(){ this.showSuccess = false;}.bind(this), 10000);
                     },
                     error => { console.log(error); }
                 );
