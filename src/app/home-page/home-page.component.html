@@ -13,10 +13,16 @@
 
 <div *ngIf="homePage">
   <template ngFor let-block [ngForOf]="homePage.pages" let-i="index">
-  
     <div *ngIf="block.type=='banner'" class="homeBanner">
       <div [innerHTML]="block.html"></div> 
     </div>
+      <section *ngIf="block.type=='mini_banner'" class="home-block">
+      <h1>{{ block.title }}</h1>    
+      <div [innerHTML]="block.html"></div>
+      <div class="bigButton">
+      <a href="/register-students" class="button green"> <h4>Принять участие<br /></h4><p>(Регистрация для студентов)</p></a>
+      </div>
+    </section>
 
     <section *ngIf="block.type=='block' || block.type=='events'" class="home-block" >
       <h1>{{ block.title }}</h1>

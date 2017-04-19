@@ -328,6 +328,9 @@ section.banner{
             text-decoration: none;
             text-align: center;
             padding: 22px 0;
+                            &.green{
+                    background: $green;
+                }
         }
     }
   }
@@ -399,7 +402,12 @@ section.banner{
                 text-decoration: none;
                 text-align: center;
                 padding: 1em 0;
+                
+                &.green{
+                    background: $green;
+                }
             }
+            
         }
 
 
@@ -437,9 +445,15 @@ text-align: center;
             width: 200px;
             display: block;
             background: rgba($blue, .8);
-
             p{
-                color:$light
+                color:$light;
+                font-size: 14px;
+                margin: 0.5em 0.2em; 
+                
+                &:first-child {
+                 font-size: 18px; 
+                  
+                }
             }
 
         }

@@ -1,0 +1,13 @@
+.button{
+    &.green{
+        color:white;
+        background: $green;
+        display: block;
+        margin:20px auto 0;
+        text-decoration: none;
+        padding: 20px 2px 8px;
+        width: 100%;
+        text-align: center;
+
+    }
+}
