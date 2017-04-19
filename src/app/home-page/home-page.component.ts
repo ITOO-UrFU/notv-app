@@ -29,7 +29,6 @@ export class HomePageComponent implements OnInit  {
           .subscribe(homePage => {
             this.homePage = homePage;
 
-         //  console.log(this.homePage);
             this.homePage.pages.find(slider => slider.slug == "slider").pages.forEach(element => {
               element.active = false;
               this.slides.push(element);
@@ -55,7 +54,6 @@ pauseSlider(){
 }
 
 nextSlide(){
-     // console.log("next slide");
       let currentSlide = this.slides.map(x => x.active).indexOf(true);
       this.slides[currentSlide].active = false;
       if(currentSlide == this.slides.length - 1){
@@ -67,7 +65,6 @@ nextSlide(){
 }
 
 prevSlide(){
-    //  console.log("prev slide");
       let currentSlide = this.slides.map(x => x.active).indexOf(true);
       this.slides[currentSlide].active = false;
       if(currentSlide == 0){

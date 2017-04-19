@@ -60,7 +60,6 @@ export class PageComponent implements OnDestroy, OnInit {
       .subscribe(
         page => {
           this.page = page;
-          // console.log(this.page);
           this.setTitle(page.title);
           this.subPages = [];
           if (this.page.pages.length > 0){

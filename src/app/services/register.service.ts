@@ -21,6 +21,11 @@ export class RegisterService {
     create(user: User) {
         return this.http.post(this.registerUrl + 'registration/', user, this.jwt()).map((response: Response) => response.json());
     }
+
+    createStudent(user: any) {
+        return this.http.post(this.registerUrl + 'registration-students/', user, this.jwt()).map((response: Response) => response.json());
+    }
+
     update(user: User) {
         return this.http.put(this.registerUrl + 'profile/update/', user, this.jwt()).map((response: Response) => response.json());
     }

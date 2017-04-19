@@ -8,11 +8,11 @@ import { Title } from '@angular/platform-browser';
 import { AuthGuard } from 'app/services/auth.guard';
 
 @Component({
-  selector: 'app-registration',
-  templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.scss']
+  selector: 'app-register-students',
+  templateUrl: './register-students.component.html',
+  styleUrls: ['./register-students.component.scss']
 })
-export class RegistrationComponent implements OnInit {
+export class RegisterStudentsComponent implements OnInit {
 
 model: any = {};
 previousUrl: string;
@@ -29,32 +29,21 @@ previousUrl: string;
 
   ngOnInit() {
       if (this.authGuard.canActivate()){
-          this.activatedRoute.queryParams.subscribe(
-                    data => {
-                        if(data['newreg']){
-                                this.router.navigate(['profile', 'edit'], { queryParams: { newreg: data['newreg'] } });
-                        }
-                        else {
-                            this.router.navigate(['profile', 'edit']);
-                        }
-                    },
-                    nodata => {
-                        this.router.navigate(['profile', 'my']);
-                    }
-                ); 
+            this.router.navigate(['profile', 'edit']);
       }
       else {
           this.title.setTitle("Регистрация");
       }
-
   }
 
       register() {
-        this.registerService.create(this.model)
+        this.registerService.createStudent(this.model)
             .subscribe(
                 data => {
                   // this.alertService.success('Registration successful', true);
-                  this.authenticationService.login(this.model.email, this.model.password1).subscribe(data => {}, error => {});
+                 this.authenticationService.login(this.model.email, this.model.password1).subscribe(data => {
+                   this.router.navigate(['events', 'my_events']);
+                 }, error => {});
                 },
                 error => {
                     this.alertService.error("Ошибка при регистрации. Проверьте правильность введенных данных.");
@@ -62,3 +51,4 @@ previousUrl: string;
     }
 
 }
+

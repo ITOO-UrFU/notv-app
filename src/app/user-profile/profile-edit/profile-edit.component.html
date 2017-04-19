@@ -1,17 +1,13 @@
 
-<alert></alert>
-
 <div class="home-block">
 <div *ngIf="showNewRegister" class="reg-new-user">Хотите выйти и зарегистрировать нового участника? <button (click)="toNewRegiser()">Да</button> <button (click)="showNewRegister=false">Нет</button> </div>
 
    <div class="form-group-header">
         <h2>Изменить профиль</h2>
 </div>
- 
-         <div class="form-group">
-               <label >
-               Email: {{currentUserEmail}} 
-                </label> 
+ <alert></alert>
+         <div class="form-group current-email">
+               <label>Email: {{currentUserEmail}}</label> 
         </div>
            
     <form name="form" (ngSubmit)="update()" #f="ngForm" novalidate>
@@ -76,19 +72,19 @@
             <option value="T">Трансляция</option>
             </select>
          </div>
-        <!--<div class="form-group">
-            <label for="division">Подразделение:</label>
-            <input value="{{currentUser.division}}" type="text" class="form-control" name="division" [(ngModel)]="model.division" #division="ngModel" required />
+
+      <div class="form-group change-password-button">
+            <a routerLink="/profile/change-password" class="btn btn-primary"><i class="fa fa-key" aria-hidden="true"></i><span>  Изменить пароль</span></a>
         </div>
-
-        <div class="form-group">
-            <label for="biography">Биография:</label>
-            <input value="{{currentUser.biography}}" type="text" class="form-control" name="biography" [(ngModel)]="model.biography" #biography="ngModel" required />
-        </div>-->
-
+ 
         <div class="form-group">
             <button [disabled]="loading" class="btn btn-primary">Сохранить</button>
             <!--<a [routerLink]="['/profile']" class="btn btn-link">Отмена</a>-->
         </div>
     </form>
+
+       <div class="edit-out"> 
+            <a routerLink="/profile/my" class="btn btn-primary">Отмена</a>
+       </div>
+
 </div>

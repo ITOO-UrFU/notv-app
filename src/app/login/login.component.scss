@@ -1,0 +1,37 @@
+.reset-password{
+    text-align: center;
+    a{
+        color: black;
+        text-align: center;
+       // text-decoration: none;
+           font-size: 0.9em;
+    }
+}
+.pass-alert-success{
+        padding: 20px;
+    font-size: 12pt;
+    text-align: center;
+    background: #8af39d;
+    span{
+        font-weight: 600;
+    }
+}
+.to-student-register{
+    display: block;
+    width: 500px;
+    margin: 12px auto;
+    padding: 8px 12px;
+    position: relative;
+    text-align: center;
+        a{
+            display: block;
+            width: 100%;
+            background: #4CAF50;
+            border: none;
+            color: #fafafa;
+            text-decoration: none;
+            text-align: center;
+            padding: 12px 0;
+            font-size: 0.8em;
+        }
+}

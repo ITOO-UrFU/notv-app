@@ -17,6 +17,11 @@ import { ProfileEditComponent } from 'app/user-profile/profile-edit/profile-edit
 import { UserEventsComponent } from './user-events/user-events.component';
 
 import { LoadMaterialsComponent } from './user-profile/load-materials/load-materials.component';
+import { MyProfileComponent } from './user-profile/my-profile/my-profile.component';
+
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ChangePasswordComponent } from './user-profile/change-password/change-password.component';
+import { RegisterStudentsComponent } from './register-students/register-students.component';
 
 const routes: Routes = [
 
@@ -50,6 +55,10 @@ const routes: Routes = [
             path: 'edit',
             component: ProfileEditComponent,
           },
+          {
+            path: 'my',
+            component: MyProfileComponent,
+          },
          {
             path: 'my_events',
             component: UserEventsComponent
@@ -57,6 +66,10 @@ const routes: Routes = [
           {
             path: 'materials',
             component: LoadMaterialsComponent
+          },
+          {
+            path: 'change-password',
+            component: ChangePasswordComponent,
           }
         ]
       },
@@ -70,6 +83,17 @@ const routes: Routes = [
         component: RegistrationComponent
 
       },
+      {
+        path: 'register-students',
+        component: RegisterStudentsComponent
+
+      },
+
+      {
+        path: 'reset-password',
+        component: ResetPasswordComponent
+      },
+
       {
         path: 'events/my_events',
         component: UserEventsComponent,

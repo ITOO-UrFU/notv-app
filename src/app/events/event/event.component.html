@@ -20,7 +20,7 @@
 
 <div *ngIf="currentEvent.get_speakers.length">
     <div *ngFor="let user of currentEvent.get_speakers" class="event-speaker-photo" [ngStyle]="{'background':'url('+user.person.photo+')', 'background-size': 'cover'}" > 
-        <div class='label'>{{user.person.first_name}} {{user.person.last_name}}<br />{{user.person.position}}<br />{{user.person.organisation}}</div> 
+        <div class='label'>{{user.person.first_name}} {{user.person.last_name}}<br />{{user.person.position}}<br /><span *ngIf="user.person.division">{{user.person.division}}<br /></span>{{user.person.organisation}}</div> 
     
     </div>
 </div>

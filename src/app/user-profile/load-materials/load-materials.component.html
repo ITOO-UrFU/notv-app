@@ -1,5 +1,7 @@
 <div class="home-block">
-
+    <div *ngIf="showSuccess" class="upload-alert-success">
+       Документ <span>{{current_file}} </span> успешно загружен!
+    </div>
 <section class="upload-form">
   <h3 for="material">Загрузка публикаций:</h3>
   <p><strong>Загрузка публикаций доступна до 20.04.2017</strong></p>
@@ -14,9 +16,10 @@
           </span>
         <input type="file" placeholder="Загрузка документов" accept=".odt,.doc,.docx" class="file-input" (change)="choiced($event)">
       </label>
-      <button class="file-send" value="Отправить">Отправить</button>
+      <button *ngIf="is_choiced" class="file-send" value="Отправить">Отправить</button>
           </div>
    </form>
+
 </section>
 
 
