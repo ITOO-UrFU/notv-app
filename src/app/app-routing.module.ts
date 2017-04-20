@@ -63,10 +63,10 @@ const routes: Routes = [
             path: 'my_events',
             component: UserEventsComponent
           },
-          {
-            path: 'materials',
-            component: LoadMaterialsComponent
-          },
+          // {
+          //   path: 'materials',
+          //   component: LoadMaterialsComponent
+          // },
           {
             path: 'change-password',
             component: ChangePasswordComponent,
