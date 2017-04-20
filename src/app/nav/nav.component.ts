@@ -21,6 +21,7 @@ export class NavComponent implements OnInit, AfterViewInit {
   underListUrl: Boolean = false;
   activeUrl: any = {};
   showMenu: Boolean = false;
+  imageUrl:string = 'assets/images/icons/default.svg';
 
   constructor( 
               private router: Router,
@@ -35,12 +36,18 @@ export class NavComponent implements OnInit, AfterViewInit {
         translate.use(browserLang.match(/en|ru/) ? browserLang : 'en');
   }
 
+  defaultImage(event){
+    var target = event.target || event.srcElement || event.currentTarget;
+    target.src = this.imageUrl;
+  }
+
   toggleMenuVisible(disable: Boolean){
     this.showMenu = !this.showMenu;
     if(disable == true){
       this.showMenu == false;
     }
   }
+
 
   ngOnInit() {
     this.pageService.getPageList()
