@@ -57,6 +57,7 @@ private extractEvent(res: Response): Event {
           body.get_type_display,
           body.block,
           slug,
+          body.room,
       );
 
     event.get_speakers  = event.get_speakers.filter(user =>  user.get_type_display !== "Участник" );
@@ -193,6 +194,7 @@ private extractEvent(res: Response): Event {
             body[i].get_type_display,
             body[i].get_line_of_work_slug,
             slug,
+            body[i].room,
             );
 
           event.get_speakers = event.get_speakers.filter(user => user.get_type_display !== 'Участник');

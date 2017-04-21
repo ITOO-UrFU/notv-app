@@ -76,7 +76,6 @@ export class RegisterService {
           const enddate = new Date(body[i].event.enddate);
           startdate.setMinutes(startdate.getMinutes() + offset.valueOf());
           enddate.setMinutes(enddate.getMinutes() + offset.valueOf());
-
           const event: Event = new Event(
             body[i].event.id,
             body[i].event.title,
@@ -88,6 +87,7 @@ export class RegisterService {
             body[i].event.get_type_display,
             body[i].event.get_line_of_work_slug,
             slug,
+            body[i].event.room,
             );
           events.push(event);
     }

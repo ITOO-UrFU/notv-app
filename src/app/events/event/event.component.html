@@ -3,17 +3,21 @@
 <div class="event-block"  *ngIf="currentEvent">
     <!--<button (click)="goBack()" class="btn btn-primary">К списку всех мероприятий</button>
     <button *ngIf="isLogged" (click)="goMyEvents()" class="btn btn-primary">К списку моих мероприятий</button>-->
-<i class="fa fa-clock-o" aria-hidden="true"></i>  {{ currentEvent.startdate | date:'shortTime' }} - {{ currentEvent.enddate | date:'shortTime' }} 
+<i class="fa fa-clock-o" aria-hidden="true"></i>  {{ currentEvent.startdate | date:'shortTime' }} - {{ currentEvent.enddate | date:'shortTime' }} <br />
+<span *ngIf="currentEvent.room">  <i class="fa fa-map-marker" aria-hidden="true"></i> ауд. {{currentEvent.room.title}}</span>
+    
 <img src="assets/images/icons/{{currentEvent.get_event_slug}}_icon.svg"/>
 
   <h3 style="margin-top: 5px;">{{currentEvent.eventtype}}</h3>
 
-
   
 
     <p *ngIf="currentEvent.eventtypeid!='eventtype-plenar'" >{{currentEvent.title}}</p>
+    
     <p *ngIf="currentEvent.eventtypeid=='eventtype-plenar'" [innerHTML]='currentEvent.description'></p>
 <!--<p [innerHTML]="currentEvent.description"></p>-->
+
+
 
 
 
