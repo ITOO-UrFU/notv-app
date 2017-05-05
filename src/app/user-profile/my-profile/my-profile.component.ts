@@ -28,9 +28,9 @@ export class MyProfileComponent implements OnInit {
   ngOnInit() {
     this.title.setTitle("Мой профиль");
             this.registerService.getProfile().subscribe(userProfile => {
-
             this.currentUser = userProfile;
             this.currentUserEmail = JSON.parse(localStorage.getItem('currentUser') || null ).user.email;
+            console.log(this.currentUser);
         },
               error => { this.authenticationService.logout(); }
         );
