@@ -1,3 +1,12 @@
 .event-title{
     cursor: pointer;
 }
+
+.more-button {
+  float: right;
+  color: grey;
+  padding: .5em;
+  border: 1px dotted grey;
+  cursor: pointer;
+  border-radius: 20%;
+}

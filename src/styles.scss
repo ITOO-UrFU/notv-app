@@ -1,6 +1,6 @@
-
-$FontPathOpenSans: "../node_modules/npm-font-open-sans/fonts";
-@import '../node_modules/npm-font-open-sans/open-sans.scss';
+//
+//$FontPathOpenSans: "../node_modules/npm-font-open-sans/fonts";
+//@import '../node_modules/npm-font-open-sans/open-sans.scss';
 
 @import 'scss/base/module';         // включает глобальные стили, такие как сброс стилей, типография, цвета и т.д.
 @import 'scss/components/module';   // содержит отдельные компоненты с отдельным файлом .scss для каждого из них.
@@ -15,6 +15,4 @@ $FontPathOpenSans: "../node_modules/npm-font-open-sans/fonts";
 
 
 @import '../node_modules/font-awesome/css/font-awesome.css';
-
-
-@import 'scss/other'
+@import 'scss/other';
