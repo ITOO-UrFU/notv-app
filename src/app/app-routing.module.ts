@@ -78,16 +78,16 @@ const routes: Routes = [
         component: LoginComponent
 
       },
-      // {
-      //   path: 'register',
-      //   component: RegistrationComponent
-
-      // },
       {
-        path: 'register-students',
-        component: RegisterStudentsComponent
+        path: 'register',
+        component: RegistrationComponent
 
       },
+      // {
+      //   path: 'register-students',
+      //   component: RegisterStudentsComponent
+      //
+      // },
 
       {
         path: 'reset-password',
