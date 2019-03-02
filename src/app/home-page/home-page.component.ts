@@ -24,7 +24,7 @@ export class HomePageComponent implements OnInit  {
    }
 
   ngOnInit() {
-          this.title.setTitle("#EDCRUNCH Ural: новые образовательные технологии в вузе – 2017");
+          this.title.setTitle("#EDCRUNCH Ural: новые образовательные технологии в вузе – 2019");
             this.homepageService.getHomePage()
           .subscribe(homePage => {
             this.homePage = homePage;

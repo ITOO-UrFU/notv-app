@@ -48,7 +48,7 @@ const metaConfig: MetaConfig = {
 
   useTitleSuffix: true,
   defaults: {
-    title: '#EDCRUNCH Ural: Новые образовательные технологии в вузе – 2017',
+    title: '#EDCRUNCH Ural: Новые образовательные технологии в вузе – 2019',
     titleSuffix: ' | #EDCRUNCH Ural'
   }
 };
