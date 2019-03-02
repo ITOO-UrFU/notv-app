@@ -12,7 +12,11 @@
 
   <p *ngIf="currentEvent.eventtypeid!='eventtype-plenar'">{{currentEvent.title}}</p>
 
-  <p *ngIf="currentEvent.eventtypeid=='eventtype-plenar'" [innerHTML]='currentEvent.description'></p>
+  <div class="label modal">
+    <div class="modal-content">
+      <p [innerHTML]='currentEvent.description'></p>
+    </div>
+  </div>
   <!--<p [innerHTML]="currentEvent.description"></p>-->
 
 
@@ -33,24 +37,24 @@
 
 
     <div *ngIf="showButtons">
-    <div *ngIf="isLogged">
+      <div *ngIf="isLogged">
 
-      <div *ngIf="isReg">
-        <button (click)="attemptUnregisterOnEvent(currentEvent)" class="btn button-event-unregister">Я не участвую
+        <div *ngIf="isReg">
+          <button (click)="attemptUnregisterOnEvent(currentEvent)" class="btn button-event-unregister">Я не участвую
+          </button>
+        </div>
+
+        <div *ngIf="!isReg">
+          <button (click)="attemptRegisterOnEvent(currentEvent)" class="btn button-event-register">Я участвую</button>
+        </div>
+      </div>
+
+      <div *ngIf="!isLogged">
+        <button (click)="toRegister()" class="btn button-event-tologin">
+          <ins style="font-weight: 500;">Войдите</ins>
+          , чтобы принять участие
         </button>
       </div>
-
-      <div *ngIf="!isReg">
-        <button (click)="attemptRegisterOnEvent(currentEvent)" class="btn button-event-register">Я участвую</button>
-      </div>
     </div>
 
-    <div *ngIf="!isLogged">
-      <button (click)="toRegister()" class="btn button-event-tologin">
-        <ins style="font-weight: 500;">Войдите</ins>
-        , чтобы принять участие
-      </button>
-    </div>
-    </div>
-
-</div>
+  </div>

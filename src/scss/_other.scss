@@ -16,7 +16,7 @@ body {
   padding-bottom: 16rem;
   min-height: 100%;
   box-sizing: inherit;
-  font-family: "PFBulletinSansPro-Regular";
+  font-family: "Geometria Regular";
   color: #323232;
 }
 
@@ -45,7 +45,7 @@ body {
   button {
     min-width: 150px;
     margin-left: 10px;
-    font-family: "PFBulletinSansPro-Regular";
+    font-family: "Geometria Regular";
     padding: 0.4em 0.8em;
     color: rgba(0, 0, 0, 0.8);
     border: transparent;
@@ -109,7 +109,7 @@ alert .alert-danger {
   button {
     min-width: 150px;
 
-    font-family: "PFBulletinSansPro-Regular";
+    font-family: "Geometria Regular";
     padding: 0.4em 0.8em;
     color: rgba(0, 0, 0, 0.8);
     border: transparent;
@@ -307,7 +307,7 @@ la
   margin: 10px -24px;
   float: left;
   text-align: center;
-  font-family: "PFBulletinSansPro-Regular";
+  font-family: "Geometria Regular";
   -webkit-user-drag: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -315,7 +315,7 @@ la
 }
 
 .conference-date {
-  font-family: "PFBulletinSansPro-Regular";
+  font-family: "Geometria Regular";
   text-align: center;
   padding: 10px 0px;
   background: #dcdcdc;
@@ -380,7 +380,7 @@ la
   box-shadow: 0 0 2px grey;
   //  min-height: $event_height*$event_count;
   padding: $event_item_padding;
-  font-family: "PFBulletinSansPro-Regular";
+  font-family: "Geometria Regular";
   background-color: #fbfbfb;
 }
 
@@ -402,7 +402,7 @@ la
   box-shadow: 0 0 2px grey;
   min-height: $event_height*$event_count;
   padding: 8px;
-  font-family: "PFBulletinSansPro-Regular";
+  font-family: "Geometria Regular";
   background-color: #fbfbfb;
 
   position: relative;

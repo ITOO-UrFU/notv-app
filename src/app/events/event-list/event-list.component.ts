@@ -24,6 +24,7 @@ export class EventListComponent implements OnInit {
 
 
   currentUser: any;
+  hideEvents: false;
 
   isLogged: boolean = false;
 
@@ -45,9 +46,9 @@ export class EventListComponent implements OnInit {
     this.title.setTitle('Мероприятия');
     this.eventsService.getEventsList()
       .subscribe(eventsList => {
-        this.eventsList = eventsList;
+        this.timeGrid = []; //eventsList;
         console.log(this.eventsList);
-        this.timeGrid = this.eventsService.getEventsObject(this.typeFilter);
+        this.timeGrid = []; //this.eventsService.getEventsObject(this.typeFilter);
         this.registerService.getProfile().subscribe(
           userProfile => {
             this.currentUser = userProfile;

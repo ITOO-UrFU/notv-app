@@ -1,5 +1,5 @@
-.event-title{
-    cursor: pointer;
+.event-title {
+  cursor: pointer;
 }
 
 .more-button {
@@ -9,4 +9,11 @@
   border: 1px dotted grey;
   cursor: pointer;
   border-radius: 20%;
+
+  &:hover .label {
+    display: block
+  }
 }
+
+
+

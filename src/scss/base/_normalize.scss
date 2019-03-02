@@ -18,8 +18,28 @@ $legacy_support_for_ie: false !default; // Used also in Compass
   src: url("assets/fonts/PFBulletinSansPro-Regular.woff");
 }
 
+@font-face {
+  font-family: 'Geometria Regular';
+  src: url('assets/fonts/Geometria.eot');
+  src: url('assets/fonts/Geometria.eot?#iefix') format('embedded-opentype'),
+  url('assets/fonts/Geometria.woff') format('woff'),
+  url('assets/fonts/Geometria.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Geometria Bold';
+  src: url('assets/fonts/Geometria-Bold.eot');
+  src: url('assets/fonts/Geometria-Bold.eot?#iefix') format('embedded-opentype'),
+  url('assets/fonts/Geometria-Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 // Set the default font family here so you don't have to override it later
-$normalized_font_family: "PFBulletinSansPro-Regular" !default;
+$normalized_font_family: "Geometria Regular" !default;
 
 $normalize_headings: true !default;
 

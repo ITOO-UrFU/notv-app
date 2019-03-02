@@ -71,9 +71,9 @@
                        <template ngFor let-event [ngForOf]="time.val" let-i="index" >
 
                          <div class="event-time-{{time.val.length}} {{event.eventtypeid}}">
-                           <i class="fa fa-info-circle more-button"></i>
-                             
-                                <div *ngIf="currentUser" class="app-event" [currentEvent]="event" [currentUser]="currentUser" [isLogged]="isLogged"></div>
+                           <i class="fa fa-info-circle more-button" id="more-{{event.id}}"></i>
+
+                           <div *ngIf="currentUser" class="app-event" [currentEvent]="event" [currentUser]="currentUser" [isLogged]="isLogged"></div>
 
 
                              </div>
