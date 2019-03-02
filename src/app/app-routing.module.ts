@@ -29,7 +29,7 @@ const routes: Routes = [
     path: '',
     data: {
       meta: {
-        title: '#EDCRUNCH Ural: Новые образовательные технологии в вузе – 2017',
+        title: '#EDCRUNCH Ural: Новые образовательные технологии в вузе – 2019',
         description: 'Домашняя страница конференции #EDCRUNCH URAL'
       }
     },
@@ -40,7 +40,7 @@ const routes: Routes = [
         pathMatch: 'full',
         data: {
           meta: {
-            title: '#EDCRUNCH Ural: Новые образовательные технологии в вузе – 2017',
+            title: '#EDCRUNCH Ural: Новые образовательные технологии в вузе – 2019',
             description: 'Домашняя страница конференции #EDCRUNCH URAL'
           }
         },
@@ -78,16 +78,16 @@ const routes: Routes = [
         component: LoginComponent
 
       },
-      // {
-      //   path: 'register',
-      //   component: RegistrationComponent
-
-      // },
       {
-        path: 'register-students',
-        component: RegisterStudentsComponent
+        path: 'register',
+        component: RegistrationComponent
 
       },
+      // {
+      //   path: 'register-students',
+      //   component: RegisterStudentsComponent
+      //
+      // },
 
       {
         path: 'reset-password',
@@ -112,7 +112,7 @@ const routes: Routes = [
         // component: EventListComponent,
         // data: {
         //   meta: {
-        //     title: '#EDCRUNCH Ural: Новые образовательные технологии в вузе – 2017',
+        //     title: '#EDCRUNCH Ural: Новые образовательные технологии в вузе – 2019',
         //     description: 'Список мероприятий конференции'
         //   }
         // },
@@ -123,7 +123,7 @@ const routes: Routes = [
         component: EventComponent,
         data: {
           meta: {
-            title: '#EDCRUNCH Ural: Новые образовательные технологии в вузе – 2017'
+            title: '#EDCRUNCH Ural: Новые образовательные технологии в вузе – 2019'
           }
         },
         /*children: [
