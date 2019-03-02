@@ -17,8 +17,7 @@ $legacy_support_for_ie: false !default; // Used also in Compass
   font-family: 'Geometria Regular';
   src: url('assets/fonts/Geometria.eot');
   src: url('assets/fonts/Geometria.eot?#iefix') format('embedded-opentype'),
-  url('assets/fonts/Geometria.woff') format('woff'),
-  url('assets/fonts/Geometria.ttf') format('truetype');
+  url('assets/fonts/Geometria.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }

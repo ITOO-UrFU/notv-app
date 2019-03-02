@@ -1,73 +1,74 @@
+@mixin banner($width, $height, $size) {
+  .homeBanner {
+    background: $light_gray;
 
-@mixin banner($width, $height, $size){
-    .homeBanner{
-        background: $light_gray;
-        section.banner {
-            height: $height;
-            position: relative;
-            background: url("/assets/images/banner/1-06.png")  no-repeat, // Урфу
-            url("/assets/images/misis.png") no-repeat,
-                        url("/assets/images/banner/1-05.png")  no-repeat, // edcrunch урал
-                        url("/assets/images/banner/1-04.png")  no-repeat, // Конференция
-                        url("/assets/images/banner/1-03.png")  no-repeat, // Дата
-                        url("/assets/images/banner/1-02.png")  no-repeat,
-                        url("/assets/images/banner/1-01.png")  no-repeat;
-            background-position: 93% 6%, 60% 2%, 3% 5.5%,93% 95%, 2% 91%, 50% -80%, 50% 50%;
-            @if($width<576px){
-                background-size: auto 13%, auto 19%, auto 20%, auto 23%, auto 11%, auto 125%, auto 103%;
-                background-position: 93% 6%, 52% 2%, 3% 5.5%,93% 95%, 2% 91%, 50% -80%, 50% 50%;
-            }
-            @else if($width>577px and $width<767px){
-                  
-                background-size: auto 20%, auto 25%, auto 20%, auto 23%, auto 11%, auto 125%, auto 103%;  
-            }
-            @else if{
-                background-size: auto 20%, auto 25%, auto 20%, auto 30%, auto 14%, auto 125%, auto 103%;
-            }
-        }
-        div.bigButton{ 
-            padding: $size;
-            a{
-                display: block;
-                background: #ee4037;
-                border: none;
-                color: #fafafa;
-                text-decoration: none;
-                text-align: center;
-                font-size: $size;
-                padding: $size;
-                text-transform: uppercase;
-            }
-        }
+    section.banner {
+      height: $height;
+      position: relative;
+      background: url("/assets/images/misis.png") no-repeat,
+      url("/assets/images/banner/1-06.png") no-repeat, // Урфу
+      url("/assets/images/banner/1-05.png") no-repeat, // edcrunch урал
+      url("/assets/images/banner/1-04.png") no-repeat, // Конференция
+      url("/assets/images/banner/1-03.png") no-repeat, // Дата
+      url("/assets/images/banner/1-02.png") no-repeat,
+      url("/assets/images/banner/1-01.png") no-repeat;
+      background-position: 92% 0%, 77% 6%, 3% 5.5%, 93% 95%, 2% 91%, 50% -80%, 50% 50%;
+      @if ($width<576px) {
+        background-size: auto 13%, auto 19%, auto 20%, auto 23%, auto 11%, auto 125%, auto 103%;
+        background-position: 93% 6%, 52% 2%, 3% 5.5%, 93% 95%, 2% 91%, 50% -80%, 50% 50%;
+      } @else if ($width>577px and $width<767px) {
+
+        background-size: auto 25%, auto 14%, auto 20%, auto 23%, auto 11%, auto 125%, auto 103%;
+      } @else if {
+        background-size: auto 25%, auto 14%, auto 20%, auto 30%, auto 14%, auto 125%, auto 103%;
+      }
     }
+
+    div.bigButton {
+      padding: $size;
+
+      a {
+        display: block;
+        background: #ee4037;
+        border: none;
+        color: #fafafa;
+        text-decoration: none;
+        text-align: center;
+        font-size: $size;
+        padding: $size;
+        text-transform: uppercase;
+      }
+    }
+  }
 }
+
 // Extra small devices (portrait phones, less than 576px)
-@media (max-width: 575px) { 
-    @include banner(575px, 300px, 1em);
+@media (max-width: 575px) {
+  @include banner(575px, 300px, 1em);
 
 }
 
 // Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) and (max-width: 767px) { 
-    @include banner(767px, 300px, 1.2em)
+@media (min-width: 576px) and (max-width: 767px) {
+  @include banner(767px, 300px, 1.2em)
 }
 
 // Medium devices (tablets, 768px and up)
-@media (min-width: 768px) and (max-width: 991px) { 
-    @include banner(991px, 460px, 1.2em)
+@media (min-width: 768px) and (max-width: 991px) {
+  @include banner(991px, 460px, 1.2em)
 }
 
 // Large devices (desktops, 992px and up)
-@media (min-width: 992px) and (max-width: 1199px) { 
-    @include banner(1199px, 558px, 1.2em)
+@media (min-width: 992px) and (max-width: 1199px) {
+  @include banner(1199px, 558px, 1.2em)
 }
 
 // Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) and (max-width: 1920px){ 
-    @include banner(1920px, 668px, 1.2em)
+@media (min-width: 1200px) and (max-width: 1920px) {
+  @include banner(1920px, 668px, 1.2em)
 }
 
 // Ultra large devices (large desktops, 1921px and up)
-@media (min-width: 1921px) { 
-    @include banner(2560px, 856px, 1.2em)
+@media (min-width: 1921px) {
+  @include banner(2560px, 856px, 1.2em)
 }
