@@ -22,6 +22,7 @@ $legacy_support_for_ie: false !default; // Used also in Compass
   font-style: normal;
 }
 
+
 @font-face {
   font-family: 'Geometria Bold';
   src: url('assets/fonts/Geometria-Bold.eot');
@@ -31,9 +32,27 @@ $legacy_support_for_ie: false !default; // Used also in Compass
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Circe Bold';
+  src: url('assets/fonts/Circe-Bold.eot');
+  src: url('assets/fonts/Circe-Bold.eot?#iefix') format('embedded-opentype'),
+  url('assets/fonts/Circe-Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Circe Regular';
+  src: url('assets/fonts/Circe-Regular.eot');
+  src: url('assets/fonts/Circe-Regular.eot?#iefix') format('embedded-opentype'),
+  url('assets/fonts/Circe-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 // Set the default font family here so you don't have to override it later
-$normalized_font_family: "Geometria Regular" !default;
+$normalized_font_family: "Circe Regular" !default;
 
 $normalize_headings: true !default;
 
