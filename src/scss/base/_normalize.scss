@@ -14,11 +14,6 @@
 $legacy_support_for_ie: false !default; // Used also in Compass
 
 @font-face {
-  font-family: PFBulletinSansPro-Regular;
-  src: url("assets/fonts/PFBulletinSansPro-Regular.woff");
-}
-
-@font-face {
   font-family: 'Geometria Regular';
   src: url('assets/fonts/Geometria.eot');
   src: url('assets/fonts/Geometria.eot?#iefix') format('embedded-opentype'),
