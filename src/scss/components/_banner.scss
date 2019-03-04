@@ -6,14 +6,14 @@
       height: $height;
       position: relative;
       background: url("/assets/images/misis.png") no-repeat,
-      url("/assets/images/banner/1-06.png") no-repeat, // Урфу
-      url("/assets/images/banner/1-05.png") no-repeat, // edcrunch урал
-      url("/assets/images/banner/1-04.png") no-repeat, // Конференция
-      url("/assets/images/banner/1-03.png") no-repeat, // Дата
-      url("/assets/images/banner/1-02.png") no-repeat,
-      url("/assets/images/banner/1-01.png") no-repeat;
+      url("/assets/images/banner/1-06_2019.png") no-repeat, // Урфу
+      url("/assets/images/banner/1-05_2019.png") no-repeat, // edcrunch урал
+      url("/assets/images/banner/1-04_2019.png") no-repeat, // Конференция
+      url("/assets/images/banner/1-03_2019.png") no-repeat, // Дата
+      url("/assets/images/banner/1-02_2019.png") no-repeat,
+      url("/assets/images/banner/1-01_2019.png") no-repeat;
 
-      background-size: auto 18%, auto 13%, auto 20%, auto 23%, auto 11%, auto 125%, auto 103%;
+      background-size: auto 18%, auto 13%, auto 16%, auto 23%, auto 11%, auto 125%, auto 103%;
       background-position: 92% 6%, 77% 8%, 3% 5.5%, 93% 95%, 2% 91%, 50% -80%, 50% 50%;
 
 
@@ -25,7 +25,7 @@
       }
 
       @if ($width<1200px) {
-        background-size: auto 18%, auto 11%, auto 20%, auto 23%, auto 11%, auto 125%, auto 103%;
+        background-size: auto 18%, auto 11%, auto 16%, auto 23%, auto 11%, auto 125%, auto 103%;
         background-position: 94% 4%, 77% 8%, 3% 5.5%, 93% 95%, 2% 91%, 50% -80%, 50% 50%;
 
       }

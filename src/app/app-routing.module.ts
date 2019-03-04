@@ -1,27 +1,22 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {PageComponent} from 'app/page/page.component';
+import {HomePageComponent} from 'app/home-page/home-page.component';
+import {SpeakersListComponent} from 'app/speakers/speakers-list/speakers-list.component';
 
-import { AppComponent } from 'app/app.component';
-import { PageComponent } from 'app/page/page.component';
-import { EventListComponent } from 'app/events/event-list/event-list.component';
-import { HomePageComponent } from 'app/home-page/home-page.component';
-import { SpeakersListComponent } from 'app/speakers/speakers-list/speakers-list.component';
+import {EventComponent} from 'app/events/event/event.component';
+import {RegistrationComponent} from 'app/registration/registration.component';
+import {LoginComponent} from 'app/login/login.component';
 
-import { EventComponent } from 'app/events/event/event.component';
-import { RegistrationComponent } from 'app/registration/registration.component';
-import { LoginComponent } from 'app/login/login.component';
+import {UserProfileComponent} from 'app/user-profile/user-profile.component';
+import {AuthGuard} from 'app/services/auth.guard';
+import {ProfileEditComponent} from 'app/user-profile/profile-edit/profile-edit.component';
+import {UserEventsComponent} from './user-events/user-events.component';
+import {MyProfileComponent} from './user-profile/my-profile/my-profile.component';
 
-import { UserProfileComponent } from 'app/user-profile/user-profile.component';
-import { AuthGuard } from 'app/services/auth.guard';
-import { ProfileEditComponent } from 'app/user-profile/profile-edit/profile-edit.component';
-import { UserEventsComponent } from './user-events/user-events.component';
-
-import { LoadMaterialsComponent } from './user-profile/load-materials/load-materials.component';
-import { MyProfileComponent } from './user-profile/my-profile/my-profile.component';
-
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { ChangePasswordComponent } from './user-profile/change-password/change-password.component';
-import { RegisterStudentsComponent } from './register-students/register-students.component';
+import {ResetPasswordComponent} from './reset-password/reset-password.component';
+import {ChangePasswordComponent} from './user-profile/change-password/change-password.component';
+import {RegisterStudentsComponent} from './register-students/register-students.component';
 
 const routes: Routes = [
 
@@ -83,11 +78,11 @@ const routes: Routes = [
         component: RegistrationComponent
 
       },
-      // {
-      //   path: 'register-students',
-      //   component: RegisterStudentsComponent
-      //
-      // },
+      {
+        path: 'register-students',
+        component: RegisterStudentsComponent
+
+      },
 
       {
         path: 'reset-password',
