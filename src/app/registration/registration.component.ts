@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-import { RegisterService} from 'app/services/register.service';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {RegisterService} from 'app/services/register.service';
 
-import { AlertService } from 'app/services/alert.service';
-import { AuthenticationService } from 'app/services/auth.service';
-import { Title } from '@angular/platform-browser';
-import { AuthGuard } from 'app/services/auth.guard';
+import {AlertService} from 'app/services/alert.service';
+import {AuthenticationService} from 'app/services/auth.service';
+import {Title} from '@angular/platform-browser';
+import {AuthGuard} from 'app/services/auth.guard';
 
 @Component({
   selector: 'app-registration',
@@ -57,7 +57,8 @@ previousUrl: string;
                   this.authenticationService.login(this.model.email, this.model.password1).subscribe(data => {}, error => {});
                 },
                 error => {
-                    this.alertService.error("Ошибка при регистрации. Проверьте правильность введенных данных.");
+                  console.log(JSON.parse(error._body).email[0]);
+                  this.alertService.error(JSON.parse(error._body).email[0]);
                 });
     }
 

@@ -18,14 +18,16 @@ import {ResetPasswordComponent} from './reset-password/reset-password.component'
 import {ChangePasswordComponent} from './user-profile/change-password/change-password.component';
 import {RegisterStudentsComponent} from './register-students/register-students.component';
 
+import {LoadMaterialsComponent} from './user-profile/load-materials/load-materials.component';
+
 const routes: Routes = [
 
   {
     path: '',
     data: {
       meta: {
-        title: '#EDCRUNCH Ural: Новые образовательные технологии в вузе – 2019',
-        description: 'Домашняя страница конференции #EDCRUNCH URAL'
+        title: 'EDCRUNCH Ural: Новые образовательные технологии в вузе – 2019',
+        description: 'Домашняя страница конференции EDCRUNCH URAL'
       }
     },
     children: [
@@ -35,8 +37,8 @@ const routes: Routes = [
         pathMatch: 'full',
         data: {
           meta: {
-            title: '#EDCRUNCH Ural: Новые образовательные технологии в вузе – 2019',
-            description: 'Домашняя страница конференции #EDCRUNCH URAL'
+            title: 'EDCRUNCH Ural: Новые образовательные технологии в вузе – 2019',
+            description: 'Домашняя страница конференции EDCRUNCH URAL'
           }
         },
       },
@@ -58,10 +60,10 @@ const routes: Routes = [
             path: 'my_events',
             component: UserEventsComponent
           },
-          // {
-          //   path: 'materials',
-          //   component: LoadMaterialsComponent
-          // },
+        {
+          path: 'materials',
+          component: LoadMaterialsComponent
+        },
           {
             path: 'change-password',
             component: ChangePasswordComponent,
@@ -118,7 +120,7 @@ const routes: Routes = [
         component: EventComponent,
         data: {
           meta: {
-            title: '#EDCRUNCH Ural: Новые образовательные технологии в вузе – 2019'
+            title: 'EDCRUNCH Ural: Новые образовательные технологии в вузе – 2019'
           }
         },
         /*children: [

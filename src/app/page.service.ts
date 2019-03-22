@@ -1,14 +1,14 @@
-import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import {Injectable} from '@angular/core';
+import {Http, Response} from '@angular/http';
 
-import { Observable } from 'rxjs/Observable';
+import {Observable} from 'rxjs/Observable';
 
 import 'rxjs/add/observable/throw';
 //import 'rxjs/add/operator/catch';
 //import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
-import { Page } from 'app/page'
+import {Page} from 'app/page'
 
 @Injectable()
 export class PageService {
@@ -48,14 +48,14 @@ export class PageService {
     let body = res.json();
     let pages: Page[] = [];
     for (let i = 0; i < body.length; i++) {
-          pages.push(new Page(body[i].slug, body[i].html, body[i].keywords, body[i].pages, body[i].title, body[i].type ));
+      pages.push(new Page(body[i].slug, body[i].html, body[i].html_en, body[i].keywords, body[i].pages, body[i].title, body[i].title_en, body[i].type));
     }
     return pages;
   }
 
   private extractPage(res: Response) {
     let body = res.json();
-    return (new Page(body.slug, body.html, body.keywords, body.pages, body.title, body.type ));
+    return (new Page(body.slug, body.html, body.keywords, body.pages, body.title, body.type, body.title_en, body.html_en));
   }
 
   private handleError (error: Response | any) {

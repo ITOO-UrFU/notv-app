@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-import { RegisterService} from 'app/services/register.service';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {RegisterService} from 'app/services/register.service';
 
-import { AlertService } from 'app/services/alert.service';
-import { AuthenticationService } from 'app/services/auth.service';
-import { Title } from '@angular/platform-browser';
-import { AuthGuard } from 'app/services/auth.guard';
+import {AlertService} from 'app/services/alert.service';
+import {AuthenticationService} from 'app/services/auth.service';
+import {Title} from '@angular/platform-browser';
+import {AuthGuard} from 'app/services/auth.guard';
 
 @Component({
   selector: 'app-register-students',
@@ -46,7 +46,8 @@ previousUrl: string;
                  }, error => {});
                 },
                 error => {
-                    this.alertService.error("Ошибка при регистрации. Проверьте правильность введенных данных.");
+                  console.log(error);
+                  this.alertService.error('Ошибка при регистрации.', error);
                 });
     }
 

@@ -1,14 +1,10 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { Router, Routes, ActivatedRoute } from '@angular/router';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 
-import { PageService } from 'app/page.service';
-import { PageComponent } from 'app/page/page.component';
-import { EventListComponent } from 'app/events/event-list/event-list.component';
+import {PageService} from 'app/page.service';
 
 import {TranslateService} from 'ng2-translate';
-
-import { AuthenticationService } from 'app/services/auth.service';
-import { AuthGuard } from 'app/services/auth.guard';
+import {AuthGuard} from 'app/services/auth.guard';
 
 @Component({
   selector: 'header.app-nav',
@@ -21,35 +17,37 @@ export class NavComponent implements OnInit, AfterViewInit {
   underListUrl: Boolean = false;
   activeUrl: any = {};
   showMenu: Boolean = false;
-  imageUrl:string = 'assets/images/icons/default.svg';
+  imageUrl: string = 'assets/images/icons/default.svg';
+  public userLang: any;
 
-  constructor( 
-              private router: Router,
-              private pageService: PageService,
-              private translate: TranslateService,
-              private authGuard: AuthGuard,
-              private activatedRoute: ActivatedRoute
-             ){
-        translate.addLangs(["en", "ru"]);
-        translate.setDefaultLang('en');
-        let browserLang = translate.getBrowserLang();
-        translate.use(browserLang.match(/en|ru/) ? browserLang : 'en');
+  constructor(
+    private router: Router,
+    private pageService: PageService,
+    private translate: TranslateService,
+    private authGuard: AuthGuard,
+    private activatedRoute: ActivatedRoute
+  ) {
+    translate.addLangs(['en', 'ru']);
+    translate.setDefaultLang('en');
+    let browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(/en|ru/) ? browserLang : 'en');
   }
 
-  defaultImage(event){
+  defaultImage(event) {
     var target = event.target || event.srcElement || event.currentTarget;
     target.src = this.imageUrl;
   }
 
-  toggleMenuVisible(disable: Boolean){
+  toggleMenuVisible(disable: Boolean) {
     this.showMenu = !this.showMenu;
-    if(disable == true){
+    if (disable == true) {
       this.showMenu == false;
     }
   }
 
 
   ngOnInit() {
+    this.userLang = navigator.language || window.navigator['userLanguage'];
     this.pageService.getPageList()
       .subscribe(page => {
         page.pages
@@ -57,38 +55,53 @@ export class NavComponent implements OnInit, AfterViewInit {
             if (element.pages.length) {
               let array: any[] = [];
               element.pages.forEach(element => {
-                  array.push({ url: element.slug, title: element.title ? element.title : element.slug, type: element.type })    
+                array.push({
+                  url: element.slug,
+                  title: element.title ? element.title : element.slug,
+                  title_en: element.title_en ? element.title_en : element.slug,
+                  type: element.type
+                })
               })
-                this.listUrl.push({ url: element.slug, title: element.title ? element.title : element.slug, underpage: array, type: element.type })
-            }
-            else {
-              if (element.slug == "login" && this.authGuard.canActivate() ){
-                    this.listUrl.push({ url: "profile/my", title: "Профиль",   })
-                    /* Сслыка на профиль */
-              }
-              else{
-                 this.listUrl.push({ url: element.slug, title: element.title ? element.title : element.slug, underpage: false, type: element.type  })
+              this.listUrl.push({
+                url: element.slug,
+                title: element.title ? element.title : element.slug,
+                title_en: element.title_en ? element.title_en : element.slug,
+                underpage: array,
+                type: element.type
+              })
+            } else {
+              if (element.slug == 'login' && this.authGuard.canActivate()) {
+                this.listUrl.push({url: 'profile/my', title: 'Профиль', title_en: 'Account'})
+                /* Сслыка на профиль */
+              } else {
+                this.listUrl.push({
+                  url: element.slug,
+                  title: element.title ? element.title : element.slug,
+                  title_en: element.title_en ? element.title_en : element.slug,
+                  underpage: false,
+                  type: element.type
+                })
               }
             }
           });
 
-          this.activeUrl = this.listUrl.filter(item => item.url == this.router.url.split("/")[1])[0];
+        this.activeUrl = this.listUrl.filter(item => item.url == this.router.url.split('/')[1])[0];
 
-    });
-}
+      });
+  }
 
-ngAfterViewInit(){
+  ngAfterViewInit() {
     if (window.location.hash) {
       this.goTo(window.location.hash.replace('#', ''));
     }
-}
+  }
 
-goTo(location: string): void {
+  goTo(location: string): void {
 
-  if (document.getElementById(location) != null) {
+    if (document.getElementById(location) != null) {
       history.pushState(null, null, window.location.pathname + '#' + location);
       window.scrollTo(0, document.getElementById(location).getBoundingClientRect().top);
+    }
   }
-}
 
 }
