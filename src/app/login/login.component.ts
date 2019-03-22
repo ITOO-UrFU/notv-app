@@ -5,6 +5,7 @@ import { AuthenticationService } from 'app/services/auth.service';
 import { AlertService } from 'app/services/alert.service';
 import { Title } from '@angular/platform-browser';
 import { AuthGuard } from 'app/services/auth.guard';
+import { TranslateService } from 'app/translate/translate.service';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,8 @@ export class LoginComponent implements OnInit {
         private alertService: AlertService,
         private title: Title,
         private authGuard: AuthGuard,
-        private activatedRoute: ActivatedRoute
+        private activatedRoute: ActivatedRoute,
+        private _translate: TranslateService
        ) {
           activatedRoute.queryParams.subscribe(
             (queryParam: any) => {
@@ -36,11 +38,13 @@ export class LoginComponent implements OnInit {
        }
 
     ngOnInit() {
+
+
       if (this.authGuard.canActivate()){
             this.router.navigate(['profile', 'my']);
       }
       else {
-        this.title.setTitle("Вход");
+        this.title.setTitle(this._translate.instant('login_msg'));
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'events';
       }
     }
@@ -55,7 +59,8 @@ export class LoginComponent implements OnInit {
 
                 },
                 error => {
-                    this.alertService.error("Ошибка при входе. Проверьте правильность введенных данных.");
+                    // this.alertService.error("Ошибка при входе. Проверьте правильность введенных данных.");
+                  this.alertService.error(this._translate.instant('login_error_msg'));
                 });
     }
     logout() {

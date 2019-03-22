@@ -9,6 +9,8 @@ import { NavigationStart, NavigationError, NavigationCancel , NavigationEnd} fro
 import { PageService } from 'app/page.service';
 import { PageComponent } from 'app/page/page.component';
 
+import { TranslateService } from 'app/translate/translate.service';
+
 @Component({
   selector: 'body.app-root',
   templateUrl: './app.component.html',
@@ -23,11 +25,19 @@ export class AppComponent implements OnInit {
     name: 'AppComponent',
   };
 
-constructor(private _location: Location) {
+constructor(private _location: Location,
+            private _translate: TranslateService
+) {
 
   }
 
   ngOnInit() {
+  this._translate.setDefaultLang("en");
+  // console.log(navigator.language, window.navigator['userLanguage']);
+   let lang = navigator.language || window.navigator['userLanguage'];
+    console.log("navigator.language", navigator.language);
+    console.log("this._translate", this._translate);
+    this._translate.use(lang);
   }
 
 

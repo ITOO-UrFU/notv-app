@@ -2,41 +2,42 @@
 
 <div class="home-block">
     <div *ngIf="showPassReset" class="pass-alert-success">
-       Новый пароль отправлен на Ваш электронный адрес: <span>{{this.model.email}}</span>
+      {{'new_password_sent' | translate }}: <span>{{this.model.email}}</span>
     </div>
 
     <div class="form-group-header">
-    <h2>Вход</h2>
+    <h2>{{'login_msg' | translate}} </h2>
+
     </div>
     <alert></alert>
     <form name="form" (ngSubmit)="login()" #f="ngForm" novalidate >
        
  
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
-            <label for="email">Электронный адрес</label>
+            <label for="email">{{'email_label' | translate}} </label>
             <input type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" required (ngModelChange)="hideBlock()"/>
 
-         <div *ngIf="f.submitted && !email.valid" class="help-block">Введите адрес электронной почты</div>
+         <div *ngIf="f.submitted && !email.valid" class="help-block">{{'enter_email_label'|translate}}</div>
         </div>
 
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-            <label for="password">Пароль</label>
+            <label for="password">{{ 'password_label' | translate }} </label>
             <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required (ngModelChange)="hideBlock()"/>
-           <div *ngIf="f.submitted && !password.valid" class="help-block">Введите пароль</div>
+           <div *ngIf="f.submitted && !password.valid" class="help-block"> {{'enter_password_label' | translate}} </div>
         </div>
 
         <div class="form-group">
-          <button class="btn btn-primary">Войти</button>
+          <button class="btn btn-primary">{{ 'sign_in_label' | translate }}</button>
         </div>
 
         <div class="reset-password">
-            <a [routerLink]="['/reset-password']" class="">Забыли пароль?</a>
+            <a [routerLink]="['/reset-password']" class="">{{'forgot_password_label' | translate}}</a>
         </div>
         <div class="form-group-header center">
-        <h3>или</h3>
+        <h3>{{'or_label' | translate}}</h3>
         </div>
             <div class="form-group">
-                <a [routerLink]="['/register']" class="btn btn-link">Зарегистрироваться</a>
+                <a [routerLink]="['/register']" class="btn btn-link">{{ 'sign_up_label' | translate }}</a>
         </div>
       <div class="form-group-header center">
 
