@@ -2,51 +2,77 @@
 
 <div class="home-block">
     <div class="form-group-header" >
-    <h2>Регистрация</h2>
+    <h2>{{ 'sign_up_label' | translate }}</h2>
     </div>
     <alert></alert>
     <form name="form" (ngSubmit)="register()" #f="ngForm" novalidate>
 
-        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
-            <label for="email">Электронная почта</label>
-            <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" required />
-             <div *ngIf="f.submitted && !email.valid" class="help-block">Необходимо ввести электронный адрес</div>
-        </div>
-        
-        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !last_name.valid }">
-            <label for="last_name">Фамилия</label>
-            <input type="text" class="form-control" name="last_name" [(ngModel)]="model.last_name" #last_name="ngModel" required />
-          <div *ngIf="f.submitted && !last_name.valid" class="help-block">Необходимо ввести вашу фамилию</div>
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+        <label for="email">{{ 'email_label' | translate }}</label>
+        <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" required />
+        <div *ngIf="f.submitted && !email.valid" class="help-block">{{ 'enter_email_label' | translate }}</div>
+      </div>
+
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !last_name.valid }">
+        <label for="last_name">{{ 'last_name_label' | translate}}</label>
+        <input type="text" class="form-control" name="last_name" [(ngModel)]="model.last_name" #last_name="ngModel" required />
+        <div *ngIf="f.submitted && !last_name.valid" class="help-block">{{ 'last_name_label' | translate }}</div>
+      </div>
+
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !first_name.valid }">
+        <label for="first_name">{{ 'first_name_label' | translate }}</label>
+        <input type="text" class="form-control" name="first_name" [(ngModel)]="model.first_name" #first_name="ngModel" required />
+        <div *ngIf="f.submitted && !first_name.valid" class="help-block">{{ 'enter_first_name_label' | translate }}</div>
         </div>
 
-         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !first_name.valid }">
-            <label for="first_name">Имя</label>
-            <input type="text" class="form-control" name="first_name" [(ngModel)]="model.first_name" #first_name="ngModel" required />
-           <div *ngIf="f.submitted && !first_name.valid" class="help-block">Необходимо ввести ваше имя</div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !second_name.valid }">
+          <label for="second_name">{{ 'second_name_label' | translate }}</label>
+          <input type="text" class="form-control" name="second_name" [(ngModel)]="model.second_name" #second_name="ngModel" required />
+          <div *ngIf="f.submitted && !second_name.valid" class="help-block">{{ 'enter_second_name_label' | translate }}</div>
         </div>
 
-       <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !second_name.valid }">
-            <label for="second_name">Отчество</label>
-            <input type="text" class="form-control" name="second_name" [(ngModel)]="model.second_name" #second_name="ngModel" required />
-         <div *ngIf="f.submitted && !second_name.valid" class="help-block">Необходимо ввести ваше отчество</div>
-        </div>
+        <!--<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">-->
+            <!--<label for="email">Электронная почта</label>-->
+            <!--<input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" required />-->
+             <!--<div *ngIf="f.submitted && !email.valid" class="help-block">Необходимо ввести электронный адрес</div>-->
+        <!--</div>-->
+
+        <!--<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !last_name.valid }">-->
+            <!--<label for="last_name">Фамилия</label>-->
+            <!--<input type="text" class="form-control" name="last_name" [(ngModel)]="model.last_name" #last_name="ngModel" required />-->
+          <!--<div *ngIf="f.submitted && !last_name.valid" class="help-block">Необходимо ввести вашу фамилию</div>-->
+        <!--</div>-->
+
+         <!--<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !first_name.valid }">-->
+            <!--<label for="first_name">Имя</label>-->
+            <!--<input type="text" class="form-control" name="first_name" [(ngModel)]="model.first_name" #first_name="ngModel" required />-->
+           <!--<div *ngIf="f.submitted && !first_name.valid" class="help-block">Необходимо ввести ваше имя</div>-->
+        <!--</div>-->
+
+       <!--<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !second_name.valid }">-->
+            <!--<label for="second_name">Отчество</label>-->
+            <!--<input type="text" class="form-control" name="second_name" [(ngModel)]="model.second_name" #second_name="ngModel" required />-->
+         <!--<div *ngIf="f.submitted && !second_name.valid" class="help-block">Необходимо ввести ваше отчество</div>-->
+        <!--</div>-->
+
+
 
        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !organisation.valid }">
-            <label for="organisation">Место работы</label>
+            <label for="organisation">{{ 'job_label' | translate }}</label>
             <input type="text" class="form-control" name="organisation" [(ngModel)]="model.organisation" #organisation="ngModel" required />
-         <div *ngIf="f.submitted && !organisation.valid" class="help-block">Необходимо ввести ваше место работы</div>
+         <div *ngIf="f.submitted && !organisation.valid" class="help-block">{{ 'enter_job_label' | translate }}</div>
         </div>
 
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !position.valid }">
-            <label for="position">Должность</label>
+            <label for="position">{{ 'present_post_label' | translate }}</label>
             <input type="text" class="form-control" name="position" [(ngModel)]="model.position" #position="ngModel" required />
-          <div *ngIf="f.submitted && !position.valid" class="help-block">Необходимо ввести вашу должность</div>
+          <div *ngIf="f.submitted && !position.valid" class="help-block">{{ 'enter_Present post_label' | translate }}</div>
         </div>
 
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !phone.valid }">
-            <label for="phone">Номер телефона</label>
+            <label for="phone">{{ 'phone_number_label' | translate }}</label>
             <input type="text" class="form-control" name="phone" [(ngModel)]="model.phone" #phone="ngModel" required />
-          <div *ngIf="f.submitted && !phone.valid" class="help-block">Необходимо ввести ваш номер телефона</div>
+          <div *ngIf="f.submitted && !phone.valid" class="help-block">{{ 'enter_phone_number_label' | translate }}</div>
         </div>
 
       <!--  
@@ -56,27 +82,27 @@
         </div>
         -->
         <div class="form-group">
-            <label for="participation">Тип участия:</label>
+            <label for="participation">{{ 'type_of_participation' | translate }}:</label>
             <select name="participation" [(ngModel)]="model.participation" #participation="ngModel" required >
-            <option value="O">Очно</option>
-            <option value="T">Трансляция</option>
+            <option value="O">{{ 'internally_label' | translate }}</option>
+            <option value="T">{{ 'broadcast_label' | translate }}</option>
             </select>
          </div>
 
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password1.valid }">
-            <label for="password1">Пароль</label>
+            <label for="password1">{{ 'password_label' | translate }}</label>
             <input type="password" class="form-control" name="password1" [(ngModel)]="model.password1" #password1="ngModel" required />
-            <div *ngIf="f.submitted && !password1.valid" class="help-block">Необходимо ввести пароль</div>
+            <div *ngIf="f.submitted && !password1.valid" class="help-block">{{ 'enter_password_label' | translate }}</div>
         </div>
 
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password2.valid }">
-            <label for="password2">Повторите пароль:</label>
+            <label for="password2">{{ 'confirm_password_label' | translate }}</label>
             <input type="password" class="form-control" name="password2" [(ngModel)]="model.password2" #password2="ngModel" required />
-             <div *ngIf="f.submitted && !password2.valid" class="help-block">Необходимо повторно ввести пароль</div>
+             <div *ngIf="f.submitted && !password2.valid" class="help-block">{{ 'enter_confirm_password_label' | translate }}</div>
         </div>
 
         <div class="form-group">
-          <button class="btn btn-primary">Зарегистрироваться</button>
+          <button class="btn btn-primary">{{ 'sign_up_label' | translate }}</button>
         </div>
     </form>
 </div>

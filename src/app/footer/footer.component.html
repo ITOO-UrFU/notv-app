@@ -19,31 +19,30 @@
     </div>
     <!--<div class="footer-contact-info">-->
     <div class="footer-element contact-info">
-      <h3>Общие контакты</h3>
-      <p>По общим вопросам пишите нам
+      <h3>{{ 'contacts_label' | translate }}</h3>
+      <p> {{ 'please_contact_us_msg' | translate }}
         <a href="mailto:edcrunch.ural@urfu.ru">
       edcrunch.ural@urfu.ru</a>
       </p>
-      <p>или звоните <br />
-     +7 (343) 374-58-24 с 11.00 до 17.00</p>
-      <p>Наш адрес: г. Екатеринбург, ул. Мира, д. 19<br />
-        Фойе ГУКа
+      <p> {{'or_call_msg' | translate}} <br />
+     +7 (343) 374-58-24 ({{ 'working_hours_msg' | translate }})</p>
+      <p>{{ 'our_address' | translate }}
       </p>
     </div>
 </div>
 
   <div class="footer-content small">
     <div class="footer-element contact-info">
-      <h3>Общие контакты</h3>
-      <p>По общим вопросам пишите нам
+      <h3>{{ 'contacts_label' | translate }}</h3>
+      <p>{{ 'please_contact_us_msg' | translate }}
         <a href="mailto:edcrunch.ural@urfu.ru">
       edcrunch.ural@urfu.ru</a>
       </p>
-      <p>или звоните <br />
-     +7 (343) 374-58-24 с 11.00 до 17.00</p>
+      <p>{{'or_call_msg' | translate}} <br />
+     +7 (343) 374-58-24 ({{ 'working_hours_msg' | translate }})</p>
     </div>
     <div class="footer-element">
-        <h3>Организаторы конференции</h3>
+        <h3>{{'conference_organizers' | translate}}</h3>
         <div class="footer-logos">
               <img (click)="goToExternalUrl('https://urfu.ru')" src="assets/images/urfu_footer_logo.png" />
           <!--<img (click)="goToExternalUrl('http://rybakovfond.ru/')" src="assets/images/rybakovfond_footer_logo.png" />-->

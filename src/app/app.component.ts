@@ -35,8 +35,8 @@ constructor(private _location: Location,
   this._translate.setDefaultLang("en");
   // console.log(navigator.language, window.navigator['userLanguage']);
    let lang = navigator.language || window.navigator['userLanguage'];
-    console.log("navigator.language", navigator.language);
-    console.log("this._translate", this._translate);
+    // console.log("navigator.language", navigator.language);
+    // console.log("this._translate", this._translate);
     this._translate.use(lang);
   }
 

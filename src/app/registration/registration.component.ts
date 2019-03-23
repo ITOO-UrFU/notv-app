@@ -6,6 +6,8 @@ import {AlertService} from 'app/services/alert.service';
 import {AuthenticationService} from 'app/services/auth.service';
 import {Title} from '@angular/platform-browser';
 import {AuthGuard} from 'app/services/auth.guard';
+import { TranslateService } from 'app/translate/translate.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-registration',
@@ -24,7 +26,8 @@ previousUrl: string;
         private authenticationService: AuthenticationService,
         private title: Title,
         private authGuard: AuthGuard,
-        private activatedRoute: ActivatedRoute
+        private activatedRoute: ActivatedRoute,
+        private _translate: TranslateService
         ) {}
 
   ngOnInit() {
@@ -44,7 +47,7 @@ previousUrl: string;
                 ); 
       }
       else {
-          this.title.setTitle("Регистрация");
+          this.title.setTitle(this._translate.instant('register_label'));
       }
 
   }
@@ -58,7 +61,7 @@ previousUrl: string;
                 },
                 error => {
                   console.log(JSON.parse(error._body).email[0]);
-                  this.alertService.error(JSON.parse(error._body).email[0]);
+                  this.alertService.error(this._translate.instant('register_err_label'));
                 });
     }
 
