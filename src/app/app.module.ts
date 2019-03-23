@@ -42,7 +42,7 @@ import {ResetPasswordComponent} from './reset-password/reset-password.component'
 
 import {ChangePasswordComponent} from './user-profile/change-password/change-password.component';
 import {RegisterStudentsComponent} from './register-students/register-students.component';
-
+import { TRANSLATION_PROVIDERS, TranslatePipe, TranslateService }   from './translate';
 
 const metaConfig: MetaConfig = {
 
@@ -75,7 +75,7 @@ const metaConfig: MetaConfig = {
     MyProfileComponent,
     ResetPasswordComponent, 
     ChangePasswordComponent, RegisterStudentsComponent,
-
+    TranslatePipe,
 
   ],
   imports: [
@@ -97,11 +97,13 @@ const metaConfig: MetaConfig = {
     AuthenticationService,
     AlertService,
     AuthGuard,
+    TRANSLATION_PROVIDERS,
+    TranslateService,
 
    {
       provide: LOCALE_ID,
      //  useValue: "en-EN"
-     useValue: 'ru-RU'
+      useValue: 'ru-RU'
     },
     ],
   bootstrap: [AppComponent],
