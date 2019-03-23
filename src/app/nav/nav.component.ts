@@ -3,8 +3,9 @@ import {ActivatedRoute, Router} from '@angular/router';
 
 import {PageService} from 'app/page.service';
 
-import {TranslateService} from 'ng2-translate';
+// import {TranslateService} from 'ng2-translate';
 import {AuthGuard} from 'app/services/auth.guard';
+import { TranslateService } from 'app/translate/translate.service';
 
 @Component({
   selector: 'header.app-nav',
@@ -23,14 +24,15 @@ export class NavComponent implements OnInit, AfterViewInit {
   constructor(
     private router: Router,
     private pageService: PageService,
-    private translate: TranslateService,
+    // private translate: TranslateService,
     private authGuard: AuthGuard,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private _translate: TranslateService
   ) {
-    translate.addLangs(['en', 'ru']);
-    translate.setDefaultLang('en');
-    let browserLang = translate.getBrowserLang();
-    translate.use(browserLang.match(/en|ru/) ? browserLang : 'en');
+    // translate.addLangs(['en', 'ru']);
+    // translate.setDefaultLang('en');
+    // let browserLang = translate.getBrowserLang();
+    // translate.use(browserLang.match(/en|ru/) ? browserLang : 'en');
   }
 
   defaultImage(event) {
@@ -55,13 +57,16 @@ export class NavComponent implements OnInit, AfterViewInit {
             if (element.pages.length) {
               let array: any[] = [];
               element.pages.forEach(element => {
+
+                // _translate.translate();
+
                 array.push({
                   url: element.slug,
                   title: element.title ? element.title : element.slug,
                   title_en: element.title_en ? element.title_en : element.slug,
                   type: element.type
-                })
-              })
+                });
+              });
               this.listUrl.push({
                 url: element.slug,
                 title: element.title ? element.title : element.slug,

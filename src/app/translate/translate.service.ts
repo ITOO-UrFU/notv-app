@@ -57,6 +57,11 @@ export class TranslateService {
     return translation;
   }
 
+  public addTranslate(key: string, word: string){
+
+  }
+
+
   public replace(word: string = '', words: string | string[] = '') {
     let translation: string = word;
 
@@ -64,7 +69,6 @@ export class TranslateService {
     values.forEach((e, i) => {
       translation = translation.replace(this.PLACEHOLDER.concat(<any>i), e);
     });
-
     return translation;
   }
 
