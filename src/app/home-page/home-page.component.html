@@ -12,9 +12,18 @@
 
 <div *ngIf="homePage">
   <template ngFor let-block [ngForOf]="homePage.pages" let-i="index">
-    <div *ngIf="block.type=='banner'" class="homeBanner">
-      <div [innerHTML]="block.html"></div>
-    </div>
+    <template [ngIf]="userLang=='ru-RU'">
+      <div *ngIf="block.type=='banner'" class="homeBanner">
+        <div [innerHTML]="block.html"></div>
+      </div>
+    </template>
+
+    <template [ngIf]="userLang!='ru-RU'">
+      <div *ngIf="block.type=='banner'" class="homeBanner_en">
+        <div [innerHTML]="block.html_en"></div>
+      </div>
+    </template>
+
     <section *ngIf="block.type=='mini_banner'" class="home-block">
       <h1>{{ block.title }}</h1>
       <div [innerHTML]="block.html"></div>
