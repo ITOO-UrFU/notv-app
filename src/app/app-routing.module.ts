@@ -5,6 +5,8 @@ import {HomePageComponent} from 'app/home-page/home-page.component';
 import {SpeakersListComponent} from 'app/speakers/speakers-list/speakers-list.component';
 
 import {EventComponent} from 'app/events/event/event.component';
+import {EventListComponent} from 'app/events/event-list/event-list.component';
+
 import {RegistrationComponent} from 'app/registration/registration.component';
 import {LoginComponent} from 'app/login/login.component';
 
@@ -96,11 +98,11 @@ const routes: Routes = [
         component: UserEventsComponent,
         // canActivate: [AuthGuard],
       },
-      // {
-      //   path: 'events/all_events',
-      //   component: EventListComponent,
+      {
+        path: 'events/all_events',
+        component: EventListComponent,
 
-      // },
+      },
 
       {
         path: 'events',
@@ -142,7 +144,6 @@ const routes: Routes = [
         children: [
         ]
       },
-
       {
         path: ':id',
         component: PageComponent,

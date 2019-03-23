@@ -3,7 +3,11 @@
 export const LANG_EN_NAME = 'en';
 
 export const LANG_EN_TRANS = {
-  //логин компонент
+  // основные лейблы
+  'edcrunch_title': "",
+  'edcrunch_title_add': "New educational technologies",
+
+  // логин компонент
   'login_error_msg': 'Login error. Check the correctness of the entered data.',
   'login_msg': "Login",
   'new_password_sent': "New password sent to your email address",
@@ -53,15 +57,76 @@ export const LANG_EN_TRANS = {
   'type_of_participation': "Type of participation",
   'internally_label': "Internally",
   'broadcast_label': "Broadcast",
-  //'password_label'
-  //'enter_password_label'
+  // 'password_label'
+  // 'enter_password_label'
   'confirm_password_label': "Confirm password",
   'enter_confirm_password_label': "You must confirm the password",
-  'register_err_label': "Registration error. Check the correctness of the entered data."
+  'register_err_label': "Registration error. Check the correctness of the entered data.",
+
+  // профиль компонент
+  'profile_label': "Profile",
+  'your_profile_label': "Your profile",
+  'upload_materials_label': "Upload materials",
+  'logout': "Logout",
+  'edit_label': "Edit",
+  'change_password_label': "Change password",
+  // 'present_post_label'
+  // 'job_label'
+  // 'phone_number_label'
+  // 'type_of_participation'
+  // 'internally_label'
+  // 'broadcast_label'
+
+
+  // Изменить профиль
+  'edit_profile_label': "Edit profile",
+  'edit_profile_title_label': "Edit profile",
+  'changes_saved_label': "Changes saved",
+  'profile_sve_err_msg': "An error occurred while trying to save the profile!",
+  'save_label': "Save",
+  // 'last_name_label'
+  // 'first_name_label',
+  // 'second_name_label'
+  // 'job_label'
+  // 'present_post_label'
+  // 'phone_number_label'
+  // 'type_of_participation'
+  // 'internally_label'
+  // 'broadcast_label'
+  // 'change_password_label'
+  // 'cancel_label'
+  //
+
+  // Изменить пароль компонент
+  'change_password_title_label': "Change password",
+  'old_password_label': "Old password",
+  'enter_old_password_label': "You must enter old password",
+  'new_password_label': "New password",
+  'enter_new_password_label': "You must enter new password",
+  'confirm_new_password': "Confirm new password",
+  'enter_confirm_new_password': "You must enter password",
+  'pass_successfully_changed_msg': "Password successfully changed",
+  'error_label': "Error",
+  'change_pass_err_mg_1': "New passwords do not match, or are empty!",
+  'change_pass_err_mg_2': "Old password entered incorrectly!",
+
+  // 'change_password_label'
+  // 'cancel_label'
+
+  // загрузка метериалов компонент
+  'upload_publication_label': "Upload publications",
+  'select_file_label': "Select a file",
+  'upload_label': "Upload",
+  'requirements_for_publication_label': "Requirements for publication",
+  'requirements_for_publication_link': "https://openedu.urfu.ru/files/edcrunch/assets/Технические требования на англ.docx",
+  'publication_successfully_upload_msg': "Document %0 successfully uploaded!",
+  'your_publication_label': "Your publication",
+  'selected_label': "Selected",
+  // 'upload_materials_label'
 
 };
 
 
 //
-//
+//  New passwords do not match, or are empty!
 //

@@ -5,6 +5,8 @@ import { AlertService } from 'app/services/alert.service';
 import { ActivatedRoute} from '@angular/router';
 import { AuthenticationService } from 'app/services/auth.service';
 import { Title } from '@angular/platform-browser';
+import { TranslateService } from 'app/translate/translate.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'div.app-profile-edit',
@@ -26,6 +28,7 @@ export class ProfileEditComponent implements OnInit {
         private alertService: AlertService,
         private activatedRoute: ActivatedRoute,
         private title: Title,
+        private _translate: TranslateService
         ) {
             activatedRoute.queryParams.subscribe(
             (queryParam: any) => {
@@ -40,7 +43,7 @@ export class ProfileEditComponent implements OnInit {
 
 
   ngOnInit() {
-      this.title.setTitle("Редактирование профиля");
+      this.title.setTitle(this._translate.instant('edit_profile_title_label'));
             this.registerService.getProfile().subscribe(userProfile => {
 
             this.currentUser = userProfile;
@@ -60,14 +63,14 @@ update() {
         this.registerService.update(this.model)
             .subscribe(
                 data => {
-                 this.alertService.success('Изменения сохранены.', true);
+                 this.alertService.success(this._translate.instant('changes_saved_label'), true);
                  //window.location.reload();
                  window.scrollTo(0, 0);
                 },
                 error => {
                     window.scrollTo(0,0);
 
-                    this.alertService.error("Ошибка при сохранении данных!", error);
+                    this.alertService.error(this._translate.instant('profile_sve_err_msg'), error);
                 });
     }
 

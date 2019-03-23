@@ -5,6 +5,8 @@ import { AuthenticationService } from 'app/services/auth.service';
 import { Observable } from 'rxjs/Observable';
 import { Title } from '@angular/platform-browser';
 import { AlertService } from 'app/services/alert.service';
+import { TranslateService } from 'app/translate/translate.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'div.app-load-materials',
@@ -25,10 +27,11 @@ export class LoadMaterialsComponent implements OnInit {
                  private registerService: RegisterService,
                  private authenticationService: AuthenticationService,
                  private title: Title,
-                 private alertService: AlertService) { }
+                 private alertService: AlertService,
+                 private _translate: TranslateService) { }
 
     ngOnInit() {
-        this.title.setTitle("Загрузка материалов");
+        this.title.setTitle(this._translate.instant('upload_publication_label'));
         this.update();
     }
 

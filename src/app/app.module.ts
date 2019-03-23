@@ -42,7 +42,7 @@ import {ResetPasswordComponent} from './reset-password/reset-password.component'
 
 import {ChangePasswordComponent} from './user-profile/change-password/change-password.component';
 import {RegisterStudentsComponent} from './register-students/register-students.component';
-import { TRANSLATION_PROVIDERS, TranslatePipe, TranslateService }   from './translate';
+import { TRANSLATION_PROVIDERS, TranslatePipe, TranslateService } from './translate';
 
 const metaConfig: MetaConfig = {
 
@@ -55,6 +55,7 @@ const metaConfig: MetaConfig = {
 
 @NgModule({
   declarations: [
+
     AppComponent,
     NavComponent,
     PageComponent,
@@ -73,8 +74,9 @@ const metaConfig: MetaConfig = {
     SafePipe,
     LoadMaterialsComponent,
     MyProfileComponent,
-    ResetPasswordComponent, 
-    ChangePasswordComponent, RegisterStudentsComponent,
+    ResetPasswordComponent,
+    ChangePasswordComponent,
+    RegisterStudentsComponent,
     TranslatePipe,
 
   ],

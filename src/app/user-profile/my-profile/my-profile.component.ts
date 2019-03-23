@@ -4,6 +4,7 @@ import { AuthenticationService } from 'app/services/auth.service';
 import { RegisterService} from 'app/services/register.service';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { TranslateService } from 'app/translate/translate.service';
 
 @Component({
   selector: 'app-my-profile',
@@ -21,12 +22,13 @@ export class MyProfileComponent implements OnInit {
                 private authenticationService: AuthenticationService,
                 private registerService: RegisterService,
                 private title: Title,
+                private _translate: TranslateService
                 ) {
     }
 
 
   ngOnInit() {
-    this.title.setTitle("Мой профиль");
+    this.title.setTitle(this._translate.instant('your_profile_label'));
             this.registerService.getProfile().subscribe(userProfile => {
             this.currentUser = userProfile;
             this.currentUserEmail = JSON.parse(localStorage.getItem('currentUser') || null ).user.email;

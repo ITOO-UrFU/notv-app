@@ -1,9 +1,9 @@
 
 <div class="home-block">
-<div *ngIf="showNewRegister" class="reg-new-user">Хотите выйти и зарегистрировать нового участника? <button (click)="toNewRegiser()">Да</button> <button (click)="showNewRegister=false">Нет</button> </div>
+<!--<div *ngIf="showNewRegister" class="reg-new-user">Хотите выйти и зарегистрировать нового участника? <button (click)="toNewRegiser()">Да</button> <button (click)="showNewRegister=false">Нет</button> </div>-->
 
    <div class="form-group-header">
-        <h2>Изменить профиль</h2>
+        <h2>{{ 'edit_profile_label' | translate }}</h2>
 </div>
  <alert></alert>
          <div class="form-group current-email">
@@ -15,17 +15,17 @@
 
         
         <div class="form-group">
-            <label for="last_name">Фамилия:</label>
+            <label for="last_name">{{ 'last_name_label' | translate }}:</label>
             <input value="{{currentUser.last_name}}" type="text" class="form-control" name="last_name" [(ngModel)]="model.last_name" #last_name="ngModel" required />
         </div>
 
         <div class="form-group">
-            <label for="first_name">Имя:</label>
+            <label for="first_name">{{ 'first_name_label' | translate }}:</label>
             <input value="{{currentUser.first_name}}" type="text" class="form-control" name="first_name" [(ngModel)]="model.first_name" #first_name="ngModel" required />
         </div>
 
         <div class="form-group">
-            <label for="second_name">Отчество:</label>
+            <label for="second_name">{{ 'second_name_label' | translate }}:</label>
             <input value="{{currentUser.second_name}}" type="text" class="form-control" name="second_name" [(ngModel)]="model.second_name" #second_name="ngModel" required />
         </div>
 
@@ -50,41 +50,40 @@
 
 
         <div class="form-group">
-            <label for="position">Должность:</label>
+            <label for="position">{{ 'present_post_label' | translate }}:</label>
             <input value="{{currentUser.position}}" type="text" class="form-control" name="position" [(ngModel)]="model.position" #position="ngModel" required />
         </div>
         
         <div class="form-group">
-            <label for="organisation">Организация:</label>
+            <label for="organisation">{{ 'job_label' | translate }}:</label>
             <input value="{{currentUser.organisation}}" type="text" class="form-control" name="organisation" [(ngModel)]="model.organisation" #organisation="ngModel" required />
         </div>
         
     
         <div class="form-group">
-            <label for="phone">Номер телефона</label>
+            <label for="phone">Номер {{ 'phone_number_label' | translate }}</label>
             <input value="{{currentUser.phone}}"  type="text" class="form-control" name="phone" [(ngModel)]="model.phone" #phone="ngModel" required />
         </div> 
        
         <div class="form-group">
-            <label for="participation">Тип участия:</label>
+            <label for="participation">{{ 'type_of_participation' | translate }}:</label>
             <select value="{{currentUser.participation}}"  name="participation" [(ngModel)]="model.participation" #participation="ngModel" >
-            <option value="O">Очно</option>
-            <option value="T">Трансляция</option>
+            <option value="O">{{ 'internally_label' | translate }}</option>
+            <option value="T">{{ 'broadcast_label' | translate }}</option>
             </select>
          </div>
 
       <div class="form-group change-password-button">
-            <a routerLink="/profile/change-password" class="btn btn-primary"><i class="fa fa-key" aria-hidden="true"></i><span>  Изменить пароль</span></a>
+            <a routerLink="/profile/change-password" class="btn btn-primary"><i class="fa fa-key" aria-hidden="true"></i><span>  {{ 'change_password_label' | translate }}</span></a>
         </div>
  
         <div class="form-group">
-          <button class="btn btn-primary">Сохранить</button>
-            <!--<a [routerLink]="['/profile']" class="btn btn-link">Отмена</a>-->
+          <button class="btn btn-primary">{{ 'save_label' | translate }}</button>
         </div>
     </form>
 
        <div class="edit-out"> 
-            <a routerLink="/profile/my" class="btn btn-primary">Отмена</a>
+            <a routerLink="/profile/my" class="btn btn-primary">{{ 'cancel_label' | translate }}</a>
        </div>
 
 </div>
