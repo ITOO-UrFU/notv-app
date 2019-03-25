@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:cc="http://creativecommons.org/ns#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+  xmlns="http://www.w3.org/2000/svg"
+  width="1084"
+  height="419"
+  viewBox="0 0 286.80833 110.86042"
+  version="1.1"
+  id="svg821"
+  inkscape:version="0.92.4 (33fec40, 2019-01-16)"
+  sodipodi:docname="1-04.svg"
+  inkscape:export-filename="/home/gowen/Projects/notv-app/src/assets/images/banner/1-04.png"
+  inkscape:export-xdpi="131.11"
+  inkscape:export-ydpi="131.11">
+  <defs
+    id="defs815"/>
+  <sodipodi:namedview
+    id="base"
+    pagecolor="#ffffff"
+    bordercolor="#666666"
+    borderopacity="1.0"
+    inkscape:pageopacity="0.0"
+    inkscape:pageshadow="2"
+    inkscape:zoom="0.49497475"
+    inkscape:cx="655.27888"
+    inkscape:cy="672.17584"
+    inkscape:document-units="mm"
+    inkscape:current-layer="layer1"
+    showgrid="false"
+    units="px"
+    inkscape:window-width="2493"
+    inkscape:window-height="1376"
+    inkscape:window-x="2627"
+    inkscape:window-y="27"
+    inkscape:window-maximized="1"
+    showguides="true"
+    inkscape:guide-bbox="true">
+    <sodipodi:guide
+      position="283.03843,8.0180861"
+      orientation="1,0"
+      id="guide828"
+      inkscape:locked="false"/>
+  </sodipodi:namedview>
+  <metadata
+    id="metadata818">
+    <rdf:RDF>
+      <cc:Work
+        rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+          rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <dc:title/>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+    inkscape:label="Layer 1"
+    inkscape:groupmode="layer"
+    id="layer1"
+    transform="translate(0,-186.13957)">
+    <text
+      xml:space="preserve"
+      style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:11.99444485px;line-height:1.25;font-family:Geometria;-inkscape-font-specification:'Geometria, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332;"
+      x="283.33093"
+      y="200.38924"
+      id="text1368"><tspan
+         sodipodi:role="line"
+         x="283.33093"
+         y="200.38924"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:11.99444485px;font-family:Geometria;-inkscape-font-specification:'Geometria, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;writing-mode:lr-tb;text-anchor:end;stroke-width:0.26458332;fill:#ffffff;fill-opacity:1;"
+         id="tspan1370">МЕЖДУНАРОДНАЯ</tspan>
+      <tspan
+        sodipodi:role="line"
+        x="283.33093"
+        y="215.38229"
+        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:11.99444485px;font-family:Geometria;-inkscape-font-specification:'Geometria, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;writing-mode:lr-tb;text-anchor:end;stroke-width:0.26458332;fill:#ffffff;fill-opacity:1;"
+        id="tspan1388">НАУЧНО-МЕТОДИЧЕСКАЯ КОНФЕРЕНЦИЯ</tspan></text>
+    <text
+      xml:space="preserve"
+      style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:11.99444485px;line-height:1.25;font-family:Geometria;-inkscape-font-specification:'Geometria, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332;"
+      x="283.08517"
+      y="277.01306"
+      id="text1374"><tspan
+         sodipodi:role="line"
+         x="286.15405"
+         y="277.01306"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:11.99444485px;font-family:Geometria;-inkscape-font-specification:'Geometria, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;writing-mode:lr-tb;text-anchor:end;stroke-width:0.26458332;fill:#ffffff;fill-opacity:1;"
+         id="tspan1376">НОВЫЕ ОБРАЗОВАТЕЛЬНЫЕ ТЕХНОЛОГИИ </tspan>
+      <tspan
+        sodipodi:role="line"
+        x="283.08517"
+        y="292.0061"
+        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:11.99444485px;font-family:Geometria;-inkscape-font-specification:'Geometria, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;writing-mode:lr-tb;text-anchor:end;stroke-width:0.26458332;fill:#ffffff;fill-opacity:1;"
+        id="tspan1378">В ВУЗЕ – 2019</tspan></text>
+    <text
+      xml:space="preserve"
+      style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:28.92777824px;line-height:1.25;font-family:Geometria;-inkscape-font-specification:'Geometria, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+      x="18.827122"
+      y="252.94672"
+      id="text1384"><tspan
+         sodipodi:role="line"
+         id="tspan1382"
+         x="18.827122"
+         y="252.94672"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:28.92777824px;font-family:Geometria;-inkscape-font-specification:'Geometria, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332">EDCRUNCH Ural:</tspan></text>
+  </g>
+</svg>
