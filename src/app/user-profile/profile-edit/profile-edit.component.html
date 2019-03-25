@@ -61,7 +61,7 @@
         
     
         <div class="form-group">
-            <label for="phone">Номер {{ 'phone_number_label' | translate }}</label>
+            <label for="phone">{{ 'phone_number_label' | translate }}</label>
             <input value="{{currentUser.phone}}"  type="text" class="form-control" name="phone" [(ngModel)]="model.phone" #phone="ngModel" required />
         </div> 
        

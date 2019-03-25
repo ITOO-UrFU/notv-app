@@ -1,6 +1,6 @@
 // app/translate/translate.pipe.ts
 
-import { Pipe, PipeTransform } from '@angular/core';
+import {Injectable, Pipe, PipeTransform} from '@angular/core';
 import { TranslateService } from '../translate'; // our translate service
 
 @Pipe({
@@ -8,6 +8,7 @@ import { TranslateService } from '../translate'; // our translate service
   pure: false // impure pipe, update value when we change language
 })
 
+@Injectable()
 export class TranslatePipe implements PipeTransform {
 
   constructor(private _translate: TranslateService) { }

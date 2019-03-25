@@ -5,18 +5,18 @@ export class Page {
     public pages: string[];
     public title: string;
     public type: string;
-  public title_en: string;
-  public html_en: string;
+  // public title_en: string;
+  // public html_en: string;
 
-  constructor(slug, html, keywords, pages, title, type, title_en, html_en) {
+  constructor(slug, html, keywords, pages, title, type, ) {
         this.slug = slug;
         this.html = html;
         this.keywords = keywords;
         this.pages = pages;
         this.title = title;
         this.type = type;
-    this.title_en = title_en;
-    this.html_en = html_en;
+    // this.title_en = title_en;
+    // this.html_en = html_en;
     }
 
 }

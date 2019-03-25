@@ -5,7 +5,7 @@ import {PageService} from 'app/page.service';
 
 // import {TranslateService} from 'ng2-translate';
 import {AuthGuard} from 'app/services/auth.guard';
-import { TranslateService } from 'app/translate/translate.service';
+import {TranslateService} from 'app/translate/translate.service';
 
 @Component({
   selector: 'header.app-nav',
@@ -19,7 +19,6 @@ export class NavComponent implements OnInit, AfterViewInit {
   activeUrl: any = {};
   showMenu: Boolean = false;
   imageUrl: string = 'assets/images/icons/default.svg';
-  public userLang: any;
 
   constructor(
     private router: Router,
@@ -29,10 +28,7 @@ export class NavComponent implements OnInit, AfterViewInit {
     private activatedRoute: ActivatedRoute,
     private _translate: TranslateService
   ) {
-    // translate.addLangs(['en', 'ru']);
-    // translate.setDefaultLang('en');
-    // let browserLang = translate.getBrowserLang();
-    // translate.use(browserLang.match(/en|ru/) ? browserLang : 'en');
+
   }
 
   defaultImage(event) {
@@ -49,7 +45,9 @@ export class NavComponent implements OnInit, AfterViewInit {
 
 
   ngOnInit() {
-    this.userLang = navigator.language || window.navigator['userLanguage'];
+    let currentLang = this._translate.currentLang.toLocaleLowerCase();
+    // console.log(this._translate.currentLang.toLocaleLowerCase());
+    // console.log(this._translate.currentLang.toLocaleLowerCase() === 'ru');
     this.pageService.getPageList()
       .subscribe(page => {
         page.pages
@@ -62,27 +60,30 @@ export class NavComponent implements OnInit, AfterViewInit {
 
                 array.push({
                   url: element.slug,
-                  title: element.title ? element.title : element.slug,
-                  title_en: element.title_en ? element.title_en : element.slug,
+                  title: currentLang === 'ru' ? element.title ? element.title : element.slug : element.title_en ? element.title_en : element.slug,
+                  // title: element.title ? element.title : element.slug,
+                  // title_en: element.title_en ? element.title_en : element.slug,
                   type: element.type
                 });
               });
               this.listUrl.push({
                 url: element.slug,
-                title: element.title ? element.title : element.slug,
-                title_en: element.title_en ? element.title_en : element.slug,
+                title: currentLang === 'ru' ? element.title ? element.title : element.slug : element.title_en ? element.title_en : element.slug,
+                // title: element.title ? element.title : element.slug,
+                // title_en: element.title_en ? element.title_en : element.slug,
                 underpage: array,
                 type: element.type
               })
             } else {
               if (element.slug == 'login' && this.authGuard.canActivate()) {
-                this.listUrl.push({url: 'profile/my', title: 'Профиль', title_en: 'Account'})
+                this.listUrl.push({url: 'profile/my', title: this._translate.instant('profile_label')});
                 /* Сслыка на профиль */
               } else {
                 this.listUrl.push({
                   url: element.slug,
-                  title: element.title ? element.title : element.slug,
-                  title_en: element.title_en ? element.title_en : element.slug,
+                  title: currentLang === 'ru' ? element.title ? element.title : element.slug : element.title_en ? element.title_en : element.slug,
+                  // title: element.title ? element.title : element.slug,
+                  // title_en: element.title_en ? element.title_en : element.slug,
                   underpage: false,
                   type: element.type
                 })

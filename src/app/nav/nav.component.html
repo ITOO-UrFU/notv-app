@@ -4,15 +4,15 @@
   <ul [ngClass]="{showed: showMenu}" class="menu">
     <li (click)="toggleMenuVisible(true)" *ngFor="let url of listUrl" [routerLinkActive]="['active']" class="item">
 
-      <template [ngIf]="userLang=='ru-RU'">
+      <!--<template [ngIf]="userLang=='ru-RU'">-->
         <a *ngIf=" url.type == 'header'" [routerLink]="[url.url, url.underpage[0].url]"> {{ url.title }} </a>
         <a *ngIf="url.type != 'header'" [routerLink]="url.url"> {{ url.title }} </a>
-      </template>
+      <!--</template>-->
 
-      <template [ngIf]="userLang!='ru-RU'">
-        <a *ngIf=" url.type == 'header'" [routerLink]="[url.url, url.underpage[0].url]"> {{ url.title_en }} </a>
-        <a *ngIf="url.type != 'header'" [routerLink]="url.url"> {{ url.title_en }} </a>
-      </template>
+      <!--<template [ngIf]="userLang!='ru-RU'">-->
+        <!--<a *ngIf=" url.type == 'header'" [routerLink]="[url.url, url.underpage[0].url]"> {{ url.title_en }} </a>-->
+        <!--<a *ngIf="url.type != 'header'" [routerLink]="url.url"> {{ url.title_en }} </a>-->
+      <!--</template>-->
 
 
       <ul *ngIf="url.underpage && url.type != 'homepage'" class="submenu">

@@ -62,7 +62,8 @@ export class PageComponent implements OnDestroy, OnInit {
       .subscribe(
         page => {
           this.page = page;
-          this.userLang == 'ru-RU' ? this.setTitle(page.title) : this.setTitle(page.title_en);
+          // this.userLang == 'ru-RU' ?
+          this.setTitle(page.title);
           this.subPages = [];
           if (this.page.pages.length > 0){
             for (let subpage of this.page.pages){

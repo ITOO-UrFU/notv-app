@@ -1,4 +1,4 @@
-import { Injectable, Inject, EventEmitter } from '@angular/core';
+import {Injectable, Inject, EventEmitter, forwardRef} from '@angular/core';
 import { TRANSLATIONS } from './translations'; // import our opaque token
 
 @Injectable()
@@ -23,8 +23,14 @@ export class TranslateService {
     this._fallback = enable;
   }
 
+  public write(logMessage:string){
+
+    console.log(logMessage);
+  }
   // inject our translations
-  constructor(@Inject(TRANSLATIONS) private _translations: any) {
+  constructor(
+    @Inject(TRANSLATIONS) private _translations: any,
+  ) {
   }
 
   public use(lang: string): void {
@@ -57,9 +63,9 @@ export class TranslateService {
     return translation;
   }
 
-  public addTranslate(key: string, word: string){
-
-  }
+  // public addTranslate(key: string, word: string){
+  //
+  // }
 
 
   public replace(word: string = '', words: string | string[] = '') {

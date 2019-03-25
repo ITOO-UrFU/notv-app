@@ -1,11 +1,11 @@
-// lang-en.ts
+﻿// lang-en.ts
 
 export const LANG_RU_NAME = 'ru';
 
 export const LANG_RU_TRANS = {
   // основные лейблы
   'edcrunch_title': "",
-  'edcrunch_title_add': "Новые образовательные технологии в вузе – 2019",
+  'edcrunch_title_add': "Новые образовательные технологии в вузе",
 
   // логин компонент
   'login_error_msg': 'Ошибка при входе. Проверьте правильность введенных данных.',
@@ -106,7 +106,7 @@ export const LANG_RU_TRANS = {
   'enter_confirm_new_password': "Повторите новый пароль",
   'pass_successfully_changed_msg': "Пароль успешно изменен",
   'error_label': "Ошибка",
-  'change_pass_err_mg_1': "Новые пароли не совпадают, либо пусты!",
+  'change_pass_err_mg_1': "Новые пароли не совпадают либо пусты!",
   'change_pass_err_mg_2': "Старый пароль введен неверно!",
   // 'change_password_label'
   // 'cancel_label'

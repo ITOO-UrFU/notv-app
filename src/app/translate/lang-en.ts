@@ -1,11 +1,11 @@
-// lang-en.ts
+﻿// lang-en.ts
 
 export const LANG_EN_NAME = 'en';
 
 export const LANG_EN_TRANS = {
   // основные лейблы
   'edcrunch_title': "",
-  'edcrunch_title_add': "New educational technologies",
+  'edcrunch_title_add': "New educational technologies in higher education",
 
   // логин компонент
   'login_error_msg': 'Login error. Check the correctness of the entered data.',
@@ -21,7 +21,7 @@ export const LANG_EN_TRANS = {
   'or_label': 'or',
 
   // футер компонент
-  'conference_organizers': "Organizers",
+  'conference_organizers': "Conference organizers",
   'support_label': "Project support",
   'contacts_label': "Contacts",
   'please_contact_us_msg' : "For questions please contact us",
@@ -31,11 +31,11 @@ export const LANG_EN_TRANS = {
 
   // Восстановление пароля компонент
   'reset_password_label': "Password recovery",
-  'reset_password_instruction': "To recover your password, please enter your email you provided on sign up.",
-  'reset_password_button': 'Reset password',
+  'reset_password_instruction': "Enter your email address in the box below and we will send password recovery instructions to it.",
+  'reset_password_button': 'Restore password',
   'cancel_label': "Cancel",
   'sent_new_pass_msg': "A new password has been sent to your email address.",
-  'reset_pass_err_label': "Error while resetting password!",
+  'reset_pass_err_label': "Password Recovery Error!",
 
   // регистрация компонент
   // 'sign_up_label'
@@ -48,15 +48,15 @@ export const LANG_EN_TRANS = {
   'enter_first_name_label': "You must enter your first name",
   'second_name_label': "Second name",
   'enter_second_name_label' :"You must enter your second name",
-  'job_label': "Job",
+  'job_label': "Place of work",
   'enter_job_label': "You must enter your job",
-  'present_post_label': "Present post",
+  'present_post_label': "Position",
   'enter_present post_label': "You must enter your present post",
   'phone_number_label': "Phone number",
   'enter_phone_number_label': "You must enter your phone number",
   'type_of_participation': "Type of participation",
-  'internally_label': "Internally",
-  'broadcast_label': "Broadcast",
+  'internally_label': "full-time",
+  'broadcast_label': "online video broadcast",
   // 'password_label'
   // 'enter_password_label'
   'confirm_password_label': "Confirm password",
@@ -81,8 +81,8 @@ export const LANG_EN_TRANS = {
   // Изменить профиль
   'edit_profile_label': "Edit profile",
   'edit_profile_title_label': "Edit profile",
-  'changes_saved_label': "Changes saved",
-  'profile_sve_err_msg': "An error occurred while trying to save the profile!",
+  'changes_saved_label': "Changes are saved",
+  'profile_sve_err_msg': "Error saving data!",
   'save_label': "Save",
   // 'last_name_label'
   // 'first_name_label',
@@ -107,7 +107,7 @@ export const LANG_EN_TRANS = {
   'enter_confirm_new_password': "You must enter password",
   'pass_successfully_changed_msg': "Password successfully changed",
   'error_label': "Error",
-  'change_pass_err_mg_1': "New passwords do not match, or are empty!",
+  'change_pass_err_mg_1': "New passwords do not match or are empty!",
   'change_pass_err_mg_2': "Old password entered incorrectly!",
 
   // 'change_password_label'
