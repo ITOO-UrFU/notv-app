@@ -50,38 +50,22 @@ export class PageService {
     return this.http.get(this.pageUrl + url + '/?format=json')
       .map((data => {
         let body = data.json();
-        // console.log(this.translate);
-
-        var html = this._translate.currentLang.toLocaleLowerCase() === 'ru' ? body.html : body.html_en;
-        var title = this._translate.currentLang.toLocaleLowerCase() === 'ru' ? body.title :  body.title_en;
-
         return (new Page(
             body.slug,
-            html,
+          this._translate.currentLang.toLocaleLowerCase() === 'ru' ? body.html : body.html_en,
             body.keywords,
             body.pages,
-            title,
+          this._translate.currentLang.toLocaleLowerCase() === 'ru' ? body.title :  body.title_en,
             body.type
-            // body.title_en,
-            // body.html_en
         ));
-        // let usersList = data["userList"];
-        // return usersList.map(function(user:any) {
-        //   return {name: user.userName, age: user.userAge};
-        // });
       }))
   .catch(this.handleError);
-
-  // someMethod() {
-  //   console.log("print", this.translate);
-  //   // you can use this._appConfig without having to explicitly define it
+  }
   //
-  }
-
-  private extractData(res: Response) {
-    let body = res.json();
-    return body || {};
-  }
+  // private extractData(res: Response) {
+  //   let body = res.json();
+  //   return body || {};
+  // }
 
   private extractPages(res: Response) {
     let body = res.json();
