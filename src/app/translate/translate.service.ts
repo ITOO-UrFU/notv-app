@@ -5,8 +5,8 @@ import { TRANSLATIONS, available_languages } from './translations'; // import ou
 export class TranslateService {
   // private _currentLang: string;
   private PLACEHOLDER = '%';
-  private _defaultLang: string;
-  private _currentLang: string;
+  private _defaultLang = 'en';
+  private _currentLang = 'en';
   private _fallback: boolean;
 
   public onLangChanged: EventEmitter<string> = new EventEmitter<string>();
@@ -16,6 +16,8 @@ export class TranslateService {
   }
 
   public get availableLangs(){
+    // let c = this._currentLang;
+    // return available_languages.sort(function(x,y){return x.code === c ? -1 : y.code === c ? 1 : 0; }); // текущий язык на первом месте
     return available_languages;
   }
 
@@ -31,16 +33,14 @@ export class TranslateService {
         local_lang = 'ru';
       }
     }
+    this._defaultLang = local_lang;
     // console.log(available_languages);
     this.use(local_lang);
-    this._defaultLang = local_lang;
   }
 
   public enableFallback(enable: boolean) {
     this._fallback = enable;
   }
-
-
 
   // public write(logMessage:string){
   //

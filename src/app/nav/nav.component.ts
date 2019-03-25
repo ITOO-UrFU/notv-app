@@ -7,6 +7,7 @@ import {PageService} from 'app/page.service';
 import {AuthGuard} from 'app/services/auth.guard';
 import {TranslateService} from 'app/translate/translate.service';
 
+
 @Component({
   selector: 'header.app-nav',
   templateUrl: './nav.component.html',
@@ -93,6 +94,8 @@ export class NavComponent implements OnInit, AfterViewInit {
   }
 
   refreshPage() {
+    // console.log(this.router.url);
+    // this.router.navigateByUrl(this.router.url);
     window.location.reload();
   }
 
