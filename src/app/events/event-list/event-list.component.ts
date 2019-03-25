@@ -46,9 +46,9 @@ export class EventListComponent implements OnInit {
     this.title.setTitle('Мероприятия');
     this.eventsService.getEventsList()
       .subscribe(eventsList => {
-        this.timeGrid = []; //eventsList;
-        console.log(this.eventsList);
-        this.timeGrid = []; //this.eventsService.getEventsObject(this.typeFilter);
+        this.timeGrid = eventsList;
+        console.log(eventsList);
+        this.timeGrid = this.eventsService.getEventsObject(this.typeFilter);
         this.registerService.getProfile().subscribe(
           userProfile => {
             this.currentUser = userProfile;

@@ -39,7 +39,7 @@ export class EventComponent implements OnInit {
   }
 
 update(event: Event){
-    this.showButtons = false;
+    // this.showButtons = false;
     this.currentUser.get_events.forEach(event => {
                         if (event.event.id == this.currentEvent.id){
                             this.isReg = true;

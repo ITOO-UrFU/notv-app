@@ -91,7 +91,10 @@ const metaConfig: MetaConfig = {
   ],
 
   providers: [
+
     PageService,
+    TRANSLATION_PROVIDERS,
+    TranslateService,
     EventsService,
     HomePageService,
     SpeakersService,
@@ -99,16 +102,13 @@ const metaConfig: MetaConfig = {
     AuthenticationService,
     AlertService,
     AuthGuard,
-    TRANSLATION_PROVIDERS,
-    TranslateService,
-
    {
       provide: LOCALE_ID,
      //  useValue: "en-EN"
       useValue: 'ru-RU'
     },
     ],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent, []],
   entryComponents: [ PageComponent ],
 })
 export class AppModule { }

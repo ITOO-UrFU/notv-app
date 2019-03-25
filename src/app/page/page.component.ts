@@ -22,7 +22,7 @@ export class PageComponent implements OnDestroy, OnInit {
 
   ngOnInit(){
     this.userLang = navigator.language || window.navigator['userLanguage'];
-    console.log(navigator, )
+    // console.log(navigator, )
     // if( document.getElementById("hotel-map")){
     //             const fragment = document.createRange().createContextualFragment("<script type='text/javascript' charset='utf-8' async src='https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A416166cf5c7cfc16ad8b56e6c3f87885dd7ea8d54dae469c2c59c86e8d23c4fa&amp;width=600&amp;height=450&amp;lang=ru_RU&amp;scroll=true'></script>");
     //           document.getElementById("hotel-map").appendChild(fragment);
@@ -62,7 +62,8 @@ export class PageComponent implements OnDestroy, OnInit {
       .subscribe(
         page => {
           this.page = page;
-          this.userLang == 'ru-RU' ? this.setTitle(page.title) : this.setTitle(page.title_en);
+          // this.userLang == 'ru-RU' ?
+          this.setTitle(page.title);
           this.subPages = [];
           if (this.page.pages.length > 0){
             for (let subpage of this.page.pages){
