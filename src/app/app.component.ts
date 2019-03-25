@@ -32,9 +32,12 @@ constructor(private _location: Location,
   }
 
   ngOnInit() {
-  this._translate.setDefaultLang("en");
+    this._translate.setDefaultLang("en");
   // console.log(navigator.language, window.navigator['userLanguage']);
-   let lang = navigator.language || window.navigator['userLanguage'];
+    let lang = navigator.language || window.navigator['userLanguage'];
+    if (lang.includes('ru')){
+      lang = 'ru';
+    }
     // console.log("navigator.language", navigator.language);
     // console.log("this._translate", this._translate);
     this._translate.use(lang);
