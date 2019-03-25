@@ -31,19 +31,21 @@
             <span>{{ url2.title }}</span>
             <!--*ngIf="url2.url == 'all_events' || url2.type != 'events'"-->
           </a>
-
         </li>
       </ul>
 
     </li>
-    <!--<li class="item">-->
-    <!--<select #langSelect (change)="translate.use(langSelect.value)">-->
-    <!--<option *ngFor="let lang of translate.getLangs()" [value]="lang"-->
-    <!--[selected]="lang === translate.currentLang">{{ lang }}</option>-->
-    <!--</select>-->
-    <!--</li>-->
 
   </ul>
 
-</nav> 
+
+  <!-- lang-switcher--pill -->
+  <!-- lang-switcher--rounded-pill -->
+
+  <ul class="lang-switcher"  style="position: absolute; top: 10px; right: 10px;">
+
+    <li  *ngFor="let lang of this._translate.availableLangs" [value]="lang.code" (click)="lang.code !== this._translate.currentLang ? this._translate.use(lang.code) : false"><span [class.is-active]="lang.code === this._translate.currentLang">{{ lang.code }}</span></li>
+  </ul>
+
+</nav>
 

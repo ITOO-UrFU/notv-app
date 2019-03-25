@@ -1,6 +1,7 @@
 ﻿// lang-en.ts
 
 export const LANG_RU_NAME = 'ru';
+export const LANG_RU_TITLE = 'Русский';
 
 export const LANG_RU_TRANS = {
   // основные лейблы
@@ -51,7 +52,7 @@ export const LANG_RU_TRANS = {
   'job_label': "Место работы",
   'enter_job_label': "Необходимо ввести ваше место работы",
   'present_post_label': "Должность",
-  'enter_Present post_label': "Необходимо ввести вашу должность",
+  'enter_present_post_label': "Необходимо ввести вашу должность",
   'phone_number_label': "Номер телефона",
   'enter_phone_number_label': "Необходимо ввести ваш номер телефона",
   'type_of_participation': "Тип участия",

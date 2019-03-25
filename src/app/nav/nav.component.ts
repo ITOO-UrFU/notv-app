@@ -46,8 +46,6 @@ export class NavComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     let currentLang = this._translate.currentLang.toLocaleLowerCase();
-    // console.log(this._translate.currentLang.toLocaleLowerCase());
-    // console.log(this._translate.currentLang.toLocaleLowerCase() === 'ru');
     this.pageService.getPageList()
       .subscribe(page => {
         page.pages
@@ -61,16 +59,12 @@ export class NavComponent implements OnInit, AfterViewInit {
                 array.push({
                   url: element.slug,
                   title: currentLang === 'ru' ? element.title ? element.title : element.slug : element.title_en ? element.title_en : element.slug,
-                  // title: element.title ? element.title : element.slug,
-                  // title_en: element.title_en ? element.title_en : element.slug,
                   type: element.type
                 });
               });
               this.listUrl.push({
                 url: element.slug,
                 title: currentLang === 'ru' ? element.title ? element.title : element.slug : element.title_en ? element.title_en : element.slug,
-                // title: element.title ? element.title : element.slug,
-                // title_en: element.title_en ? element.title_en : element.slug,
                 underpage: array,
                 type: element.type
               })
@@ -82,8 +76,6 @@ export class NavComponent implements OnInit, AfterViewInit {
                 this.listUrl.push({
                   url: element.slug,
                   title: currentLang === 'ru' ? element.title ? element.title : element.slug : element.title_en ? element.title_en : element.slug,
-                  // title: element.title ? element.title : element.slug,
-                  // title_en: element.title_en ? element.title_en : element.slug,
                   underpage: false,
                   type: element.type
                 })
@@ -94,6 +86,18 @@ export class NavComponent implements OnInit, AfterViewInit {
         this.activeUrl = this.listUrl.filter(item => item.url == this.router.url.split('/')[1])[0];
 
       });
+
+    this.subscribeToLangChanged();
+
+
+  }
+
+  refreshPage() {
+    window.location.reload();
+  }
+
+  subscribeToLangChanged() {
+    return this._translate.onLangChanged.subscribe(x => this.refreshPage());
   }
 
   ngAfterViewInit() {

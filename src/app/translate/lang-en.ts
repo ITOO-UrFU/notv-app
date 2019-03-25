@@ -1,6 +1,7 @@
 ﻿// lang-en.ts
 
 export const LANG_EN_NAME = 'en';
+export const LANG_EN_TITLE = 'English';
 
 export const LANG_EN_TRANS = {
   // основные лейблы
@@ -51,7 +52,7 @@ export const LANG_EN_TRANS = {
   'job_label': "Place of work",
   'enter_job_label': "You must enter your job",
   'present_post_label': "Position",
-  'enter_present post_label': "You must enter your present post",
+  'enter_present_post_label': "You must enter your present post",
   'phone_number_label': "Phone number",
   'enter_phone_number_label': "You must enter your phone number",
   'type_of_participation': "Type of participation",
@@ -118,7 +119,7 @@ export const LANG_EN_TRANS = {
   'select_file_label': "Select a file",
   'upload_label': "Upload",
   'requirements_for_publication_label': "Requirements for publication",
-  'requirements_for_publication_link': "https://openedu.urfu.ru/files/edcrunch/assets/Технические требования на англ.docx",
+  'requirements_for_publication_link': "https://openedu.urfu.ru/files/edcrunch/assets/Technical requirements.docx",
   'publication_successfully_upload_msg': "Document %0 successfully uploaded!",
   'your_publication_label': "Your publication",
   'selected_label': "Selected",

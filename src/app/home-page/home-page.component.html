@@ -12,13 +12,13 @@
 
 <div *ngIf="homePage">
   <template ngFor let-block [ngForOf]="homePage.pages" let-i="index">
-    <template [ngIf]="userLang=='ru-RU'">
+    <template [ngIf]="userLang=='ru'">
       <div *ngIf="block.type=='banner'" class="homeBanner">
         <div [innerHTML]="block.html"></div>
       </div>
     </template>
 
-    <template [ngIf]="userLang!='ru-RU'">
+    <template [ngIf]="userLang!='ru'">
       <div *ngIf="block.type=='banner'" class="homeBanner_en">
         <div [innerHTML]="block.html_en"></div>
       </div>
@@ -35,11 +35,11 @@
     </section>
 
     <section *ngIf="block.type=='block' || block.type=='events'" class="home-block">
-      <h1 *ngIf="userLang=='ru-RU'">{{ block.title }}</h1>
-      <div *ngIf="userLang=='ru-RU'" [innerHTML]="block.html"></div>
+      <h1 *ngIf="userLang=='ru'">{{ block.title }}</h1>
+      <div *ngIf="userLang=='ru'" [innerHTML]="block.html"></div>
 
-      <h1 *ngIf="userLang!='ru-RU '">{{ block.title_en }}</h1>
-      <div *ngIf="userLang!='ru-RU '" [innerHTML]="block.html_en"></div>
+      <h1 *ngIf="userLang!='ru'">{{ block.title_en }}</h1>
+      <div *ngIf="userLang!='ru'" [innerHTML]="block.html_en"></div>
 
       <!--<div class="more" (click)="toEventByDirection(block.slug)">-->
       <!--<h4>Посмотреть мероприятия <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h4>-->

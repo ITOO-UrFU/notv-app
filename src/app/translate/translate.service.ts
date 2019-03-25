@@ -1,5 +1,5 @@
 import {Injectable, Inject, EventEmitter, forwardRef} from '@angular/core';
-import { TRANSLATIONS } from './translations'; // import our opaque token
+import { TRANSLATIONS, available_languages } from './translations'; // import our opaque token
 
 @Injectable()
 export class TranslateService {
@@ -15,18 +15,37 @@ export class TranslateService {
     return this._currentLang || this._defaultLang;
   }
 
-  public setDefaultLang(lang: string) {
-    this._defaultLang = lang;
+  public get availableLangs(){
+    return available_languages;
+  }
+
+  public setDefaultLang() {
+    let local_lang = 'en';
+    if (localStorage.getItem('edcrunch_site_language')) {
+      if (this.availableLangs.some((l) => l.code === localStorage.getItem('edcrunch_site_language'))){
+         local_lang = localStorage.getItem('edcrunch_site_language');
+      }
+    }else{
+      let browser_lang = navigator.language || window.navigator['userLanguage'];
+      if (browser_lang.includes('ru')){
+        local_lang = 'ru';
+      }
+    }
+    // console.log(available_languages);
+    this.use(local_lang);
+    this._defaultLang = local_lang;
   }
 
   public enableFallback(enable: boolean) {
     this._fallback = enable;
   }
 
-  public write(logMessage:string){
 
-    console.log(logMessage);
-  }
+
+  // public write(logMessage:string){
+  //
+  //   console.log(logMessage);
+  // }
   // inject our translations
   constructor(
     @Inject(TRANSLATIONS) private _translations: any,
@@ -34,6 +53,8 @@ export class TranslateService {
   }
 
   public use(lang: string): void {
+    localStorage.setItem('edcrunch_site_language', lang);
+
     if (this._translations[lang]){
       // set current language
       this._currentLang = lang;
