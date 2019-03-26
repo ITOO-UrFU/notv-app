@@ -37,6 +37,7 @@ export class RegisterService {
     }
 
   private handleError (error: Response | any) {
+      console.log('handleerror');
     return Observable.throw("error");
   }
 
@@ -57,6 +58,7 @@ export class RegisterService {
     }
 
   extractProfile(res: Response) {
+      console.log("exrt");
     let body = res.json();
     return body;
   }
@@ -101,5 +103,8 @@ export class RegisterService {
             let headers = new Headers({ 'Authorization': currentUser.token });
             return new RequestOptions({ headers: headers });
         }
+        // else{
+        //   return new RequestOptions({ });
+        // }
     }
 }

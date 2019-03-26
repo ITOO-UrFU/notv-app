@@ -32,12 +32,14 @@ export class AuthenticationService {
             .map((response: Response) => {
             const user = response.json();
             if (user && user.token) {
+                console.log("LOLLLLL")
                 localStorage.setItem('currentUser', JSON.stringify(user));
                 this.router.navigate(['profile', 'my']);
                 window.location.reload();
               }
             });
     }
+
     private jwt1() {
             const headers = new Headers({ 'Content-Type': 'application/json'});
             return new RequestOptions({ headers: headers });
@@ -54,6 +56,7 @@ export class AuthenticationService {
     }
 
     logout() {
+      console.log("LOGOUT AUTH SERVICE");
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');
         window.location.reload();
