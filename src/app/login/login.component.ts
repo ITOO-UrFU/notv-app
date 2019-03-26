@@ -58,8 +58,8 @@ export class LoginComponent implements OnInit {
         this.authenticationService.login(this.model.email, this.model.password)
             .subscribe(
                 data => {
-                    window.location.reload();
-                  // this.router.navigate([this.returnUrl]);
+                  console.log("LOL")
+                    // window.location.reload();
                   this.router.navigate(['/profile/my']);
 
 

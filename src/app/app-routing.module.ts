@@ -21,6 +21,7 @@ import {ChangePasswordComponent} from './user-profile/change-password/change-pas
 import {RegisterStudentsComponent} from './register-students/register-students.component';
 
 import {LoadMaterialsComponent} from './user-profile/load-materials/load-materials.component';
+import {PechaKuchaComponent} from './pechakucha/pechakucha.component';
 
 const routes: Routes = [
 
@@ -137,6 +138,11 @@ const routes: Routes = [
         component: HomePageComponent,
         children: [
         ]
+      },
+      {
+        path: 'pechakucha',
+        component: PechaKuchaComponent,
+        children: [],
       },
       {
         path: 'speakers',

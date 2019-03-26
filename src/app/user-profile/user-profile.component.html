@@ -2,8 +2,11 @@
 
  <!--<li [routerLinkActive]="['active']" class="profile-item"><a routerLink="./my_events" class="btn btn-primary"><i class="fa fa-list" aria-hidden="true"></i><span>Мои мероприятия</span></a></li>-->
  <li [routerLinkActive]="['active']" class="profile-item"><a routerLink="./my" class="btn btn-primary"><i class="fa fa-address-book" aria-hidden="true"></i><span> {{ 'profile_label' | translate }}</span></a></li>
-  <li [routerLinkActive]="['active']" class="profile-item"><a class="btn btn-primary" routerLink="./materials"><i
-    aria-hidden="true" class="fa fa-cloud-upload"></i><span>{{ 'upload_materials_label' | translate }}</span></a></li>
+  <li [routerLinkActive]="['active']" class="profile-item"><a class="btn btn-primary" routerLink="./materials"><i aria-hidden="true" class="fa fa-cloud-upload"></i><span>{{ 'upload_materials_label' | translate }}</span></a></li>
+  <li [routerLinkActive]="['active']" class="profile-item"><a class="btn btn-primary" routerLink="/pechakucha"><i aria-hidden="true" class="fa fa-cloud-upload"></i><span> PechaKucha </span></a></li>
+
+
+
  <li [routerLinkActive]="['active']" class="profile-item logout-button"><a  [routerLinkActive]="['active']"   (click)="logout()" class=""><i class="fa fa-sign-out" aria-hidden="true"></i><span>{{ 'logout' | translate }}</span></a></li>
 
 </ul>

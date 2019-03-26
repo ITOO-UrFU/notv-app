@@ -45,6 +45,7 @@ import {RegisterStudentsComponent} from './register-students/register-students.c
 import { TRANSLATION_PROVIDERS, TranslatePipe, TranslateService } from './translate';
 
 import {EventModalComponent} from './events/event-modal/event-modal.component';
+import {PechaKuchaComponent} from './pechakucha/pechakucha.component';
 
 const metaConfig: MetaConfig = {
 
@@ -80,7 +81,7 @@ const metaConfig: MetaConfig = {
     ChangePasswordComponent,
     RegisterStudentsComponent,
     TranslatePipe,
-
+    PechaKuchaComponent,
   ],
   imports: [
     BrowserModule,
