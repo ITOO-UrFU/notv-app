@@ -35,8 +35,7 @@
   <!--    </div>-->
   <!--  </div>-->
 
-  <template *ngIf="currentUser">
-    <div class="user-profile">
+    <div class="user-profile" *ngIf="isLogged && currentUser">
 
       <div class="form-group">
         <label for="last_name">{{currentUser.last_name}} {{currentUser.first_name}} {{currentUser.second_name}}</label>
@@ -64,13 +63,25 @@
         <label *ngIf="currentUser.participation == 'T' " for="phone"><em>{{ 'type_of_participation' | translate }}
           :</em> {{ 'broadcast_label' | translate }}</label>
       </div>
-    </div>
-  </template>
 
-  <template *ngIf="!currentUser">
-    <div class="user-profile">
-      LOL
+      <div class="form-group">
+        <label for="">В качестве кого Вы хотите участвовать в PechaKucha онлайн-курсов:</label>
+<!--        <select name="participation" [(ngModel)]="model.participation" #participation="ngModel" required >-->
+          <option value="L">Слушатель</option>
+          <option value="A">Автор идеи онлайн-курса с презентацией</option>
+<!--        </select>-->
+      </div>
+
+
     </div>
-  </template>
+
+    <div class="" *ngIf="!isLogged">
+      <div *ngIf="!isLogged">
+        <button (click)="toRegister()" class="btn button-event-tologin">
+          <ins style="font-weight: 500;">Войдите</ins>
+          , чтобы принять участие
+        </button>
+      </div>
+    </div>
 
 </div>

@@ -70,7 +70,7 @@ export class NavComponent implements OnInit, AfterViewInit {
                 type: element.type
               })
             } else {
-              if (element.slug == 'login' && this.authGuard.canActivate()) {
+              if (element.slug == 'login' && this.authGuard.is_logged()) {
                 this.listUrl.push({url: 'profile/my', title: this._translate.instant('profile_label')});
                 /* Сслыка на профиль */
               } else {

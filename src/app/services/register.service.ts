@@ -37,7 +37,6 @@ export class RegisterService {
     }
 
   private handleError (error: Response | any) {
-      console.log('handleerror');
     return Observable.throw("error");
   }
 
@@ -58,7 +57,6 @@ export class RegisterService {
     }
 
   extractProfile(res: Response) {
-      console.log("exrt");
     let body = res.json();
     return body;
   }
