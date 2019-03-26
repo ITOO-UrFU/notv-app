@@ -34,21 +34,20 @@ previousUrl: string;
       if (this.authGuard.canActivate()){
           this.activatedRoute.queryParams.subscribe(
                     data => {
-                        if(data['newreg']){
+                        if (data['newreg']){
                                 this.router.navigate(['profile', 'edit'], { queryParams: { newreg: data['newreg'] } });
-                        }
-                        else {
+                        } else {
                             this.router.navigate(['profile', 'edit']);
                         }
                     },
                     nodata => {
                         this.router.navigate(['profile', 'my']);
                     }
-                ); 
-      }
-      else {
+                );
+      } else {
           this.title.setTitle(this._translate.instant('register_label'));
       }
+
 
   }
 
@@ -61,8 +60,12 @@ previousUrl: string;
                 },
                 error => {
                   console.log(JSON.parse(error._body).email[0]);
-                  this.alertService.error(this._translate.instant('register_err_label'));
+                  let err_msg = JSON.parse(error._body).email[0] === "Это поле обязательно." ? "" : "\n " + JSON.parse(error._body).email[0];
+                  this.alertService.error(this._translate.instant('register_err_label') + err_msg);
                 });
     }
 
+  hideAlert() {
+    this.alertService.remove();
+  }
 }

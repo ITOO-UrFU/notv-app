@@ -3,12 +3,15 @@
   <button *ngIf="isLogged" (click)="goMyEvents()" class="btn btn-primary">К списку моих мероприятий</button>-->
   <i aria-hidden="true" class="fa fa-clock-o"></i>  {{ currentEvent.startdate | date:'shortTime' }}
   - {{ currentEvent.enddate | date:'shortTime' }} <br/>
+
+
   <span *ngIf="currentEvent.room">  <i aria-hidden="true" class="fa fa-map-marker"></i> ауд. {{currentEvent.room.title}}</span>
 
   <!--<img src="assets/images/icons/{{currentEvent.get_event_slug}}_icon.svg"/>-->
 
   <h3 style="margin-top: 5px;">{{currentEvent.eventtype}}</h3>
 
+</div>
 
   <p *ngIf="currentEvent.eventtypeid!='eventtype-plenar'">{{currentEvent.title}}</p>
 

@@ -9,11 +9,17 @@ import { LANG_RU_NAME, LANG_RU_TRANS, LANG_RU_TITLE  } from './lang-ru';
 // translation token
 export const TRANSLATIONS = new OpaqueToken('translations');
 
-// all traslations
-const dictionary = {
-  [LANG_EN_NAME]: LANG_EN_TRANS,
-  [LANG_RU_NAME]: LANG_RU_TRANS,
+export let dictionary = {
+  "en": LANG_EN_TRANS,
+  "ru": LANG_RU_TRANS,
 };
+
+// all traslations
+// export class dictionary {
+//   public static LANG_EN_NAME = LANG_EN_TRANS;
+//   public static LANG_RU_NAME = LANG_RU_TRANS;
+// };
+
 
 export const available_languages = [
   {

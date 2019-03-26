@@ -16,17 +16,17 @@
         
         <div class="form-group">
             <label for="last_name">{{ 'last_name_label' | translate }}:</label>
-            <input value="{{currentUser.last_name}}" type="text" class="form-control" name="last_name" [(ngModel)]="model.last_name" #last_name="ngModel" required />
+            <input value="{{currentUser.last_name}}" type="text" class="form-control" name="last_name" [(ngModel)]="model.last_name" #last_name="ngModel" required (ngModelChange)="hideAlert()" />
         </div>
 
         <div class="form-group">
             <label for="first_name">{{ 'first_name_label' | translate }}:</label>
-            <input value="{{currentUser.first_name}}" type="text" class="form-control" name="first_name" [(ngModel)]="model.first_name" #first_name="ngModel" required />
+            <input value="{{currentUser.first_name}}" type="text" class="form-control" name="first_name" [(ngModel)]="model.first_name" #first_name="ngModel" required (ngModelChange)="hideAlert()" />
         </div>
 
         <div class="form-group">
             <label for="second_name">{{ 'second_name_label' | translate }}:</label>
-            <input value="{{currentUser.second_name}}" type="text" class="form-control" name="second_name" [(ngModel)]="model.second_name" #second_name="ngModel" required />
+            <input value="{{currentUser.second_name}}" type="text" class="form-control" name="second_name" [(ngModel)]="model.second_name" #second_name="ngModel" required (ngModelChange)="hideAlert()" />
         </div>
 
         <!--<div class="form-group">
@@ -51,23 +51,23 @@
 
         <div class="form-group">
             <label for="position">{{ 'present_post_label' | translate }}:</label>
-            <input value="{{currentUser.position}}" type="text" class="form-control" name="position" [(ngModel)]="model.position" #position="ngModel" required />
+            <input value="{{currentUser.position}}" type="text" class="form-control" name="position" [(ngModel)]="model.position" #position="ngModel" required (ngModelChange)="hideAlert()" />
         </div>
         
         <div class="form-group">
             <label for="organisation">{{ 'job_label' | translate }}:</label>
-            <input value="{{currentUser.organisation}}" type="text" class="form-control" name="organisation" [(ngModel)]="model.organisation" #organisation="ngModel" required />
+            <input value="{{currentUser.organisation}}" type="text" class="form-control" name="organisation" [(ngModel)]="model.organisation" #organisation="ngModel" required (ngModelChange)="hideAlert()" />
         </div>
         
     
         <div class="form-group">
             <label for="phone">{{ 'phone_number_label' | translate }}</label>
-            <input value="{{currentUser.phone}}"  type="text" class="form-control" name="phone" [(ngModel)]="model.phone" #phone="ngModel" required />
+            <input value="{{currentUser.phone}}"  type="text" class="form-control" name="phone" [(ngModel)]="model.phone" #phone="ngModel" required (ngModelChange)="hideAlert()" />
         </div> 
        
         <div class="form-group">
             <label for="participation">{{ 'type_of_participation' | translate }}:</label>
-            <select value="{{currentUser.participation}}"  name="participation" [(ngModel)]="model.participation" #participation="ngModel" >
+            <select value="{{currentUser.participation}}"  name="participation" [(ngModel)]="model.participation" #participation="ngModel" (ngModelChange)="hideAlert()" >
             <option value="O">{{ 'internally_label' | translate }}</option>
             <option value="T">{{ 'broadcast_label' | translate }}</option>
             </select>

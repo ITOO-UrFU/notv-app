@@ -1,7 +1,7 @@
 ﻿// lang-en.ts
 
 export const LANG_RU_NAME = 'ru';
-export const LANG_RU_TITLE = 'Русский';
+export const LANG_RU_TITLE = 'Russian';
 
 export const LANG_RU_TRANS = {
   // основные лейблы

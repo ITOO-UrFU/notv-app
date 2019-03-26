@@ -44,6 +44,8 @@ import {ChangePasswordComponent} from './user-profile/change-password/change-pas
 import {RegisterStudentsComponent} from './register-students/register-students.component';
 import { TRANSLATION_PROVIDERS, TranslatePipe, TranslateService } from './translate';
 
+import {EventModalComponent} from './events/event-modal/event-modal.component';
+
 const metaConfig: MetaConfig = {
 
   useTitleSuffix: true,
@@ -55,7 +57,7 @@ const metaConfig: MetaConfig = {
 
 @NgModule({
   declarations: [
-
+    EventModalComponent,
     AppComponent,
     NavComponent,
     PageComponent,
@@ -91,10 +93,9 @@ const metaConfig: MetaConfig = {
   ],
 
   providers: [
-
-    PageService,
-    TRANSLATION_PROVIDERS,
     TranslateService,
+    TRANSLATION_PROVIDERS,
+    PageService,
     EventsService,
     HomePageService,
     SpeakersService,
@@ -108,7 +109,7 @@ const metaConfig: MetaConfig = {
       useValue: 'ru-RU'
     },
     ],
-  bootstrap: [AppComponent, []],
+  bootstrap: [AppComponent],
   entryComponents: [ PageComponent ],
 })
 export class AppModule { }

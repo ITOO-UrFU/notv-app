@@ -58,10 +58,10 @@ const routes: Routes = [
             path: 'my',
             component: MyProfileComponent,
           },
-         {
-            path: 'my_events',
-            component: UserEventsComponent
-          },
+         // {
+         //    path: 'my_events',
+         //    component: UserEventsComponent
+         //  },
         {
           path: 'materials',
           component: LoadMaterialsComponent
@@ -93,21 +93,21 @@ const routes: Routes = [
         component: ResetPasswordComponent
       },
 
-      {
-        path: 'events/my_events',
-        component: UserEventsComponent,
-        // canActivate: [AuthGuard],
-      },
-      {
-        path: 'events/all_events',
-        component: EventListComponent,
+      // {
+      //   path: 'events/my_events',
+      //   component: UserEventsComponent,
+      //   // canActivate: [AuthGuard],
+      // },
+      // {
+      //   path: 'events/all_events',
+      //   component: EventListComponent,
+      //
+      // },
 
-      },
-
-      {
-        path: 'events',
-        redirectTo: 'events/all_events',
-        pathMatch: 'full',
+      // {
+      //   path: 'events',
+      //   redirectTo: 'events/all_events',
+      //   pathMatch: 'full',
         // component: EventListComponent,
         // data: {
         //   meta: {
@@ -116,7 +116,7 @@ const routes: Routes = [
         //   }
         // },
 
-      },
+      // },
       {
         path: 'events/event/:id',
         component: EventComponent,

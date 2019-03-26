@@ -16,8 +16,9 @@ export class LoginComponent implements OnInit {
     model: any = {};
     returnUrl: string;
     showPassReset: boolean = false;
+    alertExists: boolean = true;
 
-    constructor(
+   constructor(
         private route: ActivatedRoute,
         private router: Router,
         private authenticationService: AuthenticationService,
@@ -37,8 +38,11 @@ export class LoginComponent implements OnInit {
         );
        }
 
-    ngOnInit() {
+  // private removeAlert(): void {
+  //   this.alertService.
+  // }
 
+    ngOnInit() {
 
       if (this.authGuard.canActivate()){
             this.router.navigate(['profile', 'my']);
@@ -55,11 +59,16 @@ export class LoginComponent implements OnInit {
             .subscribe(
                 data => {
                     window.location.reload();
-                    this.router.navigate([this.returnUrl]);
+                  // this.router.navigate([this.returnUrl]);
+                  this.router.navigate(['/profile/my']);
+
 
                 },
                 error => {
+                  // this.deleteHandler();
                     // this.alertService.error("Ошибка при входе. Проверьте правильность введенных данных.");
+                  // this.alertExists = true;
+
                   this.alertService.error(this._translate.instant('login_error_msg'));
                 });
     }
@@ -68,6 +77,7 @@ export class LoginComponent implements OnInit {
     }
 
     hideBlock(){
+        this.alertService.remove();
         this.showPassReset = false;
     }
 

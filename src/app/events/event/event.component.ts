@@ -5,12 +5,14 @@ import { Event } from 'app/events/event';
 import { AuthGuard } from 'app/services/auth.guard';
 import { RegisterService} from 'app/services/register.service';
 import { AlertService } from 'app/services/alert.service';
+import { EventModalComponent } from 'app/events/event-modal/event-modal.component';
 
 @Component({
   selector: 'div.app-event',
   templateUrl: './event.component.html',
   styleUrls: ['./event.component.scss']
 })
+
 export class EventComponent implements OnInit {
 
     @Input() currentEvent: Event;

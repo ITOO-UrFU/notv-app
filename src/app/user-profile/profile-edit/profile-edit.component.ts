@@ -58,7 +58,9 @@ export class ProfileEditComponent implements OnInit {
               error => { this.authenticationService.logout(); }
         );
   }
-
+  hideAlert() {
+    this.alertService.remove();
+  }
 update() {
         this.registerService.update(this.model)
             .subscribe(

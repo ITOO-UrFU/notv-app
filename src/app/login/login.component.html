@@ -9,7 +9,7 @@
     <h2>{{'login_msg' | translate}} </h2>
 
     </div>
-    <alert></alert>
+    <alert *ngIf="alertExists"></alert>
     <form name="form" (ngSubmit)="login()" #f="ngForm" novalidate >
        
  

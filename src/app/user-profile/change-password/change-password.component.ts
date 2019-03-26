@@ -19,7 +19,9 @@ export class ChangePasswordComponent implements OnInit {
   ngOnInit() {
     this.title.setTitle(this._translate.instant('change_password_title_label'));
   }
-
+  hideAlert() {
+    this.alertService.remove();
+  }
     newPassword(){
           this.authenticationService.changePassword(this.model.password_old, this.model.password1, this.model.password2).subscribe(
                 data => {
