@@ -93,14 +93,16 @@ export class PechaKuchaComponent implements OnInit {
   }
 
   unregisterAtPechaKucha(){
-    this.pechaKuchaService.unregisterPechaKucha().subscribe(pecha => {
-        console.log('Отказано в печекуче', pecha);
-        this.accept_pechakucha = false;
-      },
-      error => {
-        console.log('err unregisterAtPechaKucha');
-      }
-    );
+    if(confirm("Вы уверены, что хотите отказаться от участия в мероприятии?")) {
+      this.pechaKuchaService.unregisterPechaKucha().subscribe(pecha => {
+          console.log('Отказано в печекуче', pecha);
+          this.accept_pechakucha = false;
+        },
+        error => {
+          console.log('err unregisterAtPechaKucha');
+        }
+      );
+    }
   }
   public choiced(fileInput: any) {
     console.log("public choiced", fileInput.target.files);

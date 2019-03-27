@@ -11,6 +11,9 @@
         <label for="email">{{ 'email_label' | translate }}</label>
         <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" required (ngModelChange)="hideAlert()" />
         <div *ngIf="f.submitted && !email.valid" class="help-block">{{ 'enter_email_label' | translate }}</div>
+        <div *ngFor="let error of errors" class="text-danger">
+          {{error}}
+        </div>
       </div>
 
       <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !last_name.valid }">

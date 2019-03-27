@@ -7,6 +7,7 @@ import { AuthenticationService } from 'app/services/auth.service';
 import { Title } from '@angular/platform-browser';
 import { TranslateService } from 'app/translate/translate.service';
 import {Location} from '@angular/common';
+import {ScrollHelper} from 'app/helpers';
 
 @Component({
   selector: 'div.app-profile-edit',
@@ -18,7 +19,7 @@ export class ProfileEditComponent implements OnInit {
     currentUser: any =  {};
     currentUserEmail = '';
     userEvents: Event[];
-
+    private scrollHelper: ScrollHelper = new ScrollHelper();
     showNewRegister: boolean = false;
 
   constructor(
@@ -43,6 +44,8 @@ export class ProfileEditComponent implements OnInit {
 
 
   ngOnInit() {
+    this.scrollHelper.scrollToFirst('profile-menu');
+    this.scrollHelper.doScroll();
       this.title.setTitle(this._translate.instant('edit_profile_title_label'));
             this.registerService.getProfile().subscribe(userProfile => {
 

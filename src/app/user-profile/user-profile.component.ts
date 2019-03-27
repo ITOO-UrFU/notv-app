@@ -21,6 +21,7 @@ export class UserProfileComponent implements OnInit {
     }
 
   ngOnInit() {
+
         // this.title.setTitle("Ваш профиль");
   }
 
