@@ -34,7 +34,7 @@ export class PechaKuchaService {
   }
 
   setParticipationType(status): Observable<any> {
-    return this.http.post(pechaKuchaUrl + 'save', this.jwt().merge(new RequestOptions({body: {status: status}})))
+    return this.http.post(pechaKuchaUrl + 'save',{status:status}, this.jwt() )
       .map(this.extractpechaKucha)
       .catch(this.handleError);
   }
