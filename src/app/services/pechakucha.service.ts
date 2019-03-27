@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http, Headers, RequestOptions, Response} from '@angular/http';
+import {Http, Headers, RequestOptions, Response, RequestOptionsArgs} from '@angular/http';
 import {User} from 'app/user';
 import {Observable} from 'rxjs/Observable';
 import {Event} from 'app/events/event';
@@ -33,6 +33,12 @@ export class PechaKuchaService {
       .catch(this.handleError);
   }
 
+  setParticipationType(status): Observable<any> {
+    return this.http.post(pechaKuchaUrl + 'save', this.jwt().merge(new RequestOptions({body: {status: status}})))
+      .map(this.extractpechaKucha)
+      .catch(this.handleError);
+  }
+
   unregisterPechaKucha(): Observable<any> {
     return this.http.get(pechaKuchaUrl + 'remove', this.jwt())
       .map(this.extractpechaKucha)
@@ -43,6 +49,8 @@ export class PechaKuchaService {
     let body = res.json();
     return body;
   }
+
+  set
 
   private handleError(error: Response | any) {
     return Observable.throw('error');

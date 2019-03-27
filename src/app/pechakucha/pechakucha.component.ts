@@ -29,6 +29,8 @@ export class PechaKuchaComponent implements OnInit {
   is_choiced: boolean = false;
   current_file = '';
   showSuccess: boolean = false;
+
+  file: any;
   //
   constructor(
     private http: Http,
@@ -55,11 +57,17 @@ export class PechaKuchaComponent implements OnInit {
           // console.log(this.currentUser);
 
           this.pechaKuchaService.pechaKucha().subscribe(kucha => {
-              console.log(kucha.pk_accept);
+              console.log(kucha);
               this.participation_type = kucha.pk_status;
               if (this.participation_type === 'a') this.show_presentation_upload_block = true;
               if (kucha.pk_accept) {
                 this.accept_pechakucha = true;
+              }
+              if (kucha.pk_presentation_file){
+                this.file = {
+                  pk_presentation_file: kucha.pk_presentation_file,
+                  pk_presentation_title: kucha.pk_presentation_title
+                };
               }
             },
             error => {
@@ -75,9 +83,7 @@ export class PechaKuchaComponent implements OnInit {
 
   registerAtPechaKucha() {
     this.pechaKuchaService.registerPechaKucha().subscribe(pecha => {
-        // console.log('зарегистрировано на печукучу', pecha);
         this.participation_type = pecha.pk_status;
-        // console.log(this.participation_type);
         this.accept_pechakucha = true;
       },
       error => {
@@ -97,9 +103,13 @@ export class PechaKuchaComponent implements OnInit {
     );
   }
   public choiced(fileInput: any) {
+    console.log("public choiced", fileInput.target.files);
     if (fileInput.target.files && fileInput.target.files[0]) {
       this.is_choiced = true;
       this.current_file = (<HTMLInputElement>document.querySelector('input.file-input')).value.replace(/^.*[\\\/]/, '');
+    }
+    else{
+      this.is_choiced = false;
     }
   }
   fileChange(event) {
@@ -115,10 +125,16 @@ export class PechaKuchaComponent implements OnInit {
         .subscribe(
           data => {
             // this.update();
+            // this.registerAtPechaKucha;
             (<HTMLInputElement>document.querySelector('input.file-input')).value = '';
             this.is_choiced = false;
             this.showSuccess = true;
-            setTimeout(function(){ this.showSuccess = false;}.bind(this), 10000);
+            this.file = {
+              pk_presentation_file: data.presentation.url,
+              pk_presentation_title: data.presentation.filename
+            };
+            // console.log(data);
+            setTimeout(function(){ this.showSuccess = false;}.bind(this), 7000);
           },
           error => { console.log(error); }
         );
@@ -131,6 +147,14 @@ export class PechaKuchaComponent implements OnInit {
 
   handleChange(evt) {
     console.log(this.participation_type);
+    // setParticipationType
+    this.pechaKuchaService.setParticipationType(this.participation_type).subscribe(setPT => {
+      console.log(setPT);
+      },
+      error => {
+        console.log('err handleChange');
+      });
+
     if (this.participation_type === 'a') {
       this.show_presentation_upload_block = true;
     } else {
