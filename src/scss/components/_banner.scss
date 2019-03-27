@@ -41,9 +41,10 @@
         color: #fafafa;
         text-decoration: none;
         text-align: center;
-        font-size: $size;
+        font-size: 22px;
         padding: $size;
         text-transform: uppercase;
+        padding: 1em;
       }
     }
   }
@@ -84,6 +85,7 @@
     div.bigButton {
       padding: $size;
 
+
       a {
         display: block;
         background: #ee4037;
@@ -91,7 +93,7 @@
         color: #fafafa;
         text-decoration: none;
         text-align: center;
-        font-size: $size;
+        font-size: 22px;
         padding: $size;
         text-transform: uppercase;
       }
