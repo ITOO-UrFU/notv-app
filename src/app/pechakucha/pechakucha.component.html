@@ -84,7 +84,7 @@
 
       <section *ngIf="currentUser">
         <div *ngIf="file?.pk_presentation_file"><br/>
-          <h3>{{ 'your_presentation_label' | translate }}:</h3>
+          <strong>{{ 'your_presentation_label' | translate }}:</strong>
           <ul class="publications">
             <li class="publication">
               <a [href]="file.pk_presentation_file">
