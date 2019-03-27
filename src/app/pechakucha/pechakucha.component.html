@@ -35,15 +35,15 @@
   <!--    </div>-->
   <!--  </div>-->
 
-  <button *ngIf="!accept_pechakucha" (click)="registerAtPechaKucha()">Принять учатие</button>
+  <button (click)="registerAtPechaKucha()" *ngIf="!accept_pechakucha" class="pk_accept_button">Принять учатие</button>
 
   <div class="user-profile" *ngIf="isLogged && currentUser && accept_pechakucha">
-    <button (click)="unregisterAtPechaKucha()">Отказаться от участия</button>
 
     <!--      <h3>Контактная информация</h3>-->
     <div class="pechakucha-form-group">
       <label
-        for="last_name"><strong>{{currentUser.last_name}} {{currentUser.first_name}} {{currentUser.second_name}}</strong></label>
+        for="last_name"><h3>{{currentUser.last_name}} {{currentUser.first_name}} {{currentUser.second_name}}</h3>
+      </label>
     </div>
 
     <div class="pechakucha-form-group">
@@ -81,31 +81,10 @@
 
     <div *ngIf="show_presentation_upload_block">
 
-      <div *ngIf="showSuccess" class="upload-alert-success">
-        {{ 'publication_successfully_upload_msg' | translate: current_file }}
-      </div>
-      <section class="upload-form">
-        <h3 for="material">{{ 'upload_publication_label' | translate }}:</h3>
-        <form name="form" (ngSubmit)="fileChange($event)" #f="ngForm" novalidate>
-          <div class="file-container">
-            <label class="file_upload">
-
-              <span class="button">
-                <span *ngIf="is_choiced">{{ 'selected_label' | translate }}: {{current_file}}</span>
-                <span *ngIf="is_choiced==false">{{ 'select_file_label' | translate }}</span>
-              </span>
-
-              <input type="file" placeholder="{{'upload_publication_label' | translate }}" accept=".odt,.doc,.docx"
-                     class="file-input" (change)="choiced($event)">
-            </label>
-            <button *ngIf="is_choiced" class="file-send" value="Отправить"> {{ 'upload_label' | translate }}</button>
-          </div>
-        </form>
-      </section>
 
       <section *ngIf="currentUser">
         <div *ngIf="file?.pk_presentation_file"><br/>
-          <h3>{{ 'your_publication_label' | translate }}:</h3>
+          <h3>{{ 'your_presentation_label' | translate }}:</h3>
           <ul class="publications">
             <li class="publication">
               <a [href]="file.pk_presentation_file">
@@ -115,16 +94,49 @@
                   <path fill="#359" d="m90,60-67,8v80l67,8"/>
                   <path fill="#FFF" d="m40,92 6,32h6l5-22 5,22h6l6-32h-5.3l-4,22-5-22h-6l-4,22-5-22"/>
                 </svg>
-                <br />
+                <br/>
                 <span class="filename">{{file.pk_presentation_title}}</span>
               </a>
-<!--              <i class="fa fa-times del" aria-hidden="true" (click)="fileDelete(doc.id)"></i>-->
+              <!--              <i class="fa fa-times del" aria-hidden="true" (click)="fileDelete(doc.id)"></i>-->
             </li>
           </ul>
+
+          <div *ngIf="showSuccess" class="upload-alert-success">
+            {{ 'presentation_successfully_upload_msg' | translate: current_file }}
+          </div>
+
         </div>
       </section>
+
+      <section class="upload-form">
+        <p>
+          <strong *ngIf="file?.pk_presentation_file" for="material">{{ 'upload_new_presentation_label' | translate }}
+            :</strong>
+          <strong *ngIf="!file?.pk_presentation_file" for="material">{{ 'upload_presentation_label' | translate }}
+            :</strong>
+        </p>
+        <form #f="ngForm" (ngSubmit)="fileChange($event)" name="form" novalidate>
+          <div class="file-container">
+            <label class="file_upload">
+
+              <span class="button">
+                <span *ngIf="is_choiced">{{ 'selected_label' | translate }}: {{current_file}}</span>
+                <span *ngIf="is_choiced==false">{{ 'select_file_label' | translate }}</span>
+              </span>
+
+              <input (change)="choiced($event)" class="file-input"
+                     placeholder="{{'upload_presentation_label' | translate }}" type="file">
+            </label>
+            <button *ngIf="is_choiced" class="file-send" value="Отправить"> {{ 'upload_label' | translate }}</button>
+          </div>
+        </form>
+      </section>
+
     </div>
 
+    <p class="pk_access"><strong>{{ 'pk_access_msg' | translate }}</strong></p>
+
+    <button (click)="unregisterAtPechaKucha()" class="pk_unregister_button">Отказаться от участия</button>
 
   </div>
 

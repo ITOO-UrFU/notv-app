@@ -1,10 +1,42 @@
 
-.upload-alert-success{
+.upload-alert-success {
   padding: 20px;
   font-size: 12pt;
   text-align: center;
   background: #8af39d;
-  span{
+
+  span {
     font-weight: 600;
   }
+}
+
+button.pk_accept_button {
+  display: inline-block;
+  width: 45%;
+  background: #30b84b;
+  border: none;
+  color: #fafafa;
+  cursor: pointer;
+  text-align: center;
+  vertical-align: baseline;
+  padding: 12px 6px 14px 6px;
+  box-sizing: border-box;
+}
+
+.home-block {
+  line-height: 1.7em;
+}
+
+.user-profile {
+  padding: 1em;
+  background-color: #dae8ff;
+
+}
+
+p.pk_access {
+  margin-top: 2em;
+}
+
+.small-message-button {
+  cursor: pointer;
 }

@@ -123,6 +123,12 @@ export const LANG_RU_TRANS = {
   'selected_label': "Выбрано",
   // 'upload_materials_label'
 
+  //Куча Печа
 
+  'upload_presentation_label': 'Загрузить презентацию',
+  'upload_new_presentation_label': 'Заменить презентацию',
+  'presentation_successfully_upload_msg': 'Документ %0 успешно загружен!',
+  'your_presentation_label': 'Ваша презентация',
+  'pk_access_msg': 'Ваша заявка на участие передана организаторам',
 
 };
