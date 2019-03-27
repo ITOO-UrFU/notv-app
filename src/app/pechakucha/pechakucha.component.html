@@ -35,7 +35,7 @@
   <!--    </div>-->
   <!--  </div>-->
 
-  <button (click)="registerAtPechaKucha()" *ngIf="!accept_pechakucha" class="pk_accept_button">Принять учатие</button>
+  <button (click)="registerAtPechaKucha()" *ngIf="!accept_pechakucha && isLogged" class="pk_accept_button">Принять учатие</button>
 
   <div class="user-profile" *ngIf="isLogged && currentUser && accept_pechakucha">
 
