@@ -139,7 +139,7 @@ export class PechaKuchaComponent implements OnInit {
               pk_presentation_title: data.presentation.filename
             };
             // console.log(data);
-            setTimeout(function(){ this.showSuccess = false;}.bind(this), 7000);
+            setTimeout(function(){ this.showSuccess = false;}.bind(this), 4000);
           },
           error => { console.log(error); }
         );
