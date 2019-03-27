@@ -97,6 +97,9 @@ export class PechaKuchaComponent implements OnInit {
       this.pechaKuchaService.unregisterPechaKucha().subscribe(pecha => {
           console.log('Отказано в печекуче', pecha);
           this.accept_pechakucha = false;
+          this.file = {};
+          this.show_presentation_upload_block = false;
+          this.participation_type = 'l';
         },
         error => {
           console.log('err unregisterAtPechaKucha');
