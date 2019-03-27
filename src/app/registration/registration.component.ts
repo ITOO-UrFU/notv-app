@@ -8,6 +8,7 @@ import {Title} from '@angular/platform-browser';
 import {AuthGuard} from 'app/services/auth.guard';
 import { TranslateService } from 'app/translate/translate.service';
 import {Location} from '@angular/common';
+import {ScrollHelper} from 'app/helpers';
 
 @Component({
   selector: 'app-registration',
@@ -18,6 +19,7 @@ export class RegistrationComponent implements OnInit {
 
 model: any = {};
 previousUrl: string;
+private scrollHelper: ScrollHelper = new ScrollHelper();
 
   constructor(
         private router: Router,
@@ -27,11 +29,12 @@ previousUrl: string;
         private title: Title,
         private authGuard: AuthGuard,
         private activatedRoute: ActivatedRoute,
-        private _translate: TranslateService
+        private _translate: TranslateService,
+
         ) {}
 
   ngOnInit() {
-      if (this.authGuard.canActivate()){
+      if (this.authGuard.is_logged()){
           this.activatedRoute.queryParams.subscribe(
                     data => {
                         if (data['newreg']){
@@ -45,7 +48,7 @@ previousUrl: string;
                     }
                 );
       } else {
-          this.title.setTitle(this._translate.instant('register_label'));
+        this.title.setTitle(this._translate.instant('register_label'));
       }
 
 
@@ -56,12 +59,20 @@ previousUrl: string;
             .subscribe(
                 data => {
                   // this.alertService.success('Registration successful', true);
+                  console.log("data", data);
                   this.authenticationService.login(this.model.email, this.model.password1).subscribe(data => {}, error => {});
                 },
                 error => {
-                  console.log(JSON.parse(error._body).email[0]);
-                  let err_msg = JSON.parse(error._body).email[0] === "Это поле обязательно." ? "" : "\n " + JSON.parse(error._body).email[0];
-                  this.alertService.error(this._translate.instant('register_err_label') + err_msg);
+                  console.log("REG ERROR", error);
+                  let err_msg = this._translate.instant('register_err_label');
+
+                  if(error.email){
+                    err_msg = this._translate.instant('email_label') + ": " + error.email[0].toLowerCase();
+                  }
+                  this.scrollHelper.scrollToFirst('form-group-header');
+                  this.scrollHelper.doScroll();
+                  // let err_msg = "lal"; // JSON.parse(error._body).email[0] === "Это поле обязательно." ? "" : "\n " + JSON.parse(error._body).email[0];
+                  this.alertService.error(err_msg);
                 });
     }
 

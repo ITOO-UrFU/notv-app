@@ -18,8 +18,10 @@ export class RegisterService {
 
     registerUrl = 'https://openedu.urfu.ru/edcrunch/api/v1/rest-auth/';
 
-    create(user: User) {
-        return this.http.post(this.registerUrl + 'registration/', user, this.jwt()).map((response: Response) => response.json());
+// (): Observable<any>
+
+    create(user:User): Observable<User> {
+        return this.http.post(this.registerUrl + 'registration/', user, this.jwt()).map((response: Response) => response.json()).catch(this.handleError);
     }
 
     createStudent(user: any) {
@@ -37,7 +39,9 @@ export class RegisterService {
     }
 
   private handleError (error: Response | any) {
-    return Observable.throw("error");
+    let body = error.json();
+    // return body;
+    return Observable.throw(body);
   }
 
     registerOnEvent(id: string){

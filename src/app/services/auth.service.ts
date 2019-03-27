@@ -32,7 +32,7 @@ export class AuthenticationService {
             .map((response: Response) => {
             const user = response.json();
             if (user && user.token) {
-                console.log("LOLLLLL")
+                // console.log("LOLLLLL")
                 localStorage.setItem('currentUser', JSON.stringify(user));
                 this.router.navigate(['profile', 'my']);
                 window.location.reload();
