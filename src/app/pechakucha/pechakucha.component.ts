@@ -97,6 +97,9 @@ export class PechaKuchaComponent implements OnInit {
       this.pechaKuchaService.unregisterPechaKucha().subscribe(pecha => {
           console.log('Отказано в печекуче', pecha);
           this.accept_pechakucha = false;
+          this.file = {};
+          this.show_presentation_upload_block = false;
+          this.participation_type = 'l';
         },
         error => {
           console.log('err unregisterAtPechaKucha');
@@ -136,7 +139,7 @@ export class PechaKuchaComponent implements OnInit {
               pk_presentation_title: data.presentation.filename
             };
             // console.log(data);
-            setTimeout(function(){ this.showSuccess = false;}.bind(this), 7000);
+            setTimeout(function(){ this.showSuccess = false;}.bind(this), 4000);
           },
           error => { console.log(error); }
         );
