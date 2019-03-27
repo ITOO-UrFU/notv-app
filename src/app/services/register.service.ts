@@ -42,9 +42,18 @@ export class RegisterService {
         .catch(this.handleError);
     }
 
+
+  registerPechaKucha(): Observable<any> {
+    return this.http.get('https://openedu.urfu.ru/edcrunch/api/v1/pechakucha/accept', this.jwt())
+      .map(this.extractpechaKucha)
+      .catch(this.handleError);
+  }
+
+
+
   extractpechaKucha(res: Response){
     let body = res.json();
-    console.log(body)
+    console.log("extractpechaKucha", body);
   }
 
   private handleError (error: Response | any) {

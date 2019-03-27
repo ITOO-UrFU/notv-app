@@ -46,6 +46,7 @@ import { TRANSLATION_PROVIDERS, TranslatePipe, TranslateService } from './transl
 
 import {EventModalComponent} from './events/event-modal/event-modal.component';
 import {PechaKuchaComponent} from './pechakucha/pechakucha.component';
+import {CommonModule} from '@angular/common';
 
 const metaConfig: MetaConfig = {
 
@@ -91,6 +92,7 @@ const metaConfig: MetaConfig = {
     MaterialModule.forRoot(),
     TranslateModule.forRoot(),
     MetaModule.forRoot(metaConfig),
+    CommonModule,
   ],
 
   providers: [

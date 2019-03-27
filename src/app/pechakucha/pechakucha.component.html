@@ -57,18 +57,19 @@
         <label for="phone"><strong>{{ 'phone_number_label' | translate }}:</strong> {{currentUser.phone}}</label>
       </div>
 
-<!--      <div class="pechakucha-form-group">-->
-<!--        <label *ngIf="currentUser.participation == 'O' " for="phone"><em>{{ 'type_of_participation' | translate }}-->
-<!--          :</em> {{ 'internally_label' | translate }}</label>-->
-<!--        <label *ngIf="currentUser.participation == 'T' " for="phone"><em>{{ 'type_of_participation' | translate }}-->
-<!--          :</em> {{ 'broadcast_label' | translate }}</label>-->
-<!--      </div>-->
+
+      <button (click)="registerAtPechaKucha()" >Принять учатие</button>
+
       <div class="small-message">Информацию о себе вы всегда можете отредактировать в <span class="small-message-button" (click)="this.router.navigateByUrl('profile/edit')" style="color: #323239;">разделе "Профиль"</span></div>
       <div class="pechakucha-form-group">
 
         <label for=""><strong>В качестве кого Вы хотите участвовать в PechaKucha онлайн-курсов?</strong></label>
         <div class="pechakucha-form-group"><input type="radio" [(ngModel)]="participation_type" name="participation_type" [checked]="'L' === participation_type" value="L" (change)="handleChange($event)" id="participation_type_l"><label for="participation_type_l">Слушатель</label></div>
       <div class="pechakucha-form-group"><input type="radio" [(ngModel)]="participation_type" name="participation_type" [checked]="'A' === participation_type" value="A" (change)="handleChange($event)" id="participation_type_a"><label for="participation_type_a">Автор идеи онлайн-курса с презентацией</label></div>
+      </div>
+
+      <div *ngIf="show_presentation_upload_block">
+        PRESENTATION UPLOAD BLOCK
       </div>
 
 

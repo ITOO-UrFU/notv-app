@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 
 import { AuthenticationService } from 'app/services/auth.service';
 import { AlertService } from 'app/services/alert.service';
@@ -43,7 +43,12 @@ export class LoginComponent implements OnInit {
   // }
 
     ngOnInit() {
-
+      this.router.events.subscribe((evt) => {
+        if (!(evt instanceof NavigationEnd)) {
+          return;
+        }
+        window.scrollTo(0, 0);
+      });
       if (this.authGuard.canActivate()){
             this.router.navigate(['profile', 'my']);
       }
