@@ -35,53 +35,83 @@
   <!--    </div>-->
   <!--  </div>-->
 
-    <div class="user-profile" *ngIf="isLogged && currentUser">
-<!--      <h3>Контактная информация</h3>-->
-      <div class="pechakucha-form-group">
-        <label for="last_name"><strong>{{currentUser.last_name}} {{currentUser.first_name}} {{currentUser.second_name}}</strong></label>
-      </div>
+  <button *ngIf="!accept_pechakucha" (click)="registerAtPechaKucha()">Принять учатие</button>
 
-      <div class="pechakucha-form-group">
-        <label> <strong>e-mail:</strong> {{currentUserEmail}} </label>
-      </div>
+  <div class="user-profile" *ngIf="isLogged && currentUser && accept_pechakucha">
+    <button (click)="unregisterAtPechaKucha()">Отказаться от участия</button>
 
-      <div class="pechakucha-form-group">
-        <label for="position"><strong>{{'present_post_label' | translate}}:</strong> {{currentUser.position}}</label>
-      </div>
-
-      <div class="pechakucha-form-group">
-        <label for="organisation"><strong>{{ 'job_label' | translate }}:</strong> {{currentUser.organisation}}</label>
-      </div>
-
-      <div class="pechakucha-form-group">
-        <label for="phone"><strong>{{ 'phone_number_label' | translate }}:</strong> {{currentUser.phone}}</label>
-      </div>
-
-
-      <button (click)="registerAtPechaKucha()" >Принять учатие</button>
-
-      <div class="small-message">Информацию о себе вы всегда можете отредактировать в <span class="small-message-button" (click)="this.router.navigateByUrl('profile/edit')" style="color: #323239;">разделе "Профиль"</span></div>
-      <div class="pechakucha-form-group">
-
-        <label for=""><strong>В качестве кого Вы хотите участвовать в PechaKucha онлайн-курсов?</strong></label>
-        <div class="pechakucha-form-group"><input type="radio" [(ngModel)]="participation_type" name="participation_type" [checked]="'L' === participation_type" value="L" (change)="handleChange($event)" id="participation_type_l"><label for="participation_type_l">Слушатель</label></div>
-      <div class="pechakucha-form-group"><input type="radio" [(ngModel)]="participation_type" name="participation_type" [checked]="'A' === participation_type" value="A" (change)="handleChange($event)" id="participation_type_a"><label for="participation_type_a">Автор идеи онлайн-курса с презентацией</label></div>
-      </div>
-
-      <div *ngIf="show_presentation_upload_block">
-        PRESENTATION UPLOAD BLOCK
-      </div>
-
-
+    <!--      <h3>Контактная информация</h3>-->
+    <div class="pechakucha-form-group">
+      <label
+        for="last_name"><strong>{{currentUser.last_name}} {{currentUser.first_name}} {{currentUser.second_name}}</strong></label>
     </div>
 
-    <div class="" *ngIf="!isLogged">
-      <div *ngIf="!isLogged">
-        <button (click)="toRegister()" class="btn button-event-tologin">
-          <ins style="font-weight: 500;">Войдите</ins>
-          , чтобы принять участие
-        </button>
-      </div>
+    <div class="pechakucha-form-group">
+      <label> <strong>e-mail:</strong> {{currentUserEmail}} </label>
     </div>
+
+    <div class="pechakucha-form-group">
+      <label for="position"><strong>{{'present_post_label' | translate}}:</strong> {{currentUser.position}}</label>
+    </div>
+
+    <div class="pechakucha-form-group">
+      <label for="organisation"><strong>{{ 'job_label' | translate }}:</strong> {{currentUser.organisation}}</label>
+    </div>
+
+    <div class="pechakucha-form-group">
+      <label for="phone"><strong>{{ 'phone_number_label' | translate }}:</strong> {{currentUser.phone}}</label>
+    </div>
+
+    <div class="small-message">Информацию о себе вы всегда можете отредактировать в <span class="small-message-button"
+                                                                                          (click)="this.router.navigateByUrl('profile/edit')"
+                                                                                          style="color: #323239;">разделе "Профиль"</span>
+    </div>
+    <div class="pechakucha-form-group">
+
+      <label for=""><strong>В качестве кого Вы хотите участвовать в PechaKucha онлайн-курсов?</strong></label>
+      <div class="pechakucha-form-group"><input type="radio" [(ngModel)]="participation_type" name="participation_type"
+                                                [checked]="'l' === participation_type" value="l"
+                                                (change)="handleChange($event)" id="participation_type_l"><label
+        for="participation_type_l">Слушатель</label></div>
+      <div class="pechakucha-form-group"><input type="radio" [(ngModel)]="participation_type" name="participation_type"
+                                                [checked]="'a' === participation_type" value="a"
+                                                (change)="handleChange($event)" id="participation_type_a"><label
+        for="participation_type_a">Автор идеи онлайн-курса с презентацией</label></div>
+    </div>
+
+    <div *ngIf="show_presentation_upload_block">
+
+      <div *ngIf="showSuccess" class="upload-alert-success">
+        {{ 'publication_successfully_upload_msg' | translate: current_file }}
+      </div>
+      <section class="upload-form">
+        <h3 for="material">{{ 'upload_publication_label' | translate }}:</h3>
+        <form name="form" (ngSubmit)="fileChange($event)" #f="ngForm" novalidate>
+          <div class="file-container">
+            <label class="file_upload">
+              <span class="button">
+                <span *ngIf="is_choiced">{{ 'selected_label' | translate }}: {{current_file}}</span>
+                <span *ngIf="is_choiced==false">{{ 'select_file_label' | translate }}</span>
+              </span>
+              <input type="file" placeholder="{{'upload_publication_label' | translate }}" accept=".odt,.doc,.docx"
+                     class="file-input" (change)="choiced($event)">
+            </label>
+            <button *ngIf="is_choiced" class="file-send" value="Отправить"> {{ 'upload_label' | translate }}</button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+
+  </div>
+
+  <div class="" *ngIf="!isLogged">
+    <div *ngIf="!isLogged">
+      <button (click)="toRegister()" class="btn button-event-tologin">
+        <ins style="font-weight: 500;">Войдите</ins>
+        , чтобы принять участие
+      </button>
+    </div>
+  </div>
 
 </div>

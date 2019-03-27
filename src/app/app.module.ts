@@ -28,6 +28,7 @@ import {RegisterService} from 'app/services/register.service';
 import {LoginComponent} from './login/login.component';
 import {AuthenticationService} from 'app/services/auth.service';
 import {AlertService} from 'app/services/alert.service';
+import {PechaKuchaService} from 'app/services/pechakucha.service';
 
 import {AlertComponent} from 'app/directives/alert.component';
 import {UserProfileComponent} from 'app/user-profile/user-profile.component';
@@ -47,6 +48,8 @@ import { TRANSLATION_PROVIDERS, TranslatePipe, TranslateService } from './transl
 import {EventModalComponent} from './events/event-modal/event-modal.component';
 import {PechaKuchaComponent} from './pechakucha/pechakucha.component';
 import {CommonModule} from '@angular/common';
+
+
 
 const metaConfig: MetaConfig = {
 
@@ -103,6 +106,7 @@ const metaConfig: MetaConfig = {
     HomePageService,
     SpeakersService,
     RegisterService,
+    PechaKuchaService,
     AuthenticationService,
     AlertService,
     AuthGuard,
