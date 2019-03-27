@@ -1,4 +1,4 @@
-<div class="home-block">
+<div class="home-block" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
   <h2>PechaKucha</h2>
   <p><strong>PechaKucha</strong> &mdash; это открытая площадка для представления и обсуждения интересных идей и
     концепций создания новых онлайн-курсов по следующим направлениям:</p>
@@ -36,40 +36,39 @@
   <!--  </div>-->
 
     <div class="user-profile" *ngIf="isLogged && currentUser">
-
-      <div class="form-group">
-        <label for="last_name">{{currentUser.last_name}} {{currentUser.first_name}} {{currentUser.second_name}}</label>
+<!--      <h3>Контактная информация</h3>-->
+      <div class="pechakucha-form-group">
+        <label for="last_name"><strong>{{currentUser.last_name}} {{currentUser.first_name}} {{currentUser.second_name}}</strong></label>
       </div>
 
-      <div class="form-group">
-        <label> <em>e-mail:</em> {{currentUserEmail}} </label>
+      <div class="pechakucha-form-group">
+        <label> <strong>e-mail:</strong> {{currentUserEmail}} </label>
       </div>
 
-      <div class="form-group">
-        <label for="position"><em>{{'present_post_label' | translate}}:</em> {{currentUser.position}}</label>
+      <div class="pechakucha-form-group">
+        <label for="position"><strong>{{'present_post_label' | translate}}:</strong> {{currentUser.position}}</label>
       </div>
 
-      <div class="form-group">
-        <label for="organisation"><em>{{ 'job_label' | translate }}:</em> {{currentUser.organisation}}</label>
+      <div class="pechakucha-form-group">
+        <label for="organisation"><strong>{{ 'job_label' | translate }}:</strong> {{currentUser.organisation}}</label>
       </div>
 
-      <div class="form-group">
-        <label for="phone"><em>{{ 'phone_number_label' | translate }}:</em> {{currentUser.phone}}</label>
+      <div class="pechakucha-form-group">
+        <label for="phone"><strong>{{ 'phone_number_label' | translate }}:</strong> {{currentUser.phone}}</label>
       </div>
 
-      <div class="form-group">
-        <label *ngIf="currentUser.participation == 'O' " for="phone"><em>{{ 'type_of_participation' | translate }}
-          :</em> {{ 'internally_label' | translate }}</label>
-        <label *ngIf="currentUser.participation == 'T' " for="phone"><em>{{ 'type_of_participation' | translate }}
-          :</em> {{ 'broadcast_label' | translate }}</label>
-      </div>
+<!--      <div class="pechakucha-form-group">-->
+<!--        <label *ngIf="currentUser.participation == 'O' " for="phone"><em>{{ 'type_of_participation' | translate }}-->
+<!--          :</em> {{ 'internally_label' | translate }}</label>-->
+<!--        <label *ngIf="currentUser.participation == 'T' " for="phone"><em>{{ 'type_of_participation' | translate }}-->
+<!--          :</em> {{ 'broadcast_label' | translate }}</label>-->
+<!--      </div>-->
+      <div class="small-message">Информацию о себе вы всегда можете отредактировать в <span class="small-message-button" (click)="this.router.navigateByUrl('profile/edit')" style="color: #323239;">разделе "Профиль"</span></div>
+      <div class="pechakucha-form-group">
 
-      <div class="form-group">
-        <label for="">В качестве кого Вы хотите участвовать в PechaKucha онлайн-курсов:</label>
-<!--        <select name="participation" [(ngModel)]="model.participation" #participation="ngModel" required >-->
-          <option value="L">Слушатель</option>
-          <option value="A">Автор идеи онлайн-курса с презентацией</option>
-<!--        </select>-->
+        <label for=""><strong>В качестве кого Вы хотите участвовать в PechaKucha онлайн-курсов?</strong></label>
+        <div class="pechakucha-form-group"><input type="radio" [(ngModel)]="participation_type" name="participation_type" [checked]="'L' === participation_type" value="L" (change)="handleChange($event)" id="participation_type_l"><label for="participation_type_l">Слушатель</label></div>
+      <div class="pechakucha-form-group"><input type="radio" [(ngModel)]="participation_type" name="participation_type" [checked]="'A' === participation_type" value="A" (change)="handleChange($event)" id="participation_type_a"><label for="participation_type_a">Автор идеи онлайн-курса с презентацией</label></div>
       </div>
 
 

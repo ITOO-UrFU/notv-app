@@ -36,6 +36,17 @@ export class RegisterService {
                     .catch(this.handleError);
     }
 
+    pechaKucha(): Observable<any> {
+      return this.http.get("https://openedu.urfu.ru/edcrunch/api/v1/pechakucha/get", this.jwt())
+        .map(this.extractpechaKucha)
+        .catch(this.handleError);
+    }
+
+  extractpechaKucha(res: Response){
+    let body = res.json();
+    console.log(body)
+  }
+
   private handleError (error: Response | any) {
     return Observable.throw("error");
   }
@@ -55,6 +66,7 @@ export class RegisterService {
                             this.jwt()).map((response: Response) => response.json()
                             );
     }
+
 
   extractProfile(res: Response) {
     let body = res.json();

@@ -19,6 +19,7 @@ export class PechaKuchaComponent implements OnInit {
   userProfile: any;
   currentUserEmail = '';
   isLogged: boolean = false;
+  participation_type: string = "L";
   //
   constructor(
     private router: Router,
@@ -36,6 +37,14 @@ export class PechaKuchaComponent implements OnInit {
     this.isLogged = this.authGuard.is_logged();
     console.log(this.isLogged);
     // console.log(this.isLogged);
+
+    this.registerService.pechaKucha().subscribe(kucha => {
+        console.log(kucha);
+    },
+        error => {
+      console.log("error", error);
+    });
+
     this.registerService.getProfile().subscribe(userProfile => {
         console.log("this.currentUser");
         this.currentUser = userProfile;
@@ -55,5 +64,8 @@ export class PechaKuchaComponent implements OnInit {
   }
   public toRegister(){
     this.router.navigate(["login"]);
+  }
+  handleChange(evt) {
+    console.log(this.participation_type)
   }
 }
