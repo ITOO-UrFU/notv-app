@@ -110,10 +110,10 @@
 
       <section class="upload-form">
         <p>
-          <strong *ngIf="file?.pk_presentation_file" for="material">{{ 'upload_new_presentation_label' | translate }}
-            :</strong>
-          <strong *ngIf="!file?.pk_presentation_file" for="material">{{ 'upload_presentation_label' | translate }}
-            :</strong>
+          <strong *ngIf="file?.pk_presentation_file" for="material">{{ 'upload_new_presentation_label' | translate }}:
+          </strong>
+          <strong *ngIf="!file?.pk_presentation_file" for="material">{{ 'upload_presentation_label' | translate }}:
+          </strong>
         </p>
         <form #f="ngForm" (ngSubmit)="fileChange($event)" name="form" novalidate>
           <div class="file-container">
