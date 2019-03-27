@@ -109,7 +109,7 @@ export class PechaKuchaComponent implements OnInit {
       const file: File = fileList[0];
       const formData: FormData = new FormData();
       formData.append('uploadFile', file, file.name);
-      this.http.post('https://openedu.urfu.ru/edcrunch/api/v1/docs/upload/', formData, this.jwt())
+      this.http.post('https://openedu.urfu.ru/edcrunch/api/v1/pechakucha/presentation_add', formData, this.jwt())
         .map(res => res.json())
         .catch(error => Observable.throw(error))
         .subscribe(
