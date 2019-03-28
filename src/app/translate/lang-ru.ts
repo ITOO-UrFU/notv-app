@@ -127,8 +127,13 @@ export const LANG_RU_TRANS = {
 
   'upload_presentation_label': 'Загрузить презентацию',
   'upload_new_presentation_label': 'Заменить презентацию',
-  'presentation_successfully_upload_msg': 'Документ %0 успешно загружен!',
+  'presentation_successfully_upload_msg': 'Презентация %0 успешно загружена!',
   'your_presentation_label': 'Ваша презентация',
   'pk_access_msg': 'Ваша заявка на участие передана организаторам',
+  'participate_label': 'Принять учатие',
+  'not_to_participate_label': 'Отказаться от участия',
+  'to_participate_label': 'чтобы принять участие',  // Войдите, чтобы принять участие
+  'can_edit_profile_msg': "Информацию о себе вы всегда можете отредактировать в",
+  'in_section_label': 'разделе'
 
 };

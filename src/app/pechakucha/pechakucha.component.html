@@ -35,7 +35,7 @@
   <!--    </div>-->
   <!--  </div>-->
 
-  <button (click)="registerAtPechaKucha()" *ngIf="!accept_pechakucha && isLogged" class="pk_accept_button">Принять учатие</button>
+  <button (click)="registerAtPechaKucha()" *ngIf="!accept_pechakucha && isLogged" class="pk_accept_button">{{ 'participate_label' | translate }}</button>
 
   <div class="user-profile" *ngIf="isLogged && currentUser && accept_pechakucha">
 
@@ -62,9 +62,9 @@
       <label for="phone"><strong>{{ 'phone_number_label' | translate }}:</strong> {{currentUser.phone}}</label>
     </div>
 
-    <div class="small-message">Информацию о себе вы всегда можете отредактировать в <span class="small-message-button"
+    <div class="small-message">{{ 'can_edit_profile_msg' | translate }} <span class="small-message-button"
                                                                                           (click)="this.router.navigateByUrl('profile/edit')"
-                                                                                          style="color: #323239;">разделе "Профиль"</span>
+                                                                                          style="color: #323239;"> {{'in_section_label'|translate}} "{{'profile_label'|translate}}"</span>
     </div>
     <div class="pechakucha-form-group">
 
@@ -136,15 +136,15 @@
 
     <p class="pk_access"><strong>{{ 'pk_access_msg' | translate }}</strong></p>
 
-    <button (click)="unregisterAtPechaKucha()" class="pk_unregister_button">Отказаться от участия</button>
+    <button (click)="unregisterAtPechaKucha()" class="pk_unregister_button">{{ 'not_to_participate_label' | translate }}</button>
 
   </div>
 
   <div class="" *ngIf="!isLogged">
     <div *ngIf="!isLogged">
       <button (click)="toRegister()" class="btn button-event-tologin">
-        <ins style="font-weight: 500;">Войдите</ins>
-        , чтобы принять участие
+        <ins style="font-weight: 500;">{{ 'sign_in_label' | translate }}</ins>
+        , {{ 'to_participate_label' | translate }}
       </button>
     </div>
   </div>
