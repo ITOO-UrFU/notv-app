@@ -31,7 +31,7 @@
     </section>
 
 
-    <section *ngIf="block.type=='block' || block.type=='events'" class="home-block">
+    <section *ngIf="block.type=='block' || block.type=='events'" class="home-block {{block.slug}}">
       <h1 *ngIf="userLang=='ru'">{{ block.title }}</h1>
       <div *ngIf="userLang=='ru'" [innerHTML]="block.html"></div>
 
