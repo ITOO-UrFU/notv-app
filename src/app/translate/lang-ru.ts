@@ -123,8 +123,7 @@ export const LANG_RU_TRANS = {
   'selected_label': "Выбрано",
   // 'upload_materials_label'
 
-  //Куча Печа
-
+  // Куча Печа
   'upload_presentation_label': 'Загрузить презентацию',
   'upload_new_presentation_label': 'Заменить презентацию',
   'presentation_successfully_upload_msg': 'Презентация %0 успешно загружена!',
@@ -134,6 +133,8 @@ export const LANG_RU_TRANS = {
   'not_to_participate_label': 'Отказаться от участия',
   'to_participate_label': 'чтобы принять участие',  // Войдите, чтобы принять участие
   'can_edit_profile_msg': "Информацию о себе вы всегда можете отредактировать в",
-  'in_section_label': 'разделе'
-
+  'in_section_label': "разделе",
+  'to_participate_in_pechakucha_label': "Принять участие в PechaKucha",
+  'not_to_participate_confirmation_msg': "Вы уверены, что хотите отказаться от участия в мероприятии?"
+  // 'profile_label'
 };

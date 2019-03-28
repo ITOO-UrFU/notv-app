@@ -125,9 +125,23 @@ export const LANG_EN_TRANS = {
   'selected_label': "Selected",
   // 'upload_materials_label'
 
+  // Куча Печа
+  'upload_presentation_label': 'Upload presentation',
+  'upload_new_presentation_label': 'Upload new presentation',
+  'presentation_successfully_upload_msg': 'Presentation %0 successfully uploaded!',
+  'your_presentation_label': 'Your presentation',
+  'pk_access_msg': 'Your request has been submitted to the organizers.',
+  'participate_label': 'Participate',
+  'not_to_participate_label': 'Not to participate',
+  'to_participate_label': 'to participate',  // Войдите, чтобы принять участие
+  'can_edit_profile_msg': "Information about yourself, you can edit in",
+  'in_section_label': "section",
+  'to_participate_in_pechakucha_label': "To participate in PechaKucha",
+  'not_to_participate_confirmation_msg': "Are you sure you want to cancel the event?"
+  // 'profile_label'
 };
 
 
 //
 //  New passwords do not match, or are empty!
-//
+//  Are you sure you want to cancel the event?

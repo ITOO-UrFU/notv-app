@@ -93,7 +93,7 @@ export class PechaKuchaComponent implements OnInit {
   }
 
   unregisterAtPechaKucha(){
-    if(confirm("Вы уверены, что хотите отказаться от участия в мероприятии?")) {
+    if(confirm( this._translate.instant('not_to_participate_confirmation_msg'))) {
       this.pechaKuchaService.unregisterPechaKucha().subscribe(pecha => {
           console.log('Отказано в печекуче', pecha);
           this.accept_pechakucha = false;
