@@ -37,6 +37,7 @@ export const LANG_EN_TRANS = {
   'cancel_label': "Cancel",
   'sent_new_pass_msg': "A new password has been sent to your email address.",
   'reset_pass_err_label': "Password Recovery Error!",
+  'resetting_password_msg': "Password recovery ...",
 
   // регистрация компонент
   // 'sign_up_label'

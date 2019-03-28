@@ -336,7 +336,9 @@ section.banner{
             background: $red;
             border: none;
             color:$light;
-            
+            &:disabled{
+              background: $light_gray;
+            }
         }
         a{
             display: block;

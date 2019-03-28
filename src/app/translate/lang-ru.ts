@@ -37,6 +37,7 @@ export const LANG_RU_TRANS = {
   'cancel_label': "Отмена",
   'sent_new_pass_msg': "Новый пароль отправлен на Ваш электронный адрес.",
   'reset_pass_err_label': "Ошибка при восстановлении пароля!",
+  'resetting_password_msg': "Восстанавливаем пароль ...",
 
   // регистрация компонент
   // 'sign_up_label'
