@@ -6,6 +6,7 @@ import { AlertService } from 'app/services/alert.service';
 import { Title } from '@angular/platform-browser';
 import { AuthGuard } from 'app/services/auth.guard';
 import { TranslateService } from 'app/translate/translate.service';
+import { NavComponent } from '../nav/nav.component';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
     returnUrl: string;
     showPassReset: boolean = false;
     alertExists: boolean = true;
-
+  disable_button: boolean = false;
+    // _nav = new NavComponent();
    constructor(
         private route: ActivatedRoute,
         private router: Router,
@@ -26,13 +28,14 @@ export class LoginComponent implements OnInit {
         private title: Title,
         private authGuard: AuthGuard,
         private activatedRoute: ActivatedRoute,
-        private _translate: TranslateService
+        private _translate: TranslateService,
+        // private _nav: NavComponent,
        ) {
           activatedRoute.queryParams.subscribe(
             (queryParam: any) => {
                 if (queryParam['reset']) {
                     this.showPassReset = true;
-                    this.model.email = queryParam['reset']
+                    this.model.email = queryParam['reset'];
                 }
             }
         );
@@ -56,34 +59,41 @@ export class LoginComponent implements OnInit {
         this.title.setTitle(this._translate.instant('login_msg'));
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'events';
       }
+
     }
 
     login() {
-
+      this.disable_button = true;
         this.authenticationService.login(this.model.email, this.model.password)
             .subscribe(
                 data => {
-                  console.log("LOL")
-                    // window.location.reload();
-                  this.router.navigate(['/profile/my']);
-
-
+                  // this._translate.replace('login_register_label','profile_label');
+                  // this.router.navigate(['profile', 'my']);
+                  // setTimeout(location.reload(true), 1000);
+                  window.location.reload();
                 },
-                error => {
+              error => {
                   // this.deleteHandler();
-                    // this.alertService.error("Ошибка при входе. Проверьте правильность введенных данных.");
                   // this.alertExists = true;
-
+                this.disable_button = false;
                   this.alertService.error(this._translate.instant('login_error_msg'));
                 });
+      this.showPassReset = false;
     }
+
+  // public callMe(): void {
+  //   this._nav.testCall();
+  // }
+
     logout() {
        this.authenticationService.logout();
     }
 
     hideBlock(){
-        this.alertService.remove();
-        this.showPassReset = false;
+        if(!this.showPassReset){
+          this.alertService.remove();
+        }
+        // this.showPassReset = false;
     }
 
 }

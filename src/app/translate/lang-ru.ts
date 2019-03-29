@@ -8,6 +8,8 @@ export const LANG_RU_TRANS = {
   'edcrunch_title': "",
   'edcrunch_title_add': "Новые образовательные технологии в вузе",
 
+  'login_register_label': 'Вход и регистрация',
+
   // логин компонент
   'login_error_msg': 'Ошибка при входе. Проверьте правильность введенных данных.',
   'login_msg': "Вход",

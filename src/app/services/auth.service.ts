@@ -27,16 +27,14 @@ export class AuthenticationService {
             }, this.jwt());
     }
 
-    login( email: string, password: string) {
+    login(email: string, password: string) {
         return this.http.post(this.authUrl, { email: email, password: password }, this.jwt1())
             .map((response: Response) => {
             const user = response.json();
             if (user && user.token) {
-                // console.log("LOLLLLL")
                 localStorage.setItem('currentUser', JSON.stringify(user));
-                this.router.navigate(['profile', 'my']);
-                window.location.reload();
               }
+            return response;
             });
     }
 

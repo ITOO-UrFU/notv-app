@@ -87,10 +87,7 @@ export class NavComponent implements OnInit, AfterViewInit {
         this.activeUrl = this.listUrl.filter(item => item.url == this.router.url.split('/')[1])[0];
 
       });
-
     this.subscribeToLangChanged();
-
-
   }
 
   refreshPage() {

@@ -91,7 +91,7 @@ export class TranslateService {
 
   public replace(word: string = '', words: string | string[] = '') {
     let translation: string = word;
-
+    console.log(this._translations);
     const values: string[] = [].concat(words);
     values.forEach((e, i) => {
       translation = translation.replace(this.PLACEHOLDER.concat(<any>i), e);

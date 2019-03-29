@@ -34,8 +34,9 @@
   <!--      <a routerLink="/profile/change-password" class="btn btn-primary"><i class="fa fa-key" aria-hidden="true"></i><span>  {{ 'change_password_label' | translate }}</span></a>-->
   <!--    </div>-->
   <!--  </div>-->
-
-  <button (click)="registerAtPechaKucha()" *ngIf="!accept_pechakucha && isLogged" class="pk_accept_button">{{ 'participate_label' | translate }}</button>
+  <div style="text-align: center" *ngIf="!accept_pechakucha && isLogged" >
+  <button (click)="registerAtPechaKucha()" class="pk_accept_button">{{ 'participate_label' | translate }}</button>
+  </div>
 
   <div class="user-profile" *ngIf="isLogged && currentUser && accept_pechakucha">
 
