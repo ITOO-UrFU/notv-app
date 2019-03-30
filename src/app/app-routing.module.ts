@@ -105,27 +105,22 @@ const routes: Routes = [
       //
       // },
 
-      // {
-      //   path: 'events',
-      //   redirectTo: 'events/all_events',
-      //   pathMatch: 'full',
-        // component: EventListComponent,
-        // data: {
-        //   meta: {
-        //     title: '#EDCRUNCH Ural: Новые образовательные технологии в вузе – 2019',
-        //     description: 'Список мероприятий конференции'
-        //   }
-        // },
+      {
+        path: 'events',
+        // pathMatch: 'full',
+        component: EventListComponent,
+        data: {
+        },
 
       // },
-      {
-        path: 'events/event/:id',
-        component: EventComponent,
-        data: {
-          meta: {
-            title: 'EDCRUNCH Ural: Новые образовательные технологии в вузе – 2019'
-          }
-        },
+      // {
+      //   path: 'events/event/:id',
+      //   component: EventComponent,
+      //   data: {
+      //     meta: {
+      //       title: 'EDCRUNCH Ural: Новые образовательные технологии в вузе – 2019'
+      //     }
+      //   },
         /*children: [
           {
             path: 'event/:id',

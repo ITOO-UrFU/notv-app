@@ -137,10 +137,18 @@ private extractEvent(res: Response): Event {
   }
 
 
+  getEventsByDay(){
+  }
+
+  filter_events(filter): Event[]{
+    // console.log(filter);
+    return eventsList.filter(item =>
+        filter.by_day == item.startdate.getDate() || filter.by_day === 'all'
+    );
+  }
+
   getUniqueTimesByDay(dates: any): Date[]{
     if (eventsList) {
-
-
       let uniqueDates: Date[] = [];
       let allDates: Date[] = [];
 
@@ -157,6 +165,7 @@ private extractEvent(res: Response): Event {
         }
         allDates = allDates.concat(uniqueDates);
         });
+      console.log(allDates);
       return allDates;
 
 

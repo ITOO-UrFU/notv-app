@@ -27,7 +27,7 @@
         </div>
 
         <div class="form-group">
-          <button [attr.disabled]="disable_button ? 'disabled' : null" class="btn btn-primary">{{ 'sign_in_label' | translate }}</button>
+          <button [attr.disabled]="disable_button ? 'disabled' : null" [class.disabled]="disable_button==true" class="btn btn-primary">{{ 'sign_in_label' | translate }}</button>
         </div>
 
         <div class="reset-password">

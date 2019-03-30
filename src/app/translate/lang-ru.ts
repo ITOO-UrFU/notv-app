@@ -138,6 +138,13 @@ export const LANG_RU_TRANS = {
   'can_edit_profile_msg': "Информацию о себе вы всегда можете отредактировать в",
   'in_section_label': "разделе",
   'to_participate_in_pechakucha_label': "Принять участие в PechaKucha",
-  'not_to_participate_confirmation_msg': "Вы уверены, что хотите отказаться от участия в мероприятии?"
+  'not_to_participate_confirmation_msg': "Вы уверены, что хотите отказаться от участия в мероприятии?",
   // 'profile_label'
+
+
+  // Компонент все мероприятия
+  'day_label': "День",
+  'all_days_label': "Все дни",
+  'two_days_label': "Два дня",
+
 };

@@ -1,19 +1,95 @@
-.event-title {
-  cursor: pointer;
-}
+//.event-title {
+//  cursor: pointer;
+//}
+//
+//.more-button {
+//  float: right;
+//  color: grey;
+//  padding: .5em;
+//  border: 1px dotted grey;
+//  cursor: pointer;
+//  border-radius: 20%;
+//
+//  &:hover .label {
+//    display: block
+//  }
+//}
 
-.more-button {
-  float: right;
-  color: grey;
-  padding: .5em;
-  border: 1px dotted grey;
-  cursor: pointer;
-  border-radius: 20%;
+.events-filter {
+  width: 240px;
+  -ms-flex-preferred-size: 240px;
+  flex-basis: 240px;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  background-color: #333;
+  box-sizing: border-box;
+  height: 500px;
+  background: #4CAF50;
 
-  &:hover .label {
-    display: block
+  .events-filter-head {
+    padding: 12px 20px;
+
   }
 }
 
+.events-list-wrap {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
+
+  .events-list {
+    margin-left: 20px;
+    width: 100%;
+
+    .events-list-time-item {
+      font-size: 1.3em;
+      font-weight: bold;
+      margin-bottom: 5px;
+      position: relative;
+      overflow: hidden;
+      color: #282866;
+      span:after {
+        content: "";
+        width: 100%;
+        height: 2px;
+        background: #94d4ee;
+        position: absolute;
+        bottom: 5px;
+        margin-left: 7px;
+      }
+    }
+
+    .conference-date {
+      font-family: "Geometria Regular";
+      text-align: center;
+      padding: 10px 0px;
+      font-size: 1.65em;
+      color: #282866;
+      //background: #dcdcdc;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .events-list-wrap {
+    -ms-flex-direction: column;
+    flex-direction: column;
+
+    .events-list {
+      margin-left: 0px;
+    }
+  }
+
+  .events-filter {
+    width: 100%;
+    margin-bottom: 30px;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    position: relative;
+  }
 
 
+}

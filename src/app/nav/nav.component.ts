@@ -15,8 +15,9 @@ import {TranslateService} from 'app/translate/translate.service';
 })
 
 export class NavComponent implements OnInit, AfterViewInit {
+
+
   listUrl: any[] = [];
-  underListUrl: Boolean = false;
   activeUrl: any = {};
   showMenu: Boolean = false;
   imageUrl: string = 'assets/images/icons/default.svg';
@@ -27,10 +28,11 @@ export class NavComponent implements OnInit, AfterViewInit {
     // private translate: TranslateService,
     private authGuard: AuthGuard,
     private activatedRoute: ActivatedRoute,
-    private _translate: TranslateService
+    private _translate: TranslateService,
   ) {
 
   }
+
 
   defaultImage(event) {
     var target = event.target || event.srcElement || event.currentTarget;
@@ -91,8 +93,6 @@ export class NavComponent implements OnInit, AfterViewInit {
   }
 
   refreshPage() {
-    // console.log(this.router.url);
-    // this.router.navigateByUrl(this.router.url);
     window.location.reload();
   }
 

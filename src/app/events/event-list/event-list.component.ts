@@ -6,6 +6,7 @@ import {Title} from '@angular/platform-browser';
 import {AuthGuard} from 'app/services/auth.guard';
 import {RegisterService} from 'app/services/register.service';
 import {AuthenticationService} from 'app/services/auth.service';
+import {TranslateService} from 'app/translate/translate.service';
 
 @Component({
   selector: 'div.app-event-list',
@@ -15,9 +16,9 @@ import {AuthenticationService} from 'app/services/auth.service';
 
 export class EventListComponent implements OnInit {
   eventsList: Event[];
-  conferenceDates: Date[] = [];
-  selectedDay: any;
-  selectedTime: any;
+  // conferenceDates: Date[] = [];
+  // selectedDay: any;
+  // selectedTime: any;
   uniqueTimes: any[];
   currentEvents: Event[];
   timeGrid: any;
@@ -28,6 +29,14 @@ export class EventListComponent implements OnInit {
 
   isLogged: boolean = false;
 
+  filters = {
+    by_day: [],
+  };
+
+  user_filters = {
+    by_day: 'all',
+  };
+
 
   @Input() typeFilter: string = '';
 
@@ -37,28 +46,55 @@ export class EventListComponent implements OnInit {
               private title: Title,
               private authGuard: AuthGuard,
               private registerService: RegisterService,
-              private authenticationService: AuthenticationService
+              private authenticationService: AuthenticationService,
+              private _translate: TranslateService,
   ) {
   }
 
   ngOnInit() {
     this.isLogged = this.authGuard.canActivate();
     this.title.setTitle('Мероприятия');
+    console.log('oninit event-list component');
+
     this.eventsService.getEventsList()
       .subscribe(eventsList => {
-        this.timeGrid = eventsList;
-        console.log(eventsList);
-        this.timeGrid = this.eventsService.getEventsObject(this.typeFilter);
-        this.registerService.getProfile().subscribe(
-          userProfile => {
-            this.currentUser = userProfile;
-          },
-          error => {
-            this.authenticationService.logout();
+          this.timeGrid = eventsList;
+          this.timeGrid = this.eventsService.getEventsObject(this.typeFilter);
+
+          let day_label = this._translate.instant('day_label');
+          let UniqueDates = this.getUniqueDates(eventsList);
+            // .map(item => { return item.getDate() });
+          this.filters.by_day = UniqueDates.map(function(item, idx) {
+            return { name: day_label + ' ' + (idx + 1), value: item.getDate()};
+          });
+          this.filters.by_day.unshift({ name: this._translate.instant('two_days_label'), value: 'all'});
+          this.user_filters.by_day = 'all';
+
+          if (localStorage.getItem('user_filters')){
+            this.user_filters = JSON.parse(localStorage.getItem('user_filters'));
+            this.filterChange();
           }
-        );
+
+          this.registerService.getProfile().subscribe(
+            userProfile => {
+              this.currentUser = userProfile;
+            },
+            error => {
+              this.authenticationService.logout();
+            }
+          );
         }
       );
+  }
+
+  // filter_events
+  filterChange() {
+    this.currentEvents = this.eventsService.filter_events(this.user_filters);
+    console.log(this.currentEvents);
+    this.timeGrid = this.eventsService.eventsListToObject(this.currentEvents);
+    // console.log(this.currentEvents)
+    localStorage.setItem('user_filters', JSON.stringify(this.user_filters));
+    // console.log(this.user_filters);
   }
 
   ngOnChanges(changes: any) {
@@ -94,7 +130,7 @@ export class EventListComponent implements OnInit {
       }*/
     }
     uniqueDates.sort(function (a, b) {
-      return a.getTime() - b.getTime()
+      return a.getTime() - b.getTime();
     });
     return uniqueDates;
   }
