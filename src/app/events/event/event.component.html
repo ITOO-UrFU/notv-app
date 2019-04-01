@@ -3,7 +3,7 @@
   <button *ngIf="isLogged" (click)="goMyEvents()" class="btn btn-primary">К списку моих мероприятий</button>-->
 
   <div class="event-block-about">
-    <div *ngIf="currentEvent.path" class="event-block-path-badge">
+    <div *ngIf="currentEvent.path" class="event-block-path-badge {{currentEvent.path.slug}}">
         {{ currentEvent.path.title }}
     </div>
     <div *ngIf="currentEvent.eventtype" class="event-block-type-badge">

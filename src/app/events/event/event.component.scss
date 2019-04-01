@@ -7,15 +7,47 @@
     font-family: "IBM Plex Mono",monospace;
     padding: 2px 17px;
     font-size: 62.5%;
-    background: #9c1981;
+
     font-weight: bold;
     letter-spacing: 0.7px;
     color: #ffffff;
-    border: solid 2px #9c1981;
+
     margin-top: 5px;
     margin-bottom: 5px;
     text-transform: uppercase;
     text-align: center;
+
+
+    &.edu_ecosystem{
+      background: #65b32e;
+      border: solid 2px #65b32e;
+    }
+    &.edu_stsos{
+      background: #790b5b;
+      border: solid 2px #790b5b;
+    }
+    &.edu_interaction{
+      background: #e6007e;
+      border: solid 2px #e6007e;
+    }
+    &.edu_analytics{
+      background: #ffda00;
+      border: solid 2px #ffda00;
+    }
+    &.edu_inclusive{
+      background: #ec6608;
+      border: solid 2px #ec6608;
+    }
+    &.edu_tech{
+      background: #f9ae00;
+      border: solid 2px #f9ae00;
+    }
+    &.edu_legal{
+      background: #e30613;
+      border: solid 2px #e30613;
+    }
+
+
   }
   .event-block-type-badge{
     display: inline-block;
