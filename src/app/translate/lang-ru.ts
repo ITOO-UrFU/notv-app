@@ -147,4 +147,15 @@ export const LANG_RU_TRANS = {
   'all_days_label': "Все дни",
   'two_days_label': "Два дня",
 
+  'month_3': "апрель",
+  'month_3_1': "апреля",
+
+  'path_label': "Трек",
+
+  'event_type_label': "Тип мероприятия",
+  'not_found_events_label': "Мероприятий по заданным параметрам не нашлось",
+  'events_filter_reset': "Сбросить фильтр",
+  'filters_label': "Фильтры",
+  'events_program_label': "Программа",
+
 };
