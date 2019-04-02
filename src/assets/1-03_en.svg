@@ -5,9 +5,9 @@
   xmlns:dc="http://purl.org/dc/elements/1.1/"
   xmlns:cc="http://creativecommons.org/ns#"
   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns="http://www.w3.org/2000/svg"
   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-  xmlns="http://www.w3.org/2000/svg"
   width="603"
   height="173"
   viewBox="0 0 159.54375 45.772918"
@@ -27,9 +27,9 @@
     borderopacity="1.0"
     inkscape:pageopacity="0.0"
     inkscape:pageshadow="2"
-    inkscape:zoom="0.35"
-    inkscape:cx="-854.28572"
-    inkscape:cy="560"
+    inkscape:zoom="1.979899"
+    inkscape:cx="273.06649"
+    inkscape:cy="124.93692"
     inkscape:document-units="mm"
     inkscape:current-layer="layer1"
     showgrid="false"
@@ -47,7 +47,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
           rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-        <dc:title></dc:title>
+        <dc:title/>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -58,20 +58,20 @@
     transform="translate(0,-251.22707)">
     <text
       xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20.00673485px;line-height:1.25;font-family:Geometria;-inkscape-font-specification:'Geometria, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.44132739;"
-      x="9.1986227"
-      y="267.12543"
+      style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20.00673485px;line-height:1.25;font-family:Geometria;-inkscape-font-specification:'Geometria, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#f5f5f5;fill-opacity:1;stroke:none;stroke-width:0.44132739;"
+      x="153.65781"
+      y="267.65997"
       id="text1368"><tspan
          sodipodi:role="line"
-         x="9.1986227"
-         y="267.12543"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20.00673485px;font-family:Geometria;-inkscape-font-specification:'Geometria, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:0.44132739;"
-         id="tspan1388">april, 24-26</tspan>
+         x="153.65781"
+         y="267.65997"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20.00673485px;font-family:Geometria;-inkscape-font-specification:'Geometria, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;writing-mode:lr-tb;text-anchor:end;fill:#f5f5f5;fill-opacity:1;stroke-width:0.44132739;"
+         id="tspan1388">april, 24—26</tspan>
       <tspan
         sodipodi:role="line"
-        x="9.1986227"
-        y="292.13385"
-        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20.00673485px;font-family:Geometria;-inkscape-font-specification:'Geometria, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:0.44132739;"
+        x="153.65781"
+        y="292.6684"
+        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20.00673485px;font-family:Geometria;-inkscape-font-specification:'Geometria, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;writing-mode:lr-tb;text-anchor:end;fill:#f5f5f5;fill-opacity:1;stroke-width:0.44132739;"
         id="tspan1404">Yekaterinburg</tspan></text>
   </g>
 </svg>
