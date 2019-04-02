@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Router, ActivatedRoute, NavigationEnd} from '@angular/router';
 
-import { AuthenticationService } from 'app/services/auth.service';
-import { AlertService } from 'app/services/alert.service';
-import { Title } from '@angular/platform-browser';
-import { AuthGuard } from 'app/services/auth.guard';
-import { TranslateService } from 'app/translate/translate.service';
+import {AuthenticationService} from 'app/services/auth.service';
+import {AlertService} from 'app/services/alert.service';
+import {Title} from '@angular/platform-browser';
+import {AuthGuard} from 'app/services/auth.guard';
+import {TranslateService} from 'app/translate/translate.service';
+import {NavComponent} from '../nav/nav.component';
 
 @Component({
   selector: 'app-login',
@@ -13,77 +14,70 @@ import { TranslateService } from 'app/translate/translate.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-    model: any = {};
-    returnUrl: string;
-    showPassReset: boolean = false;
-    alertExists: boolean = true;
+  model: any = {};
+  returnUrl: string;
+  showPassReset: boolean = false;
+  disable_button: boolean = false;
 
-   constructor(
-        private route: ActivatedRoute,
-        private router: Router,
-        private authenticationService: AuthenticationService,
-        private alertService: AlertService,
-        private title: Title,
-        private authGuard: AuthGuard,
-        private activatedRoute: ActivatedRoute,
-        private _translate: TranslateService
-       ) {
-          activatedRoute.queryParams.subscribe(
-            (queryParam: any) => {
-                if (queryParam['reset']) {
-                    this.showPassReset = true;
-                    this.model.email = queryParam['reset']
-                }
-            }
-        );
-       }
-
-  // private removeAlert(): void {
-  //   this.alertService.
-  // }
-
-    ngOnInit() {
-      this.router.events.subscribe((evt) => {
-        if (!(evt instanceof NavigationEnd)) {
-          return;
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private authenticationService: AuthenticationService,
+    private alertService: AlertService,
+    private title: Title,
+    private authGuard: AuthGuard,
+    private activatedRoute: ActivatedRoute,
+    private _translate: TranslateService,
+  ) {
+    activatedRoute.queryParams.subscribe(
+      (queryParam: any) => {
+        if (queryParam['reset']) {
+          this.showPassReset = true;
+          this.model.email = queryParam['reset'];
         }
-        window.scrollTo(0, 0);
-      });
-      if (this.authGuard.canActivate()){
-            this.router.navigate(['profile', 'my']);
       }
-      else {
-        this.title.setTitle(this._translate.instant('login_msg'));
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'events';
+    );
+  }
+
+  ngOnInit() {
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
       }
+      window.scrollTo(0, 0);
+    });
+    if (this.authGuard.canActivate()) {
+      this.router.navigate(['profile', 'my']);
+    } else {
+      this.title.setTitle(this._translate.instant('login_msg'));
+      this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'events';
     }
 
-    login() {
+  }
 
-        this.authenticationService.login(this.model.email, this.model.password)
-            .subscribe(
-                data => {
-                  console.log("LOL")
-                    // window.location.reload();
-                  this.router.navigate(['/profile/my']);
+  login() {
+    this.disable_button = true;
+    this.authenticationService.login(this.model.email, this.model.password)
+      .subscribe(
+        data => {
+          window.location.reload();
+        },
+        error => {
+          this.alertService.error(this._translate.instant('login_error_msg'));
+        });
+    this.showPassReset = false;
+  }
 
+  logout() {
+    this.authenticationService.logout();
+  }
 
-                },
-                error => {
-                  // this.deleteHandler();
-                    // this.alertService.error("Ошибка при входе. Проверьте правильность введенных данных.");
-                  // this.alertExists = true;
-
-                  this.alertService.error(this._translate.instant('login_error_msg'));
-                });
+  hideBlock() {
+    if (!this.showPassReset) {
+      this.disable_button = false;
+      this.alertService.remove();
     }
-    logout() {
-       this.authenticationService.logout();
-    }
-
-    hideBlock(){
-        this.alertService.remove();
-        this.showPassReset = false;
-    }
+    // this.showPassReset = false;
+  }
 
 }

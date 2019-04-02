@@ -13,6 +13,7 @@ import { EventModalComponent } from 'app/events/event-modal/event-modal.componen
   styleUrls: ['./event.component.scss']
 })
 
+
 export class EventComponent implements OnInit {
 
     @Input() currentEvent: Event;
@@ -25,6 +26,8 @@ export class EventComponent implements OnInit {
     userEvents: Event[];
     isReg: boolean;
 
+
+    private eventsDisableButton = ['dinner', 'coffee_break'];
 
     showButtons: boolean = true;
 
@@ -47,9 +50,22 @@ update(event: Event){
                             this.isReg = true;
                         }
                     });
-                    this.showButtons = true;
+
+
+    // console.log(this.currentEvent);
+    if (this.eventsDisableButton.includes(this.currentEvent.get_event_slug)){
+      this.showButtons = false;
+    }
+    else {
+      this.showButtons = true;
+    }
+
 
 }
+
+
+
+
 
 checkSameTimeEvents(potentialEvent: Event): any[] {
     let sameTimeEvents: any[] = [];
@@ -63,10 +79,13 @@ checkSameTimeEvents(potentialEvent: Event): any[] {
                             sameTimeEvents.push(event);
                         }
                     });
+    // console.log(sameTimeEvents);
     return sameTimeEvents;
 }
 
 attemptRegisterOnEvent(event: Event) {
+
+      console.log(console.log(this.checkSameTimeEvents(event)))
 
 this.registerService.getProfile().subscribe(userProfile => {
                         this.currentUser = userProfile;
@@ -110,7 +129,7 @@ registerOnEvent(event: Event) {
 
 
 attemptUnregisterOnEvent(event) {
-    if (confirm('Вы уверены, что хотите отписаться от события ' + event.title)) {
+    if (confirm('Вы уверены, что хотите отписаться от события ' + event.title + "?")) {
             this.unregisterOnEvent(event);
     } else {
         // Do nothing!

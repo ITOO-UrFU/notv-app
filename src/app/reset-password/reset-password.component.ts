@@ -12,6 +12,7 @@ import { TranslateService } from 'app/translate/translate.service';
 })
 export class ResetPasswordComponent implements OnInit {
     model: any = {};
+    disable_button: boolean = false;
 
   constructor(private authenticationService: AuthenticationService,
               private title: Title,
@@ -25,12 +26,15 @@ export class ResetPasswordComponent implements OnInit {
   }
 
     resetPasswod(){
+      this.disable_button = true;
+      this.alertService.success(this._translate.instant('resetting_password_msg'), false);
           this.authenticationService.resetPassword(this.model.email).subscribe(
                 data => {
-                    this.alertService.success(this._translate.instant('sent_new_pass_msg'), true);
+                   this.alertService.success(this._translate.instant('sent_new_pass_msg'), true);
                    this.router.navigate(['/login'], { queryParams: { reset: this.model.email } });
                 },
                 error => {
+                  this.disable_button = false;
                     window.scrollTo(0, 0);
                     this.alertService.error(this._translate.instant('reset_pass_err_label'), error);
                 });

@@ -8,6 +8,8 @@ export const LANG_RU_TRANS = {
   'edcrunch_title': "",
   'edcrunch_title_add': "Новые образовательные технологии в вузе",
 
+  'login_register_label': 'Вход и регистрация',
+
   // логин компонент
   'login_error_msg': 'Ошибка при входе. Проверьте правильность введенных данных.',
   'login_msg': "Вход",
@@ -37,6 +39,7 @@ export const LANG_RU_TRANS = {
   'cancel_label': "Отмена",
   'sent_new_pass_msg': "Новый пароль отправлен на Ваш электронный адрес.",
   'reset_pass_err_label': "Ошибка при восстановлении пароля!",
+  'resetting_password_msg': "Восстанавливаем пароль ...",
 
   // регистрация компонент
   // 'sign_up_label'
@@ -135,6 +138,24 @@ export const LANG_RU_TRANS = {
   'can_edit_profile_msg': "Информацию о себе вы всегда можете отредактировать в",
   'in_section_label': "разделе",
   'to_participate_in_pechakucha_label': "Принять участие в PechaKucha",
-  'not_to_participate_confirmation_msg': "Вы уверены, что хотите отказаться от участия в мероприятии?"
+  'not_to_participate_confirmation_msg': "Вы уверены, что хотите отказаться от участия в мероприятии?",
   // 'profile_label'
+
+
+  // Компонент все мероприятия
+  'day_label': "День",
+  'all_days_label': "Все дни",
+  'two_days_label': "Два дня",
+
+  'month_3': "апрель",
+  'month_3_1': "апреля",
+
+  'path_label': "Трек",
+
+  'event_type_label': "Тип мероприятия",
+  'not_found_events_label': "Мероприятий по заданным параметрам не нашлось",
+  'events_filter_reset': "Сбросить фильтр",
+  'filters_label': "Фильтры",
+  'events_program_label': "Программа",
+
 };

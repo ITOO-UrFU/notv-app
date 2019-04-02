@@ -36,6 +36,7 @@ export class EventsService {
 private extractEvent(res: Response): Event {
   const offset = new Date().getTimezoneOffset();
     const body = res.json();
+    // console.log(body);
     let eventTypeClass = "eventtype-empty";
     let slug = 'empty';
     if ( body.get_event_slug != null ) {
@@ -58,6 +59,7 @@ private extractEvent(res: Response): Event {
           body.block,
           slug,
           body.room,
+      body.path,
       );
 
     event.get_speakers  = event.get_speakers.filter(user =>  user.get_type_display !== "Участник" );
@@ -132,15 +134,43 @@ private extractEvent(res: Response): Event {
     dates.forEach(element => {
           let date = new Date(element);
            list = list.concat(eventsList.filter(item => item.startdate.getTime() == date.getTime() ));
-    })
+    });
     return list;
   }
 
 
+  getEventsByDay(){
+  }
+
+  filter_events(filter): Event[]{
+
+    let path_filters = filter.by_path.filter(item => { return item.checked; }).map(item => item.slug);
+    let type_filters = filter.by_type.filter(item => { return item.checked; }).map(item => item.slug);
+    // path_filters.length > 0
+
+    console.log("path_filters", type_filters);
+
+
+
+    return eventsList.filter(function (item) {
+
+      // let r = filter.by_day === item.startdate.getDate() || filter.by_day === 'all' &&
+      // path_filters.length === 0 ? true : item.path ? path_filters.includes(item.path.slug) : false &&
+      // type_filters.length === 0 ? true : type_filters.includes(item.get_event_slug);
+      //
+      // console.log((filter.by_day === item.startdate.getDate() || filter.by_day === 'all')  + "_______" + (path_filters.length === 0 ? true : item.path ? path_filters.includes(item.path.slug) : false )  + "_______" + (type_filters.length === 0 ? true : type_filters.includes(item.get_event_slug)) + "=====" + r);
+
+
+      return (filter.by_day === item.startdate.getDate() || filter.by_day === 'all') &&
+      (path_filters.length === 0 ? true : item.path ? path_filters.includes(item.path.slug) : false) &&
+        (type_filters.length === 0 ? true : type_filters.includes(item.get_event_slug));
+      }
+
+    );
+  }
+
   getUniqueTimesByDay(dates: any): Date[]{
     if (eventsList) {
-
-
       let uniqueDates: Date[] = [];
       let allDates: Date[] = [];
 
@@ -157,6 +187,7 @@ private extractEvent(res: Response): Event {
         }
         allDates = allDates.concat(uniqueDates);
         });
+      console.log(allDates);
       return allDates;
 
 
@@ -171,6 +202,7 @@ private extractEvent(res: Response): Event {
     const body = res.json();
     const events: Event[] = [];
     for (let i = 0; i < body.length; i++) {
+          // console.log(body[i]);
           let eventTypeClass = "eventtype-empty";
           let slug = 'empty';
 
@@ -195,6 +227,7 @@ private extractEvent(res: Response): Event {
             body[i].get_line_of_work_slug,
             slug,
             body[i].room,
+            body[i].path,
             );
 
           event.get_speakers = event.get_speakers.filter(user => user.get_type_display !== 'Участник');

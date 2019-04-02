@@ -1,87 +1,96 @@
-<!--
-<div *ngIf="timeGrid" class="events-container">
+<div class="event-list-block">
 
-    <div *ngFor="let day of timeGrid | eventsToObject" class="day-container">
-        
-    <div>
-        <template ngFor let-time [ngForOf]="day.val | eventsToObject" let-ii="index">
+  <h1>{{ 'events_program_label' | translate }}</h1>
+  <div class="events-list-wrap">
+
+    <div class="events-filter">
+      <div class="events-filter-head">{{ 'filters_label' | translate }}</div>
+
+      <div class="program-filter-slide">
+
+        <div class="events-filter-block">
+
+          <div class="events-filter-block-name">{{ 'day_label' | translate }}</div>
+
+
+          <div class="events-filter-block-filter">
+
+            <select [(ngModel)]="user_filters.by_day" (change)="filterChange()">
+              <option *ngFor="let c of filters?.by_day" [ngValue]="c.value">{{c.name}}</option>
+            </select>
+          </div>
+
+        </div>
+        <div class="events-filter-block">
+
+            <div class="events-filter-block-name">{{ 'path_label' | translate }} </div>
+
+          <div class="events-filter-block-filter">
+
+            <label *ngFor="let option of user_filters.by_path" class="checkbox-item"><input type="checkbox" id="{{option.slug}}" value="{{option.slug}}" [(ngModel)]="option.checked" (change)="filterChange()" /> <span></span> {{option.title}}</label>
+
+          </div>
+        </div>
+        <div class="events-filter-block">
+
+          <div class="events-filter-block-name">{{ 'event_type_label' | translate }} </div>
+
+          <div class="events-filter-block-filter">
+
+<!--            <div *ngFor="let option of user_filters.by_type" class="checkbox-item">-->
+              <label *ngFor="let option of user_filters.by_type" class="checkbox-item"><input type="checkbox" id="{{option.slug}}" value="{{option.slug}}" [(ngModel)]="option.checked" (change)="filterChange()" /> <span></span> {{option.title}}</label>
+<!--            </div>-->
+
+          </div>
+        </div>
+
+      </div>
+
+      <div *ngIf="showResetFilter" id="events-filter-reset">
+        <button (click)="resetFilters()">{{ 'events_filter_reset' | translate }}</button>
+      </div>
+    </div>
+
+
+    <div *ngIf="timeGrid" class="events-list">
+      <div class="row" *ngIf="objectKeys(timeGrid).length == 0" class="events-list-empty">
+        {{ 'not_found_events_label' | translate }}
+      </div>
+
+      <div *ngFor="let day of timeGrid | eventsToObject; let i = index" class="">
+<!--        <div class="conference-date">-->
+<!--              <strong> {{day.key}} апреля, 2019 </strong>-->
+<!--          <strong>{{ i }}</strong>-->
+<!--        </div>-->
+
+        <div>
+          <template ngFor let-time [ngForOf]="day.val | eventsToObject" let-ii="index">
             <div class="time-container">
-                <div class="events-at-day">
-                       <template ngFor let-event [ngForOf]="time.val" let-i="index" >
-                          <div class="event-time-1 {{event.eventtypeid}}">
-                             <p *ngIf="event.eventtype" class="eventtype-name"> {{event.eventtype}} <br /> </p>
-                              <p class="event-title" (click)="toEvent(event)"><strong>{{event.title}} </strong></p>
-                               <p class="event-title"><strong>{{event.startdate |  date}} </strong></p>
-                                 <p>  {{event.startdate |  date:'shortTime'}} - {{event.enddate |  date:'shortTime'}} </p>
-                              
-                            <div *ngIf="event.users.length">
-                                Спикеры:
-                                <div *ngFor="let user of event.users" class="event-speakers"> 
-                                    <div class="event-speaker">
-                                        <img  class="event-speakers-photo" src="http://placehold.it/150x150" />
-                                        <p class="event-speakers-name">{{user.person.first_name}} {{user.person.last_name}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                           </div>
-                      </template>
-                </div>
-             </div>
-        </template>
+              <div class="events-list-time-item">
+                <span>
+                  <strong *ngIf="ii == 0" class="conference-date"> {{day.key}} апреля 2019, </strong>
+                  {{ time.key | date:'shortTime' }}
+                </span>
+
+              </div>
+              <div class="events-at-day">
+                <template ngFor let-event [ngForOf]="time.val" let-i="index">
+
+                  <!--                                <div class="">-->
+
+                  <div *ngIf="currentUser" class="app-event" [currentEvent]="event" [currentUser]="currentUser"
+                       [isLogged]="isLogged"></div>
+
+
+                  <!--                                </div>-->
+                </template>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
     </div>
-    </div>
-</div>
--->
 
 
-
-
-<!--<button (click)="test()" >Button</button>
-<div *ngIf="eventsList">
-  <select multiple="multiple" [ngModel]="selectedDay" (ngModelChange)="funcSelectedDay($event)">
-      <option *ngFor="let i of conferenceDates" [ngValue]="i">{{i | date:'yMMMMd'}}</option>
-  </select>
-</div>
-
-<div *ngIf="uniqueTimes">
-  <select multiple="multiple" [ngModel]="selectedTime" (ngModelChange)="funcSelectedTime($event)">
-      <option *ngFor="let i of uniqueTimes" [ngValue]="i">{{i | date:'short'}}</option>
-  </select>
-</div>
-
-<div *ngIf="currentEvents">
-      <div class="event-item" *ngFor="let event of currentEvents">
-
-              <p>{{event.title}}</p>
-         <p>{{event.description}}</p> 
-            <p>{{event.startdate | date:'yMMMdjms'}} <p>  
-</div>-->
-
-<div  class="event-list-block">
-<div *ngIf="timeGrid" class="events-container">
-
-    <div *ngFor="let day of timeGrid | eventsToObject" class="day-container">
-         <div class="conference-date">  <strong> {{day.key}} апреля, 2017 </strong></div>
-
-    <div>
-        <template ngFor let-time [ngForOf]="day.val | eventsToObject" let-ii="index">
-            <div class="time-container">
-                <div class="time-item" > <strong> {{ time.key | date:'shortTime' }} </strong> </div>
-            <div class="events-at-day">
-                       <template ngFor let-event [ngForOf]="time.val" let-i="index" >
-
-                         <div class="event-time-{{time.val.length}} {{event.eventtypeid}}">
-                           <i class="fa fa-info-circle more-button" id="more-{{event.id}}"></i>
-
-                           <div *ngIf="currentUser" class="app-event" [currentEvent]="event" [currentUser]="currentUser" [isLogged]="isLogged"></div>
-
-
-                             </div>
-                      </template>
-                </div>
-             </div>
-        </template>
-    </div>
-    </div>
-</div>
+  </div>
 </div>

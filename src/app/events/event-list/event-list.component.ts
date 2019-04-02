@@ -6,6 +6,7 @@ import {Title} from '@angular/platform-browser';
 import {AuthGuard} from 'app/services/auth.guard';
 import {RegisterService} from 'app/services/register.service';
 import {AuthenticationService} from 'app/services/auth.service';
+import {TranslateService} from 'app/translate/translate.service';
 
 @Component({
   selector: 'div.app-event-list',
@@ -15,9 +16,9 @@ import {AuthenticationService} from 'app/services/auth.service';
 
 export class EventListComponent implements OnInit {
   eventsList: Event[];
-  conferenceDates: Date[] = [];
-  selectedDay: any;
-  selectedTime: any;
+  // conferenceDates: Date[] = [];
+  // selectedDay: any;
+  // selectedTime: any;
   uniqueTimes: any[];
   currentEvents: Event[];
   timeGrid: any;
@@ -27,7 +28,21 @@ export class EventListComponent implements OnInit {
   hideEvents: false;
 
   isLogged: boolean = false;
+  showResetFilter = false;
+  private eventsDisableFilter = ['dinner', 'coffee_break'];
 
+  filters = {
+    by_day: [],
+    by_path: [],
+    by_type: [],
+  };
+
+  user_filters = {
+    by_day: 'all',
+    by_path: [],
+    by_type: [],
+  };
+  objectKeys = Object.keys;
 
   @Input() typeFilter: string = '';
 
@@ -37,28 +52,90 @@ export class EventListComponent implements OnInit {
               private title: Title,
               private authGuard: AuthGuard,
               private registerService: RegisterService,
-              private authenticationService: AuthenticationService
+              private authenticationService: AuthenticationService,
+              private _translate: TranslateService,
   ) {
   }
 
   ngOnInit() {
     this.isLogged = this.authGuard.canActivate();
     this.title.setTitle('Мероприятия');
+    console.log('oninit event-list component');
+
     this.eventsService.getEventsList()
       .subscribe(eventsList => {
-        this.timeGrid = eventsList;
-        console.log(eventsList);
-        this.timeGrid = this.eventsService.getEventsObject(this.typeFilter);
-        this.registerService.getProfile().subscribe(
-          userProfile => {
-            this.currentUser = userProfile;
-          },
-          error => {
-            this.authenticationService.logout();
+          this.timeGrid = eventsList;
+          this.timeGrid = this.eventsService.getEventsObject(this.typeFilter);
+
+          console.log(eventsList);
+
+          // let day_label = this._translate.instant('day_label');
+          let UniqueDates = this.getUniqueDates(eventsList);
+          // .map(item => { return item.getDate() });
+          this.filters.by_day = UniqueDates.map(function (item, idx) {
+            return {
+              name: item.getDate() + ' ' + this._translate.instant('month_' + item.getMonth() + '_1') + ' ' + item.getFullYear(),
+              value: item.getDate()
+            };
+          }, this);
+
+          this.filters.by_path = this.getPathList(eventsList);
+          this.filters.by_type = this.getTypesList(eventsList);
+
+          this.user_filters.by_path = this.filters.by_path;
+          this.user_filters.by_type = this.filters.by_type;
+
+          this.filters.by_day.unshift({name: this._translate.instant('two_days_label'), value: 'all'});
+          this.user_filters.by_day = 'all';
+
+          if (localStorage.getItem('user_filters')) {
+            this.user_filters = JSON.parse(localStorage.getItem('user_filters'));
+            this.filterChange();
           }
-        );
+
+          this.registerService.getProfile().subscribe(
+            userProfile => {
+              this.currentUser = userProfile;
+            },
+            error => {
+              this.authenticationService.logout();
+            }
+          );
         }
       );
+
+    console.log('filters: ', this.filters);
+    console.log('user filters: ', this.user_filters);
+  }
+
+  // filter_events
+  filterChange() {
+    this.currentEvents = this.eventsService.filter_events(this.user_filters);
+    // console.log(this.user_filters);
+
+    console.log("Показано мероприятий", this.currentEvents.length);
+
+    this.timeGrid = this.eventsService.eventsListToObject(this.currentEvents);
+    // console.log(this.timeGrid);
+    localStorage.setItem('user_filters', JSON.stringify(this.user_filters));
+
+    if (this.user_filters.by_path.some(item => {
+      return item.checked;
+    }) || this.user_filters.by_type.some(item => {
+      return item.checked;
+    }) || this.user_filters.by_day !== 'all') {
+      this.showResetFilter = true;
+    } else {
+      this.showResetFilter = false;
+    }
+  }
+
+  resetFilters() {
+    console.log(this.filters);
+    this.user_filters.by_day = 'all';
+    this.user_filters.by_path.forEach(item => item.checked = false);
+    this.user_filters.by_type.forEach(item => item.checked = false);
+    this.filterChange();
   }
 
   ngOnChanges(changes: any) {
@@ -73,11 +150,45 @@ export class EventListComponent implements OnInit {
 
   funcSelectedTime(value) {
     this.currentEvents = this.eventsService.getEventsByDayTimes(value);
-
   }
 
   public toEvent(event: Event) {
     this.router.navigate(['events', 'event', event.id]);
+  }
+
+  getTypesList(eventsList: Event[]) {
+    let types = [];
+    for (let item of eventsList) {
+      let event: Event = item;
+      if (event.get_event_slug !== 'empty' && !this.eventsDisableFilter.includes(event.get_event_slug)) {
+        if (!types.find(item => item.slug === event.get_event_slug)) {
+          // event.path.checked = false;
+          types.push(
+            {
+              'title': event.eventtype,
+              'slug': event.get_event_slug,
+              'checked': false,
+            });
+        }
+      }
+
+    }
+    return types;
+  }
+
+  getPathList(eventsList: Event[]) {
+    let paths = [];
+    for (let item of eventsList) {
+      let event: Event = item;
+      if (event.path) {
+        if (!paths.find(item => item.slug === event.path.slug)) {
+          event.path.checked = false;
+          paths.push(event.path);
+        }
+      }
+
+    }
+    return paths;
   }
 
   // передаем список событий
@@ -94,7 +205,7 @@ export class EventListComponent implements OnInit {
       }*/
     }
     uniqueDates.sort(function (a, b) {
-      return a.getTime() - b.getTime()
+      return a.getTime() - b.getTime();
     });
     return uniqueDates;
   }
