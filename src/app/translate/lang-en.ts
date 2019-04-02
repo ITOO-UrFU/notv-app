@@ -7,6 +7,9 @@ export const LANG_EN_TRANS = {
   // основные лейблы
   'edcrunch_title': "",
   'edcrunch_title_add': "New educational technologies in higher education",
+  'online_courses': "online courses",
+  'online_courses_1': "online courses",
+  'login_register_label': 'Login/register',
 
   // логин компонент
   'login_error_msg': 'Login error. Check the correctness of the entered data.',
@@ -139,6 +142,28 @@ export const LANG_EN_TRANS = {
   'in_section_label': "section",
   'to_participate_in_pechakucha_label': "To participate in PechaKucha",
   'not_to_participate_confirmation_msg': "Are you sure you want to cancel the event?",
+  'pechakucha_about_1': " is an open platform for presenting and discussing interesting ideas and concepts for creating new online courses in the following areas:",
+  'pechakucha_about_2': "inclusion in higher education programs for the university;",
+  'pechakucha_about_3': "business courses for additional education programs;",
+  'pechakucha_about_4': "new technological solutions (AR / VR, business games, simulators);",
+  'pechakucha_about_5': "online courses for free listeners (social value); ",
+  'pechakucha_about_6': "other creative ideas of effective learning.",
+  'pechakucha_about_7': "is a unique opportunity to present your ideas to investors and experts, to receive funding and the opportunity to host your own online course on an open education platform.",
+  'pechakucha_about_8': "(in Japanese – chatter). Each author should prepare 10 slides, the presentation of which will be 200 seconds.",
+  'pechakucha_about_9': "During the presentation of ideas, try to convey to the audience the main distinguishing features of your course:",
+  'pechakucha_about_10': "the main idea of the project (online course);",
+  'pechakucha_about_11': "generated learning outcomes / other purpose;",
+  'pechakucha_about_12': "online course customer (s);",
+  'pechakucha_about_13': "target audience, its capacity;",
+  'pechakucha_about_14': "competitive advantage;",
+  'pechakucha_about_15': "project's budget;",
+  'pechakucha_about_16': "applying online course;",
+  'pechakucha_about_17': "financial support of the project and / or monetization model;",
+  'pechakucha_about_18': "possible risks;",
+  'pechakucha_about_19': "development prospects.",
+  'type_participate_pechakucha_label': "In what role do you want to participate in PechaKucha online courses?",
+  'listener_pechakucha_label': "Listener",
+  'author_pechakucha_label': "The author of the idea of an online course with a presentation",
   // 'profile_label'
 
 

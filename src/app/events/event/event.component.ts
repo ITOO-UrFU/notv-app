@@ -42,13 +42,14 @@ export class EventComponent implements OnInit {
           this.update(this.currentEvent);
   }
 
-  navigateToEvent(){
-      console.log(this.currentEvent.id)
-      this.router.navigate(['events', this.currentEvent.id]);
-  }
+  // navigateToEvent(){
+  //     console.log(this.currentEvent.id);
+  //     this.router.navigate(['events', this.currentEvent.id]);
+  // }
 
 update(event: Event){
     // this.showButtons = false;
+  console.log(this.currentUser);
     this.currentUser.get_events.forEach(event => {
                         if (event.event.id == this.currentEvent.id){
                             this.isReg = true;
@@ -89,7 +90,7 @@ checkSameTimeEvents(potentialEvent: Event): any[] {
 
 attemptRegisterOnEvent(event: Event) {
 
-      console.log(console.log(this.checkSameTimeEvents(event)))
+      console.log("same events: ", this.checkSameTimeEvents(event));
 
 this.registerService.getProfile().subscribe(userProfile => {
                         this.currentUser = userProfile;
@@ -99,11 +100,21 @@ this.registerService.getProfile().subscribe(userProfile => {
                             for (let sameEvent of sameEvents){
                                sameEventsTitles += sameEvent.event.title + '\r\n';
                             }
-                           if (confirm('В это время проходят мероприятия, на которые Вы подписаны: \r\n' +
-                                        sameEventsTitles +
-                                       'Вы уверены что хотите зарегистрироваться на ' +
-                                        event.title + '?')) {
+                           // if (
+                           //   confirm('В это время проходят мероприятия, на которые Вы подписаны: \r\n' +
+                           //              sameEventsTitles +
+                           //             'Вы уверены что хотите зарегистрироваться на ' +
+                           //              event.title + '?')
+                           // )
+                          if(confirm('В это время проходят мероприятия'))
+                            {
                                     this.registerOnEvent(event);
+
+                                    // for (let event of sameEvents){
+                                    //   console.log("ok" , this.currentUser)
+                                        this.unregisterOnEvent(sameEvents[0].event);
+                                        this.update(sameEvents[0].event);
+                                    // }
                             } else {
                                 // Do nothing!
                                 }
@@ -142,15 +153,18 @@ attemptUnregisterOnEvent(event) {
 
 unregisterOnEvent(event: Event) {
     this.isReg = false;
+    console.log(event.id);
     this.registerService.unregisterOnEvent(event.id).subscribe(
                 data => {
                     this.alertService.success('Вы отписаны от события!', true);
                     this.registerService.getProfile().subscribe(userProfile => {
                     this.currentUser = userProfile;
                     this.update(this.currentEvent);
+                    console.log("ok unreg");
                 })
                 },
                 error => {
+                  console.log("ОШИБКА ОТПИСКИ!");
                     this.alertService.error("Ошибка отписки от события!", error);
                 });
 }

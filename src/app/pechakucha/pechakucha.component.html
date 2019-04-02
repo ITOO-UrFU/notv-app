@@ -1,30 +1,26 @@
 <div class="home-block" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
   <h2>PechaKucha</h2>
-  <p><strong>PechaKucha</strong> &mdash; это открытая площадка для представления и обсуждения интересных идей и
-    концепций создания новых онлайн-курсов по следующим направлениям:</p>
+  <p><strong>PechaKucha</strong> {{'pechakucha_about_1' | translate}}</p>
   <ul>
-    <li>включение в программы высшего образования для университета;</li>
-    <li>бизнес-курсы для программ дополнительного образования;</li>
-    <li>новые технологические решения (AR/VR, бизнес-игры, симуляторы);</li>
-    <li>онлайн-курсы для свободных слушателей (социальное значение);иные креативные идеи эффективного обучения.</li>
+    <li>{{'pechakucha_about_2' | translate}}</li>
+    <li>{{'pechakucha_about_3' | translate}}</li>
+    <li>{{'pechakucha_about_4' | translate}}</li>
+    <li>{{'pechakucha_about_5' | translate}}</li>
+    <li>{{'pechakucha_about_6' | translate}}</li>
   </ul>
-  <p><strong>PechaKucha онлайн-курсов</strong> &mdash; уникальная возможность представить свои идеи инвесторам и
-    экспертам, получить финансирование и возможность размещения собственного онлайн-курса на платформе открытого
-    образования.</p>
-  <p><strong>PechaKucha</strong> (в переводе с японского &mdash; болтовня). Каждому автору необходимо подготовить 10
-    слайдов, на презентацию которых будет 200 секунд. <br/>В ходе презентации идей постарайтесь донести до аудитории
-    основные отличительные особенности Вашего курса:</p>
+  <p><strong>PechaKucha {{ 'online_courses_1' | translate }}</strong> {{'pechakucha_about_7' | translate}}</p>
+  <p><strong>PechaKucha</strong> {{ 'pechakucha_about_8' | translate }} <br/>{{ 'pechakucha_about_9' | translate }}</p>
   <ul>
-    <li>основная идея проекта (онлайн-курса);</li>
-    <li>формируемые результаты обучения/иная цель;</li>
-    <li>заказчик(и) онлайн-курса;</li>
-    <li>целевая аудитория, ее емкость;</li>
-    <li>конкурентное преимущество;</li>
-    <li>бюджет проекта;</li>
-    <li>применение онлайн-курса;</li>
-    <li>финансовая поддержка проекта и/или модель монетизации;</li>
-    <li>возможные риски;</li>
-    <li>перспективы развития.</li>
+    <li>{{ 'pechakucha_about_10' | translate }}</li>
+    <li>{{ 'pechakucha_about_11' | translate }}</li>
+    <li>{{ 'pechakucha_about_12' | translate }}</li>
+    <li>{{ 'pechakucha_about_13' | translate }}</li>
+    <li>{{ 'pechakucha_about_14' | translate }}</li>
+    <li>{{ 'pechakucha_about_15' | translate }}</li>
+    <li>{{ 'pechakucha_about_16' | translate }}</li>
+    <li>{{ 'pechakucha_about_17' | translate }}</li>
+    <li>{{ 'pechakucha_about_18' | translate }}</li>
+    <li>{{ 'pechakucha_about_19' | translate }}</li>
   </ul>
 
   <!--  <div class="edit-link">-->
@@ -69,15 +65,15 @@
     </div>
     <div class="pechakucha-form-group">
 
-      <label for=""><strong>В качестве кого Вы хотите участвовать в PechaKucha онлайн-курсов?</strong></label>
+      <label for=""><strong>{{ 'type_participate_pechakucha_label' | translate }}</strong></label>
       <div class="pechakucha-form-group"><input type="radio" [(ngModel)]="participation_type" name="participation_type"
                                                 [checked]="'l' === participation_type" value="l"
                                                 (change)="handleChange($event)" id="participation_type_l"><label
-        for="participation_type_l">Слушатель</label></div>
+        for="participation_type_l">{{ 'listener_pechakucha_label' | translate }}</label></div>
       <div class="pechakucha-form-group"><input type="radio" [(ngModel)]="participation_type" name="participation_type"
                                                 [checked]="'a' === participation_type" value="a"
                                                 (change)="handleChange($event)" id="participation_type_a"><label
-        for="participation_type_a">Автор идеи онлайн-курса с презентацией</label></div>
+        for="participation_type_a">{{ 'author_pechakucha_label' | translate }}</label></div>
     </div>
 
     <div *ngIf="show_presentation_upload_block">

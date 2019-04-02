@@ -96,7 +96,7 @@
     /* font-weight: bold; */
     color: #333333;
     margin-top: 7px;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     font-family: "IBM Plex Mono",monospace;
     i {
       color: #282865;
@@ -183,7 +183,8 @@
 
   .event-block-about{
     float: none;
-    //padding-right: 40px;
+    width: 100%;
+    padding-right: 10px;
   }
 
   .event-block-control {
