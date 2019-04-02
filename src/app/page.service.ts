@@ -50,6 +50,7 @@ export class PageService {
     return this.http.get(this.pageUrl + url + '/?format=json')
       .map((data => {
         let body = data.json();
+        console.log(body)
         return (new Page(
             body.slug,
           this._translate.currentLang.toLocaleLowerCase() === 'ru' ? body.html : body.html_en,

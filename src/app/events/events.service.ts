@@ -192,14 +192,32 @@ private extractEvent(res: Response): Event {
 
     const events: Event[] = [];
     for (let i = 0; i < body.length; i++) {
-          console.log(body[i]);
+
+          // console.log(body[i]);
+
           let eventTypeClass = "eventtype-empty";
           let slug = 'empty';
 
-          if (body[i].get_event_slug != null) { 
+          if (body[i].get_event_slug != null) {
             eventTypeClass = "eventtype-" + body[i].get_event_slug;
             slug = body[i].get_event_slug;
          }
+
+          let path = null;
+
+          if (body[i].path) {
+            path = {
+              title: this._translate.currentLang === 'ru' ? body[i].path.title : body[i].path.title_en,
+              slug: body[i].path.slug
+            };
+          }
+          let room = null;
+          if (body[i].room) {
+            room = {
+              title: this._translate.currentLang === 'ru' ? body[i].room.title : body[i].room.title_en,
+              slug: body[i].room.slug,
+            };
+          }
 
          const startdate = new Date(body[i].startdate);
          const enddate = new Date(body[i].enddate);
@@ -219,7 +237,7 @@ private extractEvent(res: Response): Event {
             body[i].get_line_of_work_slug,
             slug,
             body[i].room,
-            body[i].path,
+            path
             );
 
           event.get_speakers = event.get_speakers.filter(user => user.get_type_display !== 'Участник');

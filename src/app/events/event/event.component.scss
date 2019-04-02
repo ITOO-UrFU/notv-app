@@ -31,6 +31,7 @@
       border: solid 2px #e6007e;
     }
     &.edu_analytics{
+      color: #282865;
       background: #ffda00;
       border: solid 2px #ffda00;
     }
@@ -54,10 +55,10 @@
     font-family: "IBM Plex Mono",monospace;
     padding: 2px 17px;
     font-size: 62.5%;
-    background: #00a7d8;
+    background: #ffffff;
     font-weight: bold;
     letter-spacing: 0.7px;
-    color: #ffffff;
+    color: #00a7d8;
     border: solid 2px #00a7d8;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -65,11 +66,10 @@
     text-align: center;
   }
   .event-block-subject{
-    //font-family: "IBM Plex Mono",monospace;
+    font-family: "IBM Plex Mono",monospace;
     font-size: 100%;
     cursor: default;
-    font-weight: 600;
-    //color: #282866;
+    font-weight: 700;
     margin-bottom: 10px;
     a {
 
@@ -97,7 +97,7 @@
     color: #333333;
     margin-top: 7px;
     margin-bottom: 12px;
-
+    font-family: "IBM Plex Mono",monospace;
     i {
       color: #282865;
     }
@@ -106,11 +106,12 @@
   .event-block-time{
     /* font-size: 75%; */
     /* font-weight: bold; */
+    font-family: "IBM Plex Mono",monospace;
     color: #282866;
 
     margin-top: 7px;
     margin-bottom: 12px;
-    font-size: 80%;
+    font-size: 12px !important;
   }
 
   button {

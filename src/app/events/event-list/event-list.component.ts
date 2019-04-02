@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, OnDestroy, AfterViewChecked} from '@angular/core';
+import {Component, Input, OnInit, AfterViewChecked} from '@angular/core';
 import {EventsService} from 'app/events/events.service';
 import {Router} from '@angular/router';
 import {Event} from 'app/events/event';
@@ -15,7 +15,7 @@ import {TranslateService} from 'app/translate/translate.service';
   host: {'(window:scroll)': 'setScroll()'}
 })
 
-export class EventListComponent implements OnInit, OnDestroy, AfterViewChecked {
+export class EventListComponent implements OnInit, AfterViewChecked {
   eventsList: Event[];
   // conferenceDates: Date[] = [];
   // selectedDay: any;
@@ -24,8 +24,6 @@ export class EventListComponent implements OnInit, OnDestroy, AfterViewChecked {
   uniqueTimes: any[];
   currentEvents: Event[];
   timeGrid: any;
-
-  scrollOffset = 0;
 
   currentUser: any;
   // hideEvents: false;
@@ -63,12 +61,10 @@ export class EventListComponent implements OnInit, OnDestroy, AfterViewChecked {
   setScroll(){
     localStorage.setItem('events_offset', window.pageYOffset.toString());
   }
-  ngOnDestroy(){
-    console.log("OnDestroy")
-    // @HostListener('window:scroll', ['$event']);
 
-    // console.log('destroy', );
-  }
+  // ngOnDestroy(){
+  //   console.log("OnDestroy")
+  // }
 
   ngOnInit() {
     this.isLogged = this.authGuard.canActivate();
@@ -79,12 +75,7 @@ export class EventListComponent implements OnInit, OnDestroy, AfterViewChecked {
       .subscribe(eventsList => {
           this.timeGrid = eventsList;
           this.timeGrid = this.eventsService.getEventsObject(this.typeFilter);
-
-          console.log(eventsList);
-
-          // let day_label = this._translate.instant('day_label');
           let UniqueDates = this.getUniqueDates(eventsList);
-          // .map(item => { return item.getDate() });
           this.filters.by_day = UniqueDates.map(function (item, idx) {
             return {
               name: item.getDate() + ' ' + this._translate.instant('month_' + item.getMonth() + '_1') + ' ' + item.getFullYear(),
@@ -102,10 +93,10 @@ export class EventListComponent implements OnInit, OnDestroy, AfterViewChecked {
           this.filters.by_day.unshift({name: this._translate.instant('two_days_label'), value: 'all'});
           this.user_filters.by_day = 'all';
 
-          // if (localStorage.getItem('user_filters')) {
-          //   this.user_filters = JSON.parse(localStorage.getItem('user_filters'));
-          //   this.filterChange();
-          // }
+          if (localStorage.getItem('user_filters')) {
+            this.user_filters = JSON.parse(localStorage.getItem('user_filters'));
+            this.filterChange();
+          }
 
           this.registerService.getProfile().subscribe(
             userProfile => {
@@ -118,8 +109,8 @@ export class EventListComponent implements OnInit, OnDestroy, AfterViewChecked {
         }
       );
 
-    console.log('filters: ', this.filters);
-    console.log('user filters: ', this.user_filters);
+    // console.log('filters: ', this.filters);
+    // console.log('user filters: ', this.user_filters);
   }
 
   ngAfterViewChecked() {
@@ -131,28 +122,31 @@ export class EventListComponent implements OnInit, OnDestroy, AfterViewChecked {
   filterChange() {
     this.currentEvents = this.eventsService.filter_events(this.user_filters);
 
-    // console.log("Показано мероприятий", this.currentEvents.length);
+    console.log("Показано мероприятий", this.currentEvents.length);
 
     this.timeGrid = this.eventsService.eventsListToObject(this.currentEvents);
     // console.log(this.timeGrid);
     localStorage.setItem('user_filters', JSON.stringify(this.user_filters));
 
-    // if (this.user_filters.by_path.some(item => {
-    //   return item.checked;
-    // }) || this.user_filters.by_type.some(item => {
-    //   return item.checked;
-    // }) || this.user_filters.by_day !== 'all') {
-    //   this.showResetFilter = true;
-    // } else {
-    //   this.showResetFilter = false;
-    // }
+    if (Object.keys(this.user_filters.by_path).some(item => {
+      return this.user_filters.by_path[item].checked;
+    }) || Object.keys(this.user_filters.by_type).some(item => {
+      return this.user_filters.by_type[item].checked;
+    }) || this.user_filters.by_day !== 'all') {
+      this.showResetFilter = true;
+    } else {
+      this.showResetFilter = false;
+    }
   }
 
   resetFilters() {
-    console.log(this.filters);
+    // console.log(this.filters);
     this.user_filters.by_day = 'all';
-    // this.user_filters.by_path.forEach(item => item.checked = false);
+    // console.log(this.user_filters);
+    Object.keys(this.user_filters.by_path).forEach(item => this.user_filters.by_path[item].checked = false);
+    Object.keys(this.user_filters.by_type).forEach(item => this.user_filters.by_type[item].checked = false);
     // this.user_filters.by_type.forEach(item => item.checked = false);
+
     this.filterChange();
   }
 
@@ -180,15 +174,11 @@ export class EventListComponent implements OnInit, OnDestroy, AfterViewChecked {
       let event: Event = item;
       if (event.get_event_slug !== 'empty' && !this.eventsDisableFilter.includes(event.get_event_slug)) {
         if (!Object.keys(types).find(item => item === event.get_event_slug)) {
-          // event.path.checked = false;
-          // console.log();
-          // types.push(
           types[event.get_event_slug] = {
               'title': event.eventtype,
               'slug': event.get_event_slug,
               'checked': false,
             };
-            // );
         }
       }
 
@@ -202,26 +192,14 @@ export class EventListComponent implements OnInit, OnDestroy, AfterViewChecked {
       let event: Event = item;
       if (event.path) {
         if (!Object.keys(paths).find(item => item === event.path.slug)) {
-          // event.path.checked = false;
+          event.path.checked = false;
           paths[event.path.slug] = event.path;
-
-          // paths[event.get_event_slug] = {
-          //   'title': event.eventtype,
-          //   'slug': event.get_event_slug,
-          //   'checked': false,
-          // };
         }
       }
 
     }
-    console.log(paths);
     return paths;
   }
-
-  // updateTypesList(){
-  //
-  // }
-
 
   // передаем список событий
   // получаем отсортированный список дат, когда есть события

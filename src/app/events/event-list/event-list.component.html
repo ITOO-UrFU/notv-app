@@ -10,29 +10,30 @@
 
       <div class="program-filter-slide">
 
-<!--        <div class="events-filter-block">-->
+        <div class="events-filter-block">
 
-<!--          <div class="events-filter-block-name">{{ 'day_label' | translate }}</div>-->
+          <div class="events-filter-block-name">{{ 'day_label' | translate }}</div>
 
 
-<!--          <div class="events-filter-block-filter">-->
+          <div class="events-filter-block-filter">
 
-<!--            <select [(ngModel)]="user_filters.by_day" (change)="filterChange()">-->
-<!--              <option *ngFor="let c of filters?.by_day" [ngValue]="c.value">{{c.name}}</option>-->
-<!--            </select>-->
-<!--          </div>-->
+            <select [(ngModel)]="user_filters.by_day" (change)="filterChange()">
+              <option *ngFor="let c of filters?.by_day" [ngValue]="c.value">{{c.name}}</option>
+            </select>
+          </div>
 
-<!--        </div>-->
-<!--        <div class="events-filter-block">-->
+        </div>
 
-<!--            <div class="events-filter-block-name">{{ 'path_label' | translate }} </div>-->
+        <div class="events-filter-block">
 
-<!--          <div class="events-filter-block-filter">-->
+            <div class="events-filter-block-name">{{ 'path_label' | translate }} </div>
 
-<!--            <label *ngFor="let option of user_filters.by_path" class="checkbox-item"><input type="checkbox" id="{{option.slug}}" value="{{option.slug}}" [(ngModel)]="option.checked" (change)="filterChange()" /> <span></span> {{option.title}}</label>-->
+          <div class="events-filter-block-filter">
 
-<!--          </div>-->
-<!--        </div>-->
+            <label *ngFor="let option of objectKeys(filters.by_path)" class="checkbox-item"><input type="checkbox" id="{{filters.by_path[option].slug}}" value="{{filters.by_path[option].slug}}" [(ngModel)]="user_filters.by_path[option].checked" (change)="filterChange()" /> <span></span> {{filters.by_path[option].title}}</label>
+
+          </div>
+        </div>
         <div class="events-filter-block">
 
           <div class="events-filter-block-name">{{ 'event_type_label' | translate }} </div>
@@ -70,7 +71,7 @@
             <div class="time-container">
               <div class="events-list-time-item">
                 <span>
-                  <strong *ngIf="ii == 0" class="conference-date"> {{day.key}} апреля 2019, </strong>
+                  <strong *ngIf="ii == 0" class="conference-date"> {{day.key}} {{ 'month_' + time.val[0].startdate.getMonth()+'_1' | translate }} {{time.val[0].startdate.getFullYear()}}, </strong>
                   {{ time.key | date:'shortTime' }}
                 </span>
 

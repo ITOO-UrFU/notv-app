@@ -10,20 +10,20 @@
       {{ currentEvent.eventtype }}
     </div>
     <div class="event-block-subject">
-<!--      {{currentUser.get_event_slug}}-->
-      <a *ngIf="!eventsDisableButton.includes(currentEvent.get_event_slug)" (click)="navigateToEvent()" class="active">{{currentEvent.title}}</a>
-      <a *ngIf="eventsDisableButton.includes(currentEvent.get_event_slug)" >{{currentEvent.title}}</a>
+<!--      <a *ngIf="!eventsDisableButton.includes(currentEvent.get_event_slug)" (click)="navigateToEvent()" class="active">{{currentEvent.title}}</a>-->
+<!--      <a *ngIf="eventsDisableButton.includes(currentEvent.get_event_slug)" >{{currentEvent.title}}</a>-->
+      {{ currentEvent.title }}
     </div>
   </div>
 
   <div class="event-block-control">
 
     <div class="event-block-room">
-  <span *ngIf="currentEvent.room">  <i aria-hidden="true" class="fa fa-map-marker"></i> ауд. {{currentEvent.room.title}}</span>
+  <span *ngIf="currentEvent.room">  <i aria-hidden="true" class="fa fa-map-marker"></i> {{currentEvent.room.title}}</span>
   </div>
 
     <div class="event-block-time">
-      <b>{{ currentEvent.startdate.getDate()}} апреля {{ currentEvent.startdate.getFullYear() }},</b> {{ currentEvent.startdate | date:'shortTime' }} - {{ currentEvent.enddate | date:'shortTime' }}
+      <b>{{ currentEvent.startdate.getDate()}} {{ 'month_' + currentEvent.startdate.getMonth() + '_1' | translate  }} {{ currentEvent.startdate.getFullYear() }},</b> {{ currentEvent.startdate | date:'shortTime' }} - {{ currentEvent.enddate | date:'shortTime' }}
     </div>
 
     <div *ngIf="showButtons">

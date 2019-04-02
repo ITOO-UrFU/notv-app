@@ -32,7 +32,7 @@ body {
 }
 
 .app-load-materials {
-  margin-top: 80px;
+  //margin-top: 80px;
 }
 
 .reg-new-user {
@@ -78,6 +78,7 @@ alert .alert-danger {
   padding-bottom: 20px;
 }
 
+
 .app-event-list {
   width: 95%;
   margin: 0 auto;
@@ -96,7 +97,7 @@ alert .alert-danger {
 //}
 
 .container {
-  margin-top: 90px;
+  //margin-top: 90px;
 }
 
 .event-block {
@@ -386,3 +387,8 @@ header.app-nav {
 
 }
 
+app-user-profile {
+  .profile-menu {
+    position: initial !important;
+  }
+}

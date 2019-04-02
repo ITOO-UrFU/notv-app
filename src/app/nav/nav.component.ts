@@ -65,6 +65,7 @@ export class NavComponent implements OnInit, AfterViewInit {
                   type: element.type
                 });
               });
+              console.log(element)
               this.listUrl.push({
                 url: element.slug,
                 title: currentLang === 'ru' ? element.title ? element.title : element.slug : element.title_en ? element.title_en : element.slug,

@@ -138,8 +138,24 @@ export const LANG_EN_TRANS = {
   'can_edit_profile_msg': "Information about yourself, you can edit in",
   'in_section_label': "section",
   'to_participate_in_pechakucha_label': "To participate in PechaKucha",
-  'not_to_participate_confirmation_msg': "Are you sure you want to cancel the event?"
+  'not_to_participate_confirmation_msg': "Are you sure you want to cancel the event?",
   // 'profile_label'
+
+
+
+  // Компонент все мероприятия
+  'day_label': "Day",
+  'all_days_label': "All days",
+  'two_days_label': "Two days",
+  'month_3': "april",
+  'month_3_1': "april",
+  'path_label': "Trajectory",
+  'event_type_label': "Event type",
+  'not_found_events_label': "No events found",
+  'events_filter_reset': "Reset filter",
+  'filters_label': "Filters",
+  'events_program_label': "Program",
+
 };
 
 
