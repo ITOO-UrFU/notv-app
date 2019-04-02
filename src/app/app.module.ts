@@ -45,11 +45,10 @@ import {ChangePasswordComponent} from './user-profile/change-password/change-pas
 import {RegisterStudentsComponent} from './register-students/register-students.component';
 import { TRANSLATION_PROVIDERS, TranslatePipe, TranslateService } from './translate';
 
-import {EventModalComponent} from './events/event-modal/event-modal.component';
+import {EventPageComponent} from './events/event-page/event-page.component';
+// import {EventModalComponent} from './events/event-modal/event-modal.component';
 import {PechaKuchaComponent} from './pechakucha/pechakucha.component';
 import {CommonModule} from '@angular/common';
-
-
 
 const metaConfig: MetaConfig = {
 
@@ -62,11 +61,12 @@ const metaConfig: MetaConfig = {
 
 @NgModule({
   declarations: [
-    EventModalComponent,
+    // EventModalComponent,
     AppComponent,
     NavComponent,
     PageComponent,
     EventListComponent,
+    EventPageComponent,
     eventsToObjectPipe,
     HomePageComponent,
     SpeakersListComponent,

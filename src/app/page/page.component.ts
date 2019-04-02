@@ -19,8 +19,12 @@ export class PageComponent implements OnDestroy, OnInit {
   dangerousUrl: any;
   trustedUrl: any;
   public userLang: any;
+  page: Page;
+  private id: number;
+  private subscription: Subscription;
 
   ngOnInit(){
+    // console.log("this.page.type: ", this.page);
     this.userLang = navigator.language || window.navigator['userLanguage'];
     // console.log(navigator, )
     // if( document.getElementById("hotel-map")){
@@ -29,9 +33,7 @@ export class PageComponent implements OnDestroy, OnInit {
     // }
   }
 
-  page: Page;
-    private id: number;
-    private subscription: Subscription;
+
 
   constructor(
               private router: Router,

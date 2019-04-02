@@ -1,3 +1,5 @@
+<!--<router-outlet>-->
+
 <div class="event-list-block">
 
   <h1>{{ 'events_program_label' | translate }}</h1>
@@ -8,29 +10,29 @@
 
       <div class="program-filter-slide">
 
-        <div class="events-filter-block">
+<!--        <div class="events-filter-block">-->
 
-          <div class="events-filter-block-name">{{ 'day_label' | translate }}</div>
+<!--          <div class="events-filter-block-name">{{ 'day_label' | translate }}</div>-->
 
 
-          <div class="events-filter-block-filter">
+<!--          <div class="events-filter-block-filter">-->
 
-            <select [(ngModel)]="user_filters.by_day" (change)="filterChange()">
-              <option *ngFor="let c of filters?.by_day" [ngValue]="c.value">{{c.name}}</option>
-            </select>
-          </div>
+<!--            <select [(ngModel)]="user_filters.by_day" (change)="filterChange()">-->
+<!--              <option *ngFor="let c of filters?.by_day" [ngValue]="c.value">{{c.name}}</option>-->
+<!--            </select>-->
+<!--          </div>-->
 
-        </div>
-        <div class="events-filter-block">
+<!--        </div>-->
+<!--        <div class="events-filter-block">-->
 
-            <div class="events-filter-block-name">{{ 'path_label' | translate }} </div>
+<!--            <div class="events-filter-block-name">{{ 'path_label' | translate }} </div>-->
 
-          <div class="events-filter-block-filter">
+<!--          <div class="events-filter-block-filter">-->
 
-            <label *ngFor="let option of user_filters.by_path" class="checkbox-item"><input type="checkbox" id="{{option.slug}}" value="{{option.slug}}" [(ngModel)]="option.checked" (change)="filterChange()" /> <span></span> {{option.title}}</label>
+<!--            <label *ngFor="let option of user_filters.by_path" class="checkbox-item"><input type="checkbox" id="{{option.slug}}" value="{{option.slug}}" [(ngModel)]="option.checked" (change)="filterChange()" /> <span></span> {{option.title}}</label>-->
 
-          </div>
-        </div>
+<!--          </div>-->
+<!--        </div>-->
         <div class="events-filter-block">
 
           <div class="events-filter-block-name">{{ 'event_type_label' | translate }} </div>
@@ -38,7 +40,7 @@
           <div class="events-filter-block-filter">
 
 <!--            <div *ngFor="let option of user_filters.by_type" class="checkbox-item">-->
-              <label *ngFor="let option of user_filters.by_type" class="checkbox-item"><input type="checkbox" id="{{option.slug}}" value="{{option.slug}}" [(ngModel)]="option.checked" (change)="filterChange()" /> <span></span> {{option.title}}</label>
+              <label *ngFor="let option of objectKeys(filters.by_type)" class="checkbox-item"><input type="checkbox" id="{{filters.by_type[option].slug}}" value="{{filters.by_type[option].slug}}" [(ngModel)]="user_filters.by_type[option].checked" (change)="filterChange()" /> <span></span> {{filters.by_type[option].title}}</label>
 <!--            </div>-->
 
           </div>
@@ -94,3 +96,4 @@
 
   </div>
 </div>
+<!--</router-outlet>-->

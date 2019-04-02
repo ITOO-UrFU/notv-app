@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, OnDestroy, AfterViewChecked} from '@angular/core';
 import {EventsService} from 'app/events/events.service';
 import {Router} from '@angular/router';
 import {Event} from 'app/events/event';
@@ -12,20 +12,23 @@ import {TranslateService} from 'app/translate/translate.service';
   selector: 'div.app-event-list',
   templateUrl: './event-list.component.html',
   styleUrls: ['./event-list.component.scss'],
+  host: {'(window:scroll)': 'setScroll()'}
 })
 
-export class EventListComponent implements OnInit {
+export class EventListComponent implements OnInit, OnDestroy, AfterViewChecked {
   eventsList: Event[];
   // conferenceDates: Date[] = [];
   // selectedDay: any;
+  // selectedTime: any;
   // selectedTime: any;
   uniqueTimes: any[];
   currentEvents: Event[];
   timeGrid: any;
 
+  scrollOffset = 0;
 
   currentUser: any;
-  hideEvents: false;
+  // hideEvents: false;
 
   isLogged: boolean = false;
   showResetFilter = false;
@@ -33,14 +36,14 @@ export class EventListComponent implements OnInit {
 
   filters = {
     by_day: [],
-    by_path: [],
-    by_type: [],
+    by_path: {},
+    by_type: {},
   };
 
   user_filters = {
     by_day: 'all',
-    by_path: [],
-    by_type: [],
+    by_path: {},
+    by_type: {},
   };
   objectKeys = Object.keys;
 
@@ -55,6 +58,16 @@ export class EventListComponent implements OnInit {
               private authenticationService: AuthenticationService,
               private _translate: TranslateService,
   ) {
+  }
+
+  setScroll(){
+    localStorage.setItem('events_offset', window.pageYOffset.toString());
+  }
+  ngOnDestroy(){
+    console.log("OnDestroy")
+    // @HostListener('window:scroll', ['$event']);
+
+    // console.log('destroy', );
   }
 
   ngOnInit() {
@@ -81,6 +94,7 @@ export class EventListComponent implements OnInit {
 
           this.filters.by_path = this.getPathList(eventsList);
           this.filters.by_type = this.getTypesList(eventsList);
+          console.log(this.filters);
 
           this.user_filters.by_path = this.filters.by_path;
           this.user_filters.by_type = this.filters.by_type;
@@ -88,10 +102,10 @@ export class EventListComponent implements OnInit {
           this.filters.by_day.unshift({name: this._translate.instant('two_days_label'), value: 'all'});
           this.user_filters.by_day = 'all';
 
-          if (localStorage.getItem('user_filters')) {
-            this.user_filters = JSON.parse(localStorage.getItem('user_filters'));
-            this.filterChange();
-          }
+          // if (localStorage.getItem('user_filters')) {
+          //   this.user_filters = JSON.parse(localStorage.getItem('user_filters'));
+          //   this.filterChange();
+          // }
 
           this.registerService.getProfile().subscribe(
             userProfile => {
@@ -108,33 +122,37 @@ export class EventListComponent implements OnInit {
     console.log('user filters: ', this.user_filters);
   }
 
-  // filter_events
+  ngAfterViewChecked() {
+    if(localStorage.getItem('events_offset')){
+      window.scrollTo(0, parseInt(localStorage.getItem('events_offset')))
+    }
+
+  }
   filterChange() {
     this.currentEvents = this.eventsService.filter_events(this.user_filters);
-    // console.log(this.user_filters);
 
-    console.log("Показано мероприятий", this.currentEvents.length);
+    // console.log("Показано мероприятий", this.currentEvents.length);
 
     this.timeGrid = this.eventsService.eventsListToObject(this.currentEvents);
     // console.log(this.timeGrid);
     localStorage.setItem('user_filters', JSON.stringify(this.user_filters));
 
-    if (this.user_filters.by_path.some(item => {
-      return item.checked;
-    }) || this.user_filters.by_type.some(item => {
-      return item.checked;
-    }) || this.user_filters.by_day !== 'all') {
-      this.showResetFilter = true;
-    } else {
-      this.showResetFilter = false;
-    }
+    // if (this.user_filters.by_path.some(item => {
+    //   return item.checked;
+    // }) || this.user_filters.by_type.some(item => {
+    //   return item.checked;
+    // }) || this.user_filters.by_day !== 'all') {
+    //   this.showResetFilter = true;
+    // } else {
+    //   this.showResetFilter = false;
+    // }
   }
 
   resetFilters() {
     console.log(this.filters);
     this.user_filters.by_day = 'all';
-    this.user_filters.by_path.forEach(item => item.checked = false);
-    this.user_filters.by_type.forEach(item => item.checked = false);
+    // this.user_filters.by_path.forEach(item => item.checked = false);
+    // this.user_filters.by_type.forEach(item => item.checked = false);
     this.filterChange();
   }
 
@@ -157,18 +175,20 @@ export class EventListComponent implements OnInit {
   }
 
   getTypesList(eventsList: Event[]) {
-    let types = [];
+    let types = {};
     for (let item of eventsList) {
       let event: Event = item;
       if (event.get_event_slug !== 'empty' && !this.eventsDisableFilter.includes(event.get_event_slug)) {
-        if (!types.find(item => item.slug === event.get_event_slug)) {
+        if (!Object.keys(types).find(item => item === event.get_event_slug)) {
           // event.path.checked = false;
-          types.push(
-            {
+          // console.log();
+          // types.push(
+          types[event.get_event_slug] = {
               'title': event.eventtype,
               'slug': event.get_event_slug,
               'checked': false,
-            });
+            };
+            // );
         }
       }
 
@@ -177,19 +197,31 @@ export class EventListComponent implements OnInit {
   }
 
   getPathList(eventsList: Event[]) {
-    let paths = [];
+    let paths = {};
     for (let item of eventsList) {
       let event: Event = item;
       if (event.path) {
-        if (!paths.find(item => item.slug === event.path.slug)) {
-          event.path.checked = false;
-          paths.push(event.path);
+        if (!Object.keys(paths).find(item => item === event.path.slug)) {
+          // event.path.checked = false;
+          paths[event.path.slug] = event.path;
+
+          // paths[event.get_event_slug] = {
+          //   'title': event.eventtype,
+          //   'slug': event.get_event_slug,
+          //   'checked': false,
+          // };
         }
       }
 
     }
+    console.log(paths);
     return paths;
   }
+
+  // updateTypesList(){
+  //
+  // }
+
 
   // передаем список событий
   // получаем отсортированный список дат, когда есть события

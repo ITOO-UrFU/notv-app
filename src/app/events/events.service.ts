@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
-
+import { TranslateService } from 'app/translate/translate.service';
 import { Event } from 'app/events/event';
 
 import 'rxjs/add/observable/throw';
@@ -17,13 +17,17 @@ export class EventsService {
 
   private eventsUrl = 'https://openedu.urfu.ru/edcrunch/api/v1/events';
 
-  constructor( private http: Http ) { }
+  private lang = "en";
+  constructor( private http: Http, private _translate: TranslateService) {
+    // console.log(this._translate.currentLang)
+    // this.lang = this._translate.currentLang.toLocaleLowerCase();
+  }
 
 
   getEventsList (): Observable<Event[]> {
     let eventsList: string;
     return this.http.get(this.eventsUrl)
-                    .map(this.extractEvents)
+                    .map(response => { return this.extractEvents(response)})
                     .catch(this.handleError);
   }
 
@@ -139,28 +143,12 @@ private extractEvent(res: Response): Event {
   }
 
 
-  getEventsByDay(){
-  }
-
   filter_events(filter): Event[]{
 
-    let path_filters = filter.by_path.filter(item => { return item.checked; }).map(item => item.slug);
-    let type_filters = filter.by_type.filter(item => { return item.checked; }).map(item => item.slug);
-    // path_filters.length > 0
-
-    console.log("path_filters", type_filters);
-
-
+    let path_filters = Object.keys(filter.by_path).filter(item => { return filter.by_path[item].checked; });
+    let type_filters = Object.keys(filter.by_type).filter(item => { return filter.by_type[item].checked; });
 
     return eventsList.filter(function (item) {
-
-      // let r = filter.by_day === item.startdate.getDate() || filter.by_day === 'all' &&
-      // path_filters.length === 0 ? true : item.path ? path_filters.includes(item.path.slug) : false &&
-      // type_filters.length === 0 ? true : type_filters.includes(item.get_event_slug);
-      //
-      // console.log((filter.by_day === item.startdate.getDate() || filter.by_day === 'all')  + "_______" + (path_filters.length === 0 ? true : item.path ? path_filters.includes(item.path.slug) : false )  + "_______" + (type_filters.length === 0 ? true : type_filters.includes(item.get_event_slug)) + "=====" + r);
-
-
       return (filter.by_day === item.startdate.getDate() || filter.by_day === 'all') &&
       (path_filters.length === 0 ? true : item.path ? path_filters.includes(item.path.slug) : false) &&
         (type_filters.length === 0 ? true : type_filters.includes(item.get_event_slug));
@@ -198,11 +186,13 @@ private extractEvent(res: Response): Event {
   }
 
     private extractEvents(res: Response): Event[] {
+
     const offset = new Date().getTimezoneOffset();
     const body = res.json();
+
     const events: Event[] = [];
     for (let i = 0; i < body.length; i++) {
-          // console.log(body[i]);
+          console.log(body[i]);
           let eventTypeClass = "eventtype-empty";
           let slug = 'empty';
 
@@ -215,15 +205,17 @@ private extractEvent(res: Response): Event {
          const enddate = new Date(body[i].enddate);
          startdate.setMinutes(startdate.getMinutes() + offset.valueOf());
          enddate.setMinutes(enddate.getMinutes() + offset.valueOf());
+          // console.log(this.lang);
           const event: Event = new Event(
             body[i].id,
-            body[i].title,
-            body[i].description,
+            this._translate.currentLang === 'ru' ? body[i].title : body[i].title_en,
+            this._translate.currentLang === 'ru' ? body[i].description : body[i].description_en,
             body[i].get_speakers,
             startdate,
             enddate,
             eventTypeClass,
-            body[i].get_type_display,
+            // body[i].get_type_display,
+            this._translate.currentLang === 'ru' ? body[i].get_type_display : body[i].get_type_display_en,
             body[i].get_line_of_work_slug,
             slug,
             body[i].room,

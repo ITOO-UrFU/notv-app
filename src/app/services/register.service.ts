@@ -93,6 +93,7 @@ export class RegisterService {
             body[i].event.get_line_of_work_slug,
             slug,
             body[i].event.room,
+            body[i].path,
             );
           events.push(event);
     }

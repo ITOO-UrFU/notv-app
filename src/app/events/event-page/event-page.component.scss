@@ -1,0 +1,174 @@
+//.event-block-about{
+//  float: left;
+//  padding-right: 40px;
+//
+//  .event-block-path-badge{
+//    display: inline-block;
+//    font-family: "IBM Plex Mono",monospace;
+//    padding: 2px 17px;
+//    font-size: 62.5%;
+//
+//    font-weight: bold;
+//    letter-spacing: 0.7px;
+//    color: #ffffff;
+//
+//    margin-top: 5px;
+//    margin-bottom: 5px;
+//    text-transform: uppercase;
+//    text-align: center;
+//
+//
+//    &.edu_ecosystem{
+//      background: #65b32e;
+//      border: solid 2px #65b32e;
+//    }
+//    &.edu_stsos{
+//      background: #790b5b;
+//      border: solid 2px #790b5b;
+//    }
+//    &.edu_interaction{
+//      background: #e6007e;
+//      border: solid 2px #e6007e;
+//    }
+//    &.edu_analytics{
+//      background: #ffda00;
+//      border: solid 2px #ffda00;
+//    }
+//    &.edu_inclusive{
+//      background: #ec6608;
+//      border: solid 2px #ec6608;
+//    }
+//    &.edu_tech{
+//      background: #f9ae00;
+//      border: solid 2px #f9ae00;
+//    }
+//    &.edu_legal{
+//      background: #e30613;
+//      border: solid 2px #e30613;
+//    }
+//
+//
+//  }
+//  .event-block-type-badge{
+//    display: inline-block;
+//    font-family: "IBM Plex Mono",monospace;
+//    padding: 2px 17px;
+//    font-size: 62.5%;
+//    background: #00a7d8;
+//    font-weight: bold;
+//    letter-spacing: 0.7px;
+//    color: #ffffff;
+//    border: solid 2px #00a7d8;
+//    margin-top: 5px;
+//    margin-bottom: 5px;
+//    text-transform: uppercase;
+//    text-align: center;
+//  }
+//}
+//
+//.event-block-control{
+//  float: right;
+//  text-align: right;
+//
+//  .event-block-room{
+//    color: #282866;
+//    /* font-size: 75%; */
+//    /* font-weight: bold; */
+//    color: #333333;
+//    margin-top: 7px;
+//    margin-bottom: 12px;
+//
+//    i {
+//      color: #282865;
+//    }
+//
+//  }
+//  .event-block-time{
+//    /* font-size: 75%; */
+//    /* font-weight: bold; */
+//    color: #282866;
+//
+//    margin-top: 7px;
+//    margin-bottom: 12px;
+//    font-size: 80%;
+//  }
+//
+//  button {
+//    display: inline-block;
+//    width: 210px;
+//    height: 35px;
+//    text-decoration: none;
+//    text-align: center;
+//    font-size: 87.5%;
+//    font-weight: bold;
+//    letter-spacing: 1.2px;
+//    background: white;
+//    transition: color 0.15s ease-out, border-color 0.15s ease-out, background-color 0.15s ease-out;
+//
+//    box-sizing: border-box;
+//    padding: 6px;
+//    &.button-event-tologin {
+//
+//      font-weight: 100;
+//      background-color: #E6E6E6;
+//
+//      &:hover {
+//        background-color: #dfdfdf;
+//      }
+//    }
+//
+//    &.button-event-unregister {
+//
+//      font-weight: 200;
+//      color: #e30613;
+//      border: solid 2px #e30613;
+//      //background-color: #e30613;
+//
+//      &:hover {
+//        color: #fff;
+//        background-color: #e30613;
+//      }
+//    }
+//
+//    &.button-event-register {
+//
+//      border: solid 2px #00a7d8;
+//
+//      color: #00a7d8;
+//
+//
+//      &:hover {
+//        background: #00a7d8;
+//        color: #fff;
+//      }
+//    }
+//  }
+//}
+//
+//
+//.event-block{
+//  display: flex;
+//  justify-content: space-between;
+//}
+//
+//
+//@media screen and (max-width: 768px) {
+//
+//  .event-block {
+//    -ms-flex-direction: column;
+//    flex-direction: column;
+//  }
+//
+//  .event-block-about{
+//    float: none;
+//    //padding-right: 40px;
+//  }
+//
+//  .event-block-control {
+//    float: none;
+//    text-align: left;
+//  }
+//
+//
+//
+//}

@@ -9,7 +9,11 @@
     <div *ngIf="currentEvent.eventtype" class="event-block-type-badge">
       {{ currentEvent.eventtype }}
     </div>
-    <div>{{currentEvent.title}}</div>
+    <div class="event-block-subject">
+<!--      {{currentUser.get_event_slug}}-->
+      <a *ngIf="!eventsDisableButton.includes(currentEvent.get_event_slug)" (click)="navigateToEvent()" class="active">{{currentEvent.title}}</a>
+      <a *ngIf="eventsDisableButton.includes(currentEvent.get_event_slug)" >{{currentEvent.title}}</a>
+    </div>
   </div>
 
   <div class="event-block-control">

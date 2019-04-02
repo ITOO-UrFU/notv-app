@@ -64,6 +64,26 @@
     text-transform: uppercase;
     text-align: center;
   }
+  .event-block-subject{
+    //font-family: "IBM Plex Mono",monospace;
+    font-size: 100%;
+    cursor: default;
+    font-weight: 600;
+    //color: #282866;
+    margin-bottom: 10px;
+    a {
+
+      //color: #00a7d8;
+      transition: color 0.15s ease-out, border-color 0.15s ease-out, background-color 0.15s ease-out;
+      &.active{
+        cursor: pointer;
+        text-decoration: underline;
+      }
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
 }
 
 .event-block-control{
@@ -135,6 +155,7 @@
       border: solid 2px #00a7d8;
 
       color: #00a7d8;
+
 
 
       &:hover {

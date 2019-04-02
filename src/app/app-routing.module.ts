@@ -19,7 +19,7 @@ import {MyProfileComponent} from './user-profile/my-profile/my-profile.component
 import {ResetPasswordComponent} from './reset-password/reset-password.component';
 import {ChangePasswordComponent} from './user-profile/change-password/change-password.component';
 import {RegisterStudentsComponent} from './register-students/register-students.component';
-
+import {EventPageComponent} from 'app/events/event-page/event-page.component';
 import {LoadMaterialsComponent} from './user-profile/load-materials/load-materials.component';
 import {PechaKuchaComponent} from './pechakucha/pechakucha.component';
 
@@ -109,25 +109,17 @@ const routes: Routes = [
         path: 'events',
         // pathMatch: 'full',
         component: EventListComponent,
-        data: {
-        },
+        children: [
 
-      // },
-      // {
-      //   path: 'events/event/:id',
-      //   component: EventComponent,
-      //   data: {
-      //     meta: {
-      //       title: 'EDCRUNCH Ural: Новые образовательные технологии в вузе – 2019'
-      //     }
-      //   },
-        /*children: [
-          {
-            path: 'event/:id',
-            component: EventComponent,
-          }
-        ]*/
+
+        ]
+
       },
+  {
+    path: 'events/:id',
+    component: EventPageComponent,
+    data: {}
+    },
       {
         path: 'home',
         component: HomePageComponent,

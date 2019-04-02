@@ -8,6 +8,7 @@
  <!-- Content here -->
 
   <div *ngIf="page">
+<!--    <h1>{{ page.slug }}</h1>-->
     <div [class.jumbotron]="this.router.url.split('/').indexOf(id)==1" >
 
         <article *ngIf="page.slug!='events'" class="container home-block" [ngClass]="{'static-page': page.type=='header'}">
@@ -21,11 +22,18 @@
     </div>
 
 
+<!--<div *ngIf="page.type=='events'">-->
+
+<!--  <div class="app-event-list" [typeFilter]="page.slug" ></div>-->
+
+<!--  -->
+<!--</div>-->
+
 <div *ngIf="page.type=='events'">
 
   <div class="app-event-list" [typeFilter]="page.slug" ></div>
 
-  
+
 </div>
 
   </div>

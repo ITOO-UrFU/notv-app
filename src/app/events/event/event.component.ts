@@ -5,7 +5,6 @@ import { Event } from 'app/events/event';
 import { AuthGuard } from 'app/services/auth.guard';
 import { RegisterService} from 'app/services/register.service';
 import { AlertService } from 'app/services/alert.service';
-import { EventModalComponent } from 'app/events/event-modal/event-modal.component';
 
 @Component({
   selector: 'div.app-event',
@@ -41,6 +40,11 @@ export class EventComponent implements OnInit {
 
   ngOnInit() {
           this.update(this.currentEvent);
+  }
+
+  navigateToEvent(){
+      console.log(this.currentEvent.id)
+      this.router.navigate(['events', this.currentEvent.id]);
   }
 
 update(event: Event){
