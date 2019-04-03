@@ -177,5 +177,9 @@ export const LANG_RU_TRANS = {
   'events_filter_reset': "Сбросить фильтр",
   'filters_label': "Фильтры",
   'events_program_label': "Программа",
+  // 'participate_label'
+  // 'not_to_participate_label'
+  'same_time_events_alert': 'В это время Вы зарегистированы на "%0". Отменить регистрацию и принять участие в мероприятии "%1"?',
+  'unregister_event_alert': 'Вы уверены, что хотите отписаться от события "%0"?',
 
 };

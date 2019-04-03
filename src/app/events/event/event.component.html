@@ -1,4 +1,5 @@
 <div *ngIf="currentEvent" class="event-block">
+<!--  <alert></alert>-->
   <!--<button (click)="goBack()" class="btn btn-primary">К списку всех мероприятий</button>
   <button *ngIf="isLogged" (click)="goMyEvents()" class="btn btn-primary">К списку моих мероприятий</button>-->
 
@@ -28,22 +29,22 @@
 
     <div *ngIf="showButtons">
       <div *ngIf="isLogged">
-
         <div *ngIf="isReg">
-          <button (click)="attemptUnregisterOnEvent(currentEvent)" class="btn button-event-unregister">Я не участвую
+            <button (click)="attemptUnregisterOnEvent(currentEvent)" class="btn button-event-unregister">{{ 'not_to_participate_label' | translate}}
+<!--            <button (click)="unregisterOnEvent(currentEvent)" class="btn button-event-unregister">Я не участвую-->
           </button>
         </div>
 
         <div *ngIf="!isReg">
-          <button (click)="attemptRegisterOnEvent(currentEvent)" class="btn button-event-register">Я участвую</button>
+          <button (click)="attemptRegisterOnEvent(currentEvent)" class="btn button-event-register">{{ 'participate_label' | translate}}</button>
         </div>
       </div>
 
       <div *ngIf="!isLogged">
-        <button (click)="toRegister()" class="btn button-event-tologin">
-          <ins style="font-weight: 500;">Войдите</ins>
-          , чтобы принять участие
-        </button>
+
+          <button (click)="toRegister()" class="btn button-event-tologin">
+                <ins style="font-weight: 600;">Войдите,</ins> чтобы принять участие
+          </button>
       </div>
     </div>
 

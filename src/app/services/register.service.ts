@@ -16,8 +16,8 @@ export class RegisterService {
 
   constructor(private http: Http) { }
 
-    // registerUrl = 'https://openedu.urfu.ru/edcrunch/api/v1/rest-auth/';
-  registerUrl = 'http://93.88.177.60:8089/edcrunch/api/v1/rest-auth/';
+    registerUrl = 'https://openedu.urfu.ru/edcrunch/api/v1/rest-auth/';
+  // registerUrl = 'http://93.88.177.60:8089/edcrunch/api/v1/rest-auth/';
 
 // (): Observable<any>
 

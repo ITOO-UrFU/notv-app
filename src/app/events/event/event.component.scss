@@ -122,7 +122,7 @@
     text-align: center;
     font-size: 87.5%;
     font-weight: bold;
-    letter-spacing: 1.2px;
+
     background: white;
     transition: color 0.15s ease-out, border-color 0.15s ease-out, background-color 0.15s ease-out;
 
@@ -130,8 +130,12 @@
     padding: 6px;
     &.button-event-tologin {
 
+      font-family: "IBM Plex Mono",monospace;
+      color: #282866;
+      font-size: 12px !important;
+      width: 240px;
       font-weight: 100;
-      background-color: #E6E6E6;
+      border: solid 2px #00a7d8;
 
       &:hover {
         background-color: #dfdfdf;
@@ -152,7 +156,7 @@
     }
 
     &.button-event-register {
-
+      letter-spacing: 1.2px;
       border: solid 2px #00a7d8;
 
       color: #00a7d8;

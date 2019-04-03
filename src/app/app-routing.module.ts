@@ -109,17 +109,12 @@ const routes: Routes = [
         path: 'events',
         // pathMatch: 'full',
         component: EventListComponent,
-        children: [
-
-
-        ]
-
       },
-  {
-    path: 'events/:id',
-    component: EventPageComponent,
-    data: {}
-    },
+  // {
+  //   path: 'events/:id',
+  //   component: EventPageComponent,
+  //   data: {}
+  //   },
       {
         path: 'home',
         component: HomePageComponent,

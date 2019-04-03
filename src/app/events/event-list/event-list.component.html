@@ -79,13 +79,8 @@
               <div class="events-at-day">
                 <template ngFor let-event [ngForOf]="time.val" let-i="index">
 
-                  <!--                                <div class="">-->
+                  <div *ngIf="currentUser" class="app-event" #cmp (onChanged)="onChanged($event)" [currentEvent]="event" [currentUser]="currentUser" [isLogged]="isLogged"></div>
 
-                  <div *ngIf="currentUser" class="app-event" [currentEvent]="event" [currentUser]="currentUser"
-                       [isLogged]="isLogged"></div>
-
-
-                  <!--                                </div>-->
                 </template>
               </div>
             </div>

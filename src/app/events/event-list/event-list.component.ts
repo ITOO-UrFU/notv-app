@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, AfterViewChecked} from '@angular/core';
+import {Component, Input, OnInit, AfterViewChecked, ViewChildren, QueryList} from '@angular/core';
 import {EventsService} from 'app/events/events.service';
 import {Router} from '@angular/router';
 import {Event} from 'app/events/event';
@@ -7,12 +7,15 @@ import {AuthGuard} from 'app/services/auth.guard';
 import {RegisterService} from 'app/services/register.service';
 import {AuthenticationService} from 'app/services/auth.service';
 import {TranslateService} from 'app/translate/translate.service';
+import {EventComponent} from '../event/event.component';
+
 
 @Component({
   selector: 'div.app-event-list',
   templateUrl: './event-list.component.html',
   styleUrls: ['./event-list.component.scss'],
-  host: {'(window:scroll)': 'setScroll()'}
+  host: {'(window:scroll)': 'setScroll()'},
+  // directives: [EventComponent],
 })
 
 export class EventListComponent implements OnInit, AfterViewChecked {
@@ -47,6 +50,14 @@ export class EventListComponent implements OnInit, AfterViewChecked {
 
   @Input() typeFilter: string = '';
 
+  @ViewChildren('cmp') components: QueryList<EventComponent>;
+
+  onChanged(increased) {
+    // console.log(increased);
+    this.currentUser = increased.CU;
+    this.components.filter((child) => { return child.currentEvent.id === increased.id; })[0].isReg = increased.status;
+    // this.filterChange();
+  }
 
   constructor(private router: Router,
               private eventsService: EventsService,
@@ -59,6 +70,7 @@ export class EventListComponent implements OnInit, AfterViewChecked {
   }
 
   setScroll(){
+    // this.ngOnInit();
     localStorage.setItem('events_offset', window.pageYOffset.toString());
   }
 
@@ -67,14 +79,18 @@ export class EventListComponent implements OnInit, AfterViewChecked {
   // }
 
   ngOnInit() {
-    this.isLogged = this.authGuard.canActivate();
+    this.isLogged = this.authGuard.is_logged();
     this.title.setTitle('Мероприятия');
-    console.log('oninit event-list component');
+    // console.log('oninit event-list component');
 
     this.eventsService.getEventsList()
       .subscribe(eventsList => {
           this.timeGrid = eventsList;
+
           this.timeGrid = this.eventsService.getEventsObject(this.typeFilter);
+
+          console.log(this.timeGrid);
+
           let UniqueDates = this.getUniqueDates(eventsList);
           this.filters.by_day = UniqueDates.map(function (item, idx) {
             return {
@@ -85,7 +101,7 @@ export class EventListComponent implements OnInit, AfterViewChecked {
 
           this.filters.by_path = this.getPathList(eventsList);
           this.filters.by_type = this.getTypesList(eventsList);
-          console.log(this.filters);
+          // console.log(this.filters);
 
           this.user_filters.by_path = this.filters.by_path;
           this.user_filters.by_type = this.filters.by_type;
@@ -121,9 +137,6 @@ export class EventListComponent implements OnInit, AfterViewChecked {
   }
   filterChange() {
     this.currentEvents = this.eventsService.filter_events(this.user_filters);
-
-    console.log("Показано мероприятий", this.currentEvents.length);
-
     this.timeGrid = this.eventsService.eventsListToObject(this.currentEvents);
     // console.log(this.timeGrid);
     localStorage.setItem('user_filters', JSON.stringify(this.user_filters));

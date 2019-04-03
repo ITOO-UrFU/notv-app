@@ -54,8 +54,8 @@ private extractEvent(res: Response): Event {
     enddate.setMinutes(enddate.getMinutes() + offset.valueOf());
     const event: Event = new Event(
           body.id,
-          body.title,
-          body.description,
+      this._translate.currentLang === 'ru' ? body.title : body.title_en,
+      this._translate.currentLang === 'ru' ? body.description : body.description_en,
           body.get_speakers,
           startdate,
           enddate,
