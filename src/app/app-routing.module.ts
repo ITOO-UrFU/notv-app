@@ -94,11 +94,11 @@ const routes: Routes = [
         component: ResetPasswordComponent
       },
 
-      // {
-      //   path: 'events/my_events',
-      //   component: UserEventsComponent,
-      //   // canActivate: [AuthGuard],
-      // },
+      {
+        path: 'events/my_events',
+        component: UserEventsComponent,
+        // canActivate: [AuthGuard],
+      },
       // {
       //   path: 'events/all_events',
       //   component: EventListComponent,

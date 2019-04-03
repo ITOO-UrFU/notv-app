@@ -194,7 +194,7 @@ private extractEvent(res: Response): Event {
     const events: Event[] = [];
     for (let i = 0; i < body.length; i++) {
 
-          // console.log(body[i]);
+          console.log(body[i]);
 
           let eventTypeClass = "eventtype-empty";
           let slug = 'empty';

@@ -20,16 +20,6 @@ body {
   color: #323232;
 }
 
-.app-user-events {
-
-  display: block;
-  padding: 30px;
-  margin: 0px auto;
-  background: rgba(231, 229, 229, 0.5);
-  max-width: 1000px;
-  margin-top: 80px;
-  margin-bottom: 35px;
-}
 
 .app-load-materials {
   //margin-top: 80px;
@@ -79,17 +69,16 @@ alert .alert-danger {
 }
 
 
-.app-event-list {
+.app-event-list{
   width: 95%;
   margin: 0 auto;
   max-width: 1180px;
+}
 
-  //padding: 30px;
-  //margin: 0px auto;
-  //background: rgba($light_shadow, .5);
-  //max-width: 1000px;
-  //margin-top: -30px;
-  //margin-bottom: 35px;
+.app-user-events {
+  width: 95%;
+  margin: 0 auto;
+  max-width: 980px;
 }
 //
 //.app-event {
@@ -376,8 +365,8 @@ header.app-nav {
 //  }
 //}
 
-.app-event{
-  background: rgba(#94d4ee, .2);
+.app-event {
+  background: #d7f4ff;
   padding: 5px 20px 10px 20px;
   width: 100%;
   min-height: 110px;

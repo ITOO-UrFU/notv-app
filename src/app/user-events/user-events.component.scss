@@ -1,19 +1,79 @@
-.event-title{
-    cursor: pointer;
-}
-.same-time-events{
-    background: rgba(238, 64, 55, 0.2);
-    padding: 0 0 1em 0;
-    margin-bottom: 1em;
+.event-list-block {
+
+  h1{
+    font-size: 350%;
+    letter-spacing: 1.5px;
+    color: #282866;
+    font-weight: 700;
+    /* margin-bottom: 20px; */
+    /* margin-top: 10px; */
+    /* line-height: 1.2; */
+    text-transform: uppercase;
+    font-family: "IBM Plex Mono",monospace;
+  }
+
+  .events-list-wrap {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+
+    .events-list {
+      margin-left: 20px;
+      width: 100%;
+
+      .events-list-time-item {
+        font-size: 1.3em;
+        font-weight: bold;
+        margin-bottom: 5px;
+        position: relative;
+        overflow: hidden;
+        color: #282866;
+
+        span:after {
+          content: "";
+          width: 100%;
+          height: 2px;
+          background: #282866;
+          position: absolute;
+          bottom: 5px;
+          margin-left: 7px;
+        }
+      }
+
+      .conference-date {
+        text-align: center;
+        padding: 10px 0px;
+        font-size: 120%;
+        color: #282866;
+      }
+
+      .events-list-empty {
+        font-size: 150%;
+        margin-top: 20px;
+        text-align: center;
+      }
+    }
+  }
+
 }
 
-.same-time-events-message {
-    background-color: #ee4037;
-    margin-bottom: 1em;
-    color: white;
-    font-weight: 700;
-    display: table;
-    width: 100%;
-    text-align: center;
-    cursor: default;
+@media screen and (max-width: 768px) {
+
+  .event-list-block {
+    .events-list-wrap {
+      -ms-flex-direction: column;
+      flex-direction: column;
+
+      .events-list {
+        margin-left: 0px;
+      }
+
+
+    }
+
+  }
+
 }

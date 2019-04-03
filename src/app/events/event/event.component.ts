@@ -48,7 +48,7 @@ export class EventComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log("init Event component", this.currentUser);
+    // console.log("init Event component", this.currentUser);
     // if
     this.userEvents = this.currentUser.get_events.map(e => {return e.event.id});
     // console.log()
@@ -57,7 +57,7 @@ export class EventComponent implements OnInit {
 
   update(type, upd_event: Event){
 
-    console.log(this.currentUser);
+    // console.log(this.currentUser);
     // if (this.currentUser.get_events.map(event => {
     //   return event.event.id;
     // }).includes(upd_event.id)) {
@@ -137,7 +137,7 @@ export class EventComponent implements OnInit {
           this.userEvents = userProfile.get_events.map(e => {return e.event.id});
           this.change({id: event.id, status: true});
           // this.change(this.checkSameTimeEvents(event)[0].event);
-
+          alert(this._translate.instant('register_event_alert', [event.title]));
           // this.alertService.success('Вы зарегистрированы!', false);
 
         });

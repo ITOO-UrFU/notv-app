@@ -184,6 +184,7 @@ export const LANG_EN_TRANS = {
   // 'not_to_participate_label'
   'same_time_events_alert': 'At this time you are registered on "%0". Cancel registration and participate in the event "%1"?',
   'unregister_event_alert': 'Are you sure you want to cancel the event "%0"?',
+  'register_event_alert': 'You are registered to event "%0"',
 };
 
 

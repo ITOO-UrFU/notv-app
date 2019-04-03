@@ -17,6 +17,7 @@ export class UserEventsComponent implements OnInit, OnChanges {
     currentUser: any =  {};
     userEvents: any[];
     eventsGrid: any = {};
+    objectKeys = Object.keys;
 
   constructor(
     private router: Router,

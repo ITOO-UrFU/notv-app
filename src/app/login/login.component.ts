@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
       }
       window.scrollTo(0, 0);
     });
-    if (this.authGuard.canActivate()) {
+    if (this.authGuard.is_logged()) {
       this.router.navigate(['profile', 'my']);
     } else {
       this.title.setTitle(this._translate.instant('login_msg'));
