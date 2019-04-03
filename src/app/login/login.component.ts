@@ -64,6 +64,7 @@ export class LoginComponent implements OnInit {
           window.location.reload();
         },
         error => {
+          console.log("LOL")
           this.alertService.error(this._translate.instant('login_error_msg'));
         });
     this.showPassReset = false;
