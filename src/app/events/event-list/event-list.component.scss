@@ -167,7 +167,9 @@
       width: 100%;
 
       .to-all-or-my-events{
+        margin: 10px 0px;
         text-align: right;
+        background: white;
       }
       .events-list-time-item {
         font-size: 1.3em;
@@ -176,6 +178,7 @@
         position: relative;
         overflow: hidden;
         color: #282866;
+        background: white;
 
         span:after {
           content: "";
@@ -219,6 +222,10 @@
 
       .events-list {
         margin-left: 0px;
+        .to-all-or-my-events{
+          text-align: center;
+          background: white;
+        }
       }
 
       .events-filter {

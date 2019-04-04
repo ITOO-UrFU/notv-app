@@ -6,6 +6,7 @@
 
   .event-block-path-badge{
     display: inline-block;
+    cursor: default;
     font-family: "IBM Plex Mono",monospace;
     padding: 2px 17px;
     font-size: 62.5%;
@@ -54,6 +55,7 @@
   }
   .event-block-type-badge{
     display: inline-block;
+    cursor: default;
     font-family: "IBM Plex Mono",monospace;
     padding: 2px 17px;
     font-size: 62.5%;
