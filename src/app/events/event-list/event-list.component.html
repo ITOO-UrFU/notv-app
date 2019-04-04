@@ -28,7 +28,7 @@
 
           <div class="events-filter-block-filter">
 
-            <label *ngFor="let option of objectKeys(filters.by_path)" class="checkbox-item"><input type="checkbox" id="{{filters.by_path[option].slug}}" value="{{filters.by_path[option].slug}}" [(ngModel)]="user_filters.by_path[option].checked" (change)="filterChange()" /> <span></span> {{filters.by_path[option].title}}</label>
+            <label *ngFor="let option of objectKeys(filters.by_path)" class="checkbox-item"><input type="checkbox" id="{{filters.by_path[option].slug}}" value="{{filters.by_path[option].slug}}" [(ngModel)]="user_filters.by_path[option].checked" (change)="filterChange()" /> <span class="path-filter-{{filters.by_path[option].slug}}"></span> {{filters.by_path[option].title}}</label>
 
           </div>
         </div>
@@ -57,7 +57,7 @@
       <div class="row" *ngIf="objectKeys(timeGrid).length == 0" class="events-list-empty">
         {{ 'not_found_events_label' | translate }}
       </div>
-      <div class="row" *ngIf="objectKeys(timeGrid).length != 0" class="to-all-or-my-events">
+      <div class="row" *ngIf="objectKeys(timeGrid).length != 0 && isLogged" class="to-all-or-my-events">
         <div><a routerLink="/events/my">{{ 'to_my_events_label' | translate }}</a></div>
       </div>
       <div *ngFor="let day of timeGrid | eventsToObject; let i = index" class="">

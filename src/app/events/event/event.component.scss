@@ -1,3 +1,5 @@
+@import "~scss/base/variables";
+
 .event-block-about{
   float: left;
   padding-right: 40px;
@@ -19,33 +21,33 @@
 
 
     &.edu_ecosystem{
-      background: #65b32e;
-      border: solid 2px #65b32e;
+      background: $edu_ecosystem_color;
+      border: solid 2px $edu_ecosystem_color;
     }
     &.edu_stsos{
-      background: #790b5b;
-      border: solid 2px #790b5b;
+      background: $edu_stsos_color;
+      border: solid 2px $edu_stsos_color;
     }
     &.edu_interaction{
-      background: #e6007e;
-      border: solid 2px #e6007e;
+      background: $edu_interaction_color;
+      border: solid 2px $edu_interaction_color;
     }
     &.edu_analytics{
       color: #282865;
-      background: #ffda00;
-      border: solid 2px #ffda00;
+      background: $edu_analytics_color;
+      border: solid 2px $edu_analytics_color;
     }
     &.edu_inclusive{
-      background: #ec6608;
-      border: solid 2px #ec6608;
+      background: $edu_inclusive_color;
+      border: solid 2px $edu_inclusive_color;
     }
     &.edu_tech{
-      background: #f9ae00;
-      border: solid 2px #f9ae00;
+      background: $edu_tech_color;
+      border: solid 2px $edu_tech_color;
     }
     &.edu_legal{
-      background: #e30613;
-      border: solid 2px #e30613;
+      background: $edu_legal_color;
+      border: solid 2px $edu_legal_color;
     }
 
 
