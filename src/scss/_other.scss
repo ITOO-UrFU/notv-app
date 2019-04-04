@@ -73,12 +73,24 @@ alert .alert-danger {
   width: 95%;
   margin: 0 auto;
   max-width: 1180px;
+  padding-bottom: 30px;
+}
+
+.app-home-page{
+  padding-bottom: 30px;
+}
+
+app-page{
+  & > div {
+    padding-bottom: 30px;
+  }
 }
 
 .app-user-events {
   width: 95%;
   margin: 0 auto;
   max-width: 980px;
+  padding-bottom: 30px;
 }
 //
 //.app-event {
