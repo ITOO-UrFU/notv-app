@@ -1,7 +1,7 @@
 .event-list-block {
 
   h1{
-    font-size: 350%;
+    font-size: 300%;
     letter-spacing: 1.5px;
     color: #282866;
     font-weight: 700;
@@ -23,6 +23,10 @@
     .events-list {
       margin-left: 20px;
       width: 100%;
+
+      .to-all-or-my-events{
+        text-align: right;
+      }
 
       .events-list-time-item {
         font-size: 1.3em;

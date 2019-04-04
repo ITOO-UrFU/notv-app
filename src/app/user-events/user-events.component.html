@@ -1,12 +1,16 @@
 <div class="event-list-block">
 
-<!--  <h1>{{ 'events_program_label' | translate }}</h1>-->
-  <h1>Ваши мероприятия</h1>
+  <h1>{{ 'your_events_label' | translate }}</h1>
+<!--  <h1>Ваши мероприятия</h1>-->
   <div class="events-list-wrap">
 
     <div *ngIf="eventsGrid" class="events-list">
       <div class="row" *ngIf="objectKeys(eventsGrid).length == 0" class="events-list-empty">
-        {{ 'not_found_events_label' | translate }}
+        <div>{{ 'not_registered_for_events_msg' | translate }}</div>
+          <div><a routerLink="/events">{{ 'to_all_events_label' | translate }}</a></div>
+      </div>
+      <div class="row" *ngIf="objectKeys(eventsGrid).length != 0" class="to-all-or-my-events">
+        <div><a routerLink="/events">{{ 'to_all_events_label' | translate }}</a></div>
       </div>
 
       <div *ngFor="let day of eventsGrid | eventsToObject; let i = index" class="">
@@ -39,9 +43,3 @@
     </div>
   </div>
 </div>
-<!--</router-outlet>-->
-
-
-<div *ngIf="userEvents?.length == 0">
-    <h2>Вы не зарегистрированы ни на одно мероприятие</h2>
-  </div>

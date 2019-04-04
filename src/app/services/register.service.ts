@@ -3,6 +3,7 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { User } from 'app/user';
 import { Observable } from 'rxjs/Observable';
 import { Event } from 'app/events/event';
+import { TranslateService } from 'app/translate/translate.service';
 
 
 import 'rxjs/add/observable/throw';
@@ -14,7 +15,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class RegisterService {
 
-  constructor(private http: Http) { }
+  constructor(private http: Http, private _translate: TranslateService) { }
 
     registerUrl = 'https://openedu.urfu.ru/edcrunch/api/v1/rest-auth/';
   // registerUrl = 'http://93.88.177.60:8089/edcrunch/api/v1/rest-auth/';
@@ -67,39 +68,102 @@ export class RegisterService {
     return body;
   }
 
- extractEvents(res: any): Event[] {
+  extractEvents(res: any): Event[] {
+
     const offset = new Date().getTimezoneOffset();
     const body = res;
+
     const events: Event[] = [];
     for (let i = 0; i < body.length; i++) {
-          let eventTypeClass = 'eventtype-empty';
-          let slug = 'empty';
-          if (body[i].event.get_event_slug != null) {
-              eventTypeClass = 'eventtype-' + body[i].event.get_event_slug;
-              slug = body[i].event.get_event_slug;
-         }
-          const startdate = new Date(body[i].event.startdate);
-          const enddate = new Date(body[i].event.enddate);
-          startdate.setMinutes(startdate.getMinutes() + offset.valueOf());
-          enddate.setMinutes(enddate.getMinutes() + offset.valueOf());
-          const event: Event = new Event(
-            body[i].event.id,
-            body[i].event.title,
-            body[i].event.description,
-            body[i].event.get_speakers,
-            startdate,
-            enddate,
-            eventTypeClass,
-            body[i].event.get_type_display,
-            body[i].event.get_line_of_work_slug,
-            slug,
-            body[i].event.room,
-            body[i].path,
-            );
-          events.push(event);
+
+      console.log(body[i].event);
+
+      let eventTypeClass = "eventtype-empty";
+      let slug = 'empty';
+
+      if (body[i].event.get_event_slug != null) {
+        eventTypeClass = "eventtype-" + body[i].event.get_event_slug;
+        slug = body[i].event.get_event_slug;
+      }
+
+      let path = null;
+
+      if (body[i].event.path) {
+        path = {
+          title: this._translate.currentLang === 'ru' ? body[i].event.path.title : body[i].event.path.title_en,
+          slug: body[i].event.path.slug
+        };
+      }
+      let room = null;
+      if (body[i].event.room) {
+        room = {
+          title: this._translate.currentLang === 'ru' ? body[i].event.room.title : body[i].event.room.title_en,
+          slug: body[i].event.room.slug,
+        };
+      }
+
+     const startdate = new Date(body[i].event.startdate);
+     const enddate = new Date(body[i].event.enddate);
+     startdate.setMinutes(startdate.getMinutes() + offset.valueOf());
+     enddate.setMinutes(enddate.getMinutes() + offset.valueOf());
+      // console.log(this.lang);
+      const event: Event = new Event(
+        body[i].event.id,
+        this._translate.currentLang === 'ru' ? body[i].event.title : body[i].event.title_en,
+        this._translate.currentLang === 'ru' ? body[i].event.description : body[i].event.description_en,
+        body[i].event.get_speakers,
+        startdate,
+        enddate,
+        eventTypeClass,
+        // body[i].get_type_display,
+        this._translate.currentLang === 'ru' ? body[i].event.get_type_display : body[i].event.get_type_display_en,
+        body[i].event.get_line_of_work_slug,
+        slug,
+        body[i].event.room,
+        path
+      );
+
+      // event.get_speakers = event.get_speakers.filter(user => user.get_type_display !== 'Участник');
+      events.push(event);
     }
+
+    // eventsList = events;
     return events;
   }
+
+ // extractEvents(res: any): Event[] {
+ //    const offset = new Date().getTimezoneOffset();
+ //    const body = res;
+ //    const events: Event[] = [];
+ //    for (let i = 0; i < body.length; i++) {
+ //          let eventTypeClass = 'eventtype-empty';
+ //          let slug = 'empty';
+ //          if (body[i].event.get_event_slug != null) {
+ //              eventTypeClass = 'eventtype-' + body[i].event.get_event_slug;
+ //              slug = body[i].event.get_event_slug;
+ //         }
+ //          const startdate = new Date(body[i].event.startdate);
+ //          const enddate = new Date(body[i].event.enddate);
+ //          startdate.setMinutes(startdate.getMinutes() + offset.valueOf());
+ //          enddate.setMinutes(enddate.getMinutes() + offset.valueOf());
+ //          const event: Event = new Event(
+ //            body[i].event.id,
+ //            body[i].event.title,
+ //            body[i].event.description,
+ //            body[i].event.get_speakers,
+ //            startdate,
+ //            enddate,
+ //            eventTypeClass,
+ //            body[i].event.get_type_display,
+ //            body[i].event.get_line_of_work_slug,
+ //            slug,
+ //            body[i].event.room,
+ //            body[i].path,
+ //            );
+ //          events.push(event);
+ //    }
+ //    return events;
+ //  }
 
     private jwt() {
         // create authorization header with jwt token

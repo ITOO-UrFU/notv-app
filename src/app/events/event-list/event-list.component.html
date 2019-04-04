@@ -57,7 +57,9 @@
       <div class="row" *ngIf="objectKeys(timeGrid).length == 0" class="events-list-empty">
         {{ 'not_found_events_label' | translate }}
       </div>
-
+      <div class="row" *ngIf="objectKeys(timeGrid).length != 0" class="to-all-or-my-events">
+        <div><a routerLink="/events/my">{{ 'to_my_events_label' | translate }}</a></div>
+      </div>
       <div *ngFor="let day of timeGrid | eventsToObject; let i = index" class="">
 <!--        <div class="conference-date">-->
 <!--              <strong> {{day.key}} апреля, 2019 </strong>-->

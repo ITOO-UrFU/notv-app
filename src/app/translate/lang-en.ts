@@ -185,6 +185,12 @@ export const LANG_EN_TRANS = {
   'same_time_events_alert': 'At this time you are registered on "%0". Cancel registration and participate in the event "%1"?',
   'unregister_event_alert': 'Are you sure you want to cancel the event "%0"?',
   'register_event_alert': 'You are registered to event "%0"',
+  'to_my_events_label': "Go to my events",
+
+  // Компонент мероприятия пользователя
+  'not_registered_for_events_msg': "You are not registered for any event.",
+  'your_events_label': "Your events",
+  'to_all_events_label': "Go to all events",
 };
 
 

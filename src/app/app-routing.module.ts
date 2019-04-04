@@ -95,7 +95,7 @@ const routes: Routes = [
       },
 
       {
-        path: 'events/my_events',
+        path: 'events/my',
         component: UserEventsComponent,
         // canActivate: [AuthGuard],
       },

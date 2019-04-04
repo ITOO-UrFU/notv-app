@@ -42,7 +42,9 @@ export class UserEventsComponent implements OnInit, OnChanges {
   update() {
      this.registerService.getProfile().subscribe(userProfile => {
              this.currentUser = userProfile;
+             // console.log(this.currentUser);
              this.userEvents =  this.registerService.extractEvents(userProfile.get_events);
+             console.log(this.userEvents);
              this.eventsGrid = this.eventsService.eventsListToObject(this.userEvents);
         },
               error => { this.authenticationService.logout(); });
