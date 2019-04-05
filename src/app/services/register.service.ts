@@ -75,9 +75,6 @@ export class RegisterService {
 
     const events: Event[] = [];
     for (let i = 0; i < body.length; i++) {
-
-      console.log(body[i].event);
-
       let eventTypeClass = "eventtype-empty";
       let slug = 'empty';
 
@@ -106,7 +103,6 @@ export class RegisterService {
      const enddate = new Date(body[i].event.enddate);
      startdate.setMinutes(startdate.getMinutes() + offset.valueOf());
      enddate.setMinutes(enddate.getMinutes() + offset.valueOf());
-      // console.log(this.lang);
       const event: Event = new Event(
         body[i].event.id,
         this._translate.currentLang === 'ru' ? body[i].event.title : body[i].event.title_en,

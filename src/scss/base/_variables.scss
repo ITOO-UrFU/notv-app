@@ -37,10 +37,20 @@ $font_size_default: 10pt;
 
 // events trajectories colors
 
-$edu_ecosystem_color: #65b32e;
-$edu_stsos_color: #790b5b;
-$edu_interaction_color: #e6007e;
+//$edu_ecosystem_color: #65b32e;
+//$edu_stsos_color: #790b5b;
+//$edu_interaction_color: #e6007e;
+//$edu_analytics_color: #ffda00;
+//$edu_inclusive_color: #ec6608;
+//$edu_tech_color: #f9ae00;
+//$edu_legal_color: #e30613;
+$edu_ppk_color: white; // он не используется, там просто белый
+
+
+$edu_ecosystem_color: #65B231;
+$edu_stsos_color: #7373ff;
+$edu_interaction_color: #e4037d;
 $edu_analytics_color: #ffda00;
-$edu_inclusive_color: #ec6608;
-$edu_tech_color: #f9ae00;
-$edu_legal_color: #e30613;
+$edu_inclusive_color: #03a6d8;
+$edu_tech_color: #f8ad04;
+$edu_legal_color: #e20917;

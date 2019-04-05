@@ -11,9 +11,10 @@ export class ScrollHelper {
     }
     try {
       var elements = document.getElementsByClassName(this.classToScrollTo);
-      if (elements.length == 0) {
+      if (elements.length === 0) {
         return;
       }
+      // console.log(elements[0]);
       elements[0].scrollIntoView();
     }
     finally{

@@ -3,13 +3,14 @@
 .event-list-block {
 
   h1{
-    font-size: 350%;
+    font-size: 305%;
     letter-spacing: 1.5px;
     color: #282866;
     font-weight: 700;
     /* margin-bottom: 20px; */
     /* margin-top: 10px; */
     /* line-height: 1.2; */
+    margin-bottom: 0px;
     text-transform: uppercase;
     font-family: "IBM Plex Mono",monospace;
   }
@@ -31,6 +32,10 @@
       font-family: "IBM Plex Mono",monospace;
       //background-color: #333;
       box-sizing: border-box;
+      position: sticky;
+      top: 0;
+      padding-top: 10px;
+      padding-bottom: 20px;
 
       .events-filter-head {
         padding: 12px 20px;
@@ -113,6 +118,10 @@
                 background: $edu_legal_color;
               }
 
+              input#edu_ppk:checked + span:after {
+                background: $edu_ppk_color;
+              }
+
               &:before {
                 content: "";
                 display: inline-block;
@@ -164,10 +173,13 @@
 
     .events-list {
       margin-left: 20px;
+      padding-right: 20px;
+      padding-top: 10px;
       width: 100%;
+      background: #ffffffd9;
 
       .to-all-or-my-events{
-        margin: 10px 0px;
+        //margin: 10px 0px;
         text-align: right;
         background: white;
       }
@@ -178,7 +190,8 @@
         position: relative;
         overflow: hidden;
         color: #282866;
-        background: white;
+        font-family: "IBM Plex Mono",monospace;
+        //background: white;
 
         span:after {
           content: "";
@@ -222,19 +235,27 @@
 
       .events-list {
         margin-left: 0px;
+        padding-right: 0px;
+        padding-top: 0px;
+
         .to-all-or-my-events{
+          margin: 10px 0px;
           text-align: center;
           background: white;
         }
       }
 
       .events-filter {
+        //position: sticky;
+        //top: 0;
+        padding-bottom: 10px;
+
         input[type="checkbox"] {
           display: none;
         }
 
         width: 100%;
-        margin-bottom: 30px;
+        //margin-bottom: 30px;
         -ms-flex-preferred-size: auto;
         flex-basis: auto;
         position: relative;

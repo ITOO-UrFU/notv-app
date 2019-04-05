@@ -8,7 +8,7 @@ import {RegisterService} from 'app/services/register.service';
 import {AuthenticationService} from 'app/services/auth.service';
 import {TranslateService} from 'app/translate/translate.service';
 import {EventComponent} from '../event/event.component';
-
+import {ScrollHelper} from 'app/helpers';
 
 @Component({
   selector: 'div.app-event-list',
@@ -34,6 +34,7 @@ export class EventListComponent implements OnInit, AfterViewChecked {
   isLogged: boolean = false;
   showResetFilter = false;
   private eventsDisableFilter = ['dinner', 'coffee_break'];
+  private scrollHelper: ScrollHelper = new ScrollHelper();
 
   filters = {
     by_day: [],
@@ -53,7 +54,6 @@ export class EventListComponent implements OnInit, AfterViewChecked {
   @ViewChildren('cmp') components: QueryList<EventComponent>;
 
   onChanged(increased) {
-    // console.log(increased);
     this.currentUser = increased.CU;
     this.components.filter((child) => { return child.currentEvent.id === increased.id; })[0].isReg = increased.status;
     // this.filterChange();
@@ -71,26 +71,20 @@ export class EventListComponent implements OnInit, AfterViewChecked {
 
   setScroll(){
     // this.ngOnInit();
-    localStorage.setItem('events_offset', window.pageYOffset.toString());
+    // localStorage.setItem('events_offset', window.pageYOffset.toString());
   }
 
   // ngOnDestroy(){
-  //   console.log("OnDestroy")
   // }
 
   ngOnInit() {
     this.isLogged = this.authGuard.is_logged();
     this.title.setTitle('Мероприятия');
-    // console.log('oninit event-list component');
 
     this.eventsService.getEventsList()
       .subscribe(eventsList => {
           this.timeGrid = eventsList;
-
           this.timeGrid = this.eventsService.getEventsObject(this.typeFilter);
-
-          console.log(this.timeGrid);
-
           let UniqueDates = this.getUniqueDates(eventsList);
           this.filters.by_day = UniqueDates.map(function (item, idx) {
             return {
@@ -101,17 +95,24 @@ export class EventListComponent implements OnInit, AfterViewChecked {
 
           this.filters.by_path = this.getPathList(eventsList);
           this.filters.by_type = this.getTypesList(eventsList);
-          // console.log(this.filters);
 
           this.user_filters.by_path = this.filters.by_path;
           this.user_filters.by_type = this.filters.by_type;
 
-          this.filters.by_day.unshift({name: this._translate.instant('two_days_label'), value: 'all'});
+          this.filters.by_day.unshift({name: this._translate.instant('three_days_label'), value: 'all'});
           this.user_filters.by_day = 'all';
 
           if (localStorage.getItem('user_filters')) {
             this.user_filters = JSON.parse(localStorage.getItem('user_filters'));
-            this.filterChange();
+
+            try{
+              this.filterChange();
+            }
+            catch (e) {
+              this.user_filters.by_path = this.filters.by_path;
+              this.user_filters.by_type = this.filters.by_type;
+              this.filterChange();
+            }
           }
 
           this.registerService.getProfile().subscribe(
@@ -125,20 +126,17 @@ export class EventListComponent implements OnInit, AfterViewChecked {
         }
       );
 
-    // console.log('filters: ', this.filters);
-    // console.log('user filters: ', this.user_filters);
   }
 
   ngAfterViewChecked() {
-    if(localStorage.getItem('events_offset')){
-      window.scrollTo(0, parseInt(localStorage.getItem('events_offset')))
-    }
-
+    // if(localStorage.getItem('events_offset')){
+    //   window.scrollTo(0, parseInt(localStorage.getItem('events_offset')))
+    // }
   }
+
   filterChange() {
     this.currentEvents = this.eventsService.filter_events(this.user_filters);
     this.timeGrid = this.eventsService.eventsListToObject(this.currentEvents);
-    // console.log(this.timeGrid);
     localStorage.setItem('user_filters', JSON.stringify(this.user_filters));
 
     if (Object.keys(this.user_filters.by_path).some(item => {
@@ -150,12 +148,16 @@ export class EventListComponent implements OnInit, AfterViewChecked {
     } else {
       this.showResetFilter = false;
     }
+
+    // kostyl'
+    if (window.pageYOffset > document.getElementsByClassName('events-list-wrap')[0].getBoundingClientRect().top + window.scrollY){
+      this.scrollHelper.scrollToFirst('events-list-wrap');
+      this.scrollHelper.doScroll();
+    }
   }
 
   resetFilters() {
-    // console.log(this.filters);
     this.user_filters.by_day = 'all';
-    // console.log(this.user_filters);
     Object.keys(this.user_filters.by_path).forEach(item => this.user_filters.by_path[item].checked = false);
     Object.keys(this.user_filters.by_type).forEach(item => this.user_filters.by_type[item].checked = false);
     // this.user_filters.by_type.forEach(item => item.checked = false);

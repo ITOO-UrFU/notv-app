@@ -8,6 +8,7 @@
     /* margin-bottom: 20px; */
     /* margin-top: 10px; */
     /* line-height: 1.2; */
+    margin-bottom: 0px;
     text-transform: uppercase;
     font-family: "IBM Plex Mono",monospace;
   }
@@ -19,6 +20,7 @@
     align-items: flex-start;
     -ms-flex-line-pack: start;
     align-content: flex-start;
+    background: #ffffffd9;
 
     .events-list {
       margin-left: 20px;
@@ -37,7 +39,7 @@
         position: relative;
         overflow: hidden;
         color: #282866;
-        background: white;
+        //background: white;
 
         span:after {
           content: "";

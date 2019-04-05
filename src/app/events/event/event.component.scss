@@ -1,13 +1,13 @@
 @import "~scss/base/variables";
 
-.event-block-about{
+.event-block-about {
   float: left;
   padding-right: 40px;
 
-  .event-block-path-badge{
+  .event-block-path-badge {
     display: inline-block;
     cursor: default;
-    font-family: "IBM Plex Mono",monospace;
+    font-family: "IBM Plex Mono", monospace;
     padding: 2px 17px;
     font-size: 62.5%;
 
@@ -21,42 +21,57 @@
     text-align: center;
 
 
-    &.edu_ecosystem{
+    &.edu_ecosystem {
       background: $edu_ecosystem_color;
       border: solid 2px $edu_ecosystem_color;
     }
-    &.edu_stsos{
+
+    &.edu_stsos {
       background: $edu_stsos_color;
       border: solid 2px $edu_stsos_color;
     }
-    &.edu_interaction{
+
+    &.edu_interaction {
       background: $edu_interaction_color;
       border: solid 2px $edu_interaction_color;
     }
-    &.edu_analytics{
+
+    &.edu_analytics {
       color: #282865;
       background: $edu_analytics_color;
       border: solid 2px $edu_analytics_color;
     }
-    &.edu_inclusive{
+
+    &.edu_inclusive {
       background: $edu_inclusive_color;
       border: solid 2px $edu_inclusive_color;
     }
-    &.edu_tech{
+
+    &.edu_tech {
       background: $edu_tech_color;
       border: solid 2px $edu_tech_color;
     }
-    &.edu_legal{
+
+    &.edu_legal {
       background: $edu_legal_color;
       border: solid 2px $edu_legal_color;
     }
 
+    &.edu_ppk {
+      //background: $edu_ppk_color;
+      //border: solid 2px $edu_ppk_color;
+      background: white;
+      color: #282865;
+      border: solid 2px #282865;
+
+    }
 
   }
-  .event-block-type-badge{
+
+  .event-block-type-badge {
     display: inline-block;
     cursor: default;
-    font-family: "IBM Plex Mono",monospace;
+    font-family: "IBM Plex Mono", monospace;
     padding: 2px 17px;
     font-size: 62.5%;
     background: #ffffff;
@@ -69,48 +84,60 @@
     text-transform: uppercase;
     text-align: center;
   }
-  .event-block-subject{
-    font-family: "IBM Plex Mono",monospace;
+
+  .event-block-subject {
+    font-family: "IBM Plex Mono", monospace;
     font-size: 100%;
     cursor: default;
     font-weight: 700;
     margin-bottom: 10px;
+
     a {
 
       //color: #00a7d8;
       transition: color 0.15s ease-out, border-color 0.15s ease-out, background-color 0.15s ease-out;
-      &.active{
+
+      &.active {
         cursor: pointer;
         text-decoration: underline;
       }
+
       &:hover {
         text-decoration: none;
       }
     }
   }
+
+  .event-block-ppk-msg {
+    font-family: "IBM Plex Mono", monospace;
+    margin: 16px 0px;
+  }
 }
 
-.event-block-control{
+.event-block-control {
   float: right;
   text-align: right;
+  min-width: 220px;
 
-  .event-block-room{
+  .event-block-room {
     color: #282866;
     /* font-size: 75%; */
     /* font-weight: bold; */
     color: #333333;
     margin-top: 7px;
     margin-bottom: 8px;
-    font-family: "IBM Plex Mono",monospace;
+    font-family: "IBM Plex Mono", monospace;
+
     i {
       color: #282865;
     }
 
   }
-  .event-block-time{
+
+  .event-block-time {
     /* font-size: 75%; */
     /* font-weight: bold; */
-    font-family: "IBM Plex Mono",monospace;
+    font-family: "IBM Plex Mono", monospace;
     color: #282866;
 
     margin-top: 7px;
@@ -132,9 +159,10 @@
 
     box-sizing: border-box;
     padding: 6px;
+
     &.button-event-tologin {
 
-      font-family: "IBM Plex Mono",monospace;
+      font-family: "IBM Plex Mono", monospace;
       color: #282866;
       font-size: 12px !important;
       width: 240px;
@@ -166,7 +194,6 @@
       color: #00a7d8;
 
 
-
       &:hover {
         background: #00a7d8;
         color: #fff;
@@ -176,7 +203,7 @@
 }
 
 
-.event-block{
+.event-block {
   display: flex;
   justify-content: space-between;
 }
@@ -189,7 +216,7 @@
     flex-direction: column;
   }
 
-  .event-block-about{
+  .event-block-about {
     float: none;
     width: 100%;
     padding-right: 10px;
@@ -199,7 +226,6 @@
     float: none;
     text-align: left;
   }
-
 
 
 }

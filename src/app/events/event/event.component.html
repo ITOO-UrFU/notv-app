@@ -15,6 +15,11 @@
 <!--      <a *ngIf="eventsDisableButton.includes(currentEvent.get_event_slug)" >{{currentEvent.title}}</a>-->
       {{ currentEvent.title }}
     </div>
+    <template [ngIf]="currentEvent.path">
+      <div *ngIf="currentEvent.path.slug == 'edu_ppk'" class="event-block-ppk-msg">
+        {{ 'event_ppk_msg_1' | translate }} <a routerLink="/ppk_bid"> {{ 'event_ppk_msg_2' | translate }} </a>
+      </div>
+    </template>
   </div>
 
   <div class="event-block-control">
@@ -43,7 +48,7 @@
       <div *ngIf="!isLogged">
 
           <button (click)="toRegister()" class="btn button-event-tologin">
-                <ins style="font-weight: 600;">Войдите,</ins> чтобы принять участие
+                <ins style="font-weight: 600;">{{ 'login_to_participate_label_1' | translate }}</ins> {{ 'login_to_participate_label_2' | translate }}
           </button>
       </div>
     </div>

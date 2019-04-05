@@ -166,15 +166,14 @@ export const LANG_EN_TRANS = {
   'author_pechakucha_label': "The author of the idea of an online course with a presentation",
   // 'profile_label'
 
-
-
   // Компонент все мероприятия
   'day_label': "Day",
   'all_days_label': "All days",
   'two_days_label': "Two days",
+  'three_days_label': "Three days",
   'month_3': "april",
   'month_3_1': "april",
-  'path_label': "Trajectory",
+  'path_label': "Track",
   'event_type_label': "Event type",
   'not_found_events_label': "No events found",
   'events_filter_reset': "Reset filter",
@@ -182,7 +181,7 @@ export const LANG_EN_TRANS = {
   'events_program_label': "Program",
   // 'participate_label'
   // 'not_to_participate_label'
-  'same_time_events_alert': 'At this time you are registered on "%0". Cancel registration and participate in the event "%1"?',
+  'same_time_events_alert': 'At this time you are registered on "%0". Do you want cancel registration and participate in the event "%1"?',
   'unregister_event_alert': 'Are you sure you want to cancel the event "%0"?',
   'register_event_alert': 'You are registered to event "%0"',
   'to_my_events_label': "Go to my events",
@@ -191,6 +190,14 @@ export const LANG_EN_TRANS = {
   'not_registered_for_events_msg': "You are not registered for any event.",
   'your_events_label': "Your events",
   'to_all_events_label': "Go to all events",
+  'login_to_participate_label_1': "Login",
+  'login_to_participate_label_2': "to participate",
+
+  // Компонент мероприятие
+  'event_ppk_msg_1': "Only for",
+  'event_ppk_msg_2': "partisipante of training",
+
+
 };
 
 

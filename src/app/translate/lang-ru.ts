@@ -164,11 +164,11 @@ export const LANG_RU_TRANS = {
   'author_pechakucha_label': "Автор идеи онлайн-курса с презентацией",
   // 'profile_label'
 
-
   // Компонент все мероприятия
   'day_label': "День",
   'all_days_label': "Все дни",
   'two_days_label': "Два дня",
+  'three_days_label': "Три дня",
   'month_3': "апрель",
   'month_3_1': "апреля",
   'path_label': "Трек",
@@ -188,5 +188,11 @@ export const LANG_RU_TRANS = {
   'not_registered_for_events_msg': "Вы не зарегистрированы ни на одно мероприятие",
   'your_events_label': "ваши мероприятия",
   'to_all_events_label': "Перейти к списку всех мероприятий",
+  'login_to_participate_label_1': "Войдите,",
+  'login_to_participate_label_2': "чтобы принять участие",
+
+  // Компонент мероприятие
+  'event_ppk_msg_1': "Только для участников",
+  'event_ppk_msg_2': "программы повышения квалификации",
 
 };

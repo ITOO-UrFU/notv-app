@@ -20,7 +20,6 @@ export class EventsService {
 
   private lang = "en";
   constructor( private http: Http, private _translate: TranslateService) {
-    // console.log(this._translate.currentLang)
     // this.lang = this._translate.currentLang.toLocaleLowerCase();
   }
 
@@ -41,7 +40,6 @@ export class EventsService {
 private extractEvent(res: Response): Event {
   const offset = new Date().getTimezoneOffset();
     const body = res.json();
-    // console.log(body);
     let eventTypeClass = "eventtype-empty";
     let slug = 'empty';
     if ( body.get_event_slug != null ) {
@@ -176,7 +174,6 @@ private extractEvent(res: Response): Event {
         }
         allDates = allDates.concat(uniqueDates);
         });
-      console.log(allDates);
       return allDates;
 
 
@@ -193,8 +190,6 @@ private extractEvent(res: Response): Event {
 
     const events: Event[] = [];
     for (let i = 0; i < body.length; i++) {
-
-          console.log(body[i]);
 
           let eventTypeClass = "eventtype-empty";
           let slug = 'empty';
@@ -224,7 +219,6 @@ private extractEvent(res: Response): Event {
          const enddate = new Date(body[i].enddate);
          startdate.setMinutes(startdate.getMinutes() + offset.valueOf());
          enddate.setMinutes(enddate.getMinutes() + offset.valueOf());
-          // console.log(this.lang);
           const event: Event = new Event(
             body[i].id,
             this._translate.currentLang === 'ru' ? body[i].title : body[i].title_en,

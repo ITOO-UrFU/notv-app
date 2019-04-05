@@ -34,7 +34,7 @@ export class EventComponent implements OnInit {
   userEvents: String[];
   isReg: boolean = false;
 
-  private eventsDisableButton = ['dinner', 'coffee_break'];
+  private eventsDisableButton = ['dinner', 'coffee_break', 'closed_event'];
 
   showButtons: boolean = true;
 
@@ -48,22 +48,18 @@ export class EventComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // console.log("init Event component", this.currentUser);
     // if
     this.userEvents = this.currentUser.get_events.map(e => {return e.event.id});
-    // console.log()
     this.update("init", this.currentEvent);
   }
 
   update(type, upd_event: Event){
 
-    // console.log(this.currentUser);
     // if (this.currentUser.get_events.map(event => {
     //   return event.event.id;
     // }).includes(upd_event.id)) {
 
       if(this.userEvents.includes(upd_event.id)){
-      // console.log(event);
       this.isReg = true;
     } else {
       this.isReg = false;
@@ -86,7 +82,6 @@ export class EventComponent implements OnInit {
   checkSameTimeEvents(potentialEvent: Event): any[] {
     let sameTimeEvents: any[] = [];
     const offset = new Date().getTimezoneOffset();
-    console.log(this.currentUser.get_events)
     this.currentUser.get_events.forEach(event => {
       const startdate = new Date(event.event.startdate);
       startdate.setMinutes(startdate.getMinutes() + offset.valueOf());
@@ -96,7 +91,6 @@ export class EventComponent implements OnInit {
         sameTimeEvents.push(event);
       }
     });
-    // console.log(sameTimeEvents);
     return sameTimeEvents;
   }
 
@@ -106,7 +100,6 @@ export class EventComponent implements OnInit {
       this.currentUser = userProfile;
 
       let sameEvents: any[] = this.checkSameTimeEvents(event);
-      console.log(sameEvents);
       if (sameEvents.length > 0) {
         let sameEventsTitles = '';
         for (let sameEvent of sameEvents){
@@ -157,7 +150,6 @@ export class EventComponent implements OnInit {
   unregisterOnEvent(event: Event) {
     this.isReg = false;
     // let same = this.checkSameTimeEvents(event)[0].event;
-    // console.log(same);
     this.registerService.unregisterOnEvent(event.id).subscribe(
       data => {
         // this.alertService.success('Вы отписаны от события!', true);
@@ -171,7 +163,6 @@ export class EventComponent implements OnInit {
 
       },
       error => {
-        // console.log("ОШИБКА ОТПИСКИ!");
         this.alertService.error("Ошибка отписки от события!", error);
       });
   }
