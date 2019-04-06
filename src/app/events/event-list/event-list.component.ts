@@ -55,7 +55,9 @@ export class EventListComponent implements OnInit, AfterViewChecked {
 
   onChanged(increased) {
     this.currentUser = increased.CU;
-    this.components.filter((child) => { return child.currentEvent.id === increased.id; })[0].isReg = increased.status;
+    this.components.filter((child) => {
+      return child.currentEvent.id === increased.id;
+    })[0].isReg = increased.status;
     // this.filterChange();
   }
 
@@ -69,7 +71,7 @@ export class EventListComponent implements OnInit, AfterViewChecked {
   ) {
   }
 
-  setScroll(){
+  setScroll() {
     // this.ngOnInit();
     // localStorage.setItem('events_offset', window.pageYOffset.toString());
   }
@@ -105,16 +107,13 @@ export class EventListComponent implements OnInit, AfterViewChecked {
           if (localStorage.getItem('user_filters')) {
             this.user_filters = JSON.parse(localStorage.getItem('user_filters'));
 
-            try{
-              this.filterChange();
-            }
-            catch (e) {
+            if (!(this.arraysIsEqual(Object.keys(this.user_filters.by_type).sort(), Object.keys(this.filters.by_type).sort()) && this.arraysIsEqual(Object.keys(this.user_filters.by_path).sort(), Object.keys(this.filters.by_path).sort()))) {
               this.user_filters.by_path = this.filters.by_path;
               this.user_filters.by_type = this.filters.by_type;
-              this.filterChange();
             }
-          }
+            this.filterChange();
 
+          }
           this.registerService.getProfile().subscribe(
             userProfile => {
               this.currentUser = userProfile;
@@ -150,7 +149,7 @@ export class EventListComponent implements OnInit, AfterViewChecked {
     }
 
     // kostyl'
-    if (window.pageYOffset > document.getElementsByClassName('events-list-wrap')[0].getBoundingClientRect().top + window.scrollY){
+    if (window.pageYOffset > document.getElementsByClassName('events-list-wrap')[0].getBoundingClientRect().top + window.scrollY) {
       this.scrollHelper.scrollToFirst('events-list-wrap');
       this.scrollHelper.doScroll();
     }
@@ -190,10 +189,10 @@ export class EventListComponent implements OnInit, AfterViewChecked {
       if (event.get_event_slug !== 'empty' && !this.eventsDisableFilter.includes(event.get_event_slug)) {
         if (!Object.keys(types).find(item => item === event.get_event_slug)) {
           types[event.get_event_slug] = {
-              'title': event.eventtype,
-              'slug': event.get_event_slug,
-              'checked': false,
-            };
+            'title': event.eventtype,
+            'slug': event.get_event_slug,
+            'checked': false,
+          };
         }
       }
 
@@ -214,6 +213,25 @@ export class EventListComponent implements OnInit, AfterViewChecked {
 
     }
     return paths;
+  }
+
+  arraysIsEqual(a, b) {
+    if (a === b) {
+      return true;
+    }
+    if (a == null || b == null) {
+      return false;
+    }
+    if (a.length !== b.length) {
+      return false;
+    }
+
+    for (let i = 0; i < a.length; ++i) {
+      if (a[i] !== b[i]) {
+        return false;
+      }
+    }
+    return true;
   }
 
   // передаем список событий
