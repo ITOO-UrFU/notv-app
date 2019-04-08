@@ -161,6 +161,11 @@ export const LANG_EN_TRANS = {
   'pechakucha_about_17': "financial support of the project and / or monetization model;",
   'pechakucha_about_18': "possible risks;",
   'pechakucha_about_19': "development prospects.",
+
+  'pechakucha_about_20': "The winner is determined by a majority vote of the jury members. The jury is included representatives of the university, business, region, society and government.",
+  'pechakucha_about_21': "Winner receives co-financing to create an online course *",
+  'pechakucha_about_22': "* Exclusive rights to online course belong to the Ural Federal University.",
+
   'type_participate_pechakucha_label': "In what role do you want to participate in PechaKucha online courses?",
   'listener_pechakucha_label': "Listener",
   'author_pechakucha_label': "The author of the idea of an online course with a presentation",
