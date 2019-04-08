@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
-import { ActivatedRoute, Params, Router } from "@angular/router";
+import { ActivatedRoute, Params, Router, RouterStateSnapshot } from "@angular/router";
 import { EventsService } from 'app/events/events.service';
 import { Event } from 'app/events/event';
 import { AuthGuard } from 'app/services/auth.guard';
@@ -45,6 +45,7 @@ export class EventComponent implements OnInit {
               private registerService: RegisterService,
               private alertService: AlertService,
               private _translate: TranslateService,
+              // private ,
   ) { }
 
   ngOnInit() {
@@ -171,7 +172,8 @@ export class EventComponent implements OnInit {
     this.router.navigate(["/events"]);
   }
   public toRegister(){
-    this.router.navigate(["login"]);
+    this.router.navigate(['login'], { queryParams: { back: 'events' }});
+    // this.router.navigate(["login"]);
   }
   public goMyEvents(){
     this.router.navigate(["events", "my_events"]);

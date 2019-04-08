@@ -50,7 +50,8 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['profile', 'my']);
     } else {
       this.title.setTitle(this._translate.instant('login_msg'));
-      this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'events';
+
+      // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
 
   }
@@ -60,11 +61,16 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(this.model.email, this.model.password)
       .subscribe(
         data => {
-          console.log("ok");
+
+          this.returnUrl = this.route.snapshot.queryParams['back'];
           window.location.reload();
+
+          if (this.returnUrl){
+            this.router.navigateByUrl(this.returnUrl);
+          }
+
         },
         error => {
-          console.log("LOL")
           this.alertService.error(this._translate.instant('login_error_msg'));
         });
     this.showPassReset = false;

@@ -117,7 +117,7 @@
 .event-block-control {
   float: right;
   text-align: right;
-  min-width: 220px;
+  //min-width: 220px;
 
   .event-block-room {
     color: #282866;
@@ -139,7 +139,7 @@
     /* font-weight: bold; */
     font-family: "IBM Plex Mono", monospace;
     color: #282866;
-
+    min-width: 240px;
     margin-top: 7px;
     margin-bottom: 12px;
     font-size: 12px !important;

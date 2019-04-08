@@ -14,7 +14,7 @@ import {ScrollHelper} from 'app/helpers';
   selector: 'div.app-event-list',
   templateUrl: './event-list.component.html',
   styleUrls: ['./event-list.component.scss'],
-  host: {'(window:scroll)': 'setScroll()'},
+  host: {'(window:scroll)': 'scrollFunction()'},
   // directives: [EventComponent],
 })
 
@@ -79,6 +79,33 @@ export class EventListComponent implements OnInit, AfterViewChecked {
   // ngOnDestroy(){
   // }
 
+  scrollFunction() {
+    // localStorage.setItem('events_offset', window.pageYOffset.toString());
+    if(document.getElementById("return-to-top")){
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        document.getElementById("return-to-top").style.display = "block";
+      } else {
+        document.getElementById("return-to-top").style.display = "none";
+      }
+    }
+  }
+
+  topFunction() {
+    // document.body.scrollTop = 0;
+    // document.documentElement.scrollTop = 0;
+    let scrollDuration = 300;
+    var scrollStep = -window.scrollY / (scrollDuration / 15),
+      scrollInterval = setInterval(function(){
+        if ( window.scrollY != 50 ) {
+          window.scrollBy( 0, scrollStep );
+        }
+        else{
+          clearInterval(scrollInterval);
+        }
+      }, 15);
+  }
+
+
   ngOnInit() {
     this.isLogged = this.authGuard.is_logged();
     this.title.setTitle('Мероприятия');
@@ -128,9 +155,9 @@ export class EventListComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked() {
-    // if(localStorage.getItem('events_offset')){
-    //   window.scrollTo(0, parseInt(localStorage.getItem('events_offset')))
-    // }
+  //   if(localStorage.getItem('events_offset')){
+  //     window.scrollTo(0, parseInt(localStorage.getItem('events_offset')))
+  //   }
   }
 
   filterChange() {
