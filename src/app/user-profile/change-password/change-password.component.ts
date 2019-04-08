@@ -26,9 +26,9 @@ export class ChangePasswordComponent implements OnInit {
           this.authenticationService.changePassword(this.model.password_old, this.model.password1, this.model.password2).subscribe(
                 data => {
                  this.alertService.success(this._translate.instant('pass_successfully_changed_msg'), true);
-                  // this.model.password_old = "";
-                  // this.model.password1 = "";
-                  // this.model.password2 = "";
+                  this.model.password_old = "";
+                  this.model.password1 = "";
+                  this.model.password2 = "";
                  window.scrollTo(0, 0);
                 },
                 error => {

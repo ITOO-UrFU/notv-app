@@ -80,6 +80,7 @@ export class PageComponent implements OnDestroy, OnInit {
 
 @HostListener("window:scroll", [])
   onWindowScroll() {
+    // console.log("blblblb")
     this.scrollFunction();
   }
 

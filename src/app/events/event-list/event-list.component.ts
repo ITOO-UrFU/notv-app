@@ -14,7 +14,7 @@ import {ScrollHelper} from 'app/helpers';
   selector: 'div.app-event-list',
   templateUrl: './event-list.component.html',
   styleUrls: ['./event-list.component.scss'],
-  host: {'(window:scroll)': 'setScroll()'},
+  host: {'(window:scroll)': 'scrollFunction()'},
   // directives: [EventComponent],
 })
 
@@ -55,7 +55,9 @@ export class EventListComponent implements OnInit, AfterViewChecked {
 
   onChanged(increased) {
     this.currentUser = increased.CU;
-    this.components.filter((child) => { return child.currentEvent.id === increased.id; })[0].isReg = increased.status;
+    this.components.filter((child) => {
+      return child.currentEvent.id === increased.id;
+    })[0].isReg = increased.status;
     // this.filterChange();
   }
 
@@ -69,13 +71,40 @@ export class EventListComponent implements OnInit, AfterViewChecked {
   ) {
   }
 
-  setScroll(){
+  setScroll() {
     // this.ngOnInit();
     // localStorage.setItem('events_offset', window.pageYOffset.toString());
   }
 
   // ngOnDestroy(){
   // }
+
+  scrollFunction() {
+    // localStorage.setItem('events_offset', window.pageYOffset.toString());
+    if(document.getElementById("return-to-top")){
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        document.getElementById("return-to-top").style.display = "block";
+      } else {
+        document.getElementById("return-to-top").style.display = "none";
+      }
+    }
+  }
+
+  topFunction() {
+    // document.body.scrollTop = 0;
+    // document.documentElement.scrollTop = 0;
+    let scrollDuration = 300;
+    var scrollStep = -window.scrollY / (scrollDuration / 15),
+      scrollInterval = setInterval(function(){
+        if ( window.scrollY != 50 ) {
+          window.scrollBy( 0, scrollStep );
+        }
+        else{
+          clearInterval(scrollInterval);
+        }
+      }, 15);
+  }
+
 
   ngOnInit() {
     this.isLogged = this.authGuard.is_logged();
@@ -105,16 +134,13 @@ export class EventListComponent implements OnInit, AfterViewChecked {
           if (localStorage.getItem('user_filters')) {
             this.user_filters = JSON.parse(localStorage.getItem('user_filters'));
 
-            try{
-              this.filterChange();
-            }
-            catch (e) {
+            if (!(this.arraysIsEqual(Object.keys(this.user_filters.by_type).sort(), Object.keys(this.filters.by_type).sort()) && this.arraysIsEqual(Object.keys(this.user_filters.by_path).sort(), Object.keys(this.filters.by_path).sort()))) {
               this.user_filters.by_path = this.filters.by_path;
               this.user_filters.by_type = this.filters.by_type;
-              this.filterChange();
             }
-          }
+            this.filterChange();
 
+          }
           this.registerService.getProfile().subscribe(
             userProfile => {
               this.currentUser = userProfile;
@@ -129,9 +155,9 @@ export class EventListComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked() {
-    // if(localStorage.getItem('events_offset')){
-    //   window.scrollTo(0, parseInt(localStorage.getItem('events_offset')))
-    // }
+  //   if(localStorage.getItem('events_offset')){
+  //     window.scrollTo(0, parseInt(localStorage.getItem('events_offset')))
+  //   }
   }
 
   filterChange() {
@@ -150,7 +176,7 @@ export class EventListComponent implements OnInit, AfterViewChecked {
     }
 
     // kostyl'
-    if (window.pageYOffset > document.getElementsByClassName('events-list-wrap')[0].getBoundingClientRect().top + window.scrollY){
+    if (window.pageYOffset > document.getElementsByClassName('events-list-wrap')[0].getBoundingClientRect().top + window.scrollY) {
       this.scrollHelper.scrollToFirst('events-list-wrap');
       this.scrollHelper.doScroll();
     }
@@ -190,10 +216,10 @@ export class EventListComponent implements OnInit, AfterViewChecked {
       if (event.get_event_slug !== 'empty' && !this.eventsDisableFilter.includes(event.get_event_slug)) {
         if (!Object.keys(types).find(item => item === event.get_event_slug)) {
           types[event.get_event_slug] = {
-              'title': event.eventtype,
-              'slug': event.get_event_slug,
-              'checked': false,
-            };
+            'title': event.eventtype,
+            'slug': event.get_event_slug,
+            'checked': false,
+          };
         }
       }
 
@@ -214,6 +240,25 @@ export class EventListComponent implements OnInit, AfterViewChecked {
 
     }
     return paths;
+  }
+
+  arraysIsEqual(a, b) {
+    if (a === b) {
+      return true;
+    }
+    if (a == null || b == null) {
+      return false;
+    }
+    if (a.length !== b.length) {
+      return false;
+    }
+
+    for (let i = 0; i < a.length; ++i) {
+      if (a[i] !== b[i]) {
+        return false;
+      }
+    }
+    return true;
   }
 
   // передаем список событий
