@@ -59,10 +59,6 @@ const routes: Routes = [
             path: 'my',
             component: MyProfileComponent,
           },
-         // {
-         //    path: 'my_events',
-         //    component: UserEventsComponent
-         //  },
         {
           path: 'materials',
           component: LoadMaterialsComponent
@@ -99,22 +95,16 @@ const routes: Routes = [
         component: UserEventsComponent,
         // canActivate: [AuthGuard],
       },
-      // {
-      //   path: 'events/all_events',
-      //   component: EventListComponent,
-      //
-      // },
-
       {
         path: 'events',
         // pathMatch: 'full',
         component: EventListComponent,
       },
-  // {
-  //   path: 'events/:id',
-  //   component: EventPageComponent,
-  //   data: {}
-  //   },
+      {
+        path: 'events/:id',
+        component: EventPageComponent,
+        data: {}
+      },
       {
         path: 'home',
         component: HomePageComponent,

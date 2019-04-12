@@ -12,9 +12,35 @@
     </div>
     <div class="event-block-subject">
 <!--      <a *ngIf="!eventsDisableButton.includes(currentEvent.get_event_slug)" (click)="navigateToEvent()" class="active">{{currentEvent.title}}</a>-->
-<!--      <a *ngIf="eventsDisableButton.includes(currentEvent.get_event_slug)" >{{currentEvent.title}}</a>-->
-      {{ currentEvent.title }}
+      <a *ngIf="hasOwnPage(currentEvent)" (click)="navigateToEvent()" class="active">{{currentEvent.title}}</a>
+      <a *ngIf="!hasOwnPage(currentEvent)" >{{currentEvent.title}}</a>
+<!--      <a (click)="navigateToEvent()" class="active" >{{currentEvent.title}}</a>-->
+<!--      {{ currentEvent.title }}-->
+
+
+
+
     </div>
+
+    <div  class="event-block-speakers" *ngIf="currentEvent.get_speakers.length">
+      <span *ngFor="let user of currentEvent.get_speakers; let i = index" [attr.data-index]="i">
+        {{user.person.first_name}} {{user.person.last_name}}<span *ngIf="i!=currentEvent.get_speakers.length-1">,</span>
+<!--        <div class="person event-speaker">{{user.person.last_name}} {{user.person.first_name}} <span-->
+<!--          *ngIf="user.person.organisation">, {{user.person.organisation}}<br/></span>-->
+<!--          <div class='label'>-->
+<!--            <div [ngStyle]="{'background':'url('+user.person.photo+')', 'background-size': 'cover'}"-->
+<!--                 class="event-speaker-photo"></div>-->
+
+<!--            {{user.person.first_name}} {{user.person.last_name}}<br/>{{user.person.position}}<br/><span-->
+<!--            *ngIf="user.person.division">{{user.person.division}}<br/></span>{{user.person.organisation}}-->
+<!--          </div>-->
+
+<!--        </div>-->
+      </span>
+    </div>
+
+
+
     <template [ngIf]="currentEvent.path">
       <div *ngIf="currentEvent.path.slug == 'edu_ppk'" class="event-block-ppk-msg">
         {{ 'event_ppk_msg_1' | translate }} <a routerLink="/ppk_bid"> {{ 'event_ppk_msg_2' | translate }} </a>
@@ -69,22 +95,23 @@
 <!--  </div>-->
 
 
-<!--  <div *ngIf="currentEvent.get_speakers.length">-->
-<!--    <div *ngFor="let user of currentEvent.get_speakers">-->
-<!--      <div class="person event-speaker">{{user.person.last_name}} {{user.person.first_name}} <span-->
-<!--        *ngIf="user.person.organisation">, {{user.person.organisation}}<br/></span>-->
-<!--        <div class='label'>-->
-<!--          <div [ngStyle]="{'background':'url('+user.person.photo+')', 'background-size': 'cover'}"-->
-<!--               class="event-speaker-photo"></div>-->
 
-<!--          {{user.person.first_name}} {{user.person.last_name}}<br/>{{user.person.position}}<br/><span-->
-<!--          *ngIf="user.person.division">{{user.person.division}}<br/></span>{{user.person.organisation}}-->
-<!--        </div>-->
 
+<!--<div *ngIf="currentEvent.get_speakers.length">-->
+<!--  <div *ngFor="let user of currentEvent.get_speakers">-->
+<!--    <div class="person event-speaker">{{user.person.last_name}} {{user.person.first_name}} <span-->
+<!--      *ngIf="user.person.organisation">, {{user.person.organisation}}<br/></span>-->
+<!--      <div class='label'>-->
+<!--        <div [ngStyle]="{'background':'url('+user.person.photo+')', 'background-size': 'cover'}"-->
+<!--             class="event-speaker-photo"></div>-->
+
+<!--        {{user.person.first_name}} {{user.person.last_name}}<br/>{{user.person.position}}<br/><span-->
+<!--        *ngIf="user.person.division">{{user.person.division}}<br/></span>{{user.person.organisation}}-->
 <!--      </div>-->
+
 <!--    </div>-->
 <!--  </div>-->
-
+<!--</div>-->
 
 
 

@@ -16,10 +16,12 @@ export class SpeakersListComponent implements OnInit {
 constructor(private router: Router, private speakersService: SpeakersService, private title: Title) {}
 
   ngOnInit() {
+  console.log("speakers init");
     this.title.setTitle("Спикеры");
         this.speakersService.getSpeakersList()
           .subscribe(speakersList => {
             this.speakersList = speakersList;
+            console.log(this.speakersList);
         }
       );
   }

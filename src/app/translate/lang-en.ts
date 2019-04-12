@@ -203,6 +203,7 @@ export const LANG_EN_TRANS = {
   'event_ppk_msg_2': "partisipante of training",
 
 
+  'my_events_label': "My events",
 };
 
 

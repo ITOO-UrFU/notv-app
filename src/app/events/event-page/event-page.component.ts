@@ -5,6 +5,7 @@ import { Event } from 'app/events/event';
 import { AuthGuard } from 'app/services/auth.guard';
 import { RegisterService} from 'app/services/register.service';
 import { AlertService } from 'app/services/alert.service';
+import {AuthenticationService} from 'app/services/auth.service';
 
 @Component({
   selector: 'div.app-event-page',
@@ -17,33 +18,74 @@ export class EventPageComponent implements OnInit {
 
     // @Input() currentEvent: Event;
     // @Input() isLogged: boolean;
-
-    errorMessage: string;
+  isLogged: boolean = false;
+    // errorMessage: string;
 
     // @Input() currentUser: any;
 
-    userEvents: Event[];
+    userEvents: String[];
     isReg: boolean;
+    currentEvent: Event;
+  currentUser: any;
 
+    private eventsDisableButton = ['dinner', 'coffee_break', 'closed_event'];
 
-    private eventsDisableButton = ['dinner', 'coffee_break'];
-
-    // showButtons: boolean = true;
+    showButtons: boolean = false;
 
     constructor(private eventsService: EventsService,
         private activatedRoute: ActivatedRoute,
         private router: Router,
         private authGuard: AuthGuard,
+        private authenticationService: AuthenticationService,
         private registerService: RegisterService,
         private alertService: AlertService
         ) { }
 
   ngOnInit() {
+
+    this.isLogged = this.authGuard.is_logged();
+
     this.activatedRoute.params.subscribe(params => {
       // console.log(params)
-      console.log(params['id']) //log the value of id
+      // console.log(params['id']); // log the value of id
+      this.eventsService.getEvent(params['id'])
+        .subscribe(event => {
+          this.currentEvent = event;
+
+          // console.log(this.vent);
+          this.registerService.getProfile().subscribe(
+            userProfile => {
+              this.currentUser = userProfile;
+              console.log(this.currentEvent);
+              this.userEvents = this.currentUser.get_events.map(e => {return e.event.id});
+              // console.log(this.userEvents)
+              if(this.userEvents.includes(this.currentEvent.id)){
+                this.isReg = true;
+              } else {
+                this.isReg = false;
+              }
+              if (this.eventsDisableButton.includes(this.currentEvent.get_event_slug)){
+                this.showButtons = false;
+              }
+              else {
+                this.showButtons = true;
+              }
+            },
+            error => {
+              this.authenticationService.logout();
+            }
+          );
+
+
+        });
     });
-          // this.update(this.currentEvent);
+
+
+  }
+
+  public toLogin(){
+    this.router.navigate(['login'], { queryParams: { back: 'events/' + this.currentEvent.id }});
+    // this.router.navigate(["login"]);
   }
 
 // update(event: Event){
@@ -154,9 +196,9 @@ export class EventPageComponent implements OnInit {
 //                 });
 // }
 
-    // public goBack() {
-    //     this.router.navigate(["/events"]);
-    // }
+    public goBack() {
+        this.router.navigate(["events"]);
+    }
     // public toRegister(){
     //     this.router.navigate(["login"]);
     // }

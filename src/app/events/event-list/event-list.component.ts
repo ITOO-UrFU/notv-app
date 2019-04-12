@@ -80,30 +80,31 @@ export class EventListComponent implements OnInit, AfterViewChecked {
   // }
 
   scrollFunction() {
+    console.log( document.documentElement.scrollTop)
     // localStorage.setItem('events_offset', window.pageYOffset.toString());
-    if(document.getElementById("return-to-top")){
-      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        document.getElementById("return-to-top").style.display = "block";
-      } else {
-        document.getElementById("return-to-top").style.display = "none";
-      }
-    }
+    // if(document.getElementById("return-to-top")){
+    //   if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    //     document.getElementById("return-to-top").style.display = "block";
+    //   } else {
+    //     document.getElementById("return-to-top").style.display = "none";
+    //   }
+    // }
   }
 
-  topFunction() {
-    // document.body.scrollTop = 0;
-    // document.documentElement.scrollTop = 0;
-    let scrollDuration = 300;
-    var scrollStep = -window.scrollY / (scrollDuration / 15),
-      scrollInterval = setInterval(function(){
-        if ( window.scrollY != 50 ) {
-          window.scrollBy( 0, scrollStep );
-        }
-        else{
-          clearInterval(scrollInterval);
-        }
-      }, 15);
-  }
+  // topFunction() {
+  //   // document.body.scrollTop = 0;
+  //   // document.documentElement.scrollTop = 0;
+  //   let scrollDuration = 300;
+  //   var scrollStep = -window.scrollY / (scrollDuration / 15),
+  //     scrollInterval = setInterval(function(){
+  //       if ( window.scrollY != 50 ) {
+  //         window.scrollBy( 0, scrollStep );
+  //       }
+  //       else{
+  //         clearInterval(scrollInterval);
+  //       }
+  //     }, 15);
+  // }
 
 
   ngOnInit() {
@@ -155,9 +156,9 @@ export class EventListComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked() {
-  //   if(localStorage.getItem('events_offset')){
-  //     window.scrollTo(0, parseInt(localStorage.getItem('events_offset')))
-  //   }
+    // if(localStorage.getItem('events_offset')){
+    //   window.scrollTo(0, parseInt(localStorage.getItem('events_offset')))
+    // }
   }
 
   filterChange() {

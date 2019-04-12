@@ -18,7 +18,7 @@ export class EventsService {
     private eventsUrl = 'https://openedu.urfu.ru/edcrunch/api/v1/events';
   // private eventsUrl = 'http://93.88.177.60:8089/edcrunch/api/v1/events';
 
-  private lang = "en";
+  // private lang = "en";
   constructor( private http: Http, private _translate: TranslateService) {
     // this.lang = this._translate.currentLang.toLocaleLowerCase();
   }
@@ -33,39 +33,60 @@ export class EventsService {
 
   getEvent(id: string): Observable<Event> {
     return this.http.get(this.eventsUrl + "/" + id)
-                    .map(this.extractEvent)
+                    .map(response => { return this.extractEvent(response)})
                     .catch(this.handleError);
   }
 
-private extractEvent(res: Response): Event {
+  private extractEvent(res: Response): Event {
   const offset = new Date().getTimezoneOffset();
+  // const offset = new Date().getTimezoneOffset();
+  // const body = res.json();
     const body = res.json();
     let eventTypeClass = "eventtype-empty";
     let slug = 'empty';
-    if ( body.get_event_slug != null ) {
+
+    if (body.get_event_slug != null) {
       eventTypeClass = "eventtype-" + body.get_event_slug;
       slug = body.get_event_slug;
     }
+
+    let path = null;
+
+    if (body.path) {
+      path = {
+        title: this._translate.currentLang === 'ru' ? body.path.title : body.path.title_en,
+        slug: body.path.slug
+      };
+    }
+    let room = null;
+    if (body.room) {
+      room = {
+        title: this._translate.currentLang === 'ru' ? body.room.title : body.room.title_en,
+        slug: body.room.slug,
+      };
+    }
+
     const startdate = new Date(body.startdate);
     const enddate = new Date(body.enddate);
     startdate.setMinutes(startdate.getMinutes() + offset.valueOf());
     enddate.setMinutes(enddate.getMinutes() + offset.valueOf());
+
     const event: Event = new Event(
-          body.id,
+      body.id,
       this._translate.currentLang === 'ru' ? body.title : body.title_en,
       this._translate.currentLang === 'ru' ? body.description : body.description_en,
-          body.get_speakers,
-          startdate,
-          enddate,
-          eventTypeClass,
-          body.get_type_display,
-          body.block,
-          slug,
-          body.room,
-      body.path,
-      );
-
-    event.get_speakers  = event.get_speakers.filter(user =>  user.get_type_display !== "Участник" );
+      body.get_speakers,
+      startdate,
+      enddate,
+      eventTypeClass,
+      // body.get_type_display,
+      this._translate.currentLang === 'ru' ? body.get_type_display : body.get_type_display_en,
+      body.get_line_of_work_slug,
+      slug,
+      body.room,
+      path
+    );
+    event.get_speakers = event.get_speakers.filter(user => user.get_type_display !== 'Участник');
     return event;
   }
 

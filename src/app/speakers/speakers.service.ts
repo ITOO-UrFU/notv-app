@@ -26,6 +26,7 @@ export class SpeakersService {
 
 private extractSpeakers(res: Response): any[]{
     let body = res.json();
+    console.log(body);
     let speakers: any[] = [];
     for (let i = 0; i < body.length; i++) {
           let photo_src = "http://placehold.it/200x200"
@@ -41,6 +42,7 @@ private extractSpeakers(res: Response): any[]{
 
     private handleError (error: Response | any) {
     let errMsg: string;
+    console.log('Speakers getting error');
     if (error instanceof Response) {
       const body = error.json() || '';
       const err = body.error || JSON.stringify(body);

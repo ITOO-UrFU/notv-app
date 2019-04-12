@@ -8,6 +8,7 @@ import { AlertService } from 'app/services/alert.service';
 import {TranslateService} from 'app/translate/translate.service';
 import {Subject} from 'rxjs/Subject';
 import { Subscription } from 'rxjs/Subscription';
+import has = Reflect.has;
 
 @Component({
   selector: 'div.app-event',
@@ -35,6 +36,7 @@ export class EventComponent implements OnInit {
   isReg: boolean = false;
 
   private eventsDisableButton = ['dinner', 'coffee_break', 'closed_event'];
+  private eventsWithoutOwnPage = ['dinner', 'coffee_break'];
 
   showButtons: boolean = true;
 
@@ -52,6 +54,7 @@ export class EventComponent implements OnInit {
     // if
     this.userEvents = this.currentUser.get_events.map(e => {return e.event.id});
     this.update("init", this.currentEvent);
+    // console.log(this.currentEvent);
   }
 
   update(type, upd_event: Event){
@@ -168,14 +171,32 @@ export class EventComponent implements OnInit {
       });
   }
 
+  public hasOwnPage(event: Event): boolean{
+    let has_page = true;
+
+    if (event.description.length === 0) {
+      has_page = false;
+    }
+    if (this.eventsWithoutOwnPage.includes(event.get_event_slug)) {
+      has_page = false;
+    }
+    // console.log(event.description.length);
+    return has_page;
+  }
+
   public goBack() {
     this.router.navigate(["/events"]);
   }
+
   public toRegister(){
     this.router.navigate(['login'], { queryParams: { back: 'events' }});
     // this.router.navigate(["login"]);
   }
   public goMyEvents(){
     this.router.navigate(["events", "my_events"]);
+  }
+
+  public navigateToEvent(){
+    this.router.navigate(["events", this.currentEvent.id]);
   }
 }

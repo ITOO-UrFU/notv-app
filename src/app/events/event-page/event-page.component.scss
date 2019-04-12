@@ -1,3 +1,425 @@
+@import "~scss/base/variables";
+
+.event-page-block {
+  width: 95%;
+  margin: 30px auto;
+  max-width: 1180px;
+  padding-bottom: 30px;
+
+  .event-page-badges {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+
+    .event-block-type-badge {
+      cursor: default;
+      font-family: "IBM Plex Mono", monospace;
+      padding: 4px 20px 2px 20px;
+      font-size: 87.5%;
+      background: #ffffff;
+      font-weight: bold;
+      letter-spacing: 0.7px;
+      color: #00a7d8;
+      border: solid 2px #00a7d8;
+      //margin-top: 5px;
+      //margin-bottom: 5px;
+      text-transform: uppercase;
+      text-align: center;
+      margin-right: 10px;
+
+    }
+
+    .event-block-path-badge {
+      cursor: default;
+      font-family: "IBM Plex Mono", monospace;
+      padding: 3px 18px 4px 18px;
+      font-size: 87.5%;
+
+      font-weight: bold;
+      letter-spacing: 0.7px;
+      color: #ffffff;
+
+      //margin-top: 5px;
+      //margin-bottom: 5px;
+      text-transform: uppercase;
+      text-align: center;
+      margin-right: 10px;
+
+      &.edu_ecosystem {
+        background: $edu_ecosystem_color;
+        border: solid 2px $edu_ecosystem_color;
+      }
+
+      &.edu_stsos {
+        background: $edu_stsos_color;
+        border: solid 2px $edu_stsos_color;
+      }
+
+      &.edu_interaction {
+        background: $edu_interaction_color;
+        border: solid 2px $edu_interaction_color;
+      }
+
+      &.edu_analytics {
+        color: #282865;
+        background: $edu_analytics_color;
+        border: solid 2px $edu_analytics_color;
+      }
+
+      &.edu_inclusive {
+        background: $edu_inclusive_color;
+        border: solid 2px $edu_inclusive_color;
+      }
+
+      &.edu_tech {
+        background: $edu_tech_color;
+        border: solid 2px $edu_tech_color;
+      }
+
+      &.edu_legal {
+        background: $edu_legal_color;
+        border: solid 2px $edu_legal_color;
+      }
+
+      &.edu_ppk {
+        background: white;
+        color: #282865;
+        border: solid 2px #282865;
+
+      }
+    }
+  }
+
+  .event-title {
+    width: 80%;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 240%;
+    font-weight: bold;
+    line-height: 1;
+    letter-spacing: 2px;
+    color: #282866;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+
+  .event-information {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+
+    .event-information-date {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 87.5%;
+      //font-weight: bold;
+      letter-spacing: 1px;
+      //color: #fff;
+      margin-right: 37px;
+    }
+
+    .event-information-room {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 87.5%;
+      font-weight: bold;
+      letter-spacing: 1px;
+      //color: #fff;
+      text-transform: uppercase;
+      border: 2px solid transparent;
+      position: relative;
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: -19px;
+        bottom: -7px;
+        display: inline-block;
+        width: 1px;
+        height: 30px;
+        background-color: #4a4a4a;
+      }
+    }
+
+
+  }
+
+  .event-content {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+
+    .event-content-main {
+      width: 66%;
+      margin-right: 20px;
+      border: 2px solid #a2d9f0;
+
+      .event-content-text {
+        white-space: pre-line;
+        padding: 46px 68px 40px 48px;
+        //background-color: #fff;
+        //background: #e7e5e5;
+        //font-family: "Montserrat", sans-serif;
+        font-size: 100%;
+        color: #000;
+      }
+
+      .event-content-speakers {
+        padding: 46px 130px 40px 48px;
+        background-color: #f4f4fc;
+
+        .event-content-speakers-title {
+          font-family: "IBM Plex Mono", monospace;
+          font-size: 112.5%;
+          font-weight: bold;
+          letter-spacing: 1.3px;
+          color: #282866;
+          text-transform: uppercase;
+          margin-bottom: 18px;
+        }
+
+        .event-content-speakers-list {
+          margin-left: 40px;
+          //display: -ms-flexbox;
+          //display: flex;
+          //-ms-flex-pack: justify;
+          //justify-content: space-between;
+          //-ms-flex-wrap: wrap;
+          //flex-wrap: wrap;
+          .event-content-speaker {
+            color: #000;
+            cursor: default;
+            //width: 43%;
+            margin-bottom: 20px;
+
+            .event-content-speaker-name {
+              display: inline-block;
+              font-family: "IBM Plex Mono", monospace;
+              color: #000;
+              font-size: 100%;
+              font-weight: bold;
+              letter-spacing: 1px;
+              padding-bottom: 1px;
+              border-bottom: 2px solid #00a7d8;
+              margin-bottom: 7px;
+              text-decoration: none;
+            }
+
+            .event-content-speaker-position {
+              font-family: "Montserrat", sans-serif;
+              font-size: 75%;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+
+    }
+
+    .event-content-aside {
+      width: 23.7%;
+      //border: 2px solid #a2d9f0;
+
+      .event-content-aside-wrap {
+        position: sticky;
+        top: 5px;
+
+        .event-content-aside-path {
+          font-family: "IBM Plex Mono", monospace;
+          font-size: 75%;
+          font-weight: bold;
+          letter-spacing: 0.7px;
+          color: #fff;
+          padding-top: 3px;
+          padding-bottom: 4px;
+          padding-left: 11px;
+          margin-bottom: 3px;
+          background-color: #333;
+
+          &.edu_ecosystem {
+            background: $edu_ecosystem_color;
+            border: solid 2px $edu_ecosystem_color;
+          }
+
+          &.edu_stsos {
+            background: $edu_stsos_color;
+            border: solid 2px $edu_stsos_color;
+          }
+
+          &.edu_interaction {
+            background: $edu_interaction_color;
+            border: solid 2px $edu_interaction_color;
+          }
+
+          &.edu_analytics {
+            color: #282865;
+            background: $edu_analytics_color;
+            border: solid 2px $edu_analytics_color;
+          }
+
+          &.edu_inclusive {
+            background: $edu_inclusive_color;
+            border: solid 2px $edu_inclusive_color;
+          }
+
+          &.edu_tech {
+            background: $edu_tech_color;
+            border: solid 2px $edu_tech_color;
+          }
+
+          &.edu_legal {
+            background: $edu_legal_color;
+            border: solid 2px $edu_legal_color;
+          }
+
+          &.edu_ppk {
+            background: white;
+            color: #282865;
+            border: solid 2px #282865;
+
+          }
+        }
+
+        .event-content-aside-info {
+          padding: 10px 20px 20px 20px;
+
+          .event-content-aside-date {
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 100%;
+            font-weight: bold;
+            color: #fff;
+            padding-bottom: 6px;
+          }
+
+          .event-content-aside-time {
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 87.5%;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #fff;
+            padding-bottom: 6px;
+            text-transform: uppercase;
+          }
+
+          .event-content-aside-room {
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 87.5%;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #fff;
+            text-transform: uppercase;
+          }
+
+
+          &.edu_ecosystem {
+            background: $edu_ecosystem_color;
+          }
+
+          &.edu_stsos {
+            background: $edu_stsos_color;
+          }
+
+          &.edu_interaction {
+            background: $edu_interaction_color;
+          }
+
+          &.edu_analytics {
+            color: #282865;
+            background: $edu_analytics_color;
+          }
+
+          &.edu_inclusive {
+            background: $edu_inclusive_color;
+          }
+
+          &.edu_tech {
+            background: $edu_tech_color;
+          }
+
+          &.edu_legal {
+            background: $edu_legal_color;
+          }
+
+          &.edu_ppk {
+            background: white;
+
+            div {
+              color: #282865 !important;
+            }
+
+            border: solid 2px #282865;
+          }
+
+        }
+
+
+        button {
+          display: inline-block;
+          width: 100%;
+          height: 35px;
+          text-decoration: none;
+          text-align: center;
+          font-size: 87.5%;
+          font-weight: bold;
+
+          background: white;
+          transition: color 0.15s ease-out, border-color 0.15s ease-out, background-color 0.15s ease-out;
+
+          box-sizing: border-box;
+          padding: 6px;
+          margin-top: 55px;
+
+          &.button-event-tologin {
+
+            font-family: "IBM Plex Mono", monospace;
+            color: #282866;
+            font-size: 12px !important;
+            //width: 240px;
+            font-weight: 100;
+            border: solid 2px #00a7d8;
+
+            &:hover {
+              background-color: #dfdfdf;
+            }
+          }
+
+          &.button-event-unregister {
+
+            font-weight: 200;
+            color: #e30613;
+            border: solid 2px #e30613;
+            //background-color: #e30613;
+
+            &:hover {
+              color: #fff;
+              background-color: #e30613;
+            }
+          }
+
+          &.button-event-register {
+            letter-spacing: 1.2px;
+            border: solid 2px #00a7d8;
+
+            color: #00a7d8;
+
+
+            &:hover {
+              background: #00a7d8;
+              color: #fff;
+            }
+          }
+        }
+
+      }
+
+    }
+
+
+  }
+}
+
 //.event-block-about{
 //  float: left;
 //  padding-right: 40px;
@@ -152,7 +574,58 @@
 //}
 //
 //
-//@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
+
+  .event-page-block {
+    margin: 10px auto;
+
+    .event-page-badges {
+      margin-bottom: 10px;
+
+      .event-block-type-badge {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      .event-block-path-badge {
+        width: 100%;
+        margin-bottom: 10px;
+
+      }
+    }
+
+    .event-title {
+      font-size: 210%;
+    }
+
+    .event-content {
+      .event-content-main {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 16px;
+
+        .event-content-text {
+          padding: 20px;
+          background: white;
+        }
+
+        .event-content-speakers {
+          padding: 10px;
+
+          .event-content-speakers-list {
+            margin-left: 18px;
+          }
+        }
+      }
+
+      .event-content-aside {
+        width: 100%;
+      }
+    }
+
+  }
+}
+
 //
 //  .event-block {
 //    -ms-flex-direction: column;
