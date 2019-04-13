@@ -231,7 +231,7 @@
           font-size: 75%;
           font-weight: bold;
           letter-spacing: 0.7px;
-          color: #fff;
+          //color: #fff;
           padding-top: 3px;
           padding-bottom: 4px;
           padding-left: 11px;
@@ -257,6 +257,11 @@
             color: #282865;
             background: $edu_analytics_color;
             border: solid 2px $edu_analytics_color;
+
+            div{
+              color: #282865 !important;
+            }
+
           }
 
           &.edu_inclusive {
@@ -578,6 +583,7 @@
 
   .event-page-block {
     margin: 10px auto;
+    background: white;
 
     .event-page-badges {
       margin-bottom: 10px;

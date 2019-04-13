@@ -11,15 +11,12 @@
       {{ currentEvent.eventtype }}
     </div>
     <div class="event-block-subject">
-<!--      <a *ngIf="!eventsDisableButton.includes(currentEvent.get_event_slug)" (click)="navigateToEvent()" class="active">{{currentEvent.title}}</a>-->
-      <a *ngIf="hasOwnPage(currentEvent)" (click)="navigateToEvent()" class="active">{{currentEvent.title}}</a>
-      <a *ngIf="!hasOwnPage(currentEvent)" >{{currentEvent.title}}</a>
-<!--      <a (click)="navigateToEvent()" class="active" >{{currentEvent.title}}</a>-->
-<!--      {{ currentEvent.title }}-->
+      <!--      <a *ngIf="hasOwnPage(currentEvent)" (click)="navigateToEvent()" class="active">{{currentEvent.title}}</a>-->
+      <!--      <a *ngIf="!hasOwnPage(currentEvent)" >{{currentEvent.title}}</a>-->
 
-
-
-
+    <a *ngIf="hasOwnPage(currentEvent)" [attr.href]="'events/'+ currentEvent.id"  class="active">{{currentEvent.title}}</a>
+<!--      <a *ngIf="hasOwnPage(currentEvent)" routerLink="/events/{{currentEvent.id}}" class="active">{{currentEvent.title}}</a>-->
+    <a *ngIf="!hasOwnPage(currentEvent)" >{{currentEvent.title}}</a>
     </div>
 
     <div  class="event-block-speakers" *ngIf="currentEvent.get_speakers.length">

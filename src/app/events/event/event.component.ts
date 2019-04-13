@@ -111,18 +111,13 @@ export class EventComponent implements OnInit {
         }
         if (confirm(this._translate.instant('same_time_events_alert', [this._translate.currentLang === 'ru' ? sameEvents[0].event.title : sameEvents[0].event.title_en, event.title]))) {
           this.registerOnEvent(event);
-          // console.log(sameEvents[0].event)
           this.unregisterOnEvent(sameEvents[0].event);
-          // this.sameEvent = sameEvents[0].event;
         }
 
       } else {
         this.registerOnEvent(event);
       }
     });
-//
-
-
   }
 
   registerOnEvent(event: Event) {
@@ -194,6 +189,7 @@ export class EventComponent implements OnInit {
   }
   public goMyEvents(){
     this.router.navigate(["events", "my_events"]);
+    // window.open("https://www.google.com", "_blank");
   }
 
   public navigateToEvent(){

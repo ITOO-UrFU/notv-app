@@ -204,6 +204,11 @@ export const LANG_EN_TRANS = {
 
 
   'my_events_label': "My events",
+
+  // компонент страница мероприятия
+
+  'speakers_label': "Speakers",
+
 };
 
 

@@ -182,7 +182,7 @@ export const LANG_RU_TRANS = {
   'events_program_label': "Программа",
   // 'participate_label'
   // 'not_to_participate_label'
-  'same_time_events_alert': 'В это время Вы зарегистированы на "%0". Отменить регистрацию и принять участие в мероприятии "%1"?',
+  'same_time_events_alert': 'В это время Вы зарегистированы на мероприятие "%0". Отменить регистрацию и принять участие в мероприятии "%1"?',
   'unregister_event_alert': 'Вы уверены, что хотите отписаться от мероприятия "%0"?',
   'register_event_alert': 'Вы зарегистрированы на мероприятие "%0"',
   'to_my_events_label': "Перейти к списку моих мероприятий",
@@ -199,5 +199,9 @@ export const LANG_RU_TRANS = {
   'event_ppk_msg_2': "программы повышения квалификации",
 
   'my_events_label': "Мои мероприятия",
+
+  // компонент страница мероприятия
+
+  'speakers_label': "Спикеры",
 
 };

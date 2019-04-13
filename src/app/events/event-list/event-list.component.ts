@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, AfterViewChecked, ViewChildren, QueryList} from '@angular/core';
+import {Component, Input, OnInit, AfterViewChecked, AfterViewInit, ViewChildren, QueryList} from '@angular/core';
 import {EventsService} from 'app/events/events.service';
 import {Router} from '@angular/router';
 import {Event} from 'app/events/event';
@@ -49,6 +49,8 @@ export class EventListComponent implements OnInit, AfterViewChecked {
   };
   objectKeys = Object.keys;
 
+  scroll_position: any = null;
+
   @Input() typeFilter: string = '';
 
   @ViewChildren('cmp') components: QueryList<EventComponent>;
@@ -71,16 +73,10 @@ export class EventListComponent implements OnInit, AfterViewChecked {
   ) {
   }
 
-  setScroll() {
-    // this.ngOnInit();
-    // localStorage.setItem('events_offset', window.pageYOffset.toString());
-  }
-
-  // ngOnDestroy(){
-  // }
-
   scrollFunction() {
-    console.log( document.documentElement.scrollTop)
+    // if (!this.scroll_position) {
+      localStorage.setItem('events_offset', document.documentElement.scrollTop.toString());
+    // }
     // localStorage.setItem('events_offset', window.pageYOffset.toString());
     // if(document.getElementById("return-to-top")){
     //   if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
@@ -140,8 +136,11 @@ export class EventListComponent implements OnInit, AfterViewChecked {
               this.user_filters.by_type = this.filters.by_type;
             }
             this.filterChange();
-
           }
+
+        if(localStorage.getItem('events_offset')){
+          this.scroll_position = parseInt(localStorage.getItem('events_offset'));
+        }
           this.registerService.getProfile().subscribe(
             userProfile => {
               this.currentUser = userProfile;
@@ -156,9 +155,11 @@ export class EventListComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked() {
-    // if(localStorage.getItem('events_offset')){
-    //   window.scrollTo(0, parseInt(localStorage.getItem('events_offset')))
-    // }
+    console.log("ngAfterViewChecked");
+    if (this.scroll_position) {
+      window.scrollTo(0, this.scroll_position);
+      this.scroll_position = null;
+    }
   }
 
   filterChange() {
