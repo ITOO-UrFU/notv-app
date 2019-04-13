@@ -219,7 +219,7 @@
     }
 
     .event-content-aside {
-      width: 23.7%;
+      width: 30%;
       //border: 2px solid #a2d9f0;
 
       .event-content-aside-wrap {
@@ -231,7 +231,7 @@
           font-size: 75%;
           font-weight: bold;
           letter-spacing: 0.7px;
-          //color: #fff;
+          color: #fff;
           padding-top: 3px;
           padding-bottom: 4px;
           padding-left: 11px;
@@ -257,10 +257,6 @@
             color: #282865;
             background: $edu_analytics_color;
             border: solid 2px $edu_analytics_color;
-
-            div{
-              color: #282865 !important;
-            }
 
           }
 
@@ -317,6 +313,10 @@
             text-transform: uppercase;
           }
 
+          .event-block-ppk-msg{
+            margin-top: 30px;
+          }
+
 
           &.edu_ecosystem {
             background: $edu_ecosystem_color;
@@ -333,6 +333,9 @@
           &.edu_analytics {
             color: #282865;
             background: $edu_analytics_color;
+            div{
+              color: #282865 !important;
+            }
           }
 
           &.edu_inclusive {
@@ -349,12 +352,10 @@
 
           &.edu_ppk {
             background: white;
-
+            border: solid 2px #282865;
             div {
               color: #282865 !important;
             }
-
-            border: solid 2px #282865;
           }
 
         }
@@ -375,6 +376,11 @@
           box-sizing: border-box;
           padding: 6px;
           margin-top: 55px;
+          border: none;
+
+          &:disabled {
+            background: #e7e5e5;
+          }
 
           &.button-event-tologin {
 
@@ -383,7 +389,7 @@
             font-size: 12px !important;
             //width: 240px;
             font-weight: 100;
-            border: solid 2px #00a7d8;
+            //border: solid 2px #00a7d8;
 
             &:hover {
               background-color: #dfdfdf;
@@ -394,7 +400,7 @@
 
             font-weight: 200;
             color: #e30613;
-            border: solid 2px #e30613;
+            //border: solid 2px #e30613;
             //background-color: #e30613;
 
             &:hover {
@@ -405,14 +411,54 @@
 
           &.button-event-register {
             letter-spacing: 1.2px;
-            border: solid 2px #00a7d8;
+            //border: ;
+            border: solid 2px white;
+            color: white;
+            //color: #00a7d8;
 
-            color: #00a7d8;
+            &.edu_ecosystem {
+              background: $edu_ecosystem_color;
+            }
 
+            &.edu_stsos {
+              background: $edu_stsos_color;
+            }
+
+            &.edu_interaction {
+              background: $edu_interaction_color;
+            }
+
+            &.edu_analytics {
+              color: #282865;
+              background: $edu_analytics_color;
+              //div{
+              //  color: #282865 !important;
+              //}
+            }
+
+            &.edu_inclusive {
+              background: $edu_inclusive_color;
+            }
+
+            &.edu_tech {
+              background: $edu_tech_color;
+            }
+
+            &.edu_legal {
+              background: $edu_legal_color;
+            }
+
+            &.edu_ppk {
+              background: white;
+              //border: solid 2px #282865;
+              //div {
+              //  color: #282865 !important;
+              //}
+            }
 
             &:hover {
-              background: #00a7d8;
-              color: #fff;
+              background: white;
+              color: #282865;
             }
           }
         }
@@ -423,6 +469,23 @@
 
 
   }
+
+
+  .to-events-list-button{
+    padding: 20px 0px 0px 10px;
+    font-size: 112.5%;
+    i{
+      margin-right: 8px;
+    }
+    a{
+      text-decoration: none;
+      &:hover{
+        color: #282865;
+        font-weight: 600;
+      }
+    }
+  }
+
 }
 
 //.event-block-about{
@@ -602,6 +665,14 @@
 
     .event-title {
       font-size: 210%;
+    }
+
+
+    .event-information {
+      .event-information-date{
+        //margin-right: 0;
+        margin-bottom: 10px;
+      }
     }
 
     .event-content {

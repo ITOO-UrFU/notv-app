@@ -7,7 +7,8 @@
 
 nav {
     background-color: $dark_gray;
-    position: absolute;
+    //position: absolute;
+  position: relative;
     top: 0;
     right: 0;
     left: 0;
@@ -72,7 +73,8 @@ nav {
     }
     
     ul.menu { 
-        height: 46px;
+        //height: 46px;
+      max-width: 80%;
         margin: 0 auto;
         padding: 0px;
         text-align: center;
@@ -80,6 +82,7 @@ nav {
             list-style: none;
             position: relative;
             height: auto;
+          max-width: 100%;
         }
 
         li.item {
@@ -90,6 +93,7 @@ nav {
             }
 
             @media screen and (max-width: 768px) {
+                padding: 0px;
                 display: block;
                 position: relative;
                 font-size: 1.2em;
@@ -120,7 +124,7 @@ nav {
                 display: block;
                 padding: 12px 9px;
                 @media screen and (max-width: 768px) {
-                    padding: 0px 0px;
+                    padding: 6px 0px;
                     display: none;
                 }
             }

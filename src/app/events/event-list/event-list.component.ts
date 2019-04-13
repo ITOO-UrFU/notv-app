@@ -155,7 +155,6 @@ export class EventListComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked() {
-    console.log("ngAfterViewChecked");
     if (this.scroll_position) {
       window.scrollTo(0, this.scroll_position);
       this.scroll_position = null;
