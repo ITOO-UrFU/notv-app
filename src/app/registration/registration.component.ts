@@ -64,13 +64,14 @@ export class RegistrationComponent implements OnInit {
           // this.alertService.success('Registration successful', true);
           console.log('data', data);
           this.authenticationService.login(this.model.email, this.model.password1).subscribe(data => {
-            window.location.reload();
+              window.location.reload();
             }, error => {
+            console.log('login error: ', error);
           });
           this.disable_button = false;
         },
         error => {
-          // console.log('REG ERROR', error);
+          console.log('REG ERROR', error);
           let err_msg = this._translate.instant('register_err_label');
           if (error.email) {
             err_msg = this._translate.instant('email_label') + ': ' + error.email[0].toLowerCase();

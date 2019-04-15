@@ -50,8 +50,6 @@ export class PechaKuchaService {
     return body;
   }
 
-  set
-
   private handleError(error: Response | any) {
     return Observable.throw('error');
   }

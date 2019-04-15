@@ -17,13 +17,16 @@ export class RegisterService {
 
   constructor(private http: Http, private _translate: TranslateService) { }
 
-    registerUrl = 'https://openedu.urfu.ru/edcrunch/api/v1/rest-auth/';
-  // registerUrl = 'http://93.88.177.60:8089/edcrunch/api/v1/rest-auth/';
+    // registerUrl = 'https://openedu.urfu.ru/edcrunch/api/v1/rest-auth/';
+  registerUrl = 'http://93.88.177.60:8089/edcrunch/api/v1/rest-auth/';
 
 // (): Observable<any>
 
-    create(user:User): Observable<User> {
-        return this.http.post(this.registerUrl + 'registration/', user, this.jwt()).map((response: Response) => response.json()).catch(this.handleError);
+    create(user: User): Observable<User> {
+      console.log('create(user: User)', user);
+        return this.http.post(this.registerUrl + 'registration/', user)
+          .map((response: Response) => { console.log("gsdjfkhcsd"); response.json()})
+          .catch(this.handleError);
     }
 
     createStudent(user: any) {
@@ -42,6 +45,7 @@ export class RegisterService {
 
   private handleError (error: Response | any) {
     let body = error.json();
+    console.log('handleError from service');
     // return body;
     return Observable.throw(body);
   }
@@ -161,13 +165,18 @@ export class RegisterService {
  //    return events;
  //  }
 
-    private jwt() {
-        // create authorization header with jwt token
+  private jwt() {
+
+    console.log("call jwt");
+    // create authorization header with jwt token
         let currentUser = JSON.parse(localStorage.getItem('currentUser'));
         if (currentUser && currentUser.token) {
             let headers = new Headers({ 'Authorization': currentUser.token });
-            return new RequestOptions({ headers: headers });
+          console.log("call RequestOptions", headers);
+          return new RequestOptions({ headers: headers });
         }
+    console.log("end call jwt");
+    return new RequestOptions({});
         // else{
         //   return new RequestOptions({ });
         // }
