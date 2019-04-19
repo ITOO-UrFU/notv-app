@@ -86,9 +86,12 @@ export class EventsService {
       body.room,
       path
     );
-    event.get_speakers = event.get_speakers.filter(user => user.get_type_display !== 'Участник');
+    // console.log(event.get_speakers);
+    event.get_speakers = event.get_speakers.filter(user => user.get_type_display !== 'Участник').sort((a,b) => (a.person.karma > b.person.karma) ? -1 : ((b.person.karma > a.person.karma) ? 1 : 0));
     return event;
   }
+
+
 
   getEventsByType(type: string): any[] {
     if (eventsList) {
@@ -256,7 +259,9 @@ export class EventsService {
             path
             );
 
-          event.get_speakers = event.get_speakers.filter(user => user.get_type_display !== 'Участник');
+          // consolelog
+          event.get_speakers = event.get_speakers.filter(user => user.get_type_display !== 'Участник').sort((a,b) => (a.person.karma > b.person.karma) ? -1 : ((b.person.karma > a.person.karma) ? 1 : 0));
+            // .sort(); by kapma
           events.push(event);
     }
 

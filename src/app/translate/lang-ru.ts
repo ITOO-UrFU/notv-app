@@ -162,6 +162,7 @@ export const LANG_RU_TRANS = {
   'pechakucha_about_20': "Победитель определяется большинством голосов членов жюри. Жюри включает в себя представителей университета, бизнеса, региона, социума и власти.",
   'pechakucha_about_21': "Победитель получает софинансирование на создание онлайн-курса *",
   'pechakucha_about_22': "* Исключительные права на онлайн-курс переходят Уральскому федеральному университету",
+  'pechakucha_about_23': "Срок подачи заявок до 22 апреля.",
   'type_participate_pechakucha_label': "В качестве кого Вы хотите участвовать в PechaKucha онлайн-курсов?",
   'listener_pechakucha_label': "Слушатель",
   'author_pechakucha_label': "Автор идеи онлайн-курса с презентацией",
@@ -179,7 +180,7 @@ export const LANG_RU_TRANS = {
   'not_found_events_label': "Мероприятий по заданным параметрам не нашлось",
   'events_filter_reset': "Сбросить фильтр",
   'filters_label': "Фильтры",
-  'events_program_label': "Программа",
+'events_program_label': "Программа",
   // 'participate_label'
   // 'not_to_participate_label'
   'same_time_events_alert': 'В это время Вы зарегистированы на мероприятие "%0". Отменить регистрацию и принять участие в мероприятии "%1"?',

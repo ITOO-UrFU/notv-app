@@ -165,7 +165,7 @@ export const LANG_EN_TRANS = {
   'pechakucha_about_20': "The winner is determined by a majority vote of the jury members. The jury is included representatives of the university, business, region, society and government.",
   'pechakucha_about_21': "Winner receives co-financing to create an online course *",
   'pechakucha_about_22': "* Exclusive rights to online course belong to the Ural Federal University.",
-
+  'pechakucha_about_23': "Application deadline - 22 of April.",
   'type_participate_pechakucha_label': "In what role do you want to participate in PechaKucha online courses?",
   'listener_pechakucha_label': "Listener",
   'author_pechakucha_label': "The author of the idea of an online course with a presentation",

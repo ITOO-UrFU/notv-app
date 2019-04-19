@@ -17,15 +17,15 @@ export class RegisterService {
 
   constructor(private http: Http, private _translate: TranslateService) { }
 
-    // registerUrl = 'https://openedu.urfu.ru/edcrunch/api/v1/rest-auth/';
-  registerUrl = 'http://93.88.177.60:8089/edcrunch/api/v1/rest-auth/';
+    registerUrl = 'https://openedu.urfu.ru/edcrunch/api/v1/rest-auth/';
+  // registerUrl = 'http://93.88.177.60:8089/edcrunch/api/v1/rest-auth/';
 
 // (): Observable<any>
 
     create(user: User): Observable<User> {
       console.log('create(user: User)', user);
         return this.http.post(this.registerUrl + 'registration/', user)
-          .map((response: Response) => { console.log("gsdjfkhcsd"); response.json()})
+          .map((response: Response) => { response.json()})
           .catch(this.handleError);
     }
 
@@ -122,7 +122,7 @@ export class RegisterService {
         body[i].event.room,
         path
       );
-
+      event.get_speakers.sort((a,b) => (a.person.karma > b.person.karma) ? -1 : ((b.person.karma > a.person.karma) ? 1 : 0));
       // event.get_speakers = event.get_speakers.filter(user => user.get_type_display !== 'Участник');
       events.push(event);
     }
@@ -175,8 +175,8 @@ export class RegisterService {
           console.log("call RequestOptions", headers);
           return new RequestOptions({ headers: headers });
         }
-    console.log("end call jwt");
-    return new RequestOptions({});
+    // console.log("end call jwt");
+    // return new RequestOptions({});
         // else{
         //   return new RequestOptions({ });
         // }
