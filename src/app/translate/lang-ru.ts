@@ -205,4 +205,7 @@ export const LANG_RU_TRANS = {
 
   'speakers_label': "Спикеры",
 
+  // компонет Трансляция мероприятия
+  'event_broadcast_label': "Трансляция мероприятия",
+
 };

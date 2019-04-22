@@ -50,6 +50,8 @@ import {EventPageComponent} from './events/event-page/event-page.component';
 import {PechaKuchaComponent} from './pechakucha/pechakucha.component';
 import {CommonModule} from '@angular/common';
 
+import {TranslationPlayerComponent} from './translation-player/translation-player.component'
+
 const metaConfig: MetaConfig = {
 
   useTitleSuffix: true,
@@ -86,6 +88,7 @@ const metaConfig: MetaConfig = {
     RegisterStudentsComponent,
     TranslatePipe,
     PechaKuchaComponent,
+    TranslationPlayerComponent,
   ],
   imports: [
     BrowserModule,

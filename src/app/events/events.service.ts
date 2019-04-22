@@ -84,7 +84,8 @@ export class EventsService {
       body.get_line_of_work_slug,
       slug,
       body.room,
-      path
+      path,
+      body.translation || ''
     );
     // console.log(event.get_speakers);
     event.get_speakers = event.get_speakers.filter(user => user.get_type_display !== 'Участник').sort((a,b) => (a.person.karma > b.person.karma) ? -1 : ((b.person.karma > a.person.karma) ? 1 : 0));
@@ -256,7 +257,8 @@ export class EventsService {
             body[i].get_line_of_work_slug,
             slug,
             body[i].room,
-            path
+            path,
+            body[i].translation || ''
             );
 
           // consolelog

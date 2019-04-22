@@ -209,6 +209,8 @@ export const LANG_EN_TRANS = {
 
   'speakers_label': "Speakers",
 
+  // компонет Трансляция мероприятия
+  'event_broadcast_label': "Event broadcast",
 };
 
 

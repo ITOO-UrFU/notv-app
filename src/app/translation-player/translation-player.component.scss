@@ -1,0 +1,50 @@
+
+.translation-player-wrap {
+
+  padding: 46px 46px 40px 40px;
+
+  .translation-player-title{
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 112.5%;
+    font-weight: bold;
+    letter-spacing: 1.3px;
+    color: #282866;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .videowrapper {
+    float: none;
+    clear: both;
+    width: 100%;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 25px;
+    height: 0;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .translation-player-wrap {
+    padding: 10px;
+  }
+}
+
+//.videowrapper {
+//  float: none;
+//  clear: both;
+//  width: 100%;
+//  position: relative;
+//  padding-bottom: 56.25%;
+//  padding-top: 25px;
+//  height: 0;
+//}

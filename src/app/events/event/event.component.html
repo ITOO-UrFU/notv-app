@@ -39,7 +39,7 @@
 
 
     <template [ngIf]="currentEvent.path">
-      <div *ngIf="currentEvent.path.slug == 'edu_ppk'  " class="event-block-ppk-msg">
+      <div *ngIf="currentEvent.path.slug == 'edu_ppk'" class="event-block-ppk-msg">
         {{ 'event_ppk_msg_1' | translate }} <a routerLink="/ppk_bid"> {{ 'event_ppk_msg_2' | translate }} </a>
       </div>
     </template>
@@ -52,7 +52,7 @@
   </div>
 
     <div class="event-block-time">
-      <b>{{ currentEvent.startdate.getDate()}} {{ 'month_' + currentEvent.startdate.getMonth() + '_1' | translate  }} {{ currentEvent.startdate.getFullYear() }},</b> {{ currentEvent.startdate | date:'shortTime' }} - {{ currentEvent.enddate | date:'shortTime' }}
+      <b>{{ currentEvent.startdate.getDate()}} {{ 'month_' + currentEvent.startdate.getMonth() + '_1' | translate  }} {{currentEvent.startdate.getFullYear()}},</b> {{ currentEvent.startdate | date:'shortTime' }} - {{ currentEvent.enddate | date:'shortTime' }}
     </div>
 
     <div *ngIf="showButtons">

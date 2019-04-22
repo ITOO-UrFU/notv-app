@@ -13,8 +13,9 @@ export class Event {
     public get_event_slug: string;
     public room: any;
     public path: any;
+    public translation;
 
-    constructor(id, title, description, get_speakers, startdate, enddate, eventtypeid, eventtype, get_line_of_work_slug, get_event_slug, room, path){
+    constructor(id, title, description, get_speakers, startdate, enddate, eventtypeid, eventtype, get_line_of_work_slug, get_event_slug, room, path, translation){
         this.id = id;
         this.title = title;
         this.description = description;
@@ -27,6 +28,7 @@ export class Event {
         this.get_event_slug = get_event_slug;
         this.room = room;
         this.path = path;
+        this.translation = translation;
     }
 
 }

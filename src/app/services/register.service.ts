@@ -120,7 +120,8 @@ export class RegisterService {
         body[i].event.get_line_of_work_slug,
         slug,
         body[i].event.room,
-        path
+        path,
+        body[i].translation || ''
       );
       event.get_speakers.sort((a,b) => (a.person.karma > b.person.karma) ? -1 : ((b.person.karma > a.person.karma) ? 1 : 0));
       // event.get_speakers = event.get_speakers.filter(user => user.get_type_display !== 'Участник');

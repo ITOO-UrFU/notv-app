@@ -7,6 +7,7 @@ import { RegisterService} from 'app/services/register.service';
 import { AlertService } from 'app/services/alert.service';
 import {AuthenticationService} from 'app/services/auth.service';
 import {TranslateService} from '../../translate';
+// import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'div.app-event-page',
@@ -27,7 +28,9 @@ export class EventPageComponent implements OnInit {
     userEvents: String[];
     isReg: boolean;
     currentEvent: Event;
-  currentUser: any;
+    currentUser: any;
+
+  tranlationURL:any;
 
     private eventsDisableButton = ['dinner', 'coffee_break', 'closed_event'];
 
@@ -41,7 +44,10 @@ export class EventPageComponent implements OnInit {
         private registerService: RegisterService,
         private alertService: AlertService,
         private _translate: TranslateService,
-        ) { }
+        // private sanitizer: DomSanitizer
+        ) {
+        // this.tranlationURL ='';
+    }
 
   ngOnInit() {
 
@@ -53,7 +59,7 @@ export class EventPageComponent implements OnInit {
       this.eventsService.getEvent(params['id'])
         .subscribe(event => {
           this.currentEvent = event;
-
+          // this.tranlationURL = this.sanitizer.bypassSecurityTrustResourceUrl(this.currentEvent.translation);
           // console.log(this.vent);
           this.registerService.getProfile().subscribe(
             userProfile => {

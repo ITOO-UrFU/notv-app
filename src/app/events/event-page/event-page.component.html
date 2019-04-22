@@ -60,6 +60,11 @@
         </div>
 
       </div>
+
+      <div *ngIf="currentEvent.translation">
+        <div class="translation-player" [translationUrl]="currentEvent.translation"></div>
+      </div>
+
     </div>
 
     <div class="event-content-aside">
@@ -111,6 +116,7 @@
       </div>
 
     </div>
+
 
 
   </div>
