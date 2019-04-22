@@ -122,6 +122,11 @@
                 background: $edu_ppk_color;
               }
 
+              input#edu_cs:checked + span:after{
+                background: $edu_cs_color;
+              }
+
+
               &:before {
                 content: "";
                 display: inline-block;

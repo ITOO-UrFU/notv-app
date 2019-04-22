@@ -89,6 +89,12 @@
         border: solid 2px #282865;
 
       }
+
+      &.edu_cs{
+        background: $edu_cs_color;
+        border: solid 2px $edu_cs_color;
+      }
+
     }
   }
 
@@ -279,8 +285,13 @@
             background: white;
             color: #282865;
             border: solid 2px #282865;
-
           }
+
+          &.edu_cs {
+            background: $edu_cs_color;
+            border: solid 2px $edu_cs_color;
+          }
+
         }
 
         .event-content-aside-info {
@@ -357,6 +368,11 @@
               color: #282865 !important;
             }
           }
+
+          &.edu_cs {
+            background: $edu_cs_color;
+          }
+
 
         }
 
@@ -454,6 +470,9 @@
               //div {
               //  color: #282865 !important;
               //}
+            }
+            &.edu_cs {
+              background: $edu_cs_color;
             }
 
             &:hover {

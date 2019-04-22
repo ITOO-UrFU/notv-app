@@ -66,6 +66,13 @@
 
     }
 
+    &.edu_cs {
+      background: $edu_cs_color;
+      border: solid 2px $edu_cs_color;
+    }
+
+
+
   }
 
   .event-block-type-badge {
