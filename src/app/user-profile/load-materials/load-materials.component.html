@@ -7,20 +7,20 @@
 
   <p><a [href]="'requirements_for_publication_link' | translate" target="_blank">{{ 'requirements_for_publication_label' | translate}}</a></p>
   <!--<p><strong>Загрузка публикаций доступна до 20.04.2017</strong></p>-->
-  <form name="form" (ngSubmit)="fileChange($event)" #f="ngForm" novalidate>
-      <div class="file-container">
-        
-      
-      <label class="file_upload">
-        <span class="button">
-          <span *ngIf="is_choiced">{{ 'selected_label' | translate }}: {{current_file}}</span>
-          <span *ngIf="is_choiced==false">{{ 'select_file_label' | translate }}</span>
-          </span>
-        <input type="file" placeholder="{{'upload_publication_label' | translate }}" accept=".odt,.doc,.docx" class="file-input" (change)="choiced($event)">
-      </label>
-      <button *ngIf="is_choiced" class="file-send" value="Отправить"> {{ 'upload_label' | translate }}</button>
-          </div>
-   </form>
+  <!--  <form name="form" (ngSubmit)="fileChange($event)" #f="ngForm" novalidate>-->
+  <!--      <div class="file-container">-->
+  <!--        -->
+  <!--      -->
+  <!--      <label class="file_upload">-->
+  <!--        <span class="button">-->
+  <!--          <span *ngIf="is_choiced">{{ 'selected_label' | translate }}: {{current_file}}</span>-->
+  <!--          <span *ngIf="is_choiced==false">{{ 'select_file_label' | translate }}</span>-->
+  <!--          </span>-->
+  <!--        <input type="file" placeholder="{{'upload_publication_label' | translate }}" accept=".odt,.doc,.docx" class="file-input" (change)="choiced($event)">-->
+  <!--      </label>-->
+  <!--      <button *ngIf="is_choiced" class="file-send" value="Отправить"> {{ 'upload_label' | translate }}</button>-->
+  <!--          </div>-->
+  <!--   </form>-->
 
 </section>
 
@@ -42,7 +42,7 @@
           <br />
           <span class="filename">{{doc.title}}</span>
         </a>
-        <i class="fa fa-times del" aria-hidden="true" (click)="fileDelete(doc.id)"></i>
+      <!--        <i class="fa fa-times del" aria-hidden="true" (click)="fileDelete(doc.id)"></i>-->
     </li>
     </ul>
  </div>
