@@ -5,6 +5,7 @@ import {SpeakersService} from 'app/speakers/speakers.service';
 import {Title} from '@angular/platform-browser';
 
 import {DomSanitizer} from '@angular/platform-browser';
+import {DateFormatter} from '@angular/common/src/pipes/intl';
 
 @Component({
   selector: 'div.translation-player',
@@ -21,30 +22,15 @@ import {DomSanitizer} from '@angular/platform-browser';
 })
 export class TranslationPlayerComponent implements OnInit {
 
-  // name:string;
-  // video: any = {id: 'wzrnuUOoFNM'};
-  @Input() translationUrl: any;
+  @Input() video_id: any;
   url: any;
 
-  // baseUrl:string = 'https://www.youtube.com/embed/';
-  constructor(private sanitizer: DomSanitizer) {
-    // console.log(this.translationUrl);
-
-  }
-
-  // speakersList: any[];
-  //
-  // constructor(private router: Router, private speakersService: SpeakersService, private title: Title) {}
+  baseUrl: string = 'https://www.youtube.com/embed/';
+  constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
-    // console.log("TranslationPlayerComponent init", this.translationUrl);
-    this.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.translationUrl.replace('watch?v=', 'embed/'));
-    //   this.title.setTitle("Спикеры");
-    //   this.speakersService.getSpeakersList()
-    //     .subscribe(speakersList => {
-    //         this.speakersList = speakersList;
-    //         console.log(this.speakersList);
-    //       }
-    //     );
+    this.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.baseUrl + this.video_id);
+    // var offset = new Date().getTimezoneOffset();
+    // console.log(offset);
   }
 }

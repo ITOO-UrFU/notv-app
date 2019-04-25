@@ -166,6 +166,8 @@ export class EventListComponent implements OnInit, AfterViewChecked {
     this.timeGrid = this.eventsService.eventsListToObject(this.currentEvents);
     localStorage.setItem('user_filters', JSON.stringify(this.user_filters));
 
+    console.log(this.currentEvents);
+
     if (Object.keys(this.user_filters.by_path).some(item => {
       return this.user_filters.by_path[item].checked;
     }) || Object.keys(this.user_filters.by_type).some(item => {

@@ -49,6 +49,7 @@
 
     <div class="event-block-room">
   <span *ngIf="currentEvent.room">  <i aria-hidden="true" class="fa fa-map-marker"></i> {{currentEvent.room.title}}</span>
+      <span *ngIf="currentEvent.translation"><a href="https://www.youtube.com/watch?v={{currentEvent.translation}}" target="_blank" title="{{ 'event_broadcast_label' | translate }}" >  <i style="color: #ff0100;    font-size: 120%;" aria-hidden="true" class="fa fa-youtube-play"></i></a></span>
   </div>
 
     <div class="event-block-time">
