@@ -72,12 +72,12 @@ export class EventPageComponent implements OnInit {
               } else {
                 this.isReg = false;
               }
-              if (this.eventsDisableButton.includes(this.currentEvent.get_event_slug)){
-                this.showButtons = false;
-              }
-              else {
-                this.showButtons = true;
-              }
+              // if (this.eventsDisableButton.includes(this.currentEvent.get_event_slug)){
+              //   this.showButtons = false;
+              // }
+              // else {
+              //   this.showButtons = true;
+              // }
             },
             error => {
               this.authenticationService.logout();

@@ -38,7 +38,7 @@ export class EventComponent implements OnInit {
   private eventsDisableButton = ['dinner', 'coffee_break', 'closed_event'];
   private eventsWithoutOwnPage = ['dinner', 'coffee_break'];
 
-  showButtons: boolean = true;
+  showButtons: boolean = false; // true
 
   constructor(private eventsService: EventsService,
               private activatedRoute: ActivatedRoute,
@@ -70,12 +70,12 @@ export class EventComponent implements OnInit {
     }
 
     // убираем запись на кофебрейки и обеды
-    if (this.eventsDisableButton.includes(this.currentEvent.get_event_slug)){
-      this.showButtons = false;
-    }
-    else {
-      this.showButtons = true;
-    }
+    // if (this.eventsDisableButton.includes(this.currentEvent.get_event_slug)){
+    //   this.showButtons = false;
+    // }
+    // else {
+    //   this.showButtons = true;
+    // }
   }
 
 
