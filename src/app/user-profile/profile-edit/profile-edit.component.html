@@ -7,13 +7,13 @@
 </div>
  <alert></alert>
          <div class="form-group current-email">
-               <label>Email: {{currentUserEmail}}</label> 
+               <label>Email: {{currentUserEmail}}</label>
         </div>
-           
+
     <form name="form" (ngSubmit)="update()" #f="ngForm" novalidate>
 
 
-        
+
         <div class="form-group">
             <label for="last_name">{{ 'last_name_label' | translate }}:</label>
             <input value="{{currentUser.last_name}}" type="text" class="form-control" name="last_name" [(ngModel)]="model.last_name" #last_name="ngModel" required (ngModelChange)="hideAlert()" />
@@ -27,6 +27,11 @@
         <div class="form-group">
             <label for="second_name">{{ 'second_name_label' | translate }}:</label>
             <input value="{{currentUser.second_name}}" type="text" class="form-control" name="second_name" [(ngModel)]="model.second_name" #second_name="ngModel" required (ngModelChange)="hideAlert()" />
+        </div>
+
+        <div class="form-group">
+          <label for="leader_id">Leader ID:</label>
+          <input value="{{currentUser.leader_id}}" type="text" class="form-control" name="leader_id" [(ngModel)]="model.leader_id" #leader_id="ngModel" required (ngModelChange)="hideAlert()" />
         </div>
 
         <!--<div class="form-group">
@@ -53,18 +58,18 @@
             <label for="position">{{ 'present_post_label' | translate }}:</label>
             <input value="{{currentUser.position}}" type="text" class="form-control" name="position" [(ngModel)]="model.position" #position="ngModel" required (ngModelChange)="hideAlert()" />
         </div>
-        
+
         <div class="form-group">
             <label for="organisation">{{ 'job_label' | translate }}:</label>
             <input value="{{currentUser.organisation}}" type="text" class="form-control" name="organisation" [(ngModel)]="model.organisation" #organisation="ngModel" required (ngModelChange)="hideAlert()" />
         </div>
-        
-    
+
+
         <div class="form-group">
             <label for="phone">{{ 'phone_number_label' | translate }}</label>
             <input value="{{currentUser.phone}}"  type="text" class="form-control" name="phone" [(ngModel)]="model.phone" #phone="ngModel" required (ngModelChange)="hideAlert()" />
-        </div> 
-       
+        </div>
+
         <div class="form-group">
             <label for="participation">{{ 'type_of_participation' | translate }}:</label>
             <select value="{{currentUser.participation}}"  name="participation" [(ngModel)]="model.participation" #participation="ngModel" (ngModelChange)="hideAlert()" >
@@ -76,13 +81,13 @@
       <div class="form-group change-password-button">
             <a routerLink="/profile/change-password" class="btn btn-primary"><i class="fa fa-key" aria-hidden="true"></i><span>  {{ 'change_password_label' | translate }}</span></a>
         </div>
- 
+
         <div class="form-group">
           <button class="btn btn-primary">{{ 'save_label' | translate }}</button>
         </div>
     </form>
 
-       <div class="edit-out"> 
+       <div class="edit-out">
             <a routerLink="/profile/my" class="btn btn-primary">{{ 'cancel_label' | translate }}</a>
        </div>
 

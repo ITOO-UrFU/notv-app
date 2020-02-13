@@ -11,18 +11,22 @@
 </div>
 
 <div *ngIf="currentUser" class="user-profile">
-    
+
     <!--<div class="form-group">-->
          <!--<label for="last_name"><a href="https://openedu.urfu.ru/files/NOTV17/NOTV/media/diplomas/{{currentUser.id}}-diploma.pdf" target="_blank">-->
          <!--<i class="fa fa-file-pdf-o" aria-hidden="true"></i>  Получить сертификат участника конференции</a></label> -->
     <!--</div>-->
 
     <div class="form-group">
-         <label for="last_name">{{currentUser.last_name}} {{currentUser.first_name}} {{currentUser.second_name}}</label> 
+         <label for="last_name">{{currentUser.last_name}} {{currentUser.first_name}} {{currentUser.second_name}}</label>
     </div>
 
     <div class="form-group">
-               <label > <em>e-mail:</em> {{currentUserEmail}} </label> 
+               <label > <em>e-mail:</em> {{currentUserEmail}} </label>
+    </div>
+
+    <div class="form-group">
+      <label > <em>Leader ID:</em> {{currentUser.leader_id}} </label>
     </div>
 
         <div class="form-group">
@@ -35,20 +39,20 @@
 
     <div class="form-group">
         <label for="phone"><em>{{ 'phone_number_label' | translate }}:</em> {{currentUser.phone}}</label>
-    </div> 
+    </div>
 
    <div class="form-group">
         <label *ngIf="currentUser.participation == 'O' " for="phone"><em>{{ 'type_of_participation' | translate }}:</em> {{ 'internally_label' | translate }}</label>
         <label *ngIf="currentUser.participation == 'T' " for="phone"><em>{{ 'type_of_participation' | translate }}:</em> {{ 'broadcast_label' | translate }}</label>
-   </div> 
+   </div>
 
  </div>
 
-  <div class="bigButton">
-    <a class="button green" routerLink="/pechakucha" ><h4>{{'to_participate_in_pechakucha_label'|translate}}</h4></a>
-  </div>
-  <div class="bigButton">
-    <a class="button green" routerLink="/events" ><h4>{{'to_all_events_label'|translate}}</h4></a>
-  </div>
+<!--  <div class="bigButton">-->
+<!--    <a class="button green" routerLink="/pechakucha" ><h4>{{'to_participate_in_pechakucha_label'|translate}}</h4></a>-->
+<!--  </div>-->
+<!--  <div class="bigButton">-->
+<!--    <a class="button green" routerLink="/events" ><h4>{{'to_all_events_label'|translate}}</h4></a>-->
+<!--  </div>-->
 
 </div>

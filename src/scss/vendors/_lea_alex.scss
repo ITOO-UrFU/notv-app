@@ -334,7 +334,7 @@ section.banner {
 
       label {
         display: inline-block;
-        width: 35%;
+        width: 40%;
       }
 
       input {
@@ -360,7 +360,7 @@ section.banner {
         }
       }
 
-      a {
+      a:not(.normal-link) {
         display: block;
         width: 100%;
 
@@ -446,7 +446,7 @@ section.banner {
         }
       }
 
-      a {
+      a:not(.normal-link) {
         display: block;
         width: 100%;
 
@@ -538,7 +538,7 @@ section.banner {
         }
       }
 
-      a {
+      a:not(.normal-link) {
         display: block;
         width: 100%;
 
@@ -624,7 +624,7 @@ section.banner {
         }
       }
 
-      a {
+      a:not(.normal-link) {
         display: block;
         width: 100%;
 
