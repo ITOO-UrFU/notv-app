@@ -34,11 +34,11 @@
           <div *ngIf="f.submitted && !second_name.valid" class="help-block">{{ 'enter_second_name_label' | translate }}</div>
         </div>
 
-        <!--<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">-->
-            <!--<label for="email">Электронная почта</label>-->
-            <!--<input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" required />-->
-             <!--<div *ngIf="f.submitted && !email.valid" class="help-block">Необходимо ввести электронный адрес</div>-->
-        <!--</div>-->
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+          <label for="leader_id">Leader ID (<a target="_blank" class="normal-link" href="https://leader-id.ru">leader-id.ru</a>)</label>
+            <input type="text" class="form-control" name="leader_id" [(ngModel)]="model.leader_id" #leader_id="ngModel" required (ngModelChange)="hideAlert()" />
+             <div *ngIf="f.submitted && !leader_id.valid" class="help-block">Необходимо ввести leader id</div>
+        </div>
 
         <!--<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !last_name.valid }">-->
             <!--<label for="last_name">Фамилия</label>-->
@@ -78,10 +78,10 @@
           <div *ngIf="f.submitted && !phone.valid" class="help-block">{{ 'enter_phone_number_label' | translate }}</div>
         </div>
 
-      <!--  
+      <!--
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
             <label for="username">Username</label>
-            <input type="text" class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel" required />      
+            <input type="text" class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel" required />
         </div>
         -->
         <div class="form-group">
@@ -112,7 +112,7 @@
       </div>
     </form>
 
-  <div class="bigButton">
-    <a class="button green" routerLink="/pechakucha"><h4>{{'to_participate_in_pechakucha_label'|translate}}</h4></a>
-  </div>
+<!--  <div class="bigButton">-->
+<!--    <a class="button green" routerLink="/pechakucha"><h4>{{'to_participate_in_pechakucha_label'|translate}}</h4></a>-->
+<!--  </div>-->
 </div>
