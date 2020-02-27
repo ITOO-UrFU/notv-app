@@ -70,13 +70,15 @@
             <input value="{{currentUser.phone}}"  type="text" class="form-control" name="phone" [(ngModel)]="model.phone" #phone="ngModel" required (ngModelChange)="hideAlert()" />
         </div>
 
+      <!--
         <div class="form-group">
             <label for="participation">{{ 'type_of_participation' | translate }}:</label>
             <select value="{{currentUser.participation}}"  name="participation" [(ngModel)]="model.participation" #participation="ngModel" (ngModelChange)="hideAlert()" >
             <option value="O">{{ 'internally_label' | translate }}</option>
             <option value="T">{{ 'broadcast_label' | translate }}</option>
             </select>
-         </div>
+        </div>
+       -->
 
       <div class="form-group change-password-button">
             <a routerLink="/profile/change-password" class="btn btn-primary"><i class="fa fa-key" aria-hidden="true"></i><span>  {{ 'change_password_label' | translate }}</span></a>
@@ -90,5 +92,4 @@
        <div class="edit-out">
             <a routerLink="/profile/my" class="btn btn-primary">{{ 'cancel_label' | translate }}</a>
        </div>
-
 </div>
