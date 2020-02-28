@@ -35,6 +35,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.model.participation = "O";
     if (this.authGuard.is_logged()) {
       this.activatedRoute.queryParams.subscribe(
         data => {

@@ -84,13 +84,16 @@
             <input type="text" class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel" required />
         </div>
         -->
+
+      <!--
         <div class="form-group">
             <label for="participation">{{ 'type_of_participation' | translate }}:</label>
-            <select name="participation" [(ngModel)]="model.participation" #participation="ngModel" required (ngModelChange)="hideAlert()" >
+            <select name="participation" [(ngModel)]="model.participation" #participation="ngModel" (ngModelChange)="hideAlert()" >
             <option value="O">{{ 'internally_label' | translate }}</option>
             <option value="T">{{ 'broadcast_label' | translate }}</option>
             </select>
          </div>
+      -->
 
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password1.valid }">
             <label for="password1">{{ 'password_label' | translate }}</label>
