@@ -118,7 +118,7 @@ export const LANG_RU_TRANS = {
 
   // загрузка метериалов компонент
   'upload_publication_label': "Загрузка публикаций",
-  'select_file_label': "Выбрать",
+  'select_file_label': "Выбрать файл",
   'upload_label': "Отправить",
   'requirements_for_publication_label': "Требования к публикации",
   'requirements_for_publication_link': "https://openedu.urfu.ru/files/edcrunch/assets/Технические требования.docx",
