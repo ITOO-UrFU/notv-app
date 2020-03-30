@@ -22,18 +22,19 @@ export class TranslateService {
   }
 
   public setDefaultLang() {
-    let local_lang = 'en';
-    if (localStorage.getItem('edcrunch_site_language')) {
-      if (this.availableLangs.some((l) => l.code === localStorage.getItem('edcrunch_site_language'))){
-         local_lang = localStorage.getItem('edcrunch_site_language');
-      }
-    }else{
-      let browser_lang = navigator.language || window.navigator['userLanguage'];
-      if (browser_lang.includes('ru')){
-        local_lang = 'ru';
-      }
-    }
-    this._defaultLang = local_lang;
+    // let local_lang = 'en';
+    // if (localStorage.getItem('edcrunch_site_language')) {
+    //   if (this.availableLangs.some((l) => l.code === localStorage.getItem('edcrunch_site_language'))){
+    //      local_lang = localStorage.getItem('edcrunch_site_language');
+    //   }
+    // }else{
+    //   let browser_lang = navigator.language || window.navigator['userLanguage'];
+    //   if (browser_lang.includes('ru')){
+    //     local_lang = 'ru';
+    //   }
+    // }
+    // this._defaultLang = local_lang;
+    let local_lang = "ru";
     // console.log(available_languages);
     this.use(local_lang);
   }
